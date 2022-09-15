@@ -17,11 +17,12 @@
       <div class="mb-3">
         <ckeditor formControlName="description"></ckeditor>
       </div>
+      <button [disabled]="form.controls.name.status == 'INVALID' || foto == null"
+        class="btn btn-lg rounded-lg px-5 mb-4" type="submit">{{accion}}</button>
     </div>
     <div class="col-lg-4 col-md-5 text-center">
-      <img [src]="foto" alt="" class="img-fluid preview shadow">
-      <button [disabled]="form.controls.name.status == 'INVALID' || foto == null"
-        class="btn btn-lg rounded-lg px-5 float-end mt-4" type="submit">{{accion}}</button>
+      <img [src]="foto" alt="" class="img-fluid preview shadow mb-4">
+      <p *ngIf="foto !== undefined">Imagen Preview</p>
     </div>
   </form>
 </div>

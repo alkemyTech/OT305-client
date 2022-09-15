@@ -81,63 +81,63 @@ export class ActivityFormComponent implements OnInit {
     } else {
       //petición PATCH al endpoint de actualización del server (/activities/:id).
 
-      if (this.form.value.image === null){
+      if (this.form.value.image === null) {
         this.http
-        .patch(
-          `https://ongapi.alkemy.org/api/activities/${this.actividad.id}`,
-          {
-            name: this.form.value.name,
-            description: this.form.value.description,
-            image: this.form.value.image,
-            updated_at: new Date(),
-          },
-          false
-        )
-        .subscribe(
-          (data) => {
-            console.log(data);
-            Swal.fire(
-              "Actividad Editada!",
-              "La actividad fue editada éxitosamente",
-              "success"
-            );
-          },
-          (error) => {
-            Swal.fire(
-              "La Actividad no pudo ser Editada",
-              error.messagge,
-              "error"
-            );
-          }
-        );
-      }
-      else this.http
-      .patch(
-        `https://ongapi.alkemy.org/api/activities/${this.actividad.id}`,
-        {
-          name: this.form.value.name,
-          description: this.form.value.description,
-          updated_at: new Date(),
-        },
-        false
-      )
-      .subscribe(
-        (data) => {
-          console.log(data);
-          Swal.fire(
-            "Actividad Editada!",
-            "La actividad fue editada éxitosamente",
-            "success"
+          .patch(
+            `https://ongapi.alkemy.org/api/activities/${this.actividad.id}`,
+            {
+              name: this.form.value.name,
+              description: this.form.value.description,
+              image: this.form.value.image,
+              updated_at: new Date(),
+            },
+            false
+          )
+          .subscribe(
+            (data) => {
+              console.log(data);
+              Swal.fire(
+                "Actividad Editada!",
+                "La actividad fue editada éxitosamente",
+                "success"
+              );
+            },
+            (error) => {
+              Swal.fire(
+                "La Actividad no pudo ser Editada",
+                error.messagge,
+                "error"
+              );
+            }
           );
-        },
-        (error) => {
-          Swal.fire(
-            "La Actividad no pudo ser Editada",
-            error.messagge,
-            "error"
+      } else
+        this.http
+          .patch(
+            `https://ongapi.alkemy.org/api/activities/${this.actividad.id}`,
+            {
+              name: this.form.value.name,
+              description: this.form.value.description,
+              updated_at: new Date(),
+            },
+            false
+          )
+          .subscribe(
+            (data) => {
+              console.log(data);
+              Swal.fire(
+                "Actividad Editada!",
+                "La actividad fue editada éxitosamente",
+                "success"
+              );
+            },
+            (error) => {
+              Swal.fire(
+                "La Actividad no pudo ser Editada",
+                error.messagge,
+                "error"
+              );
+            }
           );
-        }
-      );
     }
   }
 
