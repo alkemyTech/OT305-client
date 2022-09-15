@@ -9,19 +9,7 @@ import Swal from "sweetalert2";
   styleUrls: ["./activity-form.component.scss"],
 })
 export class ActivityFormComponent implements OnInit {
-  @Input() actividad: any = {
-    id: 2061,
-    name: "Actividad 6",
-    slug: null,
-    description: "<p>Esta es una actividad de prueba</p>",
-    image: "http://ongapi.alkemy.org/storage/3QyD19G1LO.jpeg",
-    user_id: 0,
-    category_id: 0,
-    created_at: "2022-09-15T19:11:51.000000Z",
-    updated_at: "2022-09-15T20:46:38.000000Z",
-    deleted_at: null,
-    group_id: null,
-  };
+  @Input() actividad: any;
   accion: string;
   form: FormGroup;
   foto: any;
@@ -36,6 +24,7 @@ export class ActivityFormComponent implements OnInit {
     if (this.actividad == null) {
       this.accion = "Agregar";
     } else {
+      this.foto = this.actividad.image;
       this.form.controls["name"].setValue(this.actividad.name);
       this.form.controls["description"].setValue(this.actividad.description);
       this.accion = "Editar";
@@ -92,20 +81,15 @@ export class ActivityFormComponent implements OnInit {
     } else {
       //petición PATCH al endpoint de actualización del server (/activities/:id).
 
-      this.http
+      if (this.form.value.image === null){
+        this.http
         .patch(
           `https://ongapi.alkemy.org/api/activities/${this.actividad.id}`,
           {
-            id: this.actividad.id,
             name: this.form.value.name,
-            slug: this.actividad.slug,
             description: this.form.value.description,
             image: this.form.value.image,
-            user_id: this.actividad.user_id,
-            category_id: this.actividad.category_id,
-            created_at: this.actividad.created_at,
             updated_at: new Date(),
-            deleted_at: this.actividad.deleted_at,
           },
           false
         )
@@ -126,6 +110,34 @@ export class ActivityFormComponent implements OnInit {
             );
           }
         );
+      }
+      else this.http
+      .patch(
+        `https://ongapi.alkemy.org/api/activities/${this.actividad.id}`,
+        {
+          name: this.form.value.name,
+          description: this.form.value.description,
+          updated_at: new Date(),
+        },
+        false
+      )
+      .subscribe(
+        (data) => {
+          console.log(data);
+          Swal.fire(
+            "Actividad Editada!",
+            "La actividad fue editada éxitosamente",
+            "success"
+          );
+        },
+        (error) => {
+          Swal.fire(
+            "La Actividad no pudo ser Editada",
+            error.messagge,
+            "error"
+          );
+        }
+      );
     }
   }
 
