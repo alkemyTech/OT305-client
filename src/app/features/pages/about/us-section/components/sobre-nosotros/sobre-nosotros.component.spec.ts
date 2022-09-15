@@ -22,4 +22,11 @@ describe('SobreNosotrosComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('the component receives the input', () => {
+    const comp = new SobreNosotrosComponent();
+    const textoParaMostrar: string = "";
+
+    expect(comp.textoParaMostrar).toMatch(textoParaMostrar);
+  });
 });

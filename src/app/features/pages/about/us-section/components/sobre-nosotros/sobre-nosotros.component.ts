@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-sobre-nosotros',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sobre-nosotros.component.scss']
 })
 export class SobreNosotrosComponent implements OnInit {
+
+  @Input() textoParaMostrar!: string;
 
   constructor() { }
 
