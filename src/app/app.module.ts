@@ -2,7 +2,7 @@ import { FeaturesModule } from './features/features.module';
 import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MostrarTitulosComponent } from './shared/components/mostrar-titulos/mostrar-titulos.component';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     CoreModule,
-    FeaturesModule
+    FeaturesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

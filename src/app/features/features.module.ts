@@ -12,6 +12,7 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { UsSectionComponent } from './pages/about/us-section/us-section.component';
 import { SobreNosotrosComponent } from './pages/about/us-section/components/sobre-nosotros/sobre-nosotros.component';
+import { MostrarTitulosComponent } from "../shared/components/mostrar-titulos/mostrar-titulos.component";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SobreNosotrosComponent } from './pages/about/us-section/components/sobr
     UserFormComponent,
     UsSectionComponent,
     SobreNosotrosComponent,
+    MostrarTitulosComponent
   ],
   exports: [
     ActivityFormComponent,
