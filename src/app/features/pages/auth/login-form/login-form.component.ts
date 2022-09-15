@@ -36,7 +36,7 @@ export class LoginFormComponent implements OnInit {
       });
       return;
     }
-    alert("login exitoso");
+    console.log("login exitoso");
     console.log(this.formValue.value);
   }
   public get controls(): any {
