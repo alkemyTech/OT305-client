@@ -21,6 +21,7 @@ import { ContributesInfoComponent } from "./pages/contact/components/contributes
 import { HomeComponent } from './backoffice/home/home.component';
 import { FormEditarHomeComponent } from './backoffice/home/components/form-editar-home/form-editar-home.component';
 import { DetailComponent } from "../views/activities/detail/detail.component";
+import { OrganizationComponent } from './pages/organization/organization.component';
 
 @NgModule({
   declarations: [
@@ -38,9 +39,10 @@ import { DetailComponent } from "../views/activities/detail/detail.component";
     ContactFormComponent,
     ContactComponent,
     ContributesInfoComponent,
+    DetailComponent,
     HomeComponent,
     FormEditarHomeComponent,
-    DetailComponent
+    OrganizationComponent
   ],
   exports: [
     ActivityFormComponent,
@@ -51,7 +53,10 @@ import { DetailComponent } from "../views/activities/detail/detail.component";
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    RouterModule,
+    HomeComponent,
+    FormEditarHomeComponent,
+    OrganizationComponent,
+    RouterModule
   ],
   imports: [
     CommonModule,
