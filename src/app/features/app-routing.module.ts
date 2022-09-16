@@ -6,9 +6,14 @@ import { UsSectionComponent } from "./pages/about/us-section/us-section.componen
 import { ContactComponent } from "./pages/contact/contact.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { DetailComponent } from "../views/activities/detail/detail.component";
+import { HomeComponent } from "./backoffice/home/home.component";
 import { OrganizationComponent } from "./pages/organization/organization.component";
 
 const routes: Routes = [
+  {
+    path: "backoffice/home",
+    component: HomeComponent
+  },
   {
     path: "contacto",
     component: ContactComponent
