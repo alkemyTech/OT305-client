@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
   templateUrl: "./activity-form.component.html",
   styleUrls: ["./activity-form.component.scss"],
 })
-export class ActivityFormComponent implements OnInit {
+export class ActivityFormComponent {
   @Input() actividad: any;
   accion: string;
   form: FormGroup;
@@ -34,8 +34,6 @@ export class ActivityFormComponent implements OnInit {
       this.form.value.image = this.foto;
     });
   }
-
-  ngOnInit(): void {}
 
   crearActividad() {
     if (this.accion === "Agregar") {
