@@ -20,7 +20,7 @@ const routes: Routes = [
     component: ActivityFormComponent
   },
   { 
-    path: "/Actividades/:id", 
+    path: "actividades/:id", 
     component: DetailComponent
   },
   {

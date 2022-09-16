@@ -1,18 +1,7 @@
-<!-- En la sección superior, mostrará de forma dinámica el título de la actividad, 
-    utilizando el componente para mostrar
-títulos, y el contenido de la misma, que posteriormente serán datos recibidos por API. -->
-
-
-<!-- {
-    "id": 2061,
-    "name": "Actividad 13",
-    "slug": null,
-    "description": "<p>Esta es una actividad de prueba</p>",
-    "image": "http://ongapi.alkemy.org/storage/3QyD19G1LO.jpeg",
-    "user_id": 0,
-    "category_id": 0,
-    "created_at": "2022-09-15T19:11:51.000000Z",
-    "updated_at": "2022-09-15T22:31:25.000000Z",
-    "deleted_at": null,
-    "group_id": null
-  } -->
+<div class="container mt-5">
+    <app-mostrar-titulos [title]="actividad.name" class="text-center"></app-mostrar-titulos>
+    <section class="my-5 text-center">
+        <img [src]="actividad.image" alt="" class="img-fluid imagen" />
+        <div [innerHTML]="actividad.description" class="text-start py-3"></div>
+    </section>
+</div>
