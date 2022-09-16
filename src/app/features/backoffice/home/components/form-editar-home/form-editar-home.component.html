@@ -1,12 +1,16 @@
-<form class="mt-5 mx-auto col-12 col-md-9 mx-lg-0 col-lg-6">
+<form
+class="mt-5 mx-auto col-12 col-md-9 mx-lg-0 col-lg-6"
+[formGroup]="form">
 
     <div class="d-flex flex-column gap-2 mb-3">
         <label for="texto-bienvenida">
             Texto de bienvenida:
         </label>
         <textarea
+        formControlName="texto_bienvenida"
         style="resize: none;"
-        class="form-control border-dark shadow"
+        class="form-control shadow"
+        [ngClass]="[texto_bienvenida?.touched && form.invalid ? 'is-invalid' : 'border-dark']"
         name="texto-bienvenida"
         cols="30"
         rows="10"
@@ -18,9 +22,12 @@
             Slide 1:
         </label>
         <input
+        (change)="captureFiles($event)"
         type="file"
-        class="form-control border-dark shadow">
+        class="form-control border-dark shadow"
+        >
         <input
+        formControlName="slide1_texto"
         type="text"
         class="form-control border-dark shadow"
         placeholder="Texto del slide 1...">
@@ -31,9 +38,11 @@
             Slide 2:
         </label>
         <input
+        (change)="captureFiles($event)"
         type="file"
         class="form-control border-dark shadow">
         <input
+        formControlName="slide2_texto"
         type="text"
         class="form-control border-dark shadow"
         placeholder="Texto del slide 2...">
@@ -44,19 +53,28 @@
             Slide 3:
         </label>
         <input
+        (change)="captureFiles($event)"
         type="file"
         class="form-control border-dark shadow">
         <input
+        formControlName="slide3_texto"
         type="text"
         class="form-control border-dark shadow"
         placeholder="Texto del slide 3...">
     </div>
 
     <div class="d-flex flex-column align-items-start gap-2 mt-3">
-        <button class="btn btn-primary btn-lg fw-bold rounded shadow">
+        <button
+        class="btn btn-primary btn-lg fw-bold rounded shadow"
+        (click)="submitForm()"
+        [disabled]="form.invalid">
             Editar página
         </button>
-        <button class="btn btn-light btn-lg border-dark fw-bold rounded shadow">
+
+        <!--SUSTITUIR POR LA RUTA CORRESPONDIENTE CUANDO ESTÉ LISTA-->
+        <button
+        routerLink="/backoffice/home"
+        class="btn btn-light btn-lg border-dark fw-bold rounded shadow">
             Volver
         </button>
     </div>

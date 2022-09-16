@@ -20,6 +20,7 @@ import { ContactComponent } from "./pages/contact/contact.component";
 import { ContributesInfoComponent } from "./pages/contact/components/contributes-info/contributes-info.component";
 import { HomeComponent } from './backoffice/home/home.component';
 import { FormEditarHomeComponent } from './backoffice/home/components/form-editar-home/form-editar-home.component';
+import { DetailComponent } from "../views/activities/detail/detail.component";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FormEditarHomeComponent } from './backoffice/home/components/form-edita
     ContributesInfoComponent,
     HomeComponent,
     FormEditarHomeComponent,
+    DetailComponent
   ],
   exports: [
     ActivityFormComponent,
