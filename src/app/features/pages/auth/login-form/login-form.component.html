@@ -1,1 +1,48 @@
-<p>login-form works!</p>
+<section class="vh-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 text-black">
+                <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+
+                    <form style="width: 25rem" [formGroup]="formValue">
+                        <h5 class="fw-light">Bienvenido</h5>
+                        <h3 class="fw-normal mb-2 pb-2" style="letter-spacing: 1px;">Inicia sesión en tu cuenta!</h3>
+                        <div class="form-outline mb-4">
+                            <input type="email" class="form-control form-control-lg" placeholder="Email"
+                                formControlName="correo"
+                                [class.is-invalid]="controls.correo.errors && controls.correo.touched" />
+                            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                                Por favor digita un correo válido (ejemplo@ej.com)
+                            </div>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <input type="password" class="form-control form-control-lg" placeholder="Contraseña"
+                                formControlName="contrasena"
+                                [class.is-invalid]="controls.contrasena.errors && controls.contrasena.touched" />
+                            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                                contraseña obligatoria (debe incluir un caracter especial ej: @#$%, debe ser minimo de 6
+                                digitos)
+                            </div>
+
+                        </div>
+                        <div class=" d-grid pt-1 mb-4">
+                            <button class="btn btn-lg shadow-lg login_button" type="button"
+                                (click)="loginSubmit()">Inicia Sesión</button>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="">
+                    <p class="text-black-50 text-center">No tienes una cuenta? <a href="#!"
+                            class="text-danger">Registrate</a>
+                    </p>
+                </div>
+
+            </div>
+            <div class="col-sm-6 px-0 d-none d-sm-block">
+                <img src="assets/img/login-image.png" alt="Login image" class="w-100 vh-100"
+                    style="object-fit: cover; object-position: left;">
+            </div>
+        </div>
+    </div>
+</section>
