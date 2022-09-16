@@ -18,6 +18,7 @@ import { CKEditorModule } from "ckeditor4-angular";
 import { ContactFormComponent } from "./pages/contact/components/contact-form/contact-form.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { ContributesInfoComponent } from "./pages/contact/components/contributes-info/contributes-info.component";
+import { DetailComponent } from "../views/activities/detail/detail.component";
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ContributesInfoComponent } from "./pages/contact/components/contributes
     ContactFormComponent,
     ContactComponent,
     ContributesInfoComponent,
+    DetailComponent
   ],
   exports: [
     ActivityFormComponent,
