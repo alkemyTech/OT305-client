@@ -22,6 +22,8 @@ import { HomeComponent } from './backoffice/home/home.component';
 import { FormEditarHomeComponent } from './backoffice/home/components/form-editar-home/form-editar-home.component';
 import { DetailComponent } from "../views/activities/detail/detail.component";
 import { OrganizationComponent } from './pages/organization/organization.component';
+import { InicioComponent } from './pages/home/inicio/inicio.component';
+import { SliderComponent } from './pages/home/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { OrganizationComponent } from './pages/organization/organization.compone
     DetailComponent,
     HomeComponent,
     FormEditarHomeComponent,
-    OrganizationComponent
+    OrganizationComponent,
+    InicioComponent,
+    SliderComponent
   ],
   exports: [
     ActivityFormComponent,

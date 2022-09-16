@@ -8,36 +8,40 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { DetailComponent } from "../views/activities/detail/detail.component";
 import { HomeComponent } from "./backoffice/home/home.component";
 import { OrganizationComponent } from "./pages/organization/organization.component";
+import { InicioComponent } from "./pages/home/inicio/inicio.component";
 
 const routes: Routes = [
   {
     path: "backoffice/home",
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: "contacto",
-    component: ContactComponent
+    component: ContactComponent,
   },
   {
     path: "nosotros",
-    component: UsSectionComponent
+    component: UsSectionComponent,
   },
-  { 
-    path: "actividades", 
-    component: ActivityFormComponent
+  {
+    path: "actividades",
+    component: ActivityFormComponent,
   },
-  { 
-    path: "testimonios", 
-    component: TestimonialFormComponent
+  {
+    path: "testimonios",
+    component: TestimonialFormComponent,
   },
-  { 
-    path: "actividades/:id", 
-    component: DetailComponent
-
+  {
+    path: "actividades/:id",
+    component: DetailComponent,
   },
-  { 
-    path: "backoffice/organization", 
-    component: OrganizationComponent
+  {
+    path: "backoffice/organization",
+    component: OrganizationComponent,
+  },
+  {
+    path: "home",
+    component: InicioComponent,
   },
   {
     path: "",
