@@ -14,6 +14,7 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { UsSectionComponent } from "./pages/about/us-section/us-section.component";
 import { SobreNosotrosComponent } from "./pages/about/us-section/components/sobre-nosotros/sobre-nosotros.component";
+import { CKEditorModule } from "ckeditor4-angular";
 import { ContactFormComponent } from "./pages/contact/components/contact-form/contact-form.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { ContributesInfoComponent } from "./pages/contact/components/contributes-info/contributes-info.component";
@@ -47,6 +48,10 @@ import { ContributesInfoComponent } from "./pages/contact/components/contributes
   ],
   imports: [
     CommonModule,
+    AppRoutingModule,
+    RouterModule,
+    ReactiveFormsModule,
+    CKEditorModule,
     AppRoutingModule,
     RouterModule,
     FormsModule,
