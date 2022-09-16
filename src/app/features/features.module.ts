@@ -19,6 +19,7 @@ import { ContactFormComponent } from "./pages/contact/components/contact-form/co
 import { ContactComponent } from "./pages/contact/contact.component";
 import { ContributesInfoComponent } from "./pages/contact/components/contributes-info/contributes-info.component";
 import { DetailComponent } from "../views/activities/detail/detail.component";
+import { OrganizationComponent } from './pages/organization/organization.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DetailComponent } from "../views/activities/detail/detail.component";
     ContactFormComponent,
     ContactComponent,
     ContributesInfoComponent,
-    DetailComponent
+    DetailComponent,
+    OrganizationComponent
   ],
   exports: [
     ActivityFormComponent,
