@@ -4,8 +4,13 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { UsSectionComponent } from "./pages/about/us-section/us-section.component";
 import { ContactComponent } from "./pages/contact/contact.component";
+import { HomeComponent } from "./backoffice/home/home.component";
 
 const routes: Routes = [
+  {
+    path: "backoffice/home",
+    component: HomeComponent
+  },
   {
     path: "contacto",
     component: ContactComponent

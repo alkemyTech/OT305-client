@@ -18,6 +18,8 @@ import { CKEditorModule } from "ckeditor4-angular";
 import { ContactFormComponent } from "./pages/contact/components/contact-form/contact-form.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { ContributesInfoComponent } from "./pages/contact/components/contributes-info/contributes-info.component";
+import { HomeComponent } from './backoffice/home/home.component';
+import { FormEditarHomeComponent } from './backoffice/home/components/form-editar-home/form-editar-home.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { ContributesInfoComponent } from "./pages/contact/components/contributes
     ContactFormComponent,
     ContactComponent,
     ContributesInfoComponent,
+    HomeComponent,
+    FormEditarHomeComponent,
   ],
   exports: [
     ActivityFormComponent,
