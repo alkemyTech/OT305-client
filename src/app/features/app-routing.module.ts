@@ -4,6 +4,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { UsSectionComponent } from "./pages/about/us-section/us-section.component";
 import { ContactComponent } from "./pages/contact/contact.component";
+import { DetailComponent } from "../views/activities/detail/detail.component";
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   { 
     path: "actividades", 
     component: ActivityFormComponent
+  },
+  { 
+    path: "/Actividades/:id", 
+    component: DetailComponent
   },
   {
     path: "",
