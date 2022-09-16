@@ -4,6 +4,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { UsSectionComponent } from "./pages/about/us-section/us-section.component";
 import { ContactComponent } from "./pages/contact/contact.component";
+import { HeaderComponent } from "./backoffice/components/header/header.component";
 
 const routes: Routes = [
   {
