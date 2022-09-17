@@ -23,6 +23,7 @@ import { FormEditarHomeComponent } from './backoffice/home/components/form-edita
 import { DetailComponent } from "./pages/activities/detail/detail.component";
 import { OrganizationComponent } from './pages/organization/organization.component';
 import { SearchActivitiesComponent } from './backoffice/activities/search-activities/search-activities.component';
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { SearchActivitiesComponent } from './backoffice/activities/search-activi
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule
   ],
 })
 export class FeaturesModule {}
