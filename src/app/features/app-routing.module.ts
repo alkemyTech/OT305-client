@@ -5,6 +5,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { UsSectionComponent } from "./pages/about/us-section/us-section.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { DetailComponent } from "../views/activities/detail/detail.component";
+import { FormularioSubscripcionComponent } from "../shared/components/newsletter/formulario-subscripcion/formulario-subscripcion.component";
 
 const routes: Routes = [
   {

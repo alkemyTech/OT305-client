@@ -19,7 +19,10 @@ import { ContactFormComponent } from "./pages/contact/components/contact-form/co
 import { ContactComponent } from "./pages/contact/contact.component";
 import { ContributesInfoComponent } from "./pages/contact/components/contributes-info/contributes-info.component";
 import { DetailComponent } from "../views/activities/detail/detail.component";
-
+import { FormularioSubscripcionComponent } from "../shared/components/newsletter/formulario-subscripcion/formulario-subscripcion.component";
+import {MatFormFieldModule} from '@angular/material/form-field'
+import {MatButtonModule} from '@angular/material/button'
+import {MatInputModule} from '@angular/material/input'
 @NgModule({
   declarations: [
     ActivityFormComponent,
@@ -36,7 +39,8 @@ import { DetailComponent } from "../views/activities/detail/detail.component";
     ContactFormComponent,
     ContactComponent,
     ContributesInfoComponent,
-    DetailComponent
+    DetailComponent,
+    FormularioSubscripcionComponent
   ],
   exports: [
     ActivityFormComponent,
