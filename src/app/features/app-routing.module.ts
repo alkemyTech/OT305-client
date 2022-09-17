@@ -3,8 +3,26 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { RegisterFormComponent } from './pages/auth/register-form/register-form.component';
+import { UsSectionComponent } from "./pages/about/us-section/us-section.component";
+import { ContactComponent } from "./pages/contact/contact.component";
+import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
+import { DetailComponent } from "../views/activities/detail/detail.component";
+import { HomeComponent } from "./backoffice/home/home.component";
+import { OrganizationComponent } from "./pages/organization/organization.component";
 
 const routes: Routes = [
+  {
+    path: "backoffice/home",
+    component: HomeComponent
+  },
+  {
+    path: "contacto",
+    component: ContactComponent
+  },
+  {
+    path: "nosotros",
+    component: UsSectionComponent
+  },
   { 
     path: "actividades", 
     component: ActivityFormComponent 
@@ -12,6 +30,19 @@ const routes: Routes = [
   { 
     path: "register", 
     component: RegisterFormComponent 
+  },
+  { 
+    path: "testimonios", 
+    component: TestimonialFormComponent
+  },
+  { 
+    path: "actividades/:id", 
+    component: DetailComponent
+
+  },
+  { 
+    path: "backoffice/organization", 
+    component: OrganizationComponent
   },
   {
     path: "",
