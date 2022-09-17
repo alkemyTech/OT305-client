@@ -18,6 +18,11 @@ import { CKEditorModule } from "ckeditor4-angular";
 import { ContactFormComponent } from "./pages/contact/components/contact-form/contact-form.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { ContributesInfoComponent } from "./pages/contact/components/contributes-info/contributes-info.component";
+import { HomeComponent } from './backoffice/home/home.component';
+import { FormEditarHomeComponent } from './backoffice/home/components/form-editar-home/form-editar-home.component';
+import { DetailComponent } from "../views/activities/detail/detail.component";
+import { OrganizationComponent } from './pages/organization/organization.component';
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -35,6 +40,10 @@ import { ContributesInfoComponent } from "./pages/contact/components/contributes
     ContactFormComponent,
     ContactComponent,
     ContributesInfoComponent,
+    DetailComponent,
+    HomeComponent,
+    FormEditarHomeComponent,
+    OrganizationComponent
   ],
   exports: [
     ActivityFormComponent,
@@ -45,7 +54,10 @@ import { ContributesInfoComponent } from "./pages/contact/components/contributes
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    RouterModule,
+    HomeComponent,
+    FormEditarHomeComponent,
+    OrganizationComponent,
+    RouterModule
   ],
   imports: [
     CommonModule,
@@ -57,6 +69,7 @@ import { ContributesInfoComponent } from "./pages/contact/components/contributes
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule
   ],
 })
 export class FeaturesModule {}
