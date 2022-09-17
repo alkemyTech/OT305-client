@@ -26,6 +26,7 @@ import { StoreModule } from "@ngrx/store";
 import { ROOT_REDUCERS } from "../core/ngrx/app.store";
 import { EffectsModule } from "@ngrx/effects";
 import { ActividadEffects } from "../core/ngrx/effects/actividad.effect";
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { ActividadEffects } from "../core/ngrx/effects/actividad.effect";
     EffectsModule.forRoot([
       ActividadEffects
     ]),
+    StoreDevtoolsModule.instrument({ name:'TEST' }),
   ],
 })
 export class FeaturesModule {}

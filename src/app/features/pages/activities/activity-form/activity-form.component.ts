@@ -1,9 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Store } from "@ngrx/store";
-import { Get_Actividad } from "src/app/core/ngrx/actions/actividad.action";
-import { AppStore } from "src/app/core/ngrx/app.store";
-import { selectActividadList } from "src/app/core/ngrx/selectors/actividad.selector";
 import { HttpService } from "src/app/core/services/http.service";
 import Swal from "sweetalert2";
 
@@ -18,11 +14,7 @@ export class ActivityFormComponent {
   form: FormGroup;
   foto: any;
 
-  constructor(
-    private fb: FormBuilder,
-    private http: HttpService,
-    private store: Store<AppStore>
-  ) {
+  constructor(private fb: FormBuilder, private http: HttpService) {
     this.form = this.fb.group({
       image: [null, Validators.required],
       name: ["", Validators.required],
@@ -40,11 +32,6 @@ export class ActivityFormComponent {
 
     this.form.valueChanges.subscribe(() => {
       this.form.value.image = this.foto;
-    });
-
-    this.store.dispatch(Get_Actividad());
-    this.store.select(selectActividadList).subscribe((actividad: any) => {
-      console.log(actividad);
     });
   }
 
