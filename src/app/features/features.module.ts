@@ -20,8 +20,9 @@ import { ContactComponent } from "./pages/contact/contact.component";
 import { ContributesInfoComponent } from "./pages/contact/components/contributes-info/contributes-info.component";
 import { HomeComponent } from './backoffice/home/home.component';
 import { FormEditarHomeComponent } from './backoffice/home/components/form-editar-home/form-editar-home.component';
-import { DetailComponent } from "../views/activities/detail/detail.component";
+import { DetailComponent } from "./pages/activities/detail/detail.component";
 import { OrganizationComponent } from './pages/organization/organization.component';
+import { SearchActivitiesComponent } from './backoffice/activities/search-activities/search-activities.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { OrganizationComponent } from './pages/organization/organization.compone
     DetailComponent,
     HomeComponent,
     FormEditarHomeComponent,
-    OrganizationComponent
+    OrganizationComponent,
+    SearchActivitiesComponent,
   ],
   exports: [
     ActivityFormComponent,
