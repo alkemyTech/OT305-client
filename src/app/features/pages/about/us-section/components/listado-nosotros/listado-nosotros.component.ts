@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./listado-nosotros.component.scss"],
 })
 export class ListadoNosotrosComponent implements OnInit {
-  //posterior se cambiara al end point de la api Member/get_members
+  //posterior se cambiara al endpoint de la api Member/get_members
   public members = [
     {
       name: "Clara Santos",
