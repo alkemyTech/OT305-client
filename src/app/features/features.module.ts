@@ -22,6 +22,10 @@ import { HomeComponent } from './backoffice/home/home.component';
 import { FormEditarHomeComponent } from './backoffice/home/components/form-editar-home/form-editar-home.component';
 import { DetailComponent } from "../views/activities/detail/detail.component";
 import { OrganizationComponent } from './pages/organization/organization.component';
+import { StoreModule } from "@ngrx/store";
+import { ROOT_REDUCERS } from "../core/ngrx/app.store";
+import { EffectsModule } from "@ngrx/effects";
+import { ActividadEffects } from "../core/ngrx/effects/actividad.effect";
 
 @NgModule({
   declarations: [
@@ -64,10 +68,11 @@ import { OrganizationComponent } from './pages/organization/organization.compone
     RouterModule,
     ReactiveFormsModule,
     CKEditorModule,
-    AppRoutingModule,
-    RouterModule,
     FormsModule,
-    ReactiveFormsModule,
+    StoreModule.forRoot(ROOT_REDUCERS),
+    EffectsModule.forRoot([
+      ActividadEffects
+    ]),
   ],
 })
 export class FeaturesModule {}
