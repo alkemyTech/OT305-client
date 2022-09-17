@@ -29,6 +29,7 @@ import { ActividadEffects } from "../core/ngrx/effects/actividad.effect";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { SharedModule } from "../shared/shared.module";
 
+
 @NgModule({
   declarations: [
     ActivityFormComponent,
