@@ -18,11 +18,12 @@ import { CKEditorModule } from "ckeditor4-angular";
 import { ContactFormComponent } from "./pages/contact/components/contact-form/contact-form.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { ContributesInfoComponent } from "./pages/contact/components/contributes-info/contributes-info.component";
+import { HomeComponent } from './backoffice/home/home.component';
+import { FormEditarHomeComponent } from './backoffice/home/components/form-editar-home/form-editar-home.component';
 import { DetailComponent } from "../views/activities/detail/detail.component";
 import { FormularioSubscripcionComponent } from "../shared/components/newsletter/formulario-subscripcion/formulario-subscripcion.component";
-import {MatFormFieldModule} from '@angular/material/form-field'
-import {MatButtonModule} from '@angular/material/button'
-import {MatInputModule} from '@angular/material/input'
+import { OrganizationComponent } from './pages/organization/organization.component';
+
 @NgModule({
   declarations: [
     ActivityFormComponent,
@@ -40,7 +41,11 @@ import {MatInputModule} from '@angular/material/input'
     ContactComponent,
     ContributesInfoComponent,
     DetailComponent,
-    FormularioSubscripcionComponent
+    HomeComponent,
+    FormEditarHomeComponent,
+    OrganizationComponent,
+    FormularioSubscripcionComponent,
+
   ],
   exports: [
     ActivityFormComponent,
@@ -51,7 +56,10 @@ import {MatInputModule} from '@angular/material/input'
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    RouterModule,
+    HomeComponent,
+    FormEditarHomeComponent,
+    OrganizationComponent,
+    RouterModule
   ],
   imports: [
     CommonModule,
