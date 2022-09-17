@@ -15,6 +15,7 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
+import { ReactiveFormsModule } from "@angular/forms";
 import { MostrarTitulosComponent } from "../shared/components/mostrar-titulos/mostrar-titulos.component";
 import { UsSectionComponent } from "./pages/about/us-section/us-section.component";
 import { SobreNosotrosComponent } from "./pages/about/us-section/components/sobre-nosotros/sobre-nosotros.component";
@@ -28,6 +29,7 @@ import { FormEditarHomeComponent } from './backoffice/home/components/form-edita
 import { DetailComponent } from "../views/activities/detail/detail.component";
 import { OrganizationComponent } from './pages/organization/organization.component';
 import { SharedModule } from "../shared/shared.module";
+
 
 @NgModule({
   declarations: [
@@ -71,8 +73,6 @@ import { SharedModule } from "../shared/shared.module";
     RouterModule,
     ReactiveFormsModule,
     CKEditorModule,
-    AppRoutingModule,
-    RouterModule,
     FormsModule,
     ReactiveFormsModule,
     MatSidenavModule,
