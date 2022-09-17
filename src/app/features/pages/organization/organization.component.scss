@@ -1,0 +1,30 @@
+.btn-info {
+  background-color: #73a9e4;
+  border: none;
+  color: white;
+  font-weight: 600;
+
+  &:hover {
+    background-color: #a0c3e9;
+  }
+}
+
+h1{
+    border-bottom: 3px solid #FAFA88;
+    padding-bottom: 15px;
+}
+
+ul {
+  list-style: none;
+
+  li {
+    margin-bottom: 15px;
+    font-weight: 500;
+
+    .bi {
+      font-size: 25px;
+      margin-right: 25px;
+      color: #db5752;
+    }
+  }
+}
