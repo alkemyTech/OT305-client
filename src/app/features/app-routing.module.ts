@@ -9,7 +9,8 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { DetailComponent } from "./pages/activities/detail/detail.component";
 import { HomeComponent } from "./backoffice/home/home.component";
 import { OrganizationComponent } from "./pages/organization/organization.component";
-import { InicioComponent } from "./pages/home/inicio/inicio.component";
+import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
+import { InicioComponent } from "./pages/home/inicio/inicio.component"; 
 import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
 
 const routes: Routes = [
@@ -29,9 +30,9 @@ const routes: Routes = [
     path: "actividades",
     component: ActivityFormComponent,
   },
-  {
-    path: "actividades",
-    component: ActivityFormComponent,
+  { 
+    path: "categorias", 
+    component: CategoriesFormComponent
   },
   {
     path: "register",
