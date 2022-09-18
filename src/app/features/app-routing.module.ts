@@ -11,8 +11,14 @@ import { HomeComponent } from "./backoffice/home/home.component";
 import { OrganizationComponent } from "./pages/organization/organization.component";
 import { InicioComponent } from "./pages/home/inicio/inicio.component";
 import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
+import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
+
 
 const routes: Routes = [
+  {
+    path: "novedades/:id",
+    component: DetalleNovedadComponent
+  },
   {
     path: "backoffice/home",
     component: HomeComponent,
