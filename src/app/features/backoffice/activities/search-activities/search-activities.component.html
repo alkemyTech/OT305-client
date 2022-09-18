@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <div class="row">
+        <form>
+            <div class="input-group shadow rounded">
+                <div class="input-group-prepend">
+                    <span class="input-group-text bg-light border-0" id="addon-wrapping"><i
+                            class="bi bi-search"></i></span>
+                </div>
+                <input id="buscador" type="text" autocomplete="off" class="form-control"
+                    placeholder="Buscar Actividad..." aria-describedby="search">
+            </div>
+        </form>
+    </div>
+    <div class="row mt-4" *ngIf="resultados.length !== 0">
+        <h3>Resultados</h3>
+        <div class="col-md-3 p-3" *ngFor="let actividad of resultados">
+            <!-- Aqui iria el componente reutilizable de Actividades -->
+            <!-- <app-activities [actividad]='actividad'></app-activities> -->
+
+            <!-- Esta card se eliminará -->
+            <div class="card">
+                <img [src]="actividad.image" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{actividad.name}}</h5>
+                    <p class="card-text" [innerHTML]="actividad.description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

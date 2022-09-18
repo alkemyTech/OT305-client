@@ -6,9 +6,10 @@ import { RegisterFormComponent } from './pages/auth/register-form/register-form.
 import { UsSectionComponent } from "./pages/about/us-section/us-section.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
-import { DetailComponent } from "../views/activities/detail/detail.component";
+import { DetailComponent } from "./pages/activities/detail/detail.component";
 import { HomeComponent } from "./backoffice/home/home.component";
 import { OrganizationComponent } from "./pages/organization/organization.component";
+import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
 
 const routes: Routes = [
   {
@@ -43,6 +44,10 @@ const routes: Routes = [
   { 
     path: "backoffice/organization", 
     component: OrganizationComponent
+  },
+  { 
+    path: "backoffice/search/actividades", 
+    component: SearchActivitiesComponent
   },
   {
     path: "",
