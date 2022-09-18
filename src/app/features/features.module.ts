@@ -56,17 +56,13 @@ import { SharedModule } from "../shared/shared.module";
     UserFormComponent,
     HomeComponent,
     FormEditarHomeComponent,
-    OrganizationComponent,
-    RouterModule
+    OrganizationComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     RouterModule,
-    ReactiveFormsModule,
     CKEditorModule,
-    AppRoutingModule,
-    RouterModule,
     FormsModule,
     ReactiveFormsModule,
     SharedModule
