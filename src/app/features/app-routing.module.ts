@@ -11,6 +11,7 @@ import { HomeComponent } from "./backoffice/home/home.component";
 import { OrganizationComponent } from "./pages/organization/organization.component";
 import { InicioComponent } from "./pages/home/inicio/inicio.component";
 import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
+import { UserFormComponent } from './pages/users/user-form/user-form.component';
 
 const routes: Routes = [
   {
@@ -26,8 +27,8 @@ const routes: Routes = [
     component: UsSectionComponent,
   },
   {
-    path: "actividades",
-    component: ActivityFormComponent,
+    path: "usuarios",
+    component: UserFormComponent,
   },
   {
     path: "actividades",
