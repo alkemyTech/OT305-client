@@ -31,6 +31,8 @@ import { InicioComponent } from "./pages/home/inicio/inicio.component";
 import { SliderComponent } from "./pages/home/slider/slider.component";
 import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
 import { SharedModule } from "../shared/shared.module";
+import { FormCrearEditarMiembrosComponent } from './backoffice/members/components/form-crear-editar-miembros/form-crear-editar-miembros.component';
+import { EditComponent } from './backoffice/members/pages/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { SharedModule } from "../shared/shared.module";
     InicioComponent,
     SliderComponent,
     SearchActivitiesComponent,
+    FormCrearEditarMiembrosComponent,
+    EditComponent,
   ],
   exports: [
     ActivityFormComponent,
@@ -69,6 +73,7 @@ import { SharedModule } from "../shared/shared.module";
     HomeComponent,
     FormEditarHomeComponent,
     OrganizationComponent,
+    HeaderComponent,
     RouterModule,
   ],
   imports: [

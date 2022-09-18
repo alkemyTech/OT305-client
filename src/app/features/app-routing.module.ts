@@ -11,8 +11,13 @@ import { HomeComponent } from "./backoffice/home/home.component";
 import { OrganizationComponent } from "./pages/organization/organization.component";
 import { InicioComponent } from "./pages/home/inicio/inicio.component";
 import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
+import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 
 const routes: Routes = [
+  {
+    path: "backoffice/members/edit",
+    component: EditComponent
+  },
   {
     path: "backoffice/home",
     component: HomeComponent,
