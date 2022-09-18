@@ -7,6 +7,7 @@ import { ContactComponent } from "./pages/contact/contact.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { DetailComponent } from "../views/activities/detail/detail.component";
 import { OrganizationComponent } from "./pages/organization/organization.component";
+import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   { 
     path: "actividades", 
     component: ActivityFormComponent
+  },
+  { 
+    path: "categorias", 
+    component: CategoriesFormComponent
   },
   { 
     path: "testimonios", 

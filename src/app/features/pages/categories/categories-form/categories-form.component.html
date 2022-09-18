@@ -1,1 +1,28 @@
-<p>categories-form works!</p>
+<div class="container">
+    <div class="row text-center my-4">
+      <h1>{{accion}} Categoria</h1>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="submitCategoria()" class="row">
+      <div class="col-lg-8 col-md-7">
+        <div class="input-group mb-3">
+          <input (change)="onFileSelect($event.target)" type="file" class="form-control" id="imagen"
+            formControlName="image" accept="image/x-png,image/jpeg" required [ngClass]="{'border-success' : form.controls.image.status == 'VALID' && form.controls.image.touched, 
+                        'border-danger' : form.controls.image.status == 'INVALID' && form.controls.image.touched}">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control py-3" id="name" placeholder="Nombre" formControlName="name" required
+            [ngClass]="{'border-success' : form.controls.name.status == 'VALID' && form.controls.name.touched, 
+                      'border-danger' : form.controls.name.status == 'INVALID' && form.controls.name.touched}">
+        </div>
+        <div class="mb-3">
+          <ckeditor formControlName="description"></ckeditor>
+        </div>
+        <button [disabled]="form.controls.name.status == 'INVALID' || foto == null"
+          class="btn btn-lg rounded-lg px-5 mb-4" type="submit">{{accion}}</button>
+      </div>
+      <div class="col-lg-4 col-md-5 text-center">
+        <img [src]="foto" alt="" class="img-fluid preview shadow mb-4">
+        <p *ngIf="foto !== undefined">Imagen Preview</p>
+      </div>
+    </form>
+  </div>
