@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CustomValidators } from '../../../../core/validators/custom-validators';
+import { CustomValidators } from 'src/app/core/validators/custom-validators';
 
 interface registro {
   email: string;
