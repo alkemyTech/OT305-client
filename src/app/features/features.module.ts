@@ -29,6 +29,7 @@ import { DetailComponent } from "./pages/activities/detail/detail.component";
 import { OrganizationComponent } from './pages/organization/organization.component';
 import { SearchActivitiesComponent } from './backoffice/activities/search-activities/search-activities.component';
 import { SharedModule } from "../shared/shared.module";
+import { ProjectsComponent } from './pages/projects/projects.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { SharedModule } from "../shared/shared.module";
     FormEditarHomeComponent,
     OrganizationComponent,
     SearchActivitiesComponent,
+    ProjectsComponent,
   ],
   exports: [
     ActivityFormComponent,
@@ -79,7 +81,7 @@ import { SharedModule } from "../shared/shared.module";
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
     SharedModule
   ],
 })

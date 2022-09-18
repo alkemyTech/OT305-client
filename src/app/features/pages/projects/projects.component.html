@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row text-center my-4">
+      <h1>{{accion}} Proyectos</h1>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="submitProyecto()" class="row">
+      <div class="col-lg-8 col-md-7">
+        <div class="input-group mb-3">
+          <input (change)="onFileSelect($event.target)" type="file" class="form-control" id="imagen"
+            formControlName="image" accept="image/x-png,image/jpeg" required [ngClass]="{'border-success' : form.controls.image.status == 'VALID' && form.controls.image.touched, 
+                        'border-danger' : form.controls.image.status == 'INVALID' && form.controls.image.touched}">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control py-3" id="title" placeholder="Title" formControlName="title" required
+            [ngClass]="{'border-success' : form.controls.title.status == 'VALID' && form.controls.title.touched, 
+                      'border-danger' : form.controls.title.status == 'INVALID' && form.controls.title.touched}">
+        </div>
+        <div class="mb-3">
+            <label for="startDate" class="text-muted">Fecha</label>
+            <input id="startDate" class="form-control" type="date" formControlName="due_date" />
+        </div>
+        <div class="mb-3">
+          <ckeditor formControlName="description"></ckeditor>
+        </div>
+        <button [disabled]="form.controls.title.status == 'INVALID' || foto == null"
+          class="btn btn-lg rounded-lg px-5 mb-4" type="submit">{{accion}}</button>
+      </div>
+      <div class="col-lg-4 col-md-5 text-center">
+        <img [src]="foto" alt="" class="img-fluid preview shadow mb-4">
+        <p *ngIf="foto !== undefined">Imagen Preview</p>
+      </div>
+    </form>
+  </div>

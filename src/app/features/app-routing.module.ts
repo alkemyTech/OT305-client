@@ -10,6 +10,7 @@ import { DetailComponent } from "./pages/activities/detail/detail.component";
 import { HomeComponent } from "./backoffice/home/home.component";
 import { OrganizationComponent } from "./pages/organization/organization.component";
 import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
+import { ProjectsComponent } from './pages/projects/projects.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   { 
     path: "actividades", 
     component: ActivityFormComponent 
+  },
+  { 
+    path: "proyectos", 
+    component: ProjectsComponent
   },
   { 
     path: "register", 
