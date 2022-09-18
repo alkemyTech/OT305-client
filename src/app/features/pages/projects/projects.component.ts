@@ -47,16 +47,16 @@ export class ProjectsComponent {
 
   crearProyecto() {
       //petición POST al endpoint de creación de Proyectos
-      console.log(this.form.controls)
-      console.log(this.form.value.title,this.form.value.description,"2022-09-18");
+      
       this.http
         .post(
           "https://ongapi.alkemy.org/api/projects",
           {
-            title: this.form.value.title,
-            description: this.form.value.description,
-            image: this.form.value.image,
-            due_date: "2022-09-18"
+            "title": this.form.value.title,
+            "description": this.form.value.description,
+            // Error en el endpoint con la subida de imagenes en base 64
+            // "image": this.form.value.image,      
+            "due_date": this.form.value.due_date
           },
           false
         )
