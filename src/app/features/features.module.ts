@@ -3,6 +3,10 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
@@ -18,10 +22,14 @@ import { CKEditorModule } from "ckeditor4-angular";
 import { ContactFormComponent } from "./pages/contact/components/contact-form/contact-form.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { ContributesInfoComponent } from "./pages/contact/components/contributes-info/contributes-info.component";
-import { HomeComponent } from './backoffice/home/home.component';
-import { FormEditarHomeComponent } from './backoffice/home/components/form-editar-home/form-editar-home.component';
-import { DetailComponent } from "../views/activities/detail/detail.component";
-import { OrganizationComponent } from './pages/organization/organization.component';
+import { HeaderComponent } from "./backoffice/components/header/header.component";
+import { HomeComponent } from "./backoffice/home/home.component";
+import { FormEditarHomeComponent } from "./backoffice/home/components/form-editar-home/form-editar-home.component";
+import { DetailComponent } from "./pages/activities/detail/detail.component";
+import { OrganizationComponent } from "./pages/organization/organization.component";
+import { InicioComponent } from "./pages/home/inicio/inicio.component";
+import { SliderComponent } from "./pages/home/slider/slider.component";
+import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
 import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
@@ -40,10 +48,14 @@ import { SharedModule } from "../shared/shared.module";
     ContactFormComponent,
     ContactComponent,
     ContributesInfoComponent,
+    HeaderComponent,
     DetailComponent,
     HomeComponent,
     FormEditarHomeComponent,
-    OrganizationComponent
+    OrganizationComponent,
+    InicioComponent,
+    SliderComponent,
+    SearchActivitiesComponent,
   ],
   exports: [
     ActivityFormComponent,
@@ -56,7 +68,8 @@ import { SharedModule } from "../shared/shared.module";
     UserFormComponent,
     HomeComponent,
     FormEditarHomeComponent,
-    OrganizationComponent
+    OrganizationComponent,
+    RouterModule,
   ],
   imports: [
     CommonModule,
@@ -65,7 +78,11 @@ import { SharedModule } from "../shared/shared.module";
     CKEditorModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    SharedModule,
   ],
 })
 export class FeaturesModule {}
