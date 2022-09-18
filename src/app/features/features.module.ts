@@ -79,7 +79,7 @@ import { SharedModule } from "../shared/shared.module";
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
     SharedModule
   ],
 })
