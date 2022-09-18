@@ -2,13 +2,15 @@ import { ActivityFormComponent } from "./pages/activities/activity-form/activity
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
+import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
 import { UsSectionComponent } from "./pages/about/us-section/us-section.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
-import { DetailComponent } from "../views/activities/detail/detail.component";
+import { DetailComponent } from "./pages/activities/detail/detail.component";
 import { HomeComponent } from "./backoffice/home/home.component";
 import { OrganizationComponent } from "./pages/organization/organization.component";
 import { InicioComponent } from "./pages/home/inicio/inicio.component";
+import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
 
 const routes: Routes = [
   {
@@ -28,6 +30,14 @@ const routes: Routes = [
     component: ActivityFormComponent,
   },
   {
+    path: "actividades",
+    component: ActivityFormComponent,
+  },
+  {
+    path: "register",
+    component: RegisterFormComponent,
+  },
+  {
     path: "testimonios",
     component: TestimonialFormComponent,
   },
@@ -42,6 +52,10 @@ const routes: Routes = [
   {
     path: "home",
     component: InicioComponent,
+  },
+  {
+    path: "backoffice/search/actividades",
+    component: SearchActivitiesComponent,
   },
   {
     path: "",
