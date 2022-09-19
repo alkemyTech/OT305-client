@@ -2,43 +2,68 @@ import { ActivityFormComponent } from "./pages/activities/activity-form/activity
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
+import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
 import { UsSectionComponent } from "./pages/about/us-section/us-section.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
-import { DetailComponent } from "../views/activities/detail/detail.component";
+import { DetailComponent } from "./pages/activities/detail/detail.component";
 import { HomeComponent } from "./backoffice/home/home.component";
 import { OrganizationComponent } from "./pages/organization/organization.component";
+import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
+import { InicioComponent } from "./pages/home/inicio/inicio.component"; 
+import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
+import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
+
 
 
 const routes: Routes = [
   {
+    path: "novedades/:id",
+    component: DetalleNovedadComponent
+  },
+  {
     path: "backoffice/home",
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: "contacto",
-    component: ContactComponent
+    component: ContactComponent,
   },
   {
     path: "nosotros",
-    component: UsSectionComponent
+    component: UsSectionComponent,
+  },
+  {
+    path: "actividades",
+    component: ActivityFormComponent,
   },
   { 
-    path: "actividades", 
-    component: ActivityFormComponent
+    path: "categorias", 
+    component: CategoriesFormComponent
   },
-  { 
-    path: "testimonios", 
-    component: TestimonialFormComponent
+  {
+    path: "register",
+    component: RegisterFormComponent,
   },
-  { 
-    path: "actividades/:id", 
-    component: DetailComponent
-
+  {
+    path: "testimonios",
+    component: TestimonialFormComponent,
   },
-  { 
-    path: "backoffice/organization", 
-    component: OrganizationComponent
+  {
+    path: "actividades/:id",
+    component: DetailComponent,
+  },
+  {
+    path: "backoffice/organization",
+    component: OrganizationComponent,
+  },
+  {
+    path: "home",
+    component: InicioComponent,
+  },
+  {
+    path: "backoffice/search/actividades",
+    component: SearchActivitiesComponent,
   },
   {
     path: "",
