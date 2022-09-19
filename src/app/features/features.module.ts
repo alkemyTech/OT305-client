@@ -33,7 +33,8 @@ import { SearchActivitiesComponent } from "./backoffice/activities/search-activi
 import { SharedModule } from "../shared/shared.module";
 import { FormularioSubscripcionComponent } from "../shared/components/newsletter/formulario-subscripcion/formulario-subscripcion.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
-
+import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/det
     SearchActivitiesComponent,
     FormularioSubscripcionComponent,
     DetalleNovedadComponent,
+    ScreenDashboardComponent,
 
 
   ],
@@ -91,6 +93,7 @@ import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/det
     MatIconModule,
     MatButtonModule,
     SharedModule,
+ 
   ],
 })
 export class FeaturesModule {}

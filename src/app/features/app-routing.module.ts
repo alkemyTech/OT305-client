@@ -13,9 +13,15 @@ import { CategoriesFormComponent } from './pages/categories/categories-form/cate
 import { InicioComponent } from "./pages/home/inicio/inicio.component"; 
 import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
+import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
 
 
 const routes: Routes = [
+  {
+    path:"backoffice",
+    component: ScreenDashboardComponent
+  },
+  
   {
     path: "novedades/:id",
     component: DetalleNovedadComponent
