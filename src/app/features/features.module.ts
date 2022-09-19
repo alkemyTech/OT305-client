@@ -31,6 +31,9 @@ import { InicioComponent } from "./pages/home/inicio/inicio.component";
 import { SliderComponent } from "./pages/home/slider/slider.component";
 import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
 import { SharedModule } from "../shared/shared.module";
+import { FormularioSubscripcionComponent } from "../shared/components/newsletter/formulario-subscripcion/formulario-subscripcion.component";
+import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
+
 
 @NgModule({
   declarations: [
@@ -56,6 +59,10 @@ import { SharedModule } from "../shared/shared.module";
     InicioComponent,
     SliderComponent,
     SearchActivitiesComponent,
+    FormularioSubscripcionComponent,
+    DetalleNovedadComponent,
+
+
   ],
   exports: [
     ActivityFormComponent,
