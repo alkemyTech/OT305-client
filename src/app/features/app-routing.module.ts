@@ -16,13 +16,17 @@ import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/det
 import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
 
 
+
 const routes: Routes = [
   {
+
     path:"backoffice",
     component: ScreenDashboardComponent
   },
   
   {
+
+
     path: "novedades/:id",
     component: DetalleNovedadComponent
   },
