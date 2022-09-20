@@ -40,6 +40,7 @@ import { SharedModule } from "../shared/shared.module";
 import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 import { FormCrearEditarMiembrosComponent } from "./backoffice/members/components/form-crear-editar-miembros/form-crear-editar-miembros.component";
 import { ProjectsComponent } from "./pages/projects/projects.component";
+import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { ProjectsComponent } from "./pages/projects/projects.component";
     SliderComponent,
     SearchActivitiesComponent,
     FormCrearEditarMiembrosComponent,
+    DetalleNovedadComponent,
     EditComponent,
     ProjectsComponent
   ],
@@ -85,6 +87,7 @@ import { ProjectsComponent } from "./pages/projects/projects.component";
     HeaderComponent,
     EditComponent,
     ProjectsComponent,
+    DetalleNovedadComponent,
     RouterModule,
   ],
   imports: [
