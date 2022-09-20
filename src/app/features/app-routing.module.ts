@@ -9,15 +9,11 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { DetailComponent } from "./pages/activities/detail/detail.component";
 import { HomeComponent } from "./backoffice/home/home.component";
 import { OrganizationComponent } from "./pages/organization/organization.component";
-import { InicioComponent } from "./pages/home/inicio/inicio.component";
+import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
+import { InicioComponent } from "./pages/home/inicio/inicio.component"; 
 import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
-import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 
 const routes: Routes = [
-  {
-    path: "backoffice/members/edit",
-    component: EditComponent
-  },
   {
     path: "backoffice/home",
     component: HomeComponent,
@@ -31,16 +27,20 @@ const routes: Routes = [
     component: UsSectionComponent,
   },
   {
-    path: "actividades",
-    component: ActivityFormComponent,
+    path: "usuarios",
+    component: UserFormComponent,
+  },
+  { 
+    path: "proyectos", 
+    component: ProjectsComponent
   },
   {
-    path: "actividades",
-    component: ActivityFormComponent,
+    path: "categorias", 
+    component: CategoriesFormComponent
   },
-  {
-    path: "register",
-    component: RegisterFormComponent,
+  { 
+    path: "register", 
+    component: RegisterFormComponent
   },
   {
     path: "testimonios",
