@@ -12,8 +12,15 @@ import { OrganizationComponent } from "./pages/organization/organization.compone
 import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
 import { InicioComponent } from "./pages/home/inicio/inicio.component"; 
 import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
+import { ProjectsComponent } from "./pages/projects/projects.component";
+import { UserFormComponent } from "./pages/users/user-form/user-form.component";
+import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 
 const routes: Routes = [
+  {
+    path: "backoffice/members/edit",
+    component: EditComponent,
+  },
   {
     path: "backoffice/home",
     component: HomeComponent,
