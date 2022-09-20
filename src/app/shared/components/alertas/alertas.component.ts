@@ -21,13 +21,13 @@ export class AlertasComponent implements OnInit {
   public cancel() {
     this.close(false);
   }
-public close(value) {
+  public close(value: any) {
     this.mdDialogRef.close(value);
   }
-public confirm() {
+  public confirm() {
     this.close(true);
   }
-@HostListener("keydown.esc") 
+  @HostListener("keydown.esc") 
   public onEsc() {
     this.close(false);
   }

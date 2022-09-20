@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { AlertasComponent } from 'src/app/shared/components/alertas/alertas.component';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ConfirmDialogService {
   constructor(private dialog: MatDialog) { }
   dialogRef:MatDialogRef<AlertasComponent> | undefined;

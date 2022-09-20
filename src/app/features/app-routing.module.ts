@@ -30,10 +30,6 @@ const routes: Routes = [
     component: ActivityFormComponent,
   },
   {
-    path: "actividades",
-    component: ActivityFormComponent,
-  },
-  {
     path: "register",
     component: RegisterFormComponent,
   },
