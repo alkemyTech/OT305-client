@@ -12,14 +12,15 @@ export class FormCrearEditarMiembrosComponent implements OnInit {
 
   constructor(private fb:  FormBuilder) {
 
+    const urlRegex = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+
     this.form = this.fb.group({
 
-      name: ["", Validators.required],
+      name: ["", [Validators.required, Validators.minLength(4)]],
       image: ["", Validators.required],
       description: ["", Validators.required],
-      link1: ["", Validators.required],
-      link2: ["", Validators.required],
-      link3: ["", Validators.required]
+      facebookUrl: ["", [Validators.required, Validators.pattern(urlRegex)]],
+      linkedinUrl: ["", [Validators.required, Validators.pattern(urlRegex)]]
 
     })
 
@@ -27,5 +28,27 @@ export class FormCrearEditarMiembrosComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  captureImage(event: any){
+    const file = event.target.files[0];
+    this.form.get("image")?.setValue(file);
+  }
 
+  submitForm(){
+    console.log(this.form.value);
+  }
+
+  //getters
+
+  get name(){
+    return this.form.get("name");
+  }
+
+  get facebookUrl(){
+    return this.form.get("facebookUrl");
+  }
+
+  get linkedinUrl(){
+    return this.form.get("linkedinUrl");
+  }
 }
