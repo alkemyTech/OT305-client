@@ -5,6 +5,7 @@
       <input type="email" formControlName="email"  [class.is-invalid]="FormSubscribe.get('email')?.touched && FormSubscribe.get('email')?.invalid " class="form-control" id="exampleFormControlInput1" placeholder="Ingrese su Email" >
       <div class="validacion">
         <span  class="validacion-content" *ngIf="FormSubscribe.get('email')?.touched && FormSubscribe.get('email')?.invalid ">-Ingrese un email valido</span>
+
       </div>
     </div>
     <input  type="submit"   class="btn btn-danger" (click)="Subscribirse()" value="Subscribirse">
