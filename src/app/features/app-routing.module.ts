@@ -12,9 +12,10 @@ import { OrganizationComponent } from "./pages/organization/organization.compone
 import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
 import { InicioComponent } from "./pages/home/inicio/inicio.component"; 
 import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
+import { UserFormComponent } from './pages/users/user-form/user-form.component';
+import { ProjectsComponent } from './pages/projects/projects.component';
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
 import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
-
 
 
 
@@ -44,16 +45,20 @@ const routes: Routes = [
     component: UsSectionComponent,
   },
   {
-    path: "actividades",
-    component: ActivityFormComponent,
+    path: "usuarios",
+    component: UserFormComponent,
   },
   { 
+    path: "proyectos", 
+    component: ProjectsComponent
+  },
+  {
     path: "categorias", 
     component: CategoriesFormComponent
   },
-  {
-    path: "register",
-    component: RegisterFormComponent,
+  { 
+    path: "register", 
+    component: RegisterFormComponent
   },
   {
     path: "testimonios",
