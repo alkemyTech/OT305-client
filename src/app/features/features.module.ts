@@ -39,6 +39,7 @@ import { SliderComponent } from "./pages/home/slider/slider.component";
 import { SharedModule } from "../shared/shared.module";
 import { FormularioSubscripcionComponent } from "../shared/components/newsletter/formulario-subscripcion/formulario-subscripcion.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
+import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/det
     SearchActivitiesComponent,
     FormularioSubscripcionComponent,
     DetalleNovedadComponent,
+    ScreenDashboardComponent,
   ],
   exports: [
     ActivityFormComponent,
@@ -89,16 +91,17 @@ import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/det
     ReactiveFormsModule,
     CKEditorModule,
     FormsModule,
-    StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([
-      ActividadEffects
-    ]),
-    StoreDevtoolsModule.instrument({ name:'TEST' }),
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     SharedModule,
+    StoreModule.forRoot(ROOT_REDUCERS),
+    EffectsModule.forRoot([
+      ActividadEffects
+    ]),
+    StoreDevtoolsModule.instrument({ name:'TEST' }),
+ 
   ],
 })
 export class FeaturesModule {}

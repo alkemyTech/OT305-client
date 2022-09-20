@@ -15,6 +15,7 @@ import { SearchActivitiesComponent } from "./backoffice/activities/search-activi
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
 
 
+
 const routes: Routes = [
   {
     path: "novedades/:id",
