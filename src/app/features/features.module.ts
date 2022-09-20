@@ -37,6 +37,7 @@ import { SearchActivitiesComponent } from './backoffice/activities/search-activi
 import { InicioComponent } from "./pages/home/inicio/inicio.component";
 import { SliderComponent } from "./pages/home/slider/slider.component";
 import { SharedModule } from "../shared/shared.module";
+import { ProjectsComponent } from './pages/projects/projects.component';
 import { FormularioSubscripcionComponent } from "../shared/components/newsletter/formulario-subscripcion/formulario-subscripcion.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
 import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
@@ -66,6 +67,7 @@ import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboar
     InicioComponent,
     SliderComponent,
     SearchActivitiesComponent,
+    ProjectsComponent,
     FormularioSubscripcionComponent,
     DetalleNovedadComponent,
     ScreenDashboardComponent,

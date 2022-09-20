@@ -12,8 +12,8 @@ import { OrganizationComponent } from "./pages/organization/organization.compone
 import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
 import { InicioComponent } from "./pages/home/inicio/inicio.component"; 
 import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
+import { ProjectsComponent } from './pages/projects/projects.component';
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
-
 
 
 const routes: Routes = [
@@ -38,12 +38,16 @@ const routes: Routes = [
     component: ActivityFormComponent,
   },
   { 
+    path: "proyectos", 
+    component: ProjectsComponent
+  },
+  {
     path: "categorias", 
     component: CategoriesFormComponent
   },
-  {
-    path: "register",
-    component: RegisterFormComponent,
+  { 
+    path: "register", 
+    component: RegisterFormComponent
   },
   {
     path: "testimonios",
