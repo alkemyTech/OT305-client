@@ -88,6 +88,8 @@ import { FormCreacionEdicionSlidesComponent } from './backoffice/slides/componen
     HomeComponent,
     FormEditarHomeComponent,
     OrganizationComponent,
+    SlidesComponent,
+    FormCreacionEdicionSlidesComponent,
     RouterModule,
   ],
   imports: [

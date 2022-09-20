@@ -20,12 +20,12 @@ import { SlidesComponent } from "./backoffice/slides/slides.component";
 
 const routes: Routes = [
   {
-    path: "novedades/:id",
-    component: DetalleNovedadComponent
+    path: "backoffice/slides",
+    component: SlidesComponent,
   },
   {
-    path: "backoffice/slides",
-    component: SlidesComponent
+    path: "novedades/:id",
+    component: DetalleNovedadComponent
   },
   {
     path: "backoffice/home",

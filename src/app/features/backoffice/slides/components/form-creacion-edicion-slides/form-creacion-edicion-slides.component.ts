@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { HttpService } from 'src/app/core/services/http.service';
 
 @Component({
   selector: 'app-form-creacion-edicion-slides',
@@ -12,7 +13,7 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private httpService: HttpService) {
 
     this.form = this.fb.group({
       name: ["", [Validators.required, Validators.minLength(4)]],
@@ -20,7 +21,7 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
       order: ["", [Validators.required]],
       image: ["", [Validators.required]]
     })
-
+    this.verificarSiHaySlide();
   }
   
   ngOnInit(): void {
@@ -30,10 +31,6 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
     
     if( this.slide.id ){
       this.setValuesInForm();
-    }
-
-    else{
-      
     }
 
   }
@@ -49,4 +46,46 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
     this.form.get("order")?.setValue(order);
     this.form.get("image")?.setValue(image);
   }
+
+  submitForm(){
+    if( this.slide.id ){
+      this.patchSlide();
+    }
+    else{
+      this.postSlide();
+    }
+  }
+
+  postSlide(){
+    this.httpService.post(
+      "https://ongapi.alkemy.org/api/slides",
+      {
+        id: 0,
+        name: this.form.value.name,
+        description: this.form.value.description,
+        image: this.form.value.image,
+        order: this.form.value.order,
+        user_id: 0,
+        created_at: new Date(),
+        updated_at: null,
+        deleted_at: null
+      },
+      false
+    )
+  }
+
+  patchSlide(){
+    this.httpService.patch(
+      `https://ongapi.alkemy.org/api/slides/${this.slide.id}`,
+      {
+        name: this.form.value.name,
+        description: this.form.value.description,
+        image: this.form.value.image,
+        order: this.form.value.order,
+        updated_at: new Date()
+      },
+      false
+    )
+  }
+
 }
