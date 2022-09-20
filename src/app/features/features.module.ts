@@ -39,6 +39,7 @@ import { SliderComponent } from "./pages/home/slider/slider.component";
 import { SharedModule } from "../shared/shared.module";
 import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 import { FormCrearEditarMiembrosComponent } from "./backoffice/members/components/form-crear-editar-miembros/form-crear-editar-miembros.component";
+import { ProjectsComponent } from "./pages/projects/projects.component";
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { FormCrearEditarMiembrosComponent } from "./backoffice/members/component
     SliderComponent,
     SearchActivitiesComponent,
     FormCrearEditarMiembrosComponent,
-    EditComponent
+    EditComponent,
+    ProjectsComponent
   ],
   exports: [
     ActivityFormComponent,
@@ -82,6 +84,7 @@ import { FormCrearEditarMiembrosComponent } from "./backoffice/members/component
     OrganizationComponent,
     HeaderComponent,
     EditComponent,
+    ProjectsComponent,
     RouterModule,
   ],
   imports: [
