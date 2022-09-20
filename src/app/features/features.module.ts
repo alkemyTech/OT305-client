@@ -41,6 +41,8 @@ import { ProjectsComponent } from './pages/projects/projects.component';
 import { FormularioSubscripcionComponent } from "../shared/components/newsletter/formulario-subscripcion/formulario-subscripcion.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
 import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
+import { SlidesComponent } from './backoffice/slides/slides.component';
+import { FormCreacionEdicionSlidesComponent } from './backoffice/slides/components/form-creacion-edicion-slides/form-creacion-edicion-slides.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboar
     FormularioSubscripcionComponent,
     DetalleNovedadComponent,
     ScreenDashboardComponent,
+    SlidesComponent,
+    FormCreacionEdicionSlidesComponent,
   ],
   exports: [
     ActivityFormComponent,

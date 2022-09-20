@@ -15,12 +15,17 @@ import { SearchActivitiesComponent } from "./backoffice/activities/search-activi
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
+import { SlidesComponent } from "./backoffice/slides/slides.component";
 
 
 const routes: Routes = [
   {
     path: "novedades/:id",
     component: DetalleNovedadComponent
+  },
+  {
+    path: "backoffice/slides",
+    component: SlidesComponent
   },
   {
     path: "backoffice/home",
