@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row text-center my-4">
-      <h1>{{accion}} Categoria</h1>
+      <h1>{{accion}} Proyectos</h1>
     </div>
-    <form [formGroup]="form" (ngSubmit)="submitCategoria()" class="row">
+    <form [formGroup]="form" (ngSubmit)="submitProyecto()" class="row">
       <div class="col-lg-8 col-md-7">
         <div class="input-group mb-3">
           <input (change)="onFileSelect($event.target)" type="file" class="form-control" id="imagen"
@@ -10,14 +10,18 @@
                         'border-danger' : form.controls.image.status == 'INVALID' && form.controls.image.touched}">
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control py-3" id="name" placeholder="Nombre" formControlName="name" required
-            [ngClass]="{'border-success' : form.controls.name.status == 'VALID' && form.controls.name.touched, 
-                      'border-danger' : form.controls.name.status == 'INVALID' && form.controls.name.touched}">
+          <input type="text" class="form-control py-3" id="title" placeholder="Title" formControlName="title" required
+            [ngClass]="{'border-success' : form.controls.title.status == 'VALID' && form.controls.title.touched, 
+                      'border-danger' : form.controls.title.status == 'INVALID' && form.controls.title.touched}">
+        </div>
+        <div class="mb-3">
+            <label for="startDate" class="text-muted">Fecha</label>
+            <input id="startDate" class="form-control" type="date" formControlName="due_date" />
         </div>
         <div class="mb-3">
           <ckeditor formControlName="description"></ckeditor>
         </div>
-        <button [disabled]="form.controls.name.status == 'INVALID' || foto == null"
+        <button [disabled]="form.controls.title.status == 'INVALID' || foto == null"
           class="btn btn-lg rounded-lg px-5 mb-4" type="submit">{{accion}}</button>
       </div>
       <div class="col-lg-4 col-md-5 text-center">

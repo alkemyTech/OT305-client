@@ -4,13 +4,13 @@ import { HttpService } from 'src/app/core/services/http.service';
 import Swal from 'sweetalert2'
 
 @Component({
-  selector: 'app-categories-form',
-  templateUrl: './categories-form.component.html',
-  styleUrls: ['./categories-form.component.scss']
+  selector: 'app-projects',
+  templateUrl: './projects.component.html',
+  styleUrls: ['./projects.component.scss']
 })
-export class CategoriesFormComponent {
+export class ProjectsComponent {
 
-  @Input() categoria: any;
+  @Input() proyecto: any;
   accion: string;
   form: FormGroup;
   foto: any;
@@ -18,16 +18,17 @@ export class CategoriesFormComponent {
   constructor(private fb: FormBuilder, private http: HttpService) {
     this.form = this.fb.group({
       image: [null, Validators.required],
-      name: ["", Validators.required, Validators.minLength(4)],
-      description: [""],
+      title: ["", Validators.required],
+      due_date: [""],
+      description: ["", Validators.required],
     });
 
-    if (this.categoria == null) {
+    if (this.proyecto == null) {
       this.accion = "Agregar";
     } else {
-      this.foto = this.categoria.image;
-      this.form.controls["name"].setValue(this.categoria.name);
-      this.form.controls["description"].setValue(this.categoria.description);
+      this.foto = this.proyecto.image;
+      this.form.controls["title"].setValue(this.proyecto.title);
+      this.form.controls["description"].setValue(this.proyecto.description);
       this.accion = "Editar";
     }
 
@@ -36,49 +37,45 @@ export class CategoriesFormComponent {
     });
   }
 
-  submitCategoria(){
+  submitProyecto(){
     if (this.accion === "Agregar") {
-      this.crearCategoria();
+      this.crearProyecto();
     } else {
-      this.editarCategoria();
+      this.editarProyecto();
     }
   }
 
-  crearCategoria() {
-      //petición POST al endpoint de creación de Categorías
-
+  crearProyecto() {
+      //petición POST al endpoint de creación de Proyectos
+      
       this.http
         .post(
-          "https://ongapi.alkemy.org/api/categories",
+          "https://ongapi.alkemy.org/api/projects",
           {
-            id: 0,
-            name: this.form.value.name,
-            slug: "",
-            description: this.form.value.description,
-            image: this.form.value.image,
-            user_id: 0,
-            category_id: 0,
-            created_at: new Date(),
-            updated_at: null,
-            deleted_at: null,
+            "title": this.form.value.title,
+            "description": this.form.value.description,
+            // Error en el endpoint con la subida de imagenes en base 64
+            // "image": this.form.value.image,      
+            "due_date": this.form.value.due_date
           },
           false
         )
         .subscribe(
           () => {
             Swal.fire(
-              "Categoría Agregada!",
-              "La categoría fue agregada éxitosamente",
+              "Proyecto Agregado!",
+              "El Proyecto fue agregado exitosamente",
               "success"
             );
             this.foto = null;
             this.form.controls["image"].setValue(null);
-            this.form.controls["name"].setValue("");
+            this.form.controls["title"].setValue("");
             this.form.controls["description"].setValue("");
+            this.form.controls["due_date"].reset;
           },
           (error) => {
             Swal.fire(
-              "La Categoría no pudo ser Agregada",
+              "El Proyecto no pudo ser agregado",
               error.messagge,
               "error"
             );
@@ -86,18 +83,18 @@ export class CategoriesFormComponent {
         );
   } 
   
-  editarCategoria() {
-    //petición PATCH al endpoint de actualización del server (/activities/:id).
+  editarProyecto() {
+    //petición PATCH al endpoint de actualización del server
 
     if (this.form.value.image === null) {
       this.http
         .patch(
-          `https://ongapi.alkemy.org/api/categories/${this.categoria.id}`,
+          `https://ongapi.alkemy.org/api/projects/${this.proyecto.id}`,
           {
-            name: this.form.value.name,
+            title: this.form.value.title,
             description: this.form.value.description,
             image: this.form.value.image,
-            updated_at: new Date(),
+            due_date: this.form.value.due_date
           },
           false
         )
@@ -105,14 +102,14 @@ export class CategoriesFormComponent {
           (data) => {
             console.log(data);
             Swal.fire(
-              "Categoría Editada!",
-              "La categoría fue editada éxitosamente",
+              "Proyecto Editado!",
+              "El proyecto fue editado exitosamente",
               "success"
             );
           },
           (error) => {
             Swal.fire(
-              "La Categoría no pudo ser Editada",
+              "El Proyecto no pudo ser editado",
               error.messagge,
               "error"
             );
@@ -121,9 +118,9 @@ export class CategoriesFormComponent {
     } else {
       this.http
         .patch(
-          `https://ongapi.alkemy.org/api/categories/${this.categoria.id}`,
+          `https://ongapi.alkemy.org/api/projects/${this.proyecto.id}`,
           {
-            name: this.form.value.name,
+            title: this.form.value.title,
             description: this.form.value.description,
             updated_at: new Date(),
           },
@@ -133,14 +130,14 @@ export class CategoriesFormComponent {
           (data) => {
             console.log(data);
             Swal.fire(
-              "Categoría Editada!",
-              "La categoría fue editada exitosamente",
+              "Proyecto Editado!",
+              "El proyecto fue editado exitosamente",
               "success"
             );
           },
           (error) => {
             Swal.fire(
-              "La Categoría no pudo ser Editada",
+              "El Proyecto no pudo ser editado",
               error.messagge,
               "error"
             );
