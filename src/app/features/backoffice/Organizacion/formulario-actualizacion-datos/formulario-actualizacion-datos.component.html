@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row text-center my-4">
+    <h1>{{accion}} datos de la Organización</h1>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="ActualizarOrganizacion()" class="row">
+    <div class="col-lg-8 col-md-7">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control py-3" id="name" placeholder="Name" formControlName="name" required
+        [ngClass]="{'border-success' : form.controls.name.status == 'VALID' && form.controls.name.touched, 
+                      'border-danger' : form.controls.name.status == 'INVALID' && form.controls.name.touched}">
+      </div>
+      <div class="mb-3">
+        <input (change)="onFileSelect($event.target)" type="file" class="form-control" id="logo"
+        formControlName="logo" accept="image/x-png, image/jpeg" required 
+        [ngClass]="{'border-success' : form.controls.logo.status == 'VALID' && form.controls.logo.touched, 
+                      'border-danger' : form.controls.logo.status == 'INVALID' && form.controls.logo.touched}">
+      </div>
+      <div class="mb-3">
+        <input type="url" class="form-control py-3"  pattern="https://.*" id="links-redes" placeholder="Links redes sociales" formControlName="linksredessociales"
+        [ngClass]="{'border-success' : form.controls.linksredessociales.status == 'VALID' && form.controls.linksredessociales.touched, 
+                      'border-danger' : form.controls.linksredessociales.status == 'INVALID' && form.controls.linksredessociales.touched}">
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control py-3" id="long-description" placeholder="Long description" formControlName="longdescription" required
+        [ngClass]="{'border-success' : form.controls.longdescription.status == 'VALID' && form.controls.linksredessociales.touched, 
+                      'border-danger' : form.controls.longdescription.status == 'INVALID' && form.controls.linksredessociales.touched}">
+      </div>
+      <div class="mb-3">
+        <ckeditor formControlName="shortdescription"></ckeditor>
+      </div>
+      <button class="btn btn-lg rounded-lg px-5 mb-4" type="submit" [disabled]="form.controls.name.status == 'INVALID' || form.controls.shortdescription.status == 'INVALID' || form.controls.linksredessociales.status == 'INVALID'||  form.controls.longdescription.status == 'INVALID' || logo == null" >{{accion}}</button>
+    </div>
+    <div class="col-lg-4 col-md-5 text-center">
+      <img [src]="logo"  alt="" class="img-fluid preview shadow mb-4">
+        <p *ngIf="logo !== undefined">Imagen Preview</p>
+    </div>
+  </form>
+</div>
