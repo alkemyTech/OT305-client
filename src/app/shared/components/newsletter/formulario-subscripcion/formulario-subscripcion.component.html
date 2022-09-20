@@ -1,6 +1,13 @@
-<div class="content-form">
-  <form>
+<div class="form-subscripcion" *ngIf="isLoading"  >
+  <h1 class="title">{{title}}</h1>
+  <form [formGroup]="FormSubscribe" class="row" class="form-horizontal" >
+    <div class="campos" >
+      <input type="email" formControlName="email"  [class.is-invalid]="FormSubscribe.get('email')?.touched && FormSubscribe.get('email')?.invalid " class="form-control" id="exampleFormControlInput1" placeholder="Ingrese su Email" >
+      <div class="validacion">
+        <span  class="validacion-content" *ngIf="FormSubscribe.get('email')?.touched && FormSubscribe.get('email')?.invalid ">-Ingrese un email valido</span>
 
+      </div>
+    </div>
+    <input  type="submit"   class="btn btn-danger" (click)="Subscribirse()" value="Subscribirse">
   </form>
-  <button>Subscribete</button>
 </div>
