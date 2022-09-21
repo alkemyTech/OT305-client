@@ -1,5 +1,5 @@
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
-import { NgModule } from "@angular/core";
+import { Component, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
@@ -15,11 +15,27 @@ import { SearchActivitiesComponent } from "./backoffice/activities/search-activi
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
+import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
 import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
+import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
+
+
 
 
 const routes: Routes = [
   {
+
+    path:"backoffice",
+    component: ScreenDashboardComponent
+  },
+  {
+    path: "backoffice/organization/edit",
+    component: FormularioActualizacionDatosComponent
+  },
+  
+  {
+
+
     path: "novedades/:id",
     component: DetalleNovedadComponent
   },
