@@ -47,7 +47,7 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
   }
 
   submitForm(){
-    if( this.slide.id ){
+    if( this.slide !== null ){
       this.patchSlide();
     }
     else{
@@ -72,6 +72,9 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
       false
     ).subscribe(res => {
       return console.log("¡Slide creado con éxito!");
+    },
+    error => {
+      return console.log("Ha ocurrido un error durante la operación, vuelva a intentarlo")
     })
   }
 
@@ -88,6 +91,9 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
       false
     ).subscribe(res =>{
       return console.log("¡Slide editado con éxito!");
+    },
+    error => {
+      return console.log("Ha ocurrido un error durante la operación, vuelva a intentarlo")
     })
   }
 
