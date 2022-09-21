@@ -42,6 +42,8 @@ import { FormCrearEditarMiembrosComponent } from "./backoffice/members/component
 import { ProjectsComponent } from "./pages/projects/projects.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
 import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
+import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
+
 
 
 
@@ -74,7 +76,11 @@ import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboar
     DetalleNovedadComponent,
     ScreenDashboardComponent,
     EditComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    FormularioActualizacionDatosComponent,
+    EditComponent,
+    ProjectsComponent,
+
 
   ],
   exports: [
