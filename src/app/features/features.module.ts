@@ -23,15 +23,30 @@ import { CKEditorModule } from "ckeditor4-angular";
 import { ContactFormComponent } from "./pages/contact/components/contact-form/contact-form.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { ContributesInfoComponent } from "./pages/contact/components/contributes-info/contributes-info.component";
+import { OrganizationComponent } from "./pages/organization/organization.component";
+import { ListadoNosotrosComponent } from "./pages/about/us-section/components/listado-nosotros/listado-nosotros.component";
 import { HeaderComponent } from "./backoffice/components/header/header.component";
 import { HomeComponent } from "./backoffice/home/home.component";
 import { FormEditarHomeComponent } from "./backoffice/home/components/form-editar-home/form-editar-home.component";
 import { DetailComponent } from "./pages/activities/detail/detail.component";
-import { OrganizationComponent } from "./pages/organization/organization.component";
+import { StoreModule } from "@ngrx/store";
+import { ROOT_REDUCERS } from "../core/ngrx/app.store";
+import { EffectsModule } from "@ngrx/effects";
+import { ActividadEffects } from "../core/ngrx/effects/actividad.effect";
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { SearchActivitiesComponent } from './backoffice/activities/search-activities/search-activities.component';
 import { InicioComponent } from "./pages/home/inicio/inicio.component";
 import { SliderComponent } from "./pages/home/slider/slider.component";
-import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
 import { SharedModule } from "../shared/shared.module";
+import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
+import { FormCrearEditarMiembrosComponent } from "./backoffice/members/components/form-crear-editar-miembros/form-crear-editar-miembros.component";
+import { ProjectsComponent } from "./pages/projects/projects.component";
+import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
+import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
+import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
+
+
+
 
 @NgModule({
   declarations: [
@@ -54,9 +69,20 @@ import { SharedModule } from "../shared/shared.module";
     HomeComponent,
     FormEditarHomeComponent,
     OrganizationComponent,
+    ListadoNosotrosComponent,
     InicioComponent,
     SliderComponent,
     SearchActivitiesComponent,
+    FormCrearEditarMiembrosComponent,
+    DetalleNovedadComponent,
+    ScreenDashboardComponent,
+    EditComponent,
+    ProjectsComponent,
+    FormularioActualizacionDatosComponent,
+    EditComponent,
+    ProjectsComponent,
+
+
   ],
   exports: [
     ActivityFormComponent,
@@ -70,6 +96,10 @@ import { SharedModule } from "../shared/shared.module";
     HomeComponent,
     FormEditarHomeComponent,
     OrganizationComponent,
+    HeaderComponent,
+    EditComponent,
+    ProjectsComponent,
+    DetalleNovedadComponent,
     RouterModule,
   ],
   imports: [
@@ -79,13 +109,18 @@ import { SharedModule } from "../shared/shared.module";
     ReactiveFormsModule,
     CKEditorModule,
     FormsModule,
-    ReactiveFormsModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
     SharedModule,
+    StoreModule.forRoot(ROOT_REDUCERS),
+    EffectsModule.forRoot([
+      ActividadEffects
+    ]),
+    StoreDevtoolsModule.instrument({ name:'TEST' }),
+ 
   ],
 })
 export class FeaturesModule {}

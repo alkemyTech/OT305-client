@@ -11,7 +11,7 @@ export class MostrarTitulosComponent implements OnInit {
   
   constructor() { 
     this.title = '';
-    this.img= ''
+    this.img=  '../../../../assets/register.png'
   }
   ngOnInit() {}
 
