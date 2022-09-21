@@ -12,6 +12,7 @@ export class FormularioActualizacionDatosComponent implements OnInit {
   form!:FormGroup
   logo!:any 
   constructor(public fb : FormBuilder) {
+
     
     this.form = this.fb.group({
       name: ["", Validators.required],
