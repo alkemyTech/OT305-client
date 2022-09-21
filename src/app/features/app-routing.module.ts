@@ -16,6 +16,7 @@ import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
 import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
+import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 
 
 
@@ -32,6 +33,11 @@ const routes: Routes = [
     path: "novedades/:id",
     component: DetalleNovedadComponent
   },
+  {
+    path: "backoffice/members/edit",
+    component: EditComponent
+  }
+  ,
   {
     path: "backoffice/home",
     component: HomeComponent,
