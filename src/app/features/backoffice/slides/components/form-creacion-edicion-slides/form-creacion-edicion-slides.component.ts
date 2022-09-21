@@ -9,7 +9,7 @@ import { HttpService } from 'src/app/core/services/http.service';
 })
 export class FormCreacionEdicionSlidesComponent implements OnInit {
 
-  @Input() slide!: any;
+  @Input() slide: any = null;
 
   form: FormGroup;
 
@@ -24,12 +24,11 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
     this.verificarSiHaySlide();
   }
   
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   verificarSiHaySlide(){
     
-    if( this.slide.id ){
+    if( this.slide !== null ){
       this.setValuesInForm();
     }
 
@@ -71,7 +70,9 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
         deleted_at: null
       },
       false
-    )
+    ).subscribe(res => {
+      return console.log("¡Slide creado con éxito!");
+    })
   }
 
   patchSlide(){
@@ -85,7 +86,18 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
         updated_at: new Date()
       },
       false
-    )
+    ).subscribe(res =>{
+      return console.log("¡Slide editado con éxito!");
+    })
+  }
+
+  capturarImagen(event: any){
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.form.get("image")?.setValue(reader.result);
+    }
   }
 
 }

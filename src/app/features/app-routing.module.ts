@@ -21,7 +21,7 @@ import { SlidesComponent } from "./backoffice/slides/slides.component";
 const routes: Routes = [
   {
     path: "backoffice/slides",
-    component: SlidesComponent,
+    component: SlidesComponent
   },
   {
     path: "novedades/:id",
