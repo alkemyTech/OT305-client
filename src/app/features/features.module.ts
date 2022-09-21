@@ -46,6 +46,9 @@ import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion
 
 
 
+
+
+
 @NgModule({
   declarations: [
     ActivityFormComponent,
@@ -74,9 +77,15 @@ import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion
     FormCrearEditarMiembrosComponent,
     DetalleNovedadComponent,
     ScreenDashboardComponent,
+
+
+    EditComponent,
+    ProjectsComponent,
     FormularioActualizacionDatosComponent,
     EditComponent,
     ProjectsComponent,
+
+
 
   ],
   exports: [
