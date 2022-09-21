@@ -41,6 +41,11 @@ import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 import { FormCrearEditarMiembrosComponent } from "./backoffice/members/components/form-crear-editar-miembros/form-crear-editar-miembros.component";
 import { ProjectsComponent } from "./pages/projects/projects.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
+import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
+import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
+
+
+
 
 @NgModule({
   declarations: [
@@ -69,8 +74,14 @@ import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/det
     SearchActivitiesComponent,
     FormCrearEditarMiembrosComponent,
     DetalleNovedadComponent,
+    ScreenDashboardComponent,
     EditComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    FormularioActualizacionDatosComponent,
+    EditComponent,
+    ProjectsComponent,
+
+
   ],
   exports: [
     ActivityFormComponent,
