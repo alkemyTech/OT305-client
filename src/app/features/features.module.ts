@@ -44,11 +44,13 @@ import { ProjectsComponent } from "./pages/projects/projects.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
 import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
 import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ListActivitiesComponent } from "./pages/activities/list-activities/list-activities.component";
 import { SidebarComponent } from "./backoffice/components/sidebar/sidebar.component";
 import { SlidesComponent } from "./backoffice/slides/slides.component";
 import { FormCreacionEdicionSlidesComponent } from "./backoffice/slides/components/form-creacion-edicion-slides/form-creacion-edicion-slides.component";
 import { ActivityContentComponent } from './pages/activities/activity-content/activity-content.component';
+
 
 @NgModule({
   declarations: [
@@ -87,7 +89,11 @@ import { ActivityContentComponent } from './pages/activities/activity-content/ac
     SidebarComponent,
     FormCreacionEdicionSlidesComponent,
     SlidesComponent,
+<<<<<<< HEAD
     ActivityContentComponent,
+=======
+    FormCreacionEdicionSlidesComponent,
+>>>>>>> main
   ],
   exports: [
     ActivityFormComponent,
@@ -125,6 +131,7 @@ import { ActivityContentComponent } from './pages/activities/activity-content/ac
     StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot([ActividadEffects]),
     StoreDevtoolsModule.instrument({ name: "TEST" }),
+    BrowserAnimationsModule,
   ],
 })
 export class FeaturesModule {}
