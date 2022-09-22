@@ -19,8 +19,18 @@ import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboar
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
+import { CategoriesComponent } from "./backoffice/categories/pages/categories/categories.component";
+import { CategoriesCreateComponent } from "./backoffice/categories/pages/categories-create/categories-create.component";
 
 const routes: Routes = [
+  {
+    path: "backoffice/categories/create",
+    component: CategoriesCreateComponent
+  },
+  {
+    path: "backoffice/categories",
+    component: CategoriesComponent
+  },
   {
     path: "backoffice",
     component: ScreenDashboardComponent,

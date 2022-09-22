@@ -45,6 +45,9 @@ import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/det
 import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
 import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
 import { SidebarComponent } from './backoffice/components/sidebar/sidebar.component';
+import { CategoriesComponent } from './backoffice/categories/pages/categories/categories.component';
+import { CategoriesCreateComponent } from './backoffice/categories/pages/categories-create/categories-create.component';
+import { TableComponent } from './backoffice/categories/pages/categories/components/table/table.component';
 
 
 
@@ -87,6 +90,9 @@ import { SidebarComponent } from './backoffice/components/sidebar/sidebar.compon
     EditComponent,
     ProjectsComponent,
     SidebarComponent,
+    CategoriesComponent,
+    CategoriesCreateComponent,
+    TableComponent,
 
 
 
