@@ -19,9 +19,7 @@ import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboar
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
-
-
-
+import { ListActivitiesComponent } from "./pages/activities/list-activities/list-activities.component";
 import { SlidesComponent } from "./backoffice/slides/slides.component";
 import { DashboardActivitiesComponent } from "./backoffice/activities/dashboard-activities/dashboard-activities.component";
 import { componentFactoryName } from "@angular/compiler";
@@ -95,12 +93,20 @@ const routes: Routes = [
     component: ProjectsComponent
   },
   {
+    path: "proyectos",
+    component: ProjectsComponent,
+  },
+  {
     path: "categorias",
     component: CategoriesFormComponent,
   },
   {
     path: "testimonios",
     component: TestimonialFormComponent,
+  },
+  {
+    path: "actividades",
+    component: ListActivitiesComponent,
   },
   {
     path: "actividades/:id",
