@@ -1,5 +1,5 @@
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
-import { NgModule } from "@angular/core";
+import { Component, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
@@ -15,6 +15,13 @@ import { SearchActivitiesComponent } from "./backoffice/activities/search-activi
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
+import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
+import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
+import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
+import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
+
+
+
 import { SlidesComponent } from "./backoffice/slides/slides.component";
 
 
@@ -24,9 +31,28 @@ const routes: Routes = [
     component: SlidesComponent
   },
   {
+
+    path:"backoffice",
+    component: ScreenDashboardComponent
+  },
+  {
+    path: "backoffice/organization/edit",
+    component: FormularioActualizacionDatosComponent
+  },
+
+  {
+    path: "backoffice/news",
+    component: NewsFormComponent
+  }, 
+  {
     path: "novedades/:id",
     component: DetalleNovedadComponent
   },
+  {
+    path: "backoffice/members/edit",
+    component: EditComponent
+  }
+  ,
   {
     path: "backoffice/home",
     component: HomeComponent,
@@ -43,6 +69,10 @@ const routes: Routes = [
     path: "usuarios",
     component: UserFormComponent,
   },
+  {
+    path: "register",
+    component: RegisterFormComponent,
+  },
   { 
     path: "proyectos", 
     component: ProjectsComponent
@@ -50,10 +80,6 @@ const routes: Routes = [
   {
     path: "categorias", 
     component: CategoriesFormComponent
-  },
-  { 
-    path: "register", 
-    component: RegisterFormComponent
   },
   {
     path: "testimonios",

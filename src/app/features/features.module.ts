@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
@@ -37,12 +38,16 @@ import { SearchActivitiesComponent } from './backoffice/activities/search-activi
 import { InicioComponent } from "./pages/home/inicio/inicio.component";
 import { SliderComponent } from "./pages/home/slider/slider.component";
 import { SharedModule } from "../shared/shared.module";
-import { ProjectsComponent } from './pages/projects/projects.component';
-import { FormularioSubscripcionComponent } from "../shared/components/newsletter/formulario-subscripcion/formulario-subscripcion.component";
+import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
+import { FormCrearEditarMiembrosComponent } from "./backoffice/members/components/form-crear-editar-miembros/form-crear-editar-miembros.component";
+import { ProjectsComponent } from "./pages/projects/projects.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
 import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
-import { SlidesComponent } from './backoffice/slides/slides.component';
-import { FormCreacionEdicionSlidesComponent } from './backoffice/slides/components/form-creacion-edicion-slides/form-creacion-edicion-slides.component';
+import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
+import { SlidesComponent } from "./backoffice/slides/slides.component";
+import { FormCreacionEdicionSlidesComponent } from "./backoffice/slides/components/form-creacion-edicion-slides/form-creacion-edicion-slides.component";
+
+
 
 @NgModule({
   declarations: [
@@ -69,12 +74,12 @@ import { FormCreacionEdicionSlidesComponent } from './backoffice/slides/componen
     InicioComponent,
     SliderComponent,
     SearchActivitiesComponent,
-    ProjectsComponent,
-    FormularioSubscripcionComponent,
+    FormCrearEditarMiembrosComponent,
     DetalleNovedadComponent,
     ScreenDashboardComponent,
+    FormularioActualizacionDatosComponent,
     SlidesComponent,
-    FormCreacionEdicionSlidesComponent,
+    FormCreacionEdicionSlidesComponent
   ],
   exports: [
     ActivityFormComponent,
@@ -88,8 +93,10 @@ import { FormCreacionEdicionSlidesComponent } from './backoffice/slides/componen
     HomeComponent,
     FormEditarHomeComponent,
     OrganizationComponent,
+    ScreenDashboardComponent,
     SlidesComponent,
     FormCreacionEdicionSlidesComponent,
+    FormularioActualizacionDatosComponent,
     RouterModule,
   ],
   imports: [
@@ -103,6 +110,7 @@ import { FormCreacionEdicionSlidesComponent } from './backoffice/slides/componen
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatDialogModule,
     SharedModule,
     StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot([
