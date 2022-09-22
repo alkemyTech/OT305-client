@@ -44,7 +44,10 @@ import { ProjectsComponent } from "./pages/projects/projects.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
 import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
 import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
-
+import { SidebarComponent } from './backoffice/components/sidebar/sidebar.component';
+import { SlidesComponent } from "./backoffice/slides/slides.component";
+import { FormCreacionEdicionSlidesComponent } from "./backoffice/slides/components/form-creacion-edicion-slides/form-creacion-edicion-slides.component";
+import { DashboardActivitiesComponent } from "./backoffice/activities/dashboard-activities/dashboard-activities.component";
 
 
 
@@ -78,14 +81,15 @@ import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion
     FormCrearEditarMiembrosComponent,
     DetalleNovedadComponent,
     ScreenDashboardComponent,
-
-
     EditComponent,
     ProjectsComponent,
     FormularioActualizacionDatosComponent,
     EditComponent,
     ProjectsComponent,
-
+    SidebarComponent,
+    SlidesComponent,
+    FormCreacionEdicionSlidesComponent,
+    DashboardActivitiesComponent,
 
 
   ],
@@ -105,6 +109,8 @@ import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion
     EditComponent,
     ProjectsComponent,
     DetalleNovedadComponent,
+    SlidesComponent,
+    FormCreacionEdicionSlidesComponent,
     RouterModule,
   ],
   imports: [

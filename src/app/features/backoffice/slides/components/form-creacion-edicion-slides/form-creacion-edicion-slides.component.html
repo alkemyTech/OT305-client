@@ -1,0 +1,73 @@
+<form
+class="mt-5 mx-auto col-12 col-md-9 mx-lg-0 col-lg-7"
+[formGroup]="form">
+
+    <div class="d-flex flex-column gap-2 mb-3">
+        <label
+        class="fw-bold"
+        for="slide-1">
+            Nombre:
+        </label>
+
+        <input
+        type="text"
+        formControlName="name"
+        class="form-control border-dark shadow"
+        placeholder="Nombre del slide...">
+    </div>
+
+    <div class="d-flex flex-column gap-2 mb-3">
+        <label
+        class="fw-bold">
+            Descripción:
+        </label>
+
+        <ckeditor
+        style="border: 1px solid black; border-radius: 3px;"
+        formControlName="description"
+        class="shadow"></ckeditor>
+    </div>
+
+    <div class="d-flex flex-column gap-2 mb-3">
+        <label
+        class="fw-bold">
+            Order:
+        </label>
+
+        <input
+        type="text"
+        formControlName="order"
+        class="form-control border-dark shadow"
+        placeholder="Order del slide...">
+    </div>
+
+    <div class="d-flex flex-column gap-2 mb-3">
+        <label
+        class="fw-bold">
+            Imagen:
+        </label>
+
+        <input
+        type="file"
+        accept="image/jpg,image/png"
+        (change)="capturarImagen($event)"
+        class="form-control border-dark shadow">
+    </div>
+
+    <div class="d-flex flex-column align-items-start gap-2 mt-3">
+        <button
+        class="btn btn-primary btn-lg fw-bold rounded shadow"
+        (click)="submitForm()"
+        [disabled]="form.invalid">
+            Actualizar slide
+        </button>
+
+        <!--SUSTITUIR POR LA RUTA CORRESPONDIENTE CUANDO ESTÉ LISTA-->
+        <button
+        routerLink="/backoffice/home"
+        class="btn btn-light btn-lg border-dark fw-bold rounded shadow">
+            Volver
+        </button>
+    </div>
+
+</form>

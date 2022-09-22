@@ -1,0 +1,29 @@
+.content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.table-responsive{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.title{
+    padding-top: 5%;
+}
+.table{
+    
+    padding-bottom: 25px;
+    margin-top: 20px;
+}
+
+
+
+
+@media (max-width: 480px) {
+    .table{
+        width: 20%;
+    }
+}
