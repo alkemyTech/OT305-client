@@ -19,9 +19,7 @@ import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboar
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
-
-
-
+import { ListActivitiesComponent } from "./pages/activities/list-activities/list-activities.component";
 import { SlidesComponent } from "./backoffice/slides/slides.component";
 
 
@@ -71,11 +69,15 @@ const routes: Routes = [
   },
   {
     path: "register",
-    component: RegisterFormComponent,
+    component: RegisterFormComponent
   },
   { 
     path: "proyectos", 
     component: ProjectsComponent
+  },
+  {
+    path: "proyectos",
+    component: ProjectsComponent,
   },
   {
     path: "categorias",
@@ -84,6 +86,10 @@ const routes: Routes = [
   {
     path: "testimonios",
     component: TestimonialFormComponent,
+  },
+  {
+    path: "actividades",
+    component: ListActivitiesComponent,
   },
   {
     path: "actividades/:id",
