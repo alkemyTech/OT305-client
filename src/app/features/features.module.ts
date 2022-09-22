@@ -46,8 +46,10 @@ import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboar
 import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
 import { ListActivitiesComponent } from "./pages/activities/list-activities/list-activities.component";
 import { SidebarComponent } from "./backoffice/components/sidebar/sidebar.component";
-import { SlidesComponent } from "./backoffice/slides/slides.component";
+import { SlidesComponent } from "./backoffice/slides/pages/slides/slides.component";
 import { FormCreacionEdicionSlidesComponent } from "./backoffice/slides/components/form-creacion-edicion-slides/form-creacion-edicion-slides.component";
+import { SlidesCreateComponent } from './backoffice/slides/pages/slides-create/slides-create.component';
+import { SlidesEditComponent } from './backoffice/slides/pages/slides-edit/slides-edit.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +88,8 @@ import { FormCreacionEdicionSlidesComponent } from "./backoffice/slides/componen
     SidebarComponent,
     FormCreacionEdicionSlidesComponent,
     SlidesComponent,
+    SlidesCreateComponent,
+    SlidesEditComponent,
   ],
   exports: [
     ActivityFormComponent,

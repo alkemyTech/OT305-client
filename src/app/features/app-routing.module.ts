@@ -20,10 +20,20 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
 import { ListActivitiesComponent } from "./pages/activities/list-activities/list-activities.component";
-import { SlidesComponent } from "./backoffice/slides/slides.component";
+import { SlidesComponent } from "./backoffice/slides/pages/slides/slides.component";
+import { SlidesCreateComponent } from "./backoffice/slides/pages/slides-create/slides-create.component";
+import { SlidesEditComponent } from "./backoffice/slides/pages/slides-edit/slides-edit.component";
 
 
 const routes: Routes = [
+  {
+    path: "backoffice/slides/edit",
+    component: SlidesEditComponent
+  },
+  {
+    path: "backoffice/slides/create",
+    component: SlidesCreateComponent
+  },
   {
     path: "backoffice/slides",
     component: SlidesComponent
