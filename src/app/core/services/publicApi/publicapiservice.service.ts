@@ -9,6 +9,6 @@ export class PublicapiserviceService {
   constructor(private httpService: HttpService) {}
 
   getPublic(url: any, id: null) {
-    this.httpService.get(`${url} / ${id}`);
+    this.httpService.get(`${url} / ${id}`, false);
   }
 }
