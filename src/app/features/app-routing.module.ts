@@ -60,6 +60,9 @@ const routes: Routes = [
     path: "usuarios",
     component: UserFormComponent,
   },
+  {
+    path: "register",
+    component: RegisterFormComponent,
   { 
     path: "proyectos", 
     component: ProjectsComponent
@@ -67,10 +70,6 @@ const routes: Routes = [
   {
     path: "categorias", 
     component: CategoriesFormComponent
-  },
-  { 
-    path: "register", 
-    component: RegisterFormComponent
   },
   {
     path: "testimonios",

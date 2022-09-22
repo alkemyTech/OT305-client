@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
@@ -112,6 +113,7 @@ import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatDialogModule,
     SharedModule,
     StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot([
