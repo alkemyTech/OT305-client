@@ -21,8 +21,13 @@ import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
 import { CategoriesComponent } from "./backoffice/categories/pages/categories/categories.component";
 import { CategoriesCreateComponent } from "./backoffice/categories/pages/categories-create/categories-create.component";
+import { CategoriesEditComponent } from "./backoffice/categories/pages/categories-edit/categories-edit.component";
 
 const routes: Routes = [
+  {
+    path: "backoffice/categories/edit",
+    component: CategoriesEditComponent
+  },
   {
     path: "backoffice/categories/create",
     component: CategoriesCreateComponent

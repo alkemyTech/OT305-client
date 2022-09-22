@@ -48,6 +48,7 @@ import { SidebarComponent } from './backoffice/components/sidebar/sidebar.compon
 import { CategoriesComponent } from './backoffice/categories/pages/categories/categories.component';
 import { CategoriesCreateComponent } from './backoffice/categories/pages/categories-create/categories-create.component';
 import { TableComponent } from './backoffice/categories/pages/categories/components/table/table.component';
+import { CategoriesEditComponent } from './backoffice/categories/pages/categories-edit/categories-edit.component';
 
 
 
@@ -93,6 +94,7 @@ import { TableComponent } from './backoffice/categories/pages/categories/compone
     CategoriesComponent,
     CategoriesCreateComponent,
     TableComponent,
+    CategoriesEditComponent,
 
 
 
