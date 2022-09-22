@@ -9,11 +9,11 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { DetailComponent } from "./pages/activities/detail/detail.component";
 import { HomeComponent } from "./backoffice/home/home.component";
 import { OrganizationComponent } from "./pages/organization/organization.component";
-import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
-import { InicioComponent } from "./pages/home/inicio/inicio.component"; 
+import { CategoriesFormComponent } from "./pages/categories/categories-form/categories-form.component";
+import { InicioComponent } from "./pages/home/inicio/inicio.component";
 import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
-import { UserFormComponent } from './pages/users/user-form/user-form.component';
-import { ProjectsComponent } from './pages/projects/projects.component';
+import { UserFormComponent } from "./pages/users/user-form/user-form.component";
+import { ProjectsComponent } from "./pages/projects/projects.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
 import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
@@ -21,36 +21,29 @@ import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
 import { ListActivitiesComponent } from "./pages/activities/list-activities/list-activities.component";
 
-
-
-
-
 const routes: Routes = [
   {
-
-    path:"backoffice",
-    component: ScreenDashboardComponent
+    path: "backoffice",
+    component: ScreenDashboardComponent,
   },
   {
     path: "backoffice/organization/edit",
-    component: FormularioActualizacionDatosComponent
+    component: FormularioActualizacionDatosComponent,
   },
 
   {
     path: "backoffice/news",
-    component: NewsFormComponent
-  }, 
+    component: NewsFormComponent,
+  },
+
   {
-
-
     path: "novedades/:id",
-    component: DetalleNovedadComponent
+    component: DetalleNovedadComponent,
   },
   {
     path: "backoffice/members/edit",
-    component: EditComponent
-  }
-  ,
+    component: EditComponent,
+  },
   {
     path: "backoffice/home",
     component: HomeComponent,
@@ -76,8 +69,12 @@ const routes: Routes = [
     component: ProjectsComponent
   },
   {
-    path: "categorias", 
-    component: CategoriesFormComponent
+    path: "proyectos",
+    component: ProjectsComponent,
+  },
+  {
+    path: "categorias",
+    component: CategoriesFormComponent,
   },
   {
     path: "testimonios",

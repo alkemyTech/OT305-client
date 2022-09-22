@@ -45,6 +45,8 @@ import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/det
 import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
 import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
 import { ListActivitiesComponent } from './pages/activities/list-activities/list-activities.component';
+import { SidebarComponent } from "./backoffice/components/sidebar/sidebar.component";
+
 
 
 
@@ -87,9 +89,7 @@ import { ListActivitiesComponent } from './pages/activities/list-activities/list
     EditComponent,
     ProjectsComponent,
     ListActivitiesComponent,
-
-
-
+    SidebarComponent,
   ],
   exports: [
     ActivityFormComponent,
