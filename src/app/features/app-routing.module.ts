@@ -16,6 +16,7 @@ import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ProjectsComponent } from "./pages/projects/projects.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
 import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
+import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
 
@@ -27,6 +28,11 @@ const routes: Routes = [
   {
     path: "backoffice/organization/edit",
     component: FormularioActualizacionDatosComponent,
+  },
+
+  {
+    path: "backoffice/news",
+    component: NewsFormComponent,
   },
 
   {
