@@ -49,6 +49,9 @@ import { FormCreacionEdicionSlidesComponent } from "./backoffice/slides/componen
 
 
 
+
+
+
 @NgModule({
   declarations: [
     ActivityFormComponent,
@@ -77,9 +80,15 @@ import { FormCreacionEdicionSlidesComponent } from "./backoffice/slides/componen
     FormCrearEditarMiembrosComponent,
     DetalleNovedadComponent,
     ScreenDashboardComponent,
+    EditComponent,
+    ProjectsComponent,
     FormularioActualizacionDatosComponent,
+    EditComponent,
+    ProjectsComponent,
     SlidesComponent,
     FormCreacionEdicionSlidesComponent
+
+
   ],
   exports: [
     ActivityFormComponent,
@@ -93,10 +102,12 @@ import { FormCreacionEdicionSlidesComponent } from "./backoffice/slides/componen
     HomeComponent,
     FormEditarHomeComponent,
     OrganizationComponent,
-    ScreenDashboardComponent,
+    HeaderComponent,
+    EditComponent,
+    ProjectsComponent,
+    DetalleNovedadComponent,
     SlidesComponent,
     FormCreacionEdicionSlidesComponent,
-    FormularioActualizacionDatosComponent,
     RouterModule,
   ],
   imports: [
