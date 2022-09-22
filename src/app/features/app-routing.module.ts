@@ -72,6 +72,7 @@ const routes: Routes = [
   {
     path: "register",
     component: RegisterFormComponent,
+  },
   { 
     path: "proyectos", 
     component: ProjectsComponent
