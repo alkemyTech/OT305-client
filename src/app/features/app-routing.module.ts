@@ -20,10 +20,20 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
 
+
+
+import { SlidesComponent } from "./backoffice/slides/slides.component";
+
+
 const routes: Routes = [
   {
-    path: "backoffice",
-    component: ScreenDashboardComponent,
+    path: "backoffice/slides",
+    component: SlidesComponent
+  },
+  {
+
+    path:"backoffice",
+    component: ScreenDashboardComponent
   },
   {
     path: "backoffice/organization/edit",
@@ -62,10 +72,9 @@ const routes: Routes = [
   {
     path: "register",
     component: RegisterFormComponent,
-  },
-  {
-    path: "proyectos",
-    component: ProjectsComponent,
+  { 
+    path: "proyectos", 
+    component: ProjectsComponent
   },
   {
     path: "categorias",
