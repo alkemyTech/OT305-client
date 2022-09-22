@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Categoria } from 'src/app/core/models/categoria.models';
 import { HttpService } from 'src/app/core/services/http.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { HttpService } from 'src/app/core/services/http.service';
 })
 export class CategoriesComponent implements OnInit {
 
-  categoriasEnLaApi!: any[];
+  categoriasEnLaApi!: Categoria[];
 
   cargando: boolean = true;
 
@@ -24,6 +25,10 @@ export class CategoriesComponent implements OnInit {
         this.cargando = false;
         this.categoriasEnLaApi = response.data;
       })
+  }
+
+  eliminarCategoria(_event: Categoria){
+    //aqui se implementará la eliminación de la categoría seleccionada
   }
 
 }

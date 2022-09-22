@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Categoria } from 'src/app/core/models/categoria.models';
 
 @Component({
   selector: 'app-table',
@@ -7,22 +8,22 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TableComponent implements OnInit {
 
-  @Input() categorias!: any[];
+  @Input() categorias!: Categoria[];
 
-  @Output() categoriaParaEditar: EventEmitter<any> = new EventEmitter();
+  @Output() categoriaParaEditar: EventEmitter<Categoria> = new EventEmitter();
 
-  @Output() categoriaParaEliminar: EventEmitter<any> = new EventEmitter();
+  @Output() categoriaParaEliminar: EventEmitter<Categoria> = new EventEmitter();
   
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  capturarCategoriaParaEditar(categoria: any){
+  capturarCategoriaParaEditar(categoria: Categoria){
     return this.categoriaParaEditar.emit(categoria);
   }
 
-  capturarCategoriaParaEliminar(categoria: any){
+  capturarCategoriaParaEliminar(categoria: Categoria){
     return this.categoriaParaEliminar.emit(categoria);
   }
 
