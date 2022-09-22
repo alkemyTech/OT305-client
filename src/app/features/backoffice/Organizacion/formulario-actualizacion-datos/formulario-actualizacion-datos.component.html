@@ -22,8 +22,8 @@
       </div>
       <div class="mb-3">
         <input type="text" class="form-control py-3" id="long-description" placeholder="Long description" formControlName="longdescription" required
-        [ngClass]="{'border-success' : form.controls.longdescription.status == 'VALID' && form.controls.linksredessociales.touched, 
-                      'border-danger' : form.controls.longdescription.status == 'INVALID' && form.controls.linksredessociales.touched}">
+        [ngClass]="{'border-success' : form.controls.longdescription.status == 'VALID' && form.controls.longdescription.touched, 
+                      'border-danger' : form.controls.longdescription.status == 'INVALID' && form.controls.longdescription.touched}">
       </div>
       <div class="mb-3">
         <ckeditor formControlName="shortdescription"></ckeditor>
