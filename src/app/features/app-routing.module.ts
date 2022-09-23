@@ -14,6 +14,7 @@ import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ProjectsComponent } from "./pages/projects/projects.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
 import { ListActivitiesComponent } from "./pages/activities/list-activities/list-activities.component";
+import { ErrorComponent } from "./pages/error/error.component";
 
 const routes: Routes = [
   {
@@ -80,8 +81,7 @@ const routes: Routes = [
 
   {
     path: "**",
-    redirectTo: "actividades",
-    pathMatch: "full",
+    component: ErrorComponent
   },
 ];
 
