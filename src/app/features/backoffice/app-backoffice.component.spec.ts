@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { AppBackofficeComponent } from './app-backoffice.component';
+import { AppBackofficeComponent } from "./app-backoffice.component";
 
-describe('AppBackofficeComponent', () => {
+describe("AppBackofficeComponent", () => {
   let component: AppBackofficeComponent;
   let fixture: ComponentFixture<AppBackofficeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AppBackofficeComponent ]
-    })
-    .compileComponents();
+      declarations: [AppBackofficeComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('AppBackofficeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

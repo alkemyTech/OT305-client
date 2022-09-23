@@ -7,86 +7,24 @@ import { UsSectionComponent } from "./pages/about/us-section/us-section.componen
 import { ContactComponent } from "./pages/contact/contact.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { DetailComponent } from "./pages/activities/detail/detail.component";
-import { HomeComponent } from "./backoffice/home/home.component";
-import { OrganizationComponent } from "./pages/organization/organization.component";
 import { CategoriesFormComponent } from "./pages/categories/categories-form/categories-form.component";
 import { InicioComponent } from "./pages/home/inicio/inicio.component";
-import { SearchActivitiesComponent } from "./backoffice/activities/search-activities/search-activities.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ProjectsComponent } from "./pages/projects/projects.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
-import { ScreenDashboardComponent } from "./backoffice/Dashboard/screen-dashboard/screen-dashboard.component";
-import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
-import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
-import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
 import { ListActivitiesComponent } from "./pages/activities/list-activities/list-activities.component";
-import { SlidesComponent } from "./backoffice/slides/slides.component";
-import { DashboardActivitiesComponent } from "./backoffice/activities/dashboard-activities/dashboard-activities.component";
-import { componentFactoryName } from "@angular/compiler";
-
-
-import { CategoriesComponent } from "./backoffice/categories/pages/categories/categories.component";
-import { CategoriesCreateComponent } from "./backoffice/categories/pages/categories-create/categories-create.component";
-import { CategoriesEditComponent } from "./backoffice/categories/pages/categories-edit/categories-edit.component";
 
 const routes: Routes = [
   {
-    path: "backoffice/categories/edit",
-    component: CategoriesEditComponent
+    path: "backoffice",
+    loadChildren: () =>
+      import("./backoffice/backoffice.module").then((m) => m.BackofficeModule),
   },
-  {
-    path: "backoffice/categories/create",
-    component: CategoriesCreateComponent
-  },
-  {
-    path: "backoffice/categories",
-    component: CategoriesComponent
-  },
-  {
-    path: "backoffice/slides",
-    component: SlidesComponent
-  },
-  {
-          path:"backoffice/activities/create",
-          component: ActivityFormComponent
-  },
-  {
-
-    path:"backoffice",
-    component: ScreenDashboardComponent
-  },
-  {
-    path: "backoffice/organization/edit",
-    component: FormularioActualizacionDatosComponent,
-  },
-
-  {
-    path: "backoffice/activities",
-    component: DashboardActivitiesComponent,
-  },
-
-  {
-    path: "backoffice/news",
-    component: NewsFormComponent
-  }, 
-
-  {
-    path: "backoffice/news",
-    component: NewsFormComponent,
-  },
-
   {
     path: "novedades/:id",
     component: DetalleNovedadComponent,
   },
-  {
-    path: "backoffice/members/edit",
-    component: EditComponent,
-  },
-  {
-    path: "backoffice/home",
-    component: HomeComponent,
-  },
+
   {
     path: "contacto",
     component: ContactComponent,
@@ -103,9 +41,9 @@ const routes: Routes = [
     path: "register",
     component: RegisterFormComponent,
   },
-  { 
-    path: "proyectos", 
-    component: ProjectsComponent
+  {
+    path: "proyectos",
+    component: ProjectsComponent,
   },
   {
     path: "proyectos",
@@ -127,18 +65,12 @@ const routes: Routes = [
     path: "actividades/:id",
     component: DetailComponent,
   },
-  {
-    path: "backoffice/organization",
-    component: OrganizationComponent,
-  },
+
   {
     path: "home",
     component: InicioComponent,
   },
-  {
-    path: "backoffice/search/actividades",
-    component: SearchActivitiesComponent,
-  },
+
   {
     path: "",
     redirectTo: "actividades",
