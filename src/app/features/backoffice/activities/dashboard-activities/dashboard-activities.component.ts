@@ -8,7 +8,7 @@ import { HttpService } from 'src/app/core/services/http.service';
   templateUrl: './dashboard-activities.component.html',
   styleUrls: ['./dashboard-activities.component.scss']
 })
-export class DashboardActivitiesComponent implements OnInit {
+export class DashboardActivitiesComponent   {
   title!:string;
   actividad!: any
   
@@ -16,10 +16,7 @@ export class DashboardActivitiesComponent implements OnInit {
     this.title = "Dashboard Actividades"
     this.getActividad()
    }
-  ngOnInit() {
-    
-  }
-   
+
    getActividad(){
     this.actividad = {
       id: 0,
@@ -33,18 +30,8 @@ export class DashboardActivitiesComponent implements OnInit {
       updated_at: "Update_At",
       deleted_at: "Delete_At"
     }
-      
-      
-    
-  
-    
-      
-    }
-        
-    
-      
-    
   }
+}
 
  
 
