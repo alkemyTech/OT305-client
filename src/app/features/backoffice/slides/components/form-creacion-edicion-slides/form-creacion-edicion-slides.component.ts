@@ -30,6 +30,7 @@ export class FormCreacionEdicionSlidesComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.slide = null;
+    this.slideService.setSlideParaEditar(null);
   }
 
   obtenerSlide(){
@@ -42,6 +43,7 @@ export class FormCreacionEdicionSlidesComponent implements OnInit, OnDestroy{
     if( this.slide !== null ){
       console.log("llega hassta verificar")
       this.setValuesInForm();
+      console.log(this.form.value)
     }
 
   }
@@ -56,7 +58,7 @@ export class FormCreacionEdicionSlidesComponent implements OnInit, OnDestroy{
     this.form.get("name")?.setValue(name);
     this.form.get("description")?.setValue(description);
     this.form.get("order")?.setValue(order);
-    this.form.get("image")?.setValue(image);
+    this.transformarYsetearImagen(image);
   }
 
   submitForm(){
@@ -95,6 +97,7 @@ export class FormCreacionEdicionSlidesComponent implements OnInit, OnDestroy{
     this.httpService.patch(
       `https://ongapi.alkemy.org/api/slides/${this.slide.id}`,
       {
+        id: this.slide.id,
         name: this.form.value.name,
         description: this.form.value.description,
         image: this.form.value.image,
@@ -103,6 +106,7 @@ export class FormCreacionEdicionSlidesComponent implements OnInit, OnDestroy{
       },
       false
     ).subscribe(res =>{
+      console.log(res);
       return console.log("¡Slide editado con éxito!");
     },
     error => {
@@ -117,6 +121,11 @@ export class FormCreacionEdicionSlidesComponent implements OnInit, OnDestroy{
     reader.onload = () => {
       this.form.get("image")?.setValue(reader.result);
     }
+  }
+
+  transformarYsetearImagen(imagen: any){
+    const base64 = btoa(imagen);
+      this.form.get("image")?.setValue(base64);
   }
 
 }
