@@ -51,10 +51,20 @@ import { SlidesComponent } from "./backoffice/slides/slides.component";
 import { FormCreacionEdicionSlidesComponent } from "./backoffice/slides/components/form-creacion-edicion-slides/form-creacion-edicion-slides.component";
 import { ActivityContentComponent } from "./pages/activities/activity-content/activity-content.component";
 import { DashboardActivitiesComponent } from "./backoffice/activities/dashboard-activities/dashboard-activities.component";
+<<<<<<< HEAD
+import { DashboardMiembrosComponent } from "./backoffice/members/components/dashboard-miembros/dashboard-miembros.component";
+import { CategoriesComponent } from './backoffice/categories/pages/categories/categories.component';
+import { CategoriesCreateComponent } from './backoffice/categories/pages/categories-create/categories-create.component';
+import { TableComponent } from './backoffice/categories/pages/categories/components/table/table.component';
+import { CategoriesEditComponent } from './backoffice/categories/pages/categories-edit/categories-edit.component';
+
+=======
 import { CategoriesComponent } from "./backoffice/categories/pages/categories/categories.component";
 import { CategoriesCreateComponent } from "./backoffice/categories/pages/categories-create/categories-create.component";
 import { TableComponent } from "./backoffice/categories/pages/categories/components/table/table.component";
 import { CategoriesEditComponent } from "./backoffice/categories/pages/categories-edit/categories-edit.component";
+>>>>>>> 4bf1d33103a851bf8cd4b41908aa572a0db46f4d
+
 
 @NgModule({
   declarations: [
@@ -96,10 +106,17 @@ import { CategoriesEditComponent } from "./backoffice/categories/pages/categorie
     ActivityContentComponent,
     FormCreacionEdicionSlidesComponent,
     DashboardActivitiesComponent,
+    DashboardMiembrosComponent,
     CategoriesComponent,
     CategoriesCreateComponent,
     TableComponent,
     CategoriesEditComponent,
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 4bf1d33103a851bf8cd4b41908aa572a0db46f4d
   ],
   exports: [
     ActivityFormComponent,
