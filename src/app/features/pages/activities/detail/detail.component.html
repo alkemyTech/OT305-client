@@ -1,7 +1,7 @@
-<app-mostrar-titulos [title]="actividad.name" class="text-center"></app-mostrar-titulos>
+<app-progressbar *ngIf="mode" [mode]="mode"></app-progressbar>
+<app-mostrar-titulos [title]="actividad.name" [img]="actividad.image" class="text-center"></app-mostrar-titulos>
 <div class="container mt-5">
     <section class="my-5 text-center">
-        <img [src]="actividad.image" alt="" class="img-fluid imagen" />
         <div [innerHTML]="actividad.description" class="text-start py-3"></div>
     </section>
 </div>
