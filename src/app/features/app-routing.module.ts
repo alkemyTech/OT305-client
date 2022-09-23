@@ -23,6 +23,8 @@ import { ListActivitiesComponent } from "./pages/activities/list-activities/list
 import { SlidesComponent } from "./backoffice/slides/slides.component";
 import { DashboardActivitiesComponent } from "./backoffice/activities/dashboard-activities/dashboard-activities.component";
 import { componentFactoryName } from "@angular/compiler";
+import { DashboardMiembrosComponent } from "./backoffice/members/components/dashboard-miembros/dashboard-miembros.component";
+import { FormCrearEditarMiembrosComponent } from "./backoffice/members/components/form-crear-editar-miembros/form-crear-editar-miembros.component";
 
 
 import { CategoriesComponent } from "./backoffice/categories/pages/categories/categories.component";
@@ -30,6 +32,16 @@ import { CategoriesCreateComponent } from "./backoffice/categories/pages/categor
 import { CategoriesEditComponent } from "./backoffice/categories/pages/categories-edit/categories-edit.component";
 
 const routes: Routes = [
+  {
+
+    path: "backoffice/members",
+    component: DashboardMiembrosComponent
+  },
+
+  {
+    path: "backoffice/members/create",
+    component: FormCrearEditarMiembrosComponent
+  },
   {
     path: "backoffice/categories/edit",
     component: CategoriesEditComponent
@@ -41,20 +53,24 @@ const routes: Routes = [
   {
     path: "backoffice/categories",
     component: CategoriesComponent
+
   },
   {
     path: "backoffice/slides",
     component: SlidesComponent
   },
+
   {
-          path:"backoffice/activities/create",
-          component: ActivityFormComponent
+    path:"backoffice/activities/create",
+    component: ActivityFormComponent
   },
+
   {
 
     path:"backoffice",
     component: ScreenDashboardComponent
   },
+
   {
     path: "backoffice/organization/edit",
     component: FormularioActualizacionDatosComponent,
@@ -87,63 +103,78 @@ const routes: Routes = [
     path: "backoffice/home",
     component: HomeComponent,
   },
+
   {
     path: "contacto",
     component: ContactComponent,
   },
+
   {
     path: "nosotros",
     component: UsSectionComponent,
   },
+
   {
     path: "usuarios",
     component: UserFormComponent,
   },
+
   {
     path: "register",
     component: RegisterFormComponent,
   },
+
   { 
     path: "proyectos", 
     component: ProjectsComponent
   },
+
   {
     path: "proyectos",
     component: ProjectsComponent,
   },
+
   {
     path: "categorias",
     component: CategoriesFormComponent,
   },
+
   {
     path: "testimonios",
     component: TestimonialFormComponent,
   },
+
   {
     path: "actividades",
     component: ListActivitiesComponent,
   },
+
   {
     path: "actividades/:id",
     component: DetailComponent,
   },
+
   {
     path: "backoffice/organization",
     component: OrganizationComponent,
   },
+
   {
     path: "home",
     component: InicioComponent,
   },
+
   {
     path: "backoffice/search/actividades",
     component: SearchActivitiesComponent,
   },
+
   {
     path: "",
     redirectTo: "actividades",
     pathMatch: "full",
   },
+
   {
     path: "**",
     redirectTo: "actividades",
