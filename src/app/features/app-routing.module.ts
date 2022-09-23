@@ -1,5 +1,6 @@
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 import { Component, NgModule } from "@angular/core";
+import { componentFactoryName } from "@angular/compiler";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
@@ -24,19 +25,21 @@ const routes: Routes = [
     path: "novedades/:id",
     component: DetalleNovedadComponent,
   },
-
   {
     path: "contacto",
     component: ContactComponent,
   },
+
   {
     path: "nosotros",
     component: UsSectionComponent,
   },
+
   {
     path: "usuarios",
     component: UserFormComponent,
   },
+
   {
     path: "register",
     component: RegisterFormComponent,
@@ -45,37 +48,36 @@ const routes: Routes = [
     path: "proyectos",
     component: ProjectsComponent,
   },
-  {
-    path: "proyectos",
-    component: ProjectsComponent,
-  },
+
   {
     path: "categorias",
     component: CategoriesFormComponent,
   },
+
   {
     path: "testimonios",
     component: TestimonialFormComponent,
   },
+
   {
     path: "actividades",
     component: ListActivitiesComponent,
   },
+
   {
     path: "actividades/:id",
     component: DetailComponent,
   },
-
   {
     path: "home",
     component: InicioComponent,
   },
-
   {
     path: "",
     redirectTo: "actividades",
     pathMatch: "full",
   },
+
   {
     path: "**",
     redirectTo: "actividades",

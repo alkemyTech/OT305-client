@@ -30,6 +30,8 @@ import { SlidesComponent } from "./slides/slides.component";
 import { FormCreacionEdicionSlidesComponent } from "./slides/components/form-creacion-edicion-slides/form-creacion-edicion-slides.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { AppBackofficeComponent } from "./app-backoffice.component";
+import { ActivityContentComponent } from "../pages/activities/activity-content/activity-content.component";
+import { DashboardMiembrosComponent } from "./members/components/dashboard-miembros/dashboard-miembros.component";
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { AppBackofficeComponent } from "./app-backoffice.component";
     FormularioActualizacionDatosComponent,
     SlidesComponent,
     FormCreacionEdicionSlidesComponent,
+    ActivityContentComponent,
+    DashboardMiembrosComponent,
   ],
   exports: [
     CategoriesFormComponent,
