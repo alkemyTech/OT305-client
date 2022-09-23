@@ -50,11 +50,10 @@ import { SidebarComponent } from "./backoffice/components/sidebar/sidebar.compon
 import { SlidesComponent } from "./backoffice/slides/slides.component";
 import { FormCreacionEdicionSlidesComponent } from "./backoffice/slides/components/form-creacion-edicion-slides/form-creacion-edicion-slides.component";
 import { DashboardActivitiesComponent } from "./backoffice/activities/dashboard-activities/dashboard-activities.component";
-import { CategoriesComponent } from './backoffice/categories/pages/categories/categories.component';
-import { CategoriesCreateComponent } from './backoffice/categories/pages/categories-create/categories-create.component';
-import { TableComponent } from './backoffice/categories/pages/categories/components/table/table.component';
-import { CategoriesEditComponent } from './backoffice/categories/pages/categories-edit/categories-edit.component';
-
+import { CategoriesComponent } from "./backoffice/categories/pages/categories/categories.component";
+import { CategoriesCreateComponent } from "./backoffice/categories/pages/categories-create/categories-create.component";
+import { TableComponent } from "./backoffice/categories/pages/categories/components/table/table.component";
+import { CategoriesEditComponent } from "./backoffice/categories/pages/categories-edit/categories-edit.component";
 
 @NgModule({
   declarations: [
@@ -99,8 +98,6 @@ import { CategoriesEditComponent } from './backoffice/categories/pages/categorie
     CategoriesCreateComponent,
     TableComponent,
     CategoriesEditComponent,
-
-
   ],
   exports: [
     ActivityFormComponent,
