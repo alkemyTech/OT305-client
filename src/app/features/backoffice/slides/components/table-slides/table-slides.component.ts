@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Categoria } from 'src/app/core/models/categoria.models';
 
 @Component({
   selector: 'app-table-slides',

@@ -12,6 +12,10 @@
         Slides
     </h1>
 
-    <app-table-slides></app-table-slides>
+    <app-table-slides
+    [slides]="slidesObtenidosDeApi"
+    (slideParaEliminar)="eliminarSlide($event)"
+    >
+    </app-table-slides>
 
 </section>
