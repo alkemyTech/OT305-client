@@ -29,9 +29,11 @@ import { FormularioActualizacionDatosComponent } from "./Organizacion/formulario
 import { SlidesComponent } from "./slides/slides.component";
 import { FormCreacionEdicionSlidesComponent } from "./slides/components/form-creacion-edicion-slides/form-creacion-edicion-slides.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
+import { AppBackofficeComponent } from "./app-backoffice.component";
 
 @NgModule({
   declarations: [
+    AppBackofficeComponent,
     DashboardActivitiesComponent,
     SearchActivitiesComponent,
     CategoriesFormComponent,

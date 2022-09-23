@@ -41,7 +41,7 @@ const routes: Routes = [
         component: ActivityFormComponent,
       },
       {
-        path: "backoffice",
+        path: "dashboard",
         component: ScreenDashboardComponent,
       },
       {
