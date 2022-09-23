@@ -50,6 +50,7 @@ import { SlidesComponent } from "./backoffice/slides/pages/slides/slides.compone
 import { FormCreacionEdicionSlidesComponent } from "./backoffice/slides/components/form-creacion-edicion-slides/form-creacion-edicion-slides.component";
 import { SlidesCreateComponent } from './backoffice/slides/pages/slides-create/slides-create.component';
 import { SlidesEditComponent } from './backoffice/slides/pages/slides-edit/slides-edit.component';
+import { TableSlidesComponent } from './backoffice/slides/components/table-slides/table-slides.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { SlidesEditComponent } from './backoffice/slides/pages/slides-edit/slide
     SlidesComponent,
     SlidesCreateComponent,
     SlidesEditComponent,
+    TableSlidesComponent,
   ],
   exports: [
     ActivityFormComponent,
