@@ -21,12 +21,19 @@ import { EditComponent } from "./backoffice/members/pages/edit/edit.component";
 import { FormularioActualizacionDatosComponent } from "./backoffice/Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
 import { ListActivitiesComponent } from "./pages/activities/list-activities/list-activities.component";
 import { SlidesComponent } from "./backoffice/slides/slides.component";
+import { DashboardActivitiesComponent } from "./backoffice/activities/dashboard-activities/dashboard-activities.component";
+import { componentFactoryName } from "@angular/compiler";
+
 
 
 const routes: Routes = [
   {
     path: "backoffice/slides",
     component: SlidesComponent
+  },
+  {
+          path:"backoffice/activities/create",
+          component: ActivityFormComponent
   },
   {
 
@@ -37,6 +44,16 @@ const routes: Routes = [
     path: "backoffice/organization/edit",
     component: FormularioActualizacionDatosComponent,
   },
+
+  {
+    path: "backoffice/activities",
+    component: DashboardActivitiesComponent,
+  },
+
+  {
+    path: "backoffice/news",
+    component: NewsFormComponent
+  }, 
 
   {
     path: "backoffice/news",
@@ -69,7 +86,7 @@ const routes: Routes = [
   },
   {
     path: "register",
-    component: RegisterFormComponent
+    component: RegisterFormComponent,
   },
   { 
     path: "proyectos", 
