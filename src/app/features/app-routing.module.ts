@@ -27,9 +27,13 @@ import { DashboardMiembrosComponent } from "./backoffice/members/components/dash
 import { FormCrearEditarMiembrosComponent } from "./backoffice/members/components/form-crear-editar-miembros/form-crear-editar-miembros.component";
 
 
+import { CategoriesComponent } from "./backoffice/categories/pages/categories/categories.component";
+import { CategoriesCreateComponent } from "./backoffice/categories/pages/categories-create/categories-create.component";
+import { CategoriesEditComponent } from "./backoffice/categories/pages/categories-edit/categories-edit.component";
 
 const routes: Routes = [
   {
+
     path: "backoffice/members",
     component: DashboardMiembrosComponent
   },
@@ -37,6 +41,19 @@ const routes: Routes = [
   {
     path: "backoffice/members/create",
     component: FormCrearEditarMiembrosComponent
+  },
+  {
+    path: "backoffice/categories/edit",
+    component: CategoriesEditComponent
+  },
+  {
+    path: "backoffice/categories/create",
+    component: CategoriesCreateComponent
+  },
+  {
+    path: "backoffice/categories",
+    component: CategoriesComponent
+
   },
   {
     path: "backoffice/slides",
