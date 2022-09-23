@@ -25,8 +25,23 @@ import { DashboardActivitiesComponent } from "./backoffice/activities/dashboard-
 import { componentFactoryName } from "@angular/compiler";
 
 
+import { CategoriesComponent } from "./backoffice/categories/pages/categories/categories.component";
+import { CategoriesCreateComponent } from "./backoffice/categories/pages/categories-create/categories-create.component";
+import { CategoriesEditComponent } from "./backoffice/categories/pages/categories-edit/categories-edit.component";
 
 const routes: Routes = [
+  {
+    path: "backoffice/categories/edit",
+    component: CategoriesEditComponent
+  },
+  {
+    path: "backoffice/categories/create",
+    component: CategoriesCreateComponent
+  },
+  {
+    path: "backoffice/categories",
+    component: CategoriesComponent
+  },
   {
     path: "backoffice/slides",
     component: SlidesComponent
