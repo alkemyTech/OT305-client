@@ -14,7 +14,7 @@ import { selectActividadList, selectLoading } from 'src/app/core/ngrx/selectors/
 })
 export class ListActivitiesComponent implements OnInit {
   private desub$ = new Subject<void>();
-  actividades: Array<Actividad> = []
+  actividades: Array<any> = []
   mode: boolean = true;
 
   constructor(private store: Store<AppStore>) { }
