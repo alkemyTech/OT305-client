@@ -11,7 +11,7 @@ import { selectActividadList } from 'src/app/core/ngrx/selectors/actividad.selec
   styleUrls: ['./list-activities.component.scss']
 })
 export class ListActivitiesComponent implements OnInit {
-  actividades: Array<Actividad> = []
+  actividades: Array<any> = []
 
   constructor(private store: Store<AppStore>) { }
 

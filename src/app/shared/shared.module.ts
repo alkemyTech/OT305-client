@@ -8,10 +8,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { AlertasComponent } from './components/alertas/alertas.component';
 import { ResponseComponent } from './components/alertas/response.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
-  declarations: [SpinnerComponent, ProgressbarComponent, AlertasComponent, ResponseComponent],
+  declarations: [SpinnerComponent, ProgressbarComponent, AlertasComponent, ResponseComponent, CardComponent],
   imports: [CommonModule, MatProgressSpinnerModule,MatProgressBarModule, MatDialogModule, MatButtonModule],
-  exports: [ProgressbarComponent, AlertasComponent]
+  exports: [ProgressbarComponent, AlertasComponent, CardComponent]
 })
 export class SharedModule {}
