@@ -13,6 +13,7 @@ export class CardComponent implements OnInit {
   constructor() { 
     this.title = '';
     this.img = '../../../../assets/placeholder-image.png';
+    this.description = '';
   }
 
   ngOnInit(): void {
