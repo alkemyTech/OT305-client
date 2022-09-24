@@ -8,6 +8,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatButtonModule } from "@angular/material/button";
 import { AlertasComponent } from "./components/alertas/alertas.component";
 import { ResponseComponent } from "./components/alertas/response.component";
+import { CardComponent } from "./components/card/card.component";
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ResponseComponent } from "./components/alertas/response.component";
     ProgressbarComponent,
     AlertasComponent,
     ResponseComponent,
+    CardComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +25,11 @@ import { ResponseComponent } from "./components/alertas/response.component";
     MatDialogModule,
     MatButtonModule,
   ],
-  exports: [ProgressbarComponent, AlertasComponent, SpinnerComponent],
+  exports: [
+    ProgressbarComponent,
+    AlertasComponent,
+    SpinnerComponent,
+    CardComponent,
+  ],
 })
 export class SharedModule {}

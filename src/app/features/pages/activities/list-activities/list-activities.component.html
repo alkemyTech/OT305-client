@@ -1,19 +1,13 @@
 <app-progressbar *ngIf="mode" [mode]="mode"></app-progressbar>
 <app-mostrar-titulos [title]="'Actividades'"></app-mostrar-titulos>
-<div class="container">
+<div class="container" style="padding-bottom: 20px;">
     <div class="row">
-        <div class="col-lg-3 col-md-4 mt-5" *ngFor="let actividad of actividades">
-            <!-- Aqui iria el componente reutilizable de Cards -->
-            <!-- <app-card [actividad]='actividad'></app-card> -->
-
-            <!-- Esta card se eliminará -->
-            <div class="card">
-                <img [src]="actividad.image" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{actividad.name}}</h5>
-                    <p class="card-text" [innerHTML]="actividad.description"></p>
-                </div>
-            </div>
+        <div class="col-lg-4 col-md-4 mt-5" *ngFor="let actividad of actividades">
+            <app-card [routerLink]="actividad.id" 
+                [img]='actividad.image' 
+                [title]="actividad.name" 
+                [description]="actividad.description"
+            ></app-card>
         </div>
     </div>
 </div>
