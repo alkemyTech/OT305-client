@@ -1,8 +1,9 @@
+<app-progressbar *ngIf="loanding" [mode]="loanding"></app-progressbar>
 <div class="container">
   <div class="row text-center my-4">
     <h1>{{accion}} Actividad</h1>
   </div>
-  <form [formGroup]="form" (ngSubmit)="crearActividad()" class="row">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="row">
     <div class="col-lg-8 col-md-7">
       <div class="input-group mb-3">
         <input (change)="onFileSelect($event.target)" type="file" class="form-control" id="imagen"
