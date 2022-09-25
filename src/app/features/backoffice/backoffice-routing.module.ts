@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { ActivityFormComponent } from "../pages/activities/activity-form/activity-form.component";
+import { DashboardNovedadesComponent } from "../pages/news/dashboard-novedades/dashboard-novedades.component";
 import { NewsFormComponent } from "../pages/news/news-form/news-form.component";
 import { OrganizationComponent } from "../pages/organization/organization.component";
 import { DashboardActivitiesComponent } from "./activities/dashboard-activities/dashboard-activities.component";
@@ -25,6 +26,14 @@ const routes: Routes = [
       {
         path: "categories/edit",
         component: CategoriesEditComponent,
+      },
+      {
+        path: "dashboard/news",
+        component: DashboardNovedadesComponent
+      },
+      {
+      path: "dashboard/news/create",
+      component: NewsFormComponent,
       },
       {
         path: "categories/create",
@@ -63,11 +72,11 @@ const routes: Routes = [
         component: EditComponent,
       },
       {
-        path: "backoffice/members/create",
+        path: "dashboard/members/create",
         component: FormCrearEditarMiembrosComponent,
       },
       {
-        path: "backoffice/members",
+        path: "dashboard/members",
         component: DashboardMiembrosComponent,
       },
       {
