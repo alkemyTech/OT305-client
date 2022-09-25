@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<section class="container my-5 py-5 col-12">
+
+    <button
+    class="align-self-start btn btn-primary btn-lg"
+    routerLink="/backoffice/categories/create">
+        Crear nueva
+    </button>
+
+    <h1 class="fw-bold text-center my-5">
+        Categorías
+    </h1>
+
+    <app-progressbar
+    *ngIf="cargando"
+    [mode]="cargando">
+    </app-progressbar>
+
+    <app-table
+    [categorias]="categoriasEnLaApi"
+    (categoriaParaEliminar)="eliminarCategoria($event)"
+    >
+    </app-table>
+    <!--(categoriaParaEditar)=""-->
+</section>
