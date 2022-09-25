@@ -47,4 +47,8 @@ export class PrivateApiService {
     return this.http.delete<any>(`${this.baseUrl}/${ruta}/${id}`, options)
   }
 
+  simplePostRequest(ruta: string, body: any): Observable<any>{
+    return this.http.post(`${this.baseUrl}/${ruta}`, body);
+  }
+
 }
