@@ -15,7 +15,10 @@ import { DashboardMiembrosComponent } from "./members/components/dashboard-miemb
 import { FormCrearEditarMiembrosComponent } from "./members/components/form-crear-editar-miembros/form-crear-editar-miembros.component";
 import { EditComponent } from "./members/pages/edit/edit.component";
 import { FormularioActualizacionDatosComponent } from "./Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
-import { SlidesComponent } from "./slides/slides.component";
+import { SlidesCreateComponent } from "./slides/pages/slides-create/slides-create.component";
+import { SlidesEditComponent } from "./slides/pages/slides-edit/slides-edit.component";
+import { SlidesComponent } from "./slides/pages/slides/slides.component";
+
 
 const routes: Routes = [
   {
@@ -33,6 +36,14 @@ const routes: Routes = [
       {
         path: "categories",
         component: CategoriesComponent,
+      },
+      {
+        path: "slides/edit",
+        component: SlidesEditComponent
+      },
+      {
+        path: "slides/create",
+        component: SlidesCreateComponent
       },
       {
         path: "slides",
