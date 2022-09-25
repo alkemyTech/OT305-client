@@ -25,12 +25,14 @@ import { FormEditarHomeComponent } from "./home/components/form-editar-home/form
 import { FormCrearEditarMiembrosComponent } from "./members/components/form-crear-editar-miembros/form-crear-editar-miembros.component";
 import { EditComponent } from "./members/pages/edit/edit.component";
 import { FormularioActualizacionDatosComponent } from "./Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
-import { SlidesComponent } from "./slides/slides.component";
 import { FormCreacionEdicionSlidesComponent } from "./slides/components/form-creacion-edicion-slides/form-creacion-edicion-slides.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { AppBackofficeComponent } from "./app-backoffice.component";
-import { ActivityContentComponent } from "../pages/activities/activity-content/activity-content.component";
 import { DashboardMiembrosComponent } from "./members/components/dashboard-miembros/dashboard-miembros.component";
+import { SlidesCreateComponent } from "./slides/pages/slides-create/slides-create.component";
+import { SlidesEditComponent } from "./slides/pages/slides-edit/slides-edit.component";
+import { SlidesComponent } from "./slides/pages/slides/slides.component";
+import { TableSlidesComponent } from "./slides/components/table-slides/table-slides.component";
 
 @NgModule({
   declarations: [
@@ -52,8 +54,10 @@ import { DashboardMiembrosComponent } from "./members/components/dashboard-miemb
     FormularioActualizacionDatosComponent,
     SlidesComponent,
     FormCreacionEdicionSlidesComponent,
-    ActivityContentComponent,
     DashboardMiembrosComponent,
+    SlidesEditComponent,
+    SlidesCreateComponent,
+    TableSlidesComponent
   ],
   exports: [
     CategoriesFormComponent,
