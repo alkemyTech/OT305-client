@@ -1,5 +1,6 @@
-import { Component, OnInit, OnDestroy, Input} from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { HttpService } from 'src/app/core/services/http.service';
 import { SlidesService } from 'src/app/core/services/slides/slides.service';
 
@@ -14,7 +15,11 @@ export class FormCreacionEdicionSlidesComponent implements OnInit, OnDestroy{
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private httpService: HttpService, private slideService: SlidesService) {
+  constructor(
+    private fb: FormBuilder,
+    private httpService: HttpService,
+    private slideService: SlidesService,
+    private router: Router) {
 
     this.form = this.fb.group({
       name: ["", [Validators.required, Validators.minLength(4)]],
@@ -35,30 +40,26 @@ export class FormCreacionEdicionSlidesComponent implements OnInit, OnDestroy{
 
   obtenerSlide(){
     this.slide = this.slideService.getSlideParaEditar();
-    console.log(this.slide);
   }
 
   verificarSiHaySlide(){
-    console.log("entra a veri")
     if( this.slide !== null ){
-      console.log("llega hassta verificar")
       this.setValuesInForm();
-      console.log(this.form.value)
     }
 
   }
 
   setValuesInForm(){
-    console.log("llega a setear value in form")
     const name = this.slide.name;
     const description = this.slide.description;
     const order = this.slide.order;
     const image = this.slide.image;
+    const base64 = btoa(image);
 
     this.form.get("name")?.setValue(name);
     this.form.get("description")?.setValue(description);
     this.form.get("order")?.setValue(order);
-    this.transformarYsetearImagen(image);
+    this.form.get("image")?.setValue(base64);
   }
 
   submitForm(){
@@ -86,7 +87,8 @@ export class FormCreacionEdicionSlidesComponent implements OnInit, OnDestroy{
       },
       false
     ).subscribe(res => {
-      return console.log("¡Slide creado con éxito!");
+      console.log("¡Slide creado con éxito!")
+      return this.router.navigate(["/backoffice/slides"]);
     },
     error => {
       return console.log("Ha ocurrido un error durante la operación, vuelva a intentarlo")
@@ -107,7 +109,8 @@ export class FormCreacionEdicionSlidesComponent implements OnInit, OnDestroy{
       false
     ).subscribe(res =>{
       console.log(res);
-      return console.log("¡Slide editado con éxito!");
+      console.log("¡Slide editado con éxito!");
+      return this.router.navigate(["/backoffice/slides"]);
     },
     error => {
       return console.log("Ha ocurrido un error durante la operación, vuelva a intentarlo")
@@ -122,10 +125,4 @@ export class FormCreacionEdicionSlidesComponent implements OnInit, OnDestroy{
       this.form.get("image")?.setValue(reader.result);
     }
   }
-
-  transformarYsetearImagen(imagen: any){
-    const base64 = btoa(imagen);
-      this.form.get("image")?.setValue(base64);
-  }
-
 }
