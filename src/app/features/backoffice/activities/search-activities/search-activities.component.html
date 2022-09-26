@@ -13,18 +13,8 @@
     </div>
     <div class="row mt-4" *ngIf="resultados.length !== 0">
         <h3>Resultados</h3>
-        <div class="col-md-3 p-3" *ngFor="let actividad of resultados">
-            <!-- Aqui iria el componente reutilizable de Actividades -->
-            <!-- <app-activities [actividad]='actividad'></app-activities> -->
-
-            <!-- Esta card se eliminará -->
-            <div class="card">
-                <img [src]="actividad.image" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{actividad.name}}</h5>
-                    <p class="card-text" [innerHTML]="actividad.description"></p>
-                </div>
-            </div>
+        <div class="col-md-4 p-3" *ngFor="let actividad of resultados">
+            <app-card [title]="actividad.name" [img]="actividad.image" [description]="actividad.description"></app-card>
         </div>
     </div>
 
