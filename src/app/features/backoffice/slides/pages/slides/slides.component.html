@@ -1,0 +1,21 @@
+<app-header></app-header>
+
+<section class="container py-5 my-5">
+
+    <button
+    class="btn btn-primary btn-lg"
+    routerLink="/backoffice/slides/create">
+        Crear slide
+    </button>
+
+    <h1 class="fw-bold text-center my-5">
+        Slides
+    </h1>
+
+    <app-table-slides
+    [slides]="slidesObtenidosDeApi"
+    (slideParaEliminar)="eliminarSlide($event)"
+    >
+    </app-table-slides>
+
+</section>
