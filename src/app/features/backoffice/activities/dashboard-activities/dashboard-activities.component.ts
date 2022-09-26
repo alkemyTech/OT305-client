@@ -19,16 +19,9 @@ export class DashboardActivitiesComponent   {
 
    getActividad(){
     this.actividad = {
-      id: 0,
       name: "Name",
-      slug: "Slug",
-      description: "Descripcion",
       image: "Image",
-      user_id: 0,
-      category_id: 0,
       created_at: "Create_At",
-      updated_at: "Update_At",
-      deleted_at: "Delete_At"
     }
   }
 }

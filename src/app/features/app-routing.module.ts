@@ -15,6 +15,7 @@ import { ProjectsComponent } from "./pages/projects/projects.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
 import { ListActivitiesComponent } from "./pages/activities/list-activities/list-activities.component";
 import { ErrorComponent } from "./pages/error/error.component";
+import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 
 const routes: Routes = [
   {
@@ -74,6 +75,10 @@ const routes: Routes = [
     component: InicioComponent,
   },
   {
+    path: "newsForm",
+    component: NewsFormComponent,
+  },
+  {
     path: "",
     redirectTo: "actividades",
     pathMatch: "full",
@@ -81,7 +86,7 @@ const routes: Routes = [
 
   {
     path: "**",
-    component: ErrorComponent
+    component: ErrorComponent,
   },
 ];
 

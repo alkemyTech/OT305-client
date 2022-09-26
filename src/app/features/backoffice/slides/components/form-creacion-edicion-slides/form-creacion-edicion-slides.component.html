@@ -1,6 +1,7 @@
 <form
 class="mt-5 mx-auto col-12 col-md-9 mx-lg-0 col-lg-7"
-[formGroup]="form">
+[formGroup]="form"
+(ngSubmit)="submitForm()">
 
     <div class="d-flex flex-column gap-2 mb-3">
         <label
@@ -57,14 +58,14 @@ class="mt-5 mx-auto col-12 col-md-9 mx-lg-0 col-lg-7"
     <div class="d-flex flex-column align-items-start gap-2 mt-3">
         <button
         class="btn btn-primary btn-lg fw-bold rounded shadow"
-        (click)="submitForm()"
+        type="submit"
         [disabled]="form.invalid">
             Actualizar slide
         </button>
 
-        <!--SUSTITUIR POR LA RUTA CORRESPONDIENTE CUANDO ESTÉ LISTA-->
         <button
-        routerLink="/backoffice/home"
+        routerLink="/backoffice/slides"
+        type="button"
         class="btn btn-light btn-lg border-dark fw-bold rounded shadow">
             Volver
         </button>
