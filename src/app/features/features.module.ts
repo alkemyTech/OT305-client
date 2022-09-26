@@ -39,6 +39,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ListActivitiesComponent } from "./pages/activities/list-activities/list-activities.component";
 import { ErrorComponent } from "./pages/error/error.component";
 import { ActivityContentComponent } from "./pages/activities/activity-content/activity-content.component";
+import { ListNewsComponent } from "./pages/news/list-news/list-news.component";
+
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { ActivityContentComponent } from "./pages/activities/activity-content/ac
     ListActivitiesComponent,
     ErrorComponent,
     ActivityContentComponent,
+    ListNewsComponent
+
   ],
   exports: [
     ActivityFormComponent,
