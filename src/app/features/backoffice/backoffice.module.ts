@@ -10,7 +10,6 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { RouterModule } from "@angular/router";
 import { CKEditorModule } from "ckeditor4-angular";
 import { SharedModule } from "src/app/shared/shared.module";
-
 import { BackofficeRoutingModule } from "./backoffice-routing.module";
 import { DashboardActivitiesComponent } from "./activities/dashboard-activities/dashboard-activities.component";
 import { SearchActivitiesComponent } from "./activities/search-activities/search-activities.component";
