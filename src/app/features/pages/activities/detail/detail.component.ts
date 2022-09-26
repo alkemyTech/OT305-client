@@ -13,7 +13,7 @@ import { AlertasComponent } from "src/app/shared/components/alertas/alertas.comp
 })
 export class DetailComponent implements OnDestroy {
   private desub$ = new Subject<void>();
-  actividad: any;
+  actividad: any = { name: '', image: '', description: '' };
   mode: boolean = true;
   id: number;
 

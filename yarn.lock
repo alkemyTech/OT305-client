@@ -3086,9 +3086,9 @@
   "resolved" "https://registry.npmjs.org/esbuild-wasm/-/esbuild-wasm-0.13.8.tgz"
   "version" "0.13.8"
 
-"esbuild-windows-64@0.13.8":
-  "integrity" "sha512-76Fb57B9eE/JmJi1QmUW0tRLQZfGo0it+JeYoCDTSlbTn7LV44ecOHIMJSSgZADUtRMWT9z0Kz186bnaB3amSg=="
-  "resolved" "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.13.8.tgz"
+"esbuild-windows-32@0.13.8":
+  "integrity" "sha512-QsZ1HnWIcnIEApETZWw8HlOhDSWqdZX2SylU7IzGxOYyVcX7QI06ety/aDcn437mwyO7Ph4RrbhB+2ntM8kX8A=="
+  "resolved" "https://registry.npmjs.org/esbuild-windows-32/-/esbuild-windows-32-0.13.8.tgz"
   "version" "0.13.8"
 
 "esbuild@0.13.8":
@@ -4941,6 +4941,11 @@
   "integrity" "sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw=="
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
+
+"ngx-pagination@^5.0.0":
+  "integrity" "sha512-Ur0pTWRe2ZXoJ8impEzo0IZKxY5aEcQfSmL5uBqW1rHI2J6nfzgZAHsSLagKHFGchXq0PkRlDVVMcIaNxYJwvQ=="
+  "resolved" "https://registry.npmjs.org/ngx-pagination/-/ngx-pagination-5.0.0.tgz"
+  "version" "5.0.0"
 
 "nice-try@^1.0.4":
   "integrity" "sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ=="

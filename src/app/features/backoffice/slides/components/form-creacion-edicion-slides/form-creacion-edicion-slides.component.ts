@@ -1,19 +1,25 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { HttpService } from 'src/app/core/services/http.service';
+import { SlidesService } from 'src/app/core/services/slides/slides.service';
 
 @Component({
   selector: 'app-form-creacion-edicion-slides',
   templateUrl: './form-creacion-edicion-slides.component.html',
   styleUrls: ['./form-creacion-edicion-slides.component.scss']
 })
-export class FormCreacionEdicionSlidesComponent implements OnInit {
+export class FormCreacionEdicionSlidesComponent implements OnInit, OnDestroy{
 
   @Input() slide: any = null;
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private httpService: HttpService) {
+  constructor(
+    private fb: FormBuilder,
+    private httpService: HttpService,
+    private slideService: SlidesService,
+    private router: Router) {
 
     this.form = this.fb.group({
       name: ["", [Validators.required, Validators.minLength(4)]],
@@ -21,13 +27,22 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
       order: ["", [Validators.required]],
       image: ["", [Validators.required]]
     })
+    this.obtenerSlide();
     this.verificarSiHaySlide();
   }
   
   ngOnInit(): void { }
 
+  ngOnDestroy(): void {
+    this.slide = null;
+    this.slideService.setSlideParaEditar(null);
+  }
+
+  obtenerSlide(){
+    this.slide = this.slideService.getSlideParaEditar();
+  }
+
   verificarSiHaySlide(){
-    
     if( this.slide !== null ){
       this.setValuesInForm();
     }
@@ -39,11 +54,12 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
     const description = this.slide.description;
     const order = this.slide.order;
     const image = this.slide.image;
+    const base64 = btoa(image);
 
     this.form.get("name")?.setValue(name);
     this.form.get("description")?.setValue(description);
     this.form.get("order")?.setValue(order);
-    this.form.get("image")?.setValue(image);
+    this.form.get("image")?.setValue(base64);
   }
 
   submitForm(){
@@ -71,7 +87,8 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
       },
       false
     ).subscribe(res => {
-      return console.log("¡Slide creado con éxito!");
+      console.log("¡Slide creado con éxito!")
+      return this.router.navigate(["/backoffice/slides"]);
     },
     error => {
       return console.log("Ha ocurrido un error durante la operación, vuelva a intentarlo")
@@ -82,6 +99,7 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
     this.httpService.patch(
       `https://ongapi.alkemy.org/api/slides/${this.slide.id}`,
       {
+        id: this.slide.id,
         name: this.form.value.name,
         description: this.form.value.description,
         image: this.form.value.image,
@@ -90,7 +108,9 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
       },
       false
     ).subscribe(res =>{
-      return console.log("¡Slide editado con éxito!");
+      console.log(res);
+      console.log("¡Slide editado con éxito!");
+      return this.router.navigate(["/backoffice/slides"]);
     },
     error => {
       return console.log("Ha ocurrido un error durante la operación, vuelva a intentarlo")
@@ -105,5 +125,4 @@ export class FormCreacionEdicionSlidesComponent implements OnInit {
       this.form.get("image")?.setValue(reader.result);
     }
   }
-
 }
