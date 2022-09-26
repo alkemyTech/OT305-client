@@ -10,6 +10,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { RouterModule } from "@angular/router";
 import { CKEditorModule } from "ckeditor4-angular";
 import { SharedModule } from "src/app/shared/shared.module";
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { BackofficeRoutingModule } from "./backoffice-routing.module";
 import { DashboardActivitiesComponent } from "./activities/dashboard-activities/dashboard-activities.component";
@@ -84,6 +85,8 @@ import { TableUsersComponent } from './users/pages/users/components/table-users/
     MatButtonModule,
     MatDialogModule,
     SharedModule,
+    NgxPaginationModule
+
   ],
 })
 export class BackofficeModule {}

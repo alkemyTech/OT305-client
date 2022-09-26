@@ -1,4 +1,4 @@
-<div class="table-responsive container">
+<div class="table-responsive container mb-2">
     <table class="table table-hover">
 
         <thead>
@@ -9,7 +9,7 @@
           </thead>
     
           <tbody>
-            <tr *ngFor="let usuario of usuarios">
+            <tr *ngFor="let usuario of usuarios | paginate: { itemsPerPage: 10, currentPage: page }">
               <td>{{ usuario.name }}</td>
               <td>{{ usuario.email }}</td>
               <td class="d-flex justify-content-center gap-2">
@@ -30,3 +30,8 @@
     
     </table>
 </div>
+<pagination-controls
+(pageChange)="page = $event"
+previousLabel="Anterior"
+nextLabel="Siguiente"
+class="text-center"></pagination-controls>

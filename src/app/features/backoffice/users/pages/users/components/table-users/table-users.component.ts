@@ -13,6 +13,8 @@ export class TableUsersComponent implements OnInit {
 
   @Output() usuarioParaEliminar: EventEmitter<any> = new EventEmitter();
   
+  page!: number;
+
   constructor() { }
 
   ngOnInit(): void {
