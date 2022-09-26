@@ -10,7 +10,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { RouterModule } from "@angular/router";
 import { CKEditorModule } from "ckeditor4-angular";
 import { SharedModule } from "src/app/shared/shared.module";
-
+import { NgxPaginationModule } from 'ngx-pagination';
 import { BackofficeRoutingModule } from "./backoffice-routing.module";
 import { DashboardActivitiesComponent } from "./activities/dashboard-activities/dashboard-activities.component";
 import { SearchActivitiesComponent } from "./activities/search-activities/search-activities.component";
@@ -34,6 +34,10 @@ import { SlidesCreateComponent } from "./slides/pages/slides-create/slides-creat
 import { SlidesEditComponent } from "./slides/pages/slides-edit/slides-edit.component";
 import { SlidesComponent } from "./slides/pages/slides/slides.component";
 import { TableSlidesComponent } from "./slides/components/table-slides/table-slides.component";
+import { UsersComponent } from './users/pages/users/users.component';
+import { UsersCreateComponent } from './users/pages/users-create/users-create.component';
+import { UsersEditComponent } from './users/pages/users-edit/users-edit.component';
+import { TableUsersComponent } from './users/pages/users/components/table-users/table-users.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +62,11 @@ import { TableSlidesComponent } from "./slides/components/table-slides/table-sli
     DashboardMiembrosComponent,
     SlidesEditComponent,
     SlidesCreateComponent,
-    TableSlidesComponent
+    TableSlidesComponent,
+    UsersComponent,
+    UsersCreateComponent,
+    UsersEditComponent,
+    TableUsersComponent,
   ],
   exports: [
     CategoriesFormComponent,
@@ -82,6 +90,8 @@ import { TableSlidesComponent } from "./slides/components/table-slides/table-sli
     MatButtonModule,
     MatDialogModule,
     SharedModule,
+    NgxPaginationModule
+
   ],
 })
 export class BackofficeModule {}

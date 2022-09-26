@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { ActivityFormComponent } from "../pages/activities/activity-form/activity-form.component";
+import { DashboardNovedadesComponent } from "../pages/news/dashboard-novedades/dashboard-novedades.component";
 import { NewsFormComponent } from "../pages/news/news-form/news-form.component";
 import { OrganizationComponent } from "../pages/organization/organization.component";
 import { DashboardActivitiesComponent } from "./activities/dashboard-activities/dashboard-activities.component";
@@ -18,7 +19,9 @@ import { FormularioActualizacionDatosComponent } from "./Organizacion/formulario
 import { SlidesCreateComponent } from "./slides/pages/slides-create/slides-create.component";
 import { SlidesEditComponent } from "./slides/pages/slides-edit/slides-edit.component";
 import { SlidesComponent } from "./slides/pages/slides/slides.component";
-
+import { UsersCreateComponent } from "./users/pages/users-create/users-create.component";
+import { UsersEditComponent } from "./users/pages/users-edit/users-edit.component";
+import { UsersComponent } from "./users/pages/users/users.component";
 
 const routes: Routes = [
   {
@@ -26,8 +29,28 @@ const routes: Routes = [
     component: AppBackofficeComponent,
     children: [
       {
+        path: "users/edit",
+        component: UsersEditComponent,
+      },
+      {
+        path: "users/create",
+        component: UsersCreateComponent,
+      },
+      {
+        path: "users",
+        component: UsersComponent,
+      },
+      {
         path: "categories/edit",
         component: CategoriesEditComponent,
+      },
+      {
+        path: "dashboard/news",
+        component: DashboardNovedadesComponent
+      },
+      {
+      path: "dashboard/news/create",
+      component: NewsFormComponent,
       },
       {
         path: "categories/create",
@@ -74,11 +97,11 @@ const routes: Routes = [
         component: EditComponent,
       },
       {
-        path: "backoffice/members/create",
+        path: "dashboard/members/create",
         component: FormCrearEditarMiembrosComponent,
       },
       {
-        path: "backoffice/members",
+        path: "dashboard/members",
         component: DashboardMiembrosComponent,
       },
       {
