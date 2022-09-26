@@ -19,13 +19,27 @@ import { FormularioActualizacionDatosComponent } from "./Organizacion/formulario
 import { SlidesCreateComponent } from "./slides/pages/slides-create/slides-create.component";
 import { SlidesEditComponent } from "./slides/pages/slides-edit/slides-edit.component";
 import { SlidesComponent } from "./slides/pages/slides/slides.component";
-
+import { UsersCreateComponent } from "./users/pages/users-create/users-create.component";
+import { UsersEditComponent } from "./users/pages/users-edit/users-edit.component";
+import { UsersComponent } from "./users/pages/users/users.component";
 
 const routes: Routes = [
   {
     path: "",
     component: AppBackofficeComponent,
     children: [
+      {
+        path: "users/edit",
+        component: UsersEditComponent,
+      },
+      {
+        path: "users/create",
+        component: UsersCreateComponent,
+      },
+      {
+        path: "users",
+        component: UsersComponent,
+      },
       {
         path: "categories/edit",
         component: CategoriesEditComponent,
