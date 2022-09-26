@@ -37,8 +37,10 @@ import { ProjectsComponent } from "./pages/projects/projects.component";
 import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/detalle-novedad.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ListActivitiesComponent } from "./pages/activities/list-activities/list-activities.component";
+import { DashboardNovedadesComponent } from "./pages/news/dashboard-novedades/dashboard-novedades.component";
 import { ErrorComponent } from "./pages/error/error.component";
 import { ActivityContentComponent } from "./pages/activities/activity-content/activity-content.component";
+
 
 @NgModule({
   declarations: [
@@ -64,8 +66,10 @@ import { ActivityContentComponent } from "./pages/activities/activity-content/ac
     ProjectsComponent,
     ProjectsComponent,
     ListActivitiesComponent,
+    DashboardNovedadesComponent,
     ErrorComponent,
     ActivityContentComponent,
+
   ],
   exports: [
     ActivityFormComponent,
