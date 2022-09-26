@@ -40,6 +40,8 @@ import { ListActivitiesComponent } from "./pages/activities/list-activities/list
 import { DashboardNovedadesComponent } from "./pages/news/dashboard-novedades/dashboard-novedades.component";
 import { ErrorComponent } from "./pages/error/error.component";
 import { ActivityContentComponent } from "./pages/activities/activity-content/activity-content.component";
+import { ListNewsComponent } from "./pages/news/list-news/list-news.component";
+
 
 
 @NgModule({
@@ -69,6 +71,10 @@ import { ActivityContentComponent } from "./pages/activities/activity-content/ac
     DashboardNovedadesComponent,
     ErrorComponent,
     ActivityContentComponent,
+<<<<<<< HEAD
+    ListNewsComponent
+=======
+>>>>>>> 6b35e5167580d0f3e5ec4026dae4fe15515d17d6
 
   ],
   exports: [

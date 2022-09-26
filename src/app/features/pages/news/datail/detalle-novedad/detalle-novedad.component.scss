@@ -9,37 +9,30 @@
 
 .content-title{
     width: 100%;
-    height: 100%;
-  
-   
 }
 
 .title{
     display: flex;
     align-items: center;
-    margin-top: 100px;
     width: 100%;
-   
-    
 }
 
 .content-article{
     display: flex ;
-    margin-top: 15px;
+     padding-top: 15px;
     justify-content: center;
     width: 100%;
     height: auto;
 }
+
 .content-img{
     width: 100%;
     display: grid;
     justify-content: center;
-    height: 30%;
 }
 
 img{
     width: 100%;
-    height: 100%;
 }
 
 .article{
