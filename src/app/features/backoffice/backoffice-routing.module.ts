@@ -16,12 +16,27 @@ import { FormCrearEditarMiembrosComponent } from "./members/components/form-crea
 import { EditComponent } from "./members/pages/edit/edit.component";
 import { FormularioActualizacionDatosComponent } from "./Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
 import { SlidesComponent } from "./slides/slides.component";
+import { UsersCreateComponent } from "./users/pages/users-create/users-create.component";
+import { UsersEditComponent } from "./users/pages/users-edit/users-edit.component";
+import { UsersComponent } from "./users/pages/users/users.component";
 
 const routes: Routes = [
   {
     path: "",
     component: AppBackofficeComponent,
     children: [
+      {
+        path: "users/edit",
+        component: UsersEditComponent,
+      },
+      {
+        path: "users/create",
+        component: UsersCreateComponent,
+      },
+      {
+        path: "users",
+        component: UsersComponent,
+      },
       {
         path: "categories/edit",
         component: CategoriesEditComponent,

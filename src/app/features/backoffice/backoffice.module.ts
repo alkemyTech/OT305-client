@@ -31,6 +31,10 @@ import { FormCreacionEdicionSlidesComponent } from "./slides/components/form-cre
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { AppBackofficeComponent } from "./app-backoffice.component";
 import { DashboardMiembrosComponent } from "./members/components/dashboard-miembros/dashboard-miembros.component";
+import { UsersComponent } from './users/pages/users/users.component';
+import { UsersCreateComponent } from './users/pages/users-create/users-create.component';
+import { UsersEditComponent } from './users/pages/users-edit/users-edit.component';
+import { TableUsersComponent } from './users/pages/users/components/table-users/table-users.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +57,10 @@ import { DashboardMiembrosComponent } from "./members/components/dashboard-miemb
     SlidesComponent,
     FormCreacionEdicionSlidesComponent,
     DashboardMiembrosComponent,
+    UsersComponent,
+    UsersCreateComponent,
+    UsersEditComponent,
+    TableUsersComponent,
   ],
   exports: [
     CategoriesFormComponent,

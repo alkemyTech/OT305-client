@@ -1,0 +1,32 @@
+<div class="table-responsive container">
+    <table class="table table-hover">
+
+        <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+    
+          <tbody>
+            <tr *ngFor="let usuario of usuarios">
+              <td>{{ usuario.name }}</td>
+              <td>{{ usuario.email }}</td>
+              <td class="d-flex justify-content-center gap-2">
+                <button
+                class="btn btn-primary"
+                routerLink="/backoffice/users/edit"
+                (click)="capturarUsuarioParaEditar(usuario)">
+                    Editar
+                </button>
+                <button
+                class="btn btn-danger"
+                (click)="capturarUsuarioParaEliminar(usuario)">
+                    Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+    
+    </table>
+</div>
