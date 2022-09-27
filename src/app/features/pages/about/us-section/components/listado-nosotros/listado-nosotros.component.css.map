@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,iBAAiB,CAAC;EAChB,kBAAkB,EAAE,KAAK,CAAE,IAAG,CAAE,MAAK,CAAC,KAAK,CAAC,GAAG,CAAC,mBAAmB;EACnE,eAAe,EAAE,KAAK,CAAE,IAAG,CAAE,MAAK,CAAC,KAAK,CAAC,GAAG,CAAC,mBAAmB;EAChE,UAAU,EAAE,KAAK,CAAE,IAAG,CAAE,MAAK,CAAC,KAAK,CAAC,GAAG,CAAC,mBAAmB;CAK5D;;AARD,AAIE,iBAJe,CAIf,CAAC,CAAC;EACA,KAAK,EAAE,KAAK;EACZ,SAAS,EAAE,MAAM;CAClB",
+    "sources": [
+        "listado-nosotros.component.scss"
+    ],
+    "names": [],
+    "file": "listado-nosotros.component.css"
+}

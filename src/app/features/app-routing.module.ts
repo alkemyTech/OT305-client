@@ -16,6 +16,7 @@ import { DetalleNovedadComponent } from "./pages/news/datail/detalle-novedad/det
 import { ListActivitiesComponent } from "./pages/activities/list-activities/list-activities.component";
 import { ErrorComponent } from "./pages/error/error.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
+import { DatosContactoComponent } from "./pages/contact/components/datos-contacto/datos-contacto.component";
 
 const routes: Routes = [
   {
@@ -28,9 +29,14 @@ const routes: Routes = [
     component: DetalleNovedadComponent,
   },
   {
+    path: "contact",
+    component: DatosContactoComponent
+  },
+  {
     path: "contacto",
     component: ContactComponent,
   },
+  
 
   {
     path: "nosotros",
