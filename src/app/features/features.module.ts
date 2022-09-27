@@ -102,7 +102,7 @@ import { AuthEffects } from "../core/ngrx/effects/auth.effect";
     MatDialogModule,
     SharedModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([ActividadEffects, AuthEffects]),
+    EffectsModule.forRoot([ActividadEffects]),
     StoreDevtoolsModule.instrument({ name: "TEST" }),
     BrowserAnimationsModule,
   ],
