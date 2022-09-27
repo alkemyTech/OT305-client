@@ -41,7 +41,6 @@ import { DashboardNovedadesComponent } from "./pages/news/dashboard-novedades/da
 import { ErrorComponent } from "./pages/error/error.component";
 import { ActivityContentComponent } from "./pages/activities/activity-content/activity-content.component";
 import { ListNewsComponent } from "./pages/news/list-news/list-news.component";
-import { AuthEffects } from "../core/ngrx/effects/auth.effect";
 
 
 
