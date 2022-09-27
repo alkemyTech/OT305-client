@@ -41,6 +41,7 @@ import { DashboardNovedadesComponent } from "./pages/news/dashboard-novedades/da
 import { ErrorComponent } from "./pages/error/error.component";
 import { ActivityContentComponent } from "./pages/activities/activity-content/activity-content.component";
 import { ListNewsComponent } from "./pages/news/list-news/list-news.component";
+import { AuthEffects } from "../core/ngrx/effects/auth.effect";
 
 
 
@@ -71,10 +72,7 @@ import { ListNewsComponent } from "./pages/news/list-news/list-news.component";
     DashboardNovedadesComponent,
     ErrorComponent,
     ActivityContentComponent,
-<<<<<<< HEAD
     ListNewsComponent
-=======
->>>>>>> 6b35e5167580d0f3e5ec4026dae4fe15515d17d6
 
   ],
   exports: [
@@ -104,7 +102,7 @@ import { ListNewsComponent } from "./pages/news/list-news/list-news.component";
     MatDialogModule,
     SharedModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([ActividadEffects]),
+    EffectsModule.forRoot([ActividadEffects, AuthEffects]),
     StoreDevtoolsModule.instrument({ name: "TEST" }),
     BrowserAnimationsModule,
   ],
