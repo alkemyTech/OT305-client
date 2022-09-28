@@ -1,8 +1,10 @@
 import { ActionReducerMap } from "@ngrx/store";
 import { actividadReducer } from "./reducers/actividad.reducer";
+import { authReducer } from "./reducers/auth.reducer";
 
 export interface AppStore {
-    actividad: ActividadState
+    actividad: ActividadState,
+    auth: AuthState
 }
 
 export interface ActividadState {
@@ -10,6 +12,12 @@ export interface ActividadState {
     actividad: ReadonlyArray<any>;
 }
 
+export interface AuthState {
+    user: any | null,
+    token: string | null
+}
+
 export const ROOT_REDUCERS: ActionReducerMap<AppStore> = {
-    actividad: actividadReducer
+    actividad: actividadReducer,
+    auth: authReducer
 }

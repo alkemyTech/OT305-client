@@ -71,10 +71,7 @@ import { ListNewsComponent } from "./pages/news/list-news/list-news.component";
     DashboardNovedadesComponent,
     ErrorComponent,
     ActivityContentComponent,
-<<<<<<< HEAD
     ListNewsComponent
-=======
->>>>>>> 6b35e5167580d0f3e5ec4026dae4fe15515d17d6
 
   ],
   exports: [
