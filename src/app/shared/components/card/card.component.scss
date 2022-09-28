@@ -1,0 +1,32 @@
+.card {
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 15px;
+  border-bottom: 5px solid #db5752;
+  border-right: 5px solid var(--blue);
+  transition: all .3s ease;
+
+  &:hover {
+      border-bottom: 5px solid var(--blue);
+      border-right: 5px solid #db5752;
+    
+  }
+  .content {
+    padding: 20px;
+
+    h4 {
+      border-bottom: 3px solid var(--yellow);
+      padding-bottom: 10px;
+    }
+
+    p {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 7;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
+
+

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,kBAAkB,CAAA;EACd,MAAM,EAAE,KAAK;CAChB",
+    "sources": [
+        "mostrar-titulos.component.scss"
+    ],
+    "names": [],
+    "file": "mostrar-titulos.component.css"
+}

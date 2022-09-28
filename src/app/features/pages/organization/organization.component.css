@@ -1,0 +1,31 @@
+.btn-info {
+  background-color: #73a9e4;
+  border: none;
+  color: white;
+  font-weight: 600;
+}
+
+.btn-info:hover {
+  background-color: #a0c3e9;
+}
+
+h1 {
+  border-bottom: 3px solid #FAFA88;
+  padding-bottom: 15px;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+ul li .bi {
+  font-size: 25px;
+  margin-right: 25px;
+  color: #db5752;
+}
+/*# sourceMappingURL=organization.component.css.map */

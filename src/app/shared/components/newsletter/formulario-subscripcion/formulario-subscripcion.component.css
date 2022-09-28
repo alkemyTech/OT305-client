@@ -1,0 +1,55 @@
+.title {
+  color: black;
+  font-size: 20px;
+  padding-right: 18px;
+}
+
+.form-subscripcion {
+  width: 100%;
+  height: 86%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding-right: 80px;
+}
+
+.btn {
+  width: 90%;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.campos {
+  width: 100%;
+  padding-right: 25px;
+}
+
+.validacion-content {
+  padding-left: 10px;
+  color: red;
+}
+
+.validacion {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 6px;
+  padding-bottom: 10px;
+}
+/*# sourceMappingURL=formulario-subscripcion.component.css.map */

@@ -1,0 +1,10 @@
+.card-img-overlay {
+  -webkit-box-shadow: inset -4px -116px 100px 7px rgba(0, 0, 0, 0.75);
+  box-shadow: inset -4px -116px 100px 7px rgba(0, 0, 0, 0.75);
+}
+
+.card-img-overlay a {
+  color: azure;
+  font-size: 0.7rem;
+}
+/*# sourceMappingURL=listado-nosotros.component.css.map */

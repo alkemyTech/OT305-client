@@ -1,0 +1,18 @@
+<section class="container my-5 py-5 col-12">
+
+    <button
+    class="align-self-start btn btn-primary btn-lg"
+    routerLink="/backoffice/users/create">
+        Crear nuevo
+    </button>
+
+    <h1 class="fw-bold text-center my-5">
+        Usuarios
+    </h1>
+
+    <app-table-users
+    [usuarios]="usuariosObtenidos"
+    (usuarioParaEliminar)="eliminarUsuario($event)">
+    </app-table-users>
+
+</section>

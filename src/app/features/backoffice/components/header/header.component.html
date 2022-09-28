@@ -1,15 +1,12 @@
-<mat-drawer-container autosize>
-    <mat-drawer #drawer  mode="side">
-      <p>Lorem ipsum dolor sit amet consectetur.</p>
-    </mat-drawer>
-    <div>
-      <mat-toolbar style="min-height:90px; border-style:outset; border-width:1px">
-        <button mat-icon-button (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
+<div style="margin-bottom: 70px;">
+  <nav class="navbar navbar-light bg-light fixed-top mb-5">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+        aria-controls="offcanvasDarkNavbar">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <span class="spacer"></span>
-      <img src="assets/logo.png" class="pe-4" alt="logo">
-    </mat-toolbar>
-  </div>
-</mat-drawer-container>
-
+      <a class="navbar-brand" routerLink="/backoffice"><img src="assets/logo.png" alt="" width="60px"></a>
+    </div>
+    <app-sidebar></app-sidebar>
+  </nav>
+</div>

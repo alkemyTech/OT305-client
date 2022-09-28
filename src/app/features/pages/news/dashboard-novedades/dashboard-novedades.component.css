@@ -1,0 +1,39 @@
+.content {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.table-responsive {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.title {
+  padding-top: 5%;
+}
+
+.table {
+  padding-bottom: 25px;
+  margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+  .table {
+    width: 20%;
+  }
+}
+/*# sourceMappingURL=dashboard-novedades.component.css.map */

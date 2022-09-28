@@ -1,0 +1,23 @@
+h1 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 72px;
+}
+
+.btn {
+  background: #DB5752;
+  font-weight: 600;
+  color: white;
+}
+
+.btn:hover {
+  background: #ca312c;
+  color: white;
+}
+
+.preview {
+  border-radius: 15px;
+}
+/*# sourceMappingURL=user-form.component.css.map */

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from 'src/app/core/services/http.service';
 import Swal from 'sweetalert2'
@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
   templateUrl: './categories-form.component.html',
   styleUrls: ['./categories-form.component.scss']
 })
-export class CategoriesFormComponent {
+export class CategoriesFormComponent{
 
   @Input() categoria: any;
   accion: string;

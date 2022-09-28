@@ -1,0 +1,32 @@
+<div class="table-responsive container">
+    <table class="table table-hover">
+
+        <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Fecha de creación</th>
+            </tr>
+          </thead>
+    
+          <tbody>
+            <tr *ngFor="let categoria of categorias">
+              <td>{{ categoria.name }}</td>
+              <td>{{ categoria.created_at | date: 'dd/MM/yyyy' }}</td>
+              <td class="d-flex justify-content-center gap-2">
+                <button
+                class="btn btn-primary"
+                routerLink="/backoffice/categories/edit"
+                (click)="capturarCategoriaParaEditar(categoria)">
+                    Editar
+                </button>
+                <button
+                class="btn btn-danger"
+                (click)="capturarCategoriaParaEliminar(categoria)">
+                    Eliminar
+                </button>
+              </td>
+            </tr>
+          </tbody>
+    
+    </table>
+</div>
