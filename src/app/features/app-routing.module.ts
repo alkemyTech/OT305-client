@@ -4,6 +4,7 @@ import { componentFactoryName } from "@angular/compiler";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
+import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { UsSectionComponent } from "./pages/about/us-section/us-section.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
@@ -17,6 +18,9 @@ import { ListActivitiesComponent } from "./pages/activities/list-activities/list
 import { ErrorComponent } from "./pages/error/error.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { DatosContactoComponent } from "./pages/contact/components/datos-contacto/datos-contacto.component";
+import { ListNewsComponent } from "./pages/news/list-news/list-news.component";
+
+
 
 const routes: Routes = [
   {
@@ -29,9 +33,16 @@ const routes: Routes = [
     component: DetalleNovedadComponent,
   },
   {
+
     path: "contact",
     component: DatosContactoComponent
   },
+
+  {
+    path: "novedades",
+    component: ListNewsComponent,
+  },
+
   {
     path: "contacto",
     component: ContactComponent,
@@ -47,7 +58,10 @@ const routes: Routes = [
     path: "usuarios",
     component: UserFormComponent,
   },
-
+  {
+    path: "login",
+    component: LoginFormComponent
+  },
   {
     path: "register",
     component: RegisterFormComponent,

@@ -42,6 +42,10 @@ import { ErrorComponent } from "./pages/error/error.component";
 import { ActivityContentComponent } from "./pages/activities/activity-content/activity-content.component";
 import { DatosContactoComponent } from "./pages/contact/components/datos-contacto/datos-contacto.component";
 import { PhonePipe } from "../core/pipes/phone/phone.pipe";
+import { ListNewsComponent } from "./pages/news/list-news/list-news.component";
+
+
+
 
 @NgModule({
   declarations: [
@@ -71,7 +75,9 @@ import { PhonePipe } from "../core/pipes/phone/phone.pipe";
     ErrorComponent,
     ActivityContentComponent,
     DatosContactoComponent,
-    PhonePipe
+    PhonePipe,
+    ListNewsComponent,
+
 
   ],
   exports: [
