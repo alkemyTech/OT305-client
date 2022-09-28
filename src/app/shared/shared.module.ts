@@ -19,7 +19,7 @@ import { CardComponent } from "./components/card/card.component";
     CardComponent,
   ],
   imports: [
-    CommonModule,
+    CommonModule,    
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatDialogModule,

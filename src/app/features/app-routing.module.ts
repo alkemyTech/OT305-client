@@ -1,6 +1,4 @@
-import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
-import { Component, NgModule } from "@angular/core";
-import { componentFactoryName } from "@angular/compiler";
+import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";

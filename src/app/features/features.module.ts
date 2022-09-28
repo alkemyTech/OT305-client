@@ -99,6 +99,7 @@ import { ListNewsComponent } from "./pages/news/list-news/list-news.component";
     RouterModule,
     CKEditorModule,
     FormsModule,
+    ReactiveFormsModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
