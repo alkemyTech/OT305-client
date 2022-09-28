@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Store } from "@ngrx/store";
+import { Login_Request_Action, Login_Request_Error_Action, Login_Request_Success_Action } from "src/app/core/ngrx/actions/auth.action";
+import { PrivateApiService } from "src/app/core/services/privateApi/private-api.service";
 
 @Component({
   selector: "app-login-form",
@@ -10,7 +13,11 @@ export class LoginFormComponent implements OnInit {
   formValue!: FormGroup;
   passwordPattern!: "^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$?¡-_]){1}$";
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private httpService: PrivateApiService,
+    private store: Store
+    ) {}
 
   ngOnInit(): void {
     this.camposLogin();
@@ -36,8 +43,19 @@ export class LoginFormComponent implements OnInit {
       });
       return;
     }
-    console.log("login exitoso");
-    console.log(this.formValue.value);
+    //comienza ngrx
+    this.store.dispatch(Login_Request_Action());
+    this.httpService.simplePostRequest("login", this.formValue.value)
+      .subscribe(
+        (res: any) => {
+          this.store.dispatch(Login_Request_Success_Action({ data: res.data }));
+          console.log("login exitoso");
+          return console.log(this.formValue.value);
+        },
+        (err: any) => {
+          this.store.dispatch(Login_Request_Error_Action());
+          return console.log(err);
+        })
   }
   public get controls(): any {
     return this.formValue.controls;

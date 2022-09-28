@@ -1,0 +1,5 @@
+.form-control:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+/*# sourceMappingURL=search-activities.component.css.map */

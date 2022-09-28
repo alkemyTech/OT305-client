@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "table-users.component.scss"
+    ],
+    "names": [],
+    "file": "table-users.component.css"
+}

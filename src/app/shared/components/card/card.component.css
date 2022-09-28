@@ -1,0 +1,28 @@
+.card {
+  height: 100%;
+  cursor: pointer;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card .content {
+  background-color: white;
+  height: 100%;
+  padding: 20px;
+  margin-top: -1rem;
+  border: 2px solid #db5752;
+  border-radius: 15px;
+}
+
+.card .content h4 {
+  border-bottom: 3px solid #fafa88;
+  padding-bottom: 10px;
+}
+
+.card .content p {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+}
+/*# sourceMappingURL=card.component.css.map */
