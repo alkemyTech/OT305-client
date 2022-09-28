@@ -1,0 +1,30 @@
+.card {
+  padding: 3% 5%;
+  border-radius: 50px;
+  background-color: #fdffa4;
+}
+
+.image {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.image img {
+  width: auto;
+  height: 100%;
+  margin-left: auto;
+}
+
+.btn {
+  background: #0038ff;
+  color: white;
+}
+
+.btn:hover {
+  background: #4469f0;
+}
+/*# sourceMappingURL=testimonial-form.component.css.map */

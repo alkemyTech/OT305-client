@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "list-activities.component.scss"
+    ],
+    "names": [],
+    "file": "list-activities.component.css"
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,CAAC;EACZ,gBAAgB,EAAE,UAAU;EAC5B,KAAK,EAAE,KAAK;CACb;;AAED,AAAA,kBAAkB,CAAC;EACjB,QAAQ,EAAE,QAAQ;EAClB,QAAQ,EAAE,MAAM;EAChB,iBAAiB,EAAE,SAAS;EAC5B,mBAAmB,EAAE,YAAY;EACjC,eAAe,EAAE,SAAS;CAC3B;;AAED,MAAM,EAAE,SAAS,EAAE,MAAM;EACvB,AAAA,WAAW,CAAC;IACV,MAAM,EAAE,GAAG;GACZ",
+    "sources": [
+        "login-form.component.scss"
+    ],
+    "names": [],
+    "file": "login-form.component.css"
+}
