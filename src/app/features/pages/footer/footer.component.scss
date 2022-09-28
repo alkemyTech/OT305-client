@@ -1,0 +1,52 @@
+.container-fluid {
+  min-height: 350px;
+  background: #c0c0c0;
+}
+
+.row,
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.row {
+  padding-bottom: 30px;
+  border-bottom: 2px solid black;
+  margin-top: 50px;
+}
+
+.logo {
+  max-height: 150px;
+  width: fit-content;
+}
+
+li {
+  margin: 0 2%;
+  cursor: pointer;
+
+  a {
+    text-decoration: none;
+    color: rgb(31, 30, 30);
+
+    &:hover {
+      color: #5a5a5a;
+    }
+  }
+
+  &:hover {
+    color: #5a5a5a;
+  }
+}
+
+.bi {
+  font-size: 30px;
+}
+
+@media (max-width: 700px) {
+    .row ul {
+        display: block;
+        text-align: center;
+    }
+}

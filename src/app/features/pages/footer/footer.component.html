@@ -1,0 +1,38 @@
+<div class="container-fluid py-2">
+    <div class="row">
+        <img class="img-fluid logo" [src]="organizacion.logo" alt="">
+    </div>
+    <div class="row">
+        <ul>
+            <li>
+                Inicio
+            </li>
+            <li>
+                Nosotros
+            </li>
+            <li>
+                Novedades
+            </li>
+            <li>
+                Testimonios
+            </li>
+            <li>
+                Contacto
+            </li>
+            <li>
+                Contribuye
+            </li>
+        </ul>
+    </div>
+    <div class="text-center mt-5">
+        <ul>
+            <li><a [href]="organizacion.address" target="_blank"><i class="bi bi-geo-alt-fill"></i></a></li>
+            <li><a [href]="organizacion.phone" target="_blank"><i class="bi bi-telephone-fill"></i></a></li>
+            <li><a [href]="organizacion.facebook_url" target="_blank"><i class="bi bi-facebook"></i></a></li>
+            <li><a [href]="organizacion.linkedin_url" target="_blank"><i class="bi bi-linkedin"></i></a></li>
+            <li><a [href]="organizacion.instagram_url" target="_blank"><i class="bi bi-instagram"></i></a></li>
+            <li><a href="{{organizacion.twitter_url}}" target="_blank"><i class="bi bi-twitter"></i></a></li>
+        </ul>
+        <p>2022 by Alkemy. All Rights Reserved.</p>
+    </div>
+</div>
