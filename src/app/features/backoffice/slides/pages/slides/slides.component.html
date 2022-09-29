@@ -12,6 +12,10 @@
         Slides
     </h1>
 
+    <app-form-search-slides
+    (slideBuscado)="slidesObtenidosDeApi = $event">        
+    </app-form-search-slides>
+
     <app-table-slides
     [slides]="slidesObtenidosDeApi"
     (slideParaEliminar)="eliminarSlide($event)"
