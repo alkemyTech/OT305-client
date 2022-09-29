@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { interval, Subject } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
+import { Slide } from 'src/app/core/models/slide.model';
 import { HttpService } from 'src/app/core/services/http.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class FormSearchSlidesComponent implements OnInit {
 
   @Output() slideBuscado = new EventEmitter();
 
-  slidesObtenidosDeApi: any[] = [];
+  slidesObtenidosDeApi: Slide[] = [];
 
   subject$ = new Subject();
 
