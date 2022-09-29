@@ -1,1 +1,6 @@
-<p>form-search-slides works!</p>
+<input  type="text"
+        class="form-control form-control-lg mb-5"
+        placeholder="Busca algún slide por su título..."
+        #input
+        (keyup)="searchSlide(input.value)"
+>
