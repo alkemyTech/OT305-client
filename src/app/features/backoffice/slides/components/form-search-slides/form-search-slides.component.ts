@@ -24,7 +24,7 @@ export class FormSearchSlidesComponent implements OnInit {
     this.obtenerSlidesDeApi();
 
     this.subject$.pipe(
-      debounceTime(1000),
+      debounceTime(500),
       switchMap(data =>
         this.httpService.get(`https://ongapi.alkemy.org/api/slides?search=${this.textoSolicitado}`, false))
       )
