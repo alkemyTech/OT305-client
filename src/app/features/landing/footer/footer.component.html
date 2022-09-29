@@ -1,0 +1,28 @@
+<div class="container-fluid py-2">
+    <div class="row">
+        <div class="col-lg-5 img">
+            <img class="img-fluid logo" [src]="organizacion.logo" alt="">
+        </div>
+        <ul class="col-lg-6">
+            <li><a href="landing/juguetes"><i class="bi bi-dice-3-fill"></i> Campaña "Juguetes"</a></li>
+            <li><a href="landing/materiales"><i class="bi bi-pen-fill"></i> Campaña "Materiales Escolares"</a></li>
+        </ul>
+    </div>
+    <div class="text-center mt-5">
+        <ul>
+            <li><a [href]="'https://'+organizacion.facebook_url" target="_blank"><i class="bi bi-facebook"></i>
+                    <p>Facebook</p>
+                </a></li>
+            <li><a [href]="'https://'+organizacion.linkedin_url" target="_blank"><i class="bi bi-linkedin"></i>
+                    <p>Linkedin</p>
+                </a></li>
+            <li><a [href]="'https://'+organizacion.instagram_url" target="_blank"><i class="bi bi-instagram"></i>
+                    <p>Instagram</p>
+                </a></li>
+            <li><a [href]="'https://'+organizacion.twitter_url" target="_blank"><i class="bi bi-twitter"></i>
+                    <p>Twitter</p>
+                </a></li>
+        </ul>
+        <a href="/home" class="link_ong">Ver sitio web de Somos Más</a>
+    </div>
+</div>
