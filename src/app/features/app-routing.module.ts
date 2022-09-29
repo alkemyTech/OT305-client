@@ -97,8 +97,13 @@ const routes: Routes = [
     component: NewsFormComponent,
   },
   {
+    path: "landing",
+    loadChildren: () =>
+      import("./landing/landing.module").then((m) => m.LandingModule),
+  },
+  {
     path: "",
-    redirectTo: "actividades",
+    redirectTo: "home",
     pathMatch: "full",
   },
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from 'src/app/core/services/http.service';
+import { Slide } from 'src/app/core/models/slide.model';
 
 @Component({
   selector: 'app-slides',
@@ -8,22 +8,13 @@ import { HttpService } from 'src/app/core/services/http.service';
 })
 export class SlidesComponent implements OnInit {
 
-  slidesObtenidosDeApi: any[] = [];
+  slidesObtenidosDeApi: Slide[] = [];
 
-  constructor(private httpService: HttpService) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.obtenerSlidesDeApi();
-  }
+  ngOnInit(): void { }
 
-  obtenerSlidesDeApi(){
-    this.httpService.get("https://ongapi.alkemy.org/api/slides", false)
-      .subscribe((response: any) => {
-        return this.slidesObtenidosDeApi = response.data;
-      })
-  }
-
-  eliminarSlide(_event: any){
+  eliminarSlide(_event: Slide){
     //aqui se implementará la llamada a la api para eliminar el slide
   }
 

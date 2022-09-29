@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Slide } from 'src/app/core/models/slide.model';
 import { SlidesService } from 'src/app/core/services/slides/slides.service';
 
 @Component({
@@ -7,20 +8,20 @@ import { SlidesService } from 'src/app/core/services/slides/slides.service';
   styleUrls: ['./table-slides.component.scss']
 })
 export class TableSlidesComponent implements OnInit {
-  @Input() slides!: any[];
+  @Input() slides!: Slide[];
 
-  @Output() slideParaEliminar: EventEmitter<any> = new EventEmitter();
+  @Output() slideParaEliminar: EventEmitter<Slide> = new EventEmitter();
   
   constructor(private slideService: SlidesService) { }
 
   ngOnInit(): void {
   }
 
-  capturarSlideParaEditar(slide: any){
+  capturarSlideParaEditar(slide: Slide){
     return this.slideService.setSlideParaEditar(slide);
   }
 
-  capturarSlideParaEliminar(slide: any){
+  capturarSlideParaEliminar(slide: Slide){
     return this.slideParaEliminar.emit(slide);
   }
 
