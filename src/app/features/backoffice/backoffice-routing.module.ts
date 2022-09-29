@@ -18,6 +18,7 @@ import { EditComponent } from "./members/pages/edit/edit.component";
 import { FormularioActualizacionDatosComponent } from "./Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
 import { SlidesCreateComponent } from "./slides/pages/slides-create/slides-create.component";
 import { SlidesEditComponent } from "./slides/pages/slides-edit/slides-edit.component";
+import { SlidesSearchComponent } from "./slides/pages/slides-search/slides-search.component";
 import { SlidesComponent } from "./slides/pages/slides/slides.component";
 import { UsersCreateComponent } from "./users/pages/users-create/users-create.component";
 import { UsersEditComponent } from "./users/pages/users-edit/users-edit.component";
@@ -28,6 +29,10 @@ const routes: Routes = [
     path: "",
     component: AppBackofficeComponent,
     children: [
+      {
+        path: "slides/search",
+        component: SlidesSearchComponent
+      },
       {
         path: "users/edit",
         component: UsersEditComponent,
