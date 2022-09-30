@@ -40,6 +40,8 @@ import { UsersEditComponent } from './users/pages/users-edit/users-edit.componen
 import { TableUsersComponent } from './users/pages/users/components/table-users/table-users.component';
 import { SearhMemberComponent } from './members/components/searh-member/searh-member.component';
 import { FormSearchSlidesComponent } from './slides/components/form-search-slides/form-search-slides.component';
+import { FormularioBusquedaNovedadesComponent } from "../pages/news/formulario-busqueda-novedades/formulario-busqueda-novedades.component";
+import { DashboardNovedadesComponent } from "../pages/news/dashboard-novedades/dashboard-novedades.component";
 
 @NgModule({
   declarations: [
@@ -70,7 +72,10 @@ import { FormSearchSlidesComponent } from './slides/components/form-search-slide
     UsersEditComponent,
     TableUsersComponent,
     SearhMemberComponent,
-    FormSearchSlidesComponent
+    FormSearchSlidesComponent,
+    FormularioBusquedaNovedadesComponent,
+    DashboardNovedadesComponent,
+ 
   ],
   exports: [
     CategoriesFormComponent,
@@ -80,6 +85,8 @@ import { FormSearchSlidesComponent } from './slides/components/form-search-slide
     EditComponent,
     SlidesComponent,
     FormCreacionEdicionSlidesComponent,
+    FormularioBusquedaNovedadesComponent
+   
   ],
   imports: [
     CommonModule,

@@ -44,6 +44,7 @@ import { DatosContactoComponent } from "./pages/contact/components/datos-contact
 import { PhonePipe } from "../core/pipes/phone/phone.pipe";
 import { ListNewsComponent } from "./pages/news/list-news/list-news.component";
 import { FooterComponent } from './pages/footer/footer.component';
+import { FormularioBusquedaNovedadesComponent } from "./pages/news/formulario-busqueda-novedades/formulario-busqueda-novedades.component";
 
 
 
@@ -72,14 +73,13 @@ import { FooterComponent } from './pages/footer/footer.component';
     ProjectsComponent,
     ProjectsComponent,
     ListActivitiesComponent,
-    DashboardNovedadesComponent,
     ErrorComponent,
     ActivityContentComponent,
     DatosContactoComponent,
     PhonePipe,
     ListNewsComponent,
     FooterComponent,
-
+    
 
   ],
   exports: [
@@ -94,6 +94,8 @@ import { FooterComponent } from './pages/footer/footer.component';
     ProjectsComponent,
     DetalleNovedadComponent,
     RouterModule,
+    ListNewsComponent,
+  
   ],
   imports: [
     CommonModule,
@@ -112,6 +114,7 @@ import { FooterComponent } from './pages/footer/footer.component';
     EffectsModule.forRoot([ActividadEffects]),
     StoreDevtoolsModule.instrument({ name: "TEST" }),
     BrowserAnimationsModule,
+    
   ],
 })
 export class FeaturesModule {}
