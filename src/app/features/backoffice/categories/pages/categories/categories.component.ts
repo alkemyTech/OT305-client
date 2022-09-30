@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Categoria } from 'src/app/core/models/categoria.models';
-import { HttpService } from 'src/app/core/services/http.service';
+import { CategoriesService } from 'src/app/core/services/categories/categories.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-categories',
@@ -13,17 +14,17 @@ export class CategoriesComponent implements OnInit {
 
   cargando: boolean = true;
 
-  constructor(private httpService: HttpService) {}
+  constructor(private categoriesService: CategoriesService) {}
 
   ngOnInit(): void {
     this.obtenerCategorias();
   }
 
   obtenerCategorias(){
-    this.httpService.get("https://ongapi.alkemy.org/api/categories", false)
+    this.categoriesService.listCategorie()
       .subscribe((response: any) =>{
         this.cargando = false;
-        this.categoriasEnLaApi = response.data;
+        this.categoriasEnLaApi = response;
       })
   }
 
