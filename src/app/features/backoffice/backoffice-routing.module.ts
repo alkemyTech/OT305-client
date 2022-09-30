@@ -114,10 +114,6 @@ const routes: Routes = [
         component: OrganizationComponent,
       },
       {
-        path: "search/actividades",
-        component: SearchActivitiesComponent,
-      },
-      {
         path: "search/member",
         component: SearhMemberComponent,
       },
