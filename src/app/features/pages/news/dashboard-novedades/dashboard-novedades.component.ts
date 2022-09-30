@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Novedad } from 'src/app/core/models/novedad.model';
 
 @Component({
   selector: 'app-dashboard-novedades',
@@ -6,21 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-novedades.component.scss']
 })
 export class DashboardNovedadesComponent  {
+  novedades: Novedad [] = [] 
   title!:string;
   novedad!: any
   
   constructor() {
     this.title = "Dashboard Novedades"
-    this.getNovedad()
    }
 
-   getNovedad(){
-    this.novedad = {
-      name: "Name",
-      image: "Image",
-      created_at: "Create_At",
-    }
-  }
+  
+
+
 }
  
 
