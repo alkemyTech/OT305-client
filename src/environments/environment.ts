@@ -7,6 +7,7 @@ export const environment = {
   apiUrl: "https://ongapi.alkemy.org/api",
   member: "/members",
   activities: "/activities",
+  organization: "/organization",
   testimonials: "/testimonials",
 };
 
