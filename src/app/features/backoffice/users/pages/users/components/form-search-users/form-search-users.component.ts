@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
+import { Usuario } from 'src/app/core/models/user.model';
 import { HttpService } from 'src/app/core/services/http.service';
 
 @Component({
@@ -10,9 +11,9 @@ import { HttpService } from 'src/app/core/services/http.service';
 })
 export class FormSearchUsersComponent implements OnInit {
 
-  @Output() usuarioBuscado = new EventEmitter()
+  @Output() usuarioBuscado = new EventEmitter<Usuario[]>()
 
-  usuariosObtenidos!: any[];
+  usuariosObtenidos!: Usuario[];
 
   subject$ = new Subject();
 
