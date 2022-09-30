@@ -1,4 +1,10 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from "@angular/core";
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from "@angular/core";
 import { Store } from "@ngrx/store";
 import { fromEvent, Subject } from "rxjs";
 import { debounceTime, map, takeUntil } from "rxjs/operators";
@@ -9,15 +15,19 @@ import { selectActividadList } from "src/app/core/ngrx/selectors/actividad.selec
 import { ActividadService } from "src/app/core/services/activities/actividad.service";
 
 @Component({
-  selector: "app-search-activities",
-  templateUrl: "./search-activities.component.html",
-  styleUrls: ["./search-activities.component.scss"],
+  selector: "app-search",
+  templateUrl: "./search.component.html",
+  styleUrls: ["./search.component.scss"],
 })
-export class SearchActivitiesComponent implements OnInit, OnDestroy {
+export class SearchComponent implements OnInit, OnDestroy {
   @Output() actividades$ = new EventEmitter<Actividad[]>();
   private desub$ = new Subject<void>();
+  actividades: Array<Actividad> = [];
 
-  constructor(private store: Store<AppStore>, private actividadService: ActividadService) {}
+  constructor(
+    private store: Store<AppStore>,
+    private actividadService: ActividadService
+  ) {}
 
   ngOnInit(): void {
     this.obtenerActividades();
@@ -35,7 +45,8 @@ export class SearchActivitiesComponent implements OnInit, OnDestroy {
           this.actividadService.searchActivities(data).pipe(takeUntil(this.desub$))
             .subscribe(
               (results: any) => {
-                this.actividades$.emit(results.data);
+                this.actividades = results.data;
+                this.EmitirResultados();
               },
               (error) => console.log(error.message)
             );
@@ -49,8 +60,13 @@ export class SearchActivitiesComponent implements OnInit, OnDestroy {
       .select(selectActividadList)
       .pipe(takeUntil(this.desub$))
       .subscribe((actividad: any) => {
-        this.actividades$.emit(actividad.data);
+        this.actividades = actividad.data;
+        this.EmitirResultados();
       });
+  }
+
+  EmitirResultados() {
+    this.actividades$.emit(this.actividades);
   }
 
   ngOnDestroy(): void {

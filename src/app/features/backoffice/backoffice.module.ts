@@ -42,6 +42,8 @@ import { SearhMemberComponent } from './members/components/searh-member/searh-me
 import { FormSearchSlidesComponent } from './slides/components/form-search-slides/form-search-slides.component';
 import { FormularioBusquedaNovedadesComponent } from "../pages/news/formulario-busqueda-novedades/formulario-busqueda-novedades.component";
 import { DashboardNovedadesComponent } from "../pages/news/dashboard-novedades/dashboard-novedades.component";
+import { CategorieSearchComponent } from './categories/pages/categorie-search/categorie-search.component';
+
 
 @NgModule({
   declarations: [
@@ -75,7 +77,8 @@ import { DashboardNovedadesComponent } from "../pages/news/dashboard-novedades/d
     FormSearchSlidesComponent,
     FormularioBusquedaNovedadesComponent,
     DashboardNovedadesComponent,
- 
+    CategorieSearchComponent,
+
   ],
   exports: [
     CategoriesFormComponent,

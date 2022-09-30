@@ -44,7 +44,8 @@ import { DatosContactoComponent } from "./pages/contact/components/datos-contact
 import { PhonePipe } from "../core/pipes/phone/phone.pipe";
 import { ListNewsComponent } from "./pages/news/list-news/list-news.component";
 import { FooterComponent } from './pages/footer/footer.component';
-import { FormularioBusquedaNovedadesComponent } from "./pages/news/formulario-busqueda-novedades/formulario-busqueda-novedades.component";
+import { SearchComponent } from './pages/activities/search/search.component';
+
 
 
 
@@ -78,8 +79,10 @@ import { FormularioBusquedaNovedadesComponent } from "./pages/news/formulario-bu
     DatosContactoComponent,
     PhonePipe,
     ListNewsComponent,
-    FooterComponent,
-    
+    FooterComponent,    
+    SearchComponent,
+
+
 
   ],
   exports: [

@@ -1,31 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { Actividad } from 'src/app/core/models/actividad.model';
-import { Categoria } from 'src/app/core/models/categoria.models';
-import { HttpService } from 'src/app/core/services/http.service';
+import { Component, OnInit } from "@angular/core";
+import { Actividad } from "src/app/core/models/actividad.model";
+import { Categoria } from "src/app/core/models/categoria.models";
+import { HttpService } from "src/app/core/services/http.service";
 
 @Component({
-  selector: 'app-dashboard-activities',
-  templateUrl: './dashboard-activities.component.html',
-  styleUrls: ['./dashboard-activities.component.scss']
+  selector: "app-dashboard-activities",
+  templateUrl: "./dashboard-activities.component.html",
+  styleUrls: ["./dashboard-activities.component.scss"],
 })
-export class DashboardActivitiesComponent   {
-  title!:string;
-  actividad!: any
-  
-  constructor() {
-    this.title = "Dashboard Actividades"
-    this.getActividad()
-   }
+export class DashboardActivitiesComponent {
+  title!: string;
+  actividades: Array<Actividad> = [];
 
-   getActividad(){
-    this.actividad = {
-      name: "Name",
-      image: "Image",
-      created_at: "Create_At",
-    }
+  constructor() {
+    this.title = "Dashboard Actividades";
+  }
+
+  setActividades(value: Actividad[]) {
+    this.actividades = value;
   }
 }
-
- 
-
-
