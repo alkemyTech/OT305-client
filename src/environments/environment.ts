@@ -8,6 +8,7 @@ export const environment = {
   member: "/members",
   activities: "/activities",
   organization: "/organization",
+  testimonials: "/testimonials",
 };
 
 /*
