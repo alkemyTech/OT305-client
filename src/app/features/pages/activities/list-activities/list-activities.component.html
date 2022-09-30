@@ -1,9 +1,9 @@
-<app-progressbar *ngIf="mode" [mode]="mode"></app-progressbar>
 <app-mostrar-titulos [title]="'Actividades'"></app-mostrar-titulos>
+<app-search (actividades$)="setActividades($event)"></app-search>
 <div class="container" style="padding-bottom: 20px;">
     <div class="row">
         <div class="col-lg-4 col-md-4 mt-5" *ngFor="let actividad of actividades">
-            <app-card [routerLink]="actividad.id" 
+            <app-card [routerLink]="''+actividad.id" 
                 [img]='actividad.image' 
                 [title]="actividad.name" 
                 [description]="actividad.description"

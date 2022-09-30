@@ -3,6 +3,7 @@
   <div class="table-responsive  table-responsive-sm">
     <h1 class="title">{{title}}</h1>
   <a [routerLink]="'/backoffice/activities/create'">Crear Actividad</a>
+  <app-search-activities class="mb-3" style="width: 100%;" (actividades$)="setActividades($event)"></app-search-activities>
   <table class="table table-hover">
     <thead class="thead">
      <tr>
@@ -14,7 +15,7 @@
       </tr>
     </thead>
     <tbody class="tbody">
-      <tr>
+      <tr *ngFor="let actividad of actividades">
         <td class="table-secondary">{{actividad.name}}</td>
         <td class="table-secondary" ><a [href]="actividad.image">{{actividad.image}}</a></td>
         <td class="table-secondary">{{actividad.created_at}}</td>
