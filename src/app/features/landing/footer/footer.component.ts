@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Organizacion } from 'src/app/core/models/organizacion.model';
-import { HttpService } from 'src/app/core/services/http.service';
+import { OrganizacionService } from 'src/app/core/services/organization/organizacion.service';
 import { environment as env } from 'src/environments/environment';
 
 @Component({
@@ -26,8 +26,8 @@ export class FooterComponent implements OnDestroy {
     twitter_url: ""
   };
 
-  constructor(private service: HttpService) {
-    this.service.get(`${env.apiUrl}/organization`, false).pipe(takeUntil(this.desub$))
+  constructor(private organizacionService: OrganizacionService) {
+    this.organizacionService.getOrganizacion().pipe(takeUntil(this.desub$))
     .subscribe(
       (res) => {
         let {data} : any = res;
