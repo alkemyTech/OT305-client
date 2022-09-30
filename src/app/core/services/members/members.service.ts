@@ -11,7 +11,6 @@ import { HttpService } from "../http.service";
 })
 export class MembersService {
   baseUrl: string = environment.apiUrl;
-  //verificar forma de importar endpoint en enviroment
   member: string = environment.member;
   constructor(
     private httClient: HttpClient,
