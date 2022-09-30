@@ -49,6 +49,7 @@ import { SearchComponent } from './pages/activities/search/search.component';
 
 
 
+
 @NgModule({
   declarations: [
     ActivityFormComponent,
@@ -73,14 +74,14 @@ import { SearchComponent } from './pages/activities/search/search.component';
     ProjectsComponent,
     ProjectsComponent,
     ListActivitiesComponent,
-    DashboardNovedadesComponent,
     ErrorComponent,
     ActivityContentComponent,
     DatosContactoComponent,
     PhonePipe,
     ListNewsComponent,
-    FooterComponent,
+    FooterComponent,    
     SearchComponent,
+
 
 
   ],
@@ -96,6 +97,8 @@ import { SearchComponent } from './pages/activities/search/search.component';
     ProjectsComponent,
     DetalleNovedadComponent,
     RouterModule,
+    ListNewsComponent,
+  
   ],
   imports: [
     CommonModule,
@@ -114,6 +117,7 @@ import { SearchComponent } from './pages/activities/search/search.component';
     EffectsModule.forRoot([ActividadEffects]),
     StoreDevtoolsModule.instrument({ name: "TEST" }),
     BrowserAnimationsModule,
+    
   ],
 })
 export class FeaturesModule {}
