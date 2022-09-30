@@ -40,6 +40,7 @@ import { UsersEditComponent } from './users/pages/users-edit/users-edit.componen
 import { TableUsersComponent } from './users/pages/users/components/table-users/table-users.component';
 import { SearhMemberComponent } from './members/components/searh-member/searh-member.component';
 import { FormSearchSlidesComponent } from './slides/components/form-search-slides/form-search-slides.component';
+import { CategorieSearchComponent } from './categories/pages/categorie-search/categorie-search.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { FormSearchSlidesComponent } from './slides/components/form-search-slide
     UsersEditComponent,
     TableUsersComponent,
     SearhMemberComponent,
-    FormSearchSlidesComponent
+    FormSearchSlidesComponent,
+    CategorieSearchComponent
   ],
   exports: [
     CategoriesFormComponent,

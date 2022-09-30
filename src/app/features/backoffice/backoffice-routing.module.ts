@@ -7,6 +7,7 @@ import { OrganizationComponent } from "../pages/organization/organization.compon
 import { DashboardActivitiesComponent } from "./activities/dashboard-activities/dashboard-activities.component";
 import { SearchActivitiesComponent } from "./activities/search-activities/search-activities.component";
 import { AppBackofficeComponent } from "./app-backoffice.component";
+import { CategorieSearchComponent } from "./categories/pages/categorie-search/categorie-search.component";
 import { CategoriesCreateComponent } from "./categories/pages/categories-create/categories-create.component";
 import { CategoriesEditComponent } from "./categories/pages/categories-edit/categories-edit.component";
 import { CategoriesComponent } from "./categories/pages/categories/categories.component";
@@ -112,10 +113,6 @@ const routes: Routes = [
       {
         path: "organization",
         component: OrganizationComponent,
-      },
-      {
-        path: "search/member",
-        component: SearhMemberComponent,
       },
     ],
   },
