@@ -1,10 +1,8 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { MatDialog } from "@angular/material/dialog";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 import { ActividadService } from "src/app/core/services/activities/actividad.service";
-import { AlertasComponent } from "src/app/shared/components/alertas/alertas.component";
 
 @Component({
   selector: "app-detail",
@@ -20,7 +18,7 @@ export class DetailComponent implements OnDestroy {
   constructor(
     private aRoute: ActivatedRoute,
     private actividadService: ActividadService,
-    public dialog: MatDialog
+    private router: Router
   ) {
     this.id = this.aRoute.snapshot.params["id"];
     this.actividadService.getActivityById(this.id).pipe(takeUntil(this.desub$))
@@ -28,21 +26,9 @@ export class DetailComponent implements OnDestroy {
       ({data}) => {
         this.actividad = data;
       },
-      (error) => this.openDialog('Error al Obtener Actividad', error.message)
+      (error) => this.router.navigate(['error'])
     );
     this.mode = false;
-  }
-
-  openDialog(titulo: string, mensaje: string): void {
-    const dialogRef = this.dialog.open(AlertasComponent, {
-      width: "350px",
-      data: {
-        cancelText: "Cerrar",
-        confirmText: "Ok",
-        message: mensaje,
-        title: titulo,
-      },
-    });
   }
 
   ngOnDestroy(): void {

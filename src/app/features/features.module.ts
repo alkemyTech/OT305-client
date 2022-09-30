@@ -44,6 +44,7 @@ import { DatosContactoComponent } from "./pages/contact/components/datos-contact
 import { PhonePipe } from "../core/pipes/phone/phone.pipe";
 import { ListNewsComponent } from "./pages/news/list-news/list-news.component";
 import { FooterComponent } from './pages/footer/footer.component';
+import { SearchComponent } from './pages/activities/search/search.component';
 
 
 
@@ -79,6 +80,7 @@ import { FooterComponent } from './pages/footer/footer.component';
     PhonePipe,
     ListNewsComponent,
     FooterComponent,
+    SearchComponent,
 
 
   ],

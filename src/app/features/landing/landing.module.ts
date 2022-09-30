@@ -5,6 +5,8 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { LandingRoutingModule } from './landing-routing.module';
 import { JuguetesComponent } from './juguetes/juguetes.component';
+import { EscolarComponent } from './escolar/escolar.component';
+import { SliderComponent } from './slider/slider.component';
 
 
 
@@ -12,7 +14,9 @@ import { JuguetesComponent } from './juguetes/juguetes.component';
   declarations: [
     LandingComponent,
     FooterComponent,
-    JuguetesComponent
+    JuguetesComponent,
+    EscolarComponent,
+    SliderComponent
   ],
   imports: [
     CommonModule,

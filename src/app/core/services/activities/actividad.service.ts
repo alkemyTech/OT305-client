@@ -1,30 +1,33 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Actividad } from '../../models/actividad.model';
 import { HttpService } from '../http.service';
+import { environment as env } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActividadService {
-  url_base: string = 'https://ongapi.alkemy.org/api/activities'
 
   constructor(private http : HttpService) { }
 
   getActivities():Observable<any>{
-    return this.http.get<Array<Actividad>>(this.url_base);
+    return this.http.get<Array<Actividad>>(env.apiUrl + env.activities);
   }
 
   getActivityById(id: number):Observable<any>{
-    return this.http.get(`${this.url_base}/${id}`, false);
+    return this.http.get(`${env.apiUrl + env.activities}/${id}`, false);
   }
 
   setActividad(data: any):Observable<any>{
-    return this.http.post( this.url_base, data )
+    return this.http.post( env.apiUrl + env.activities, data )
   }
 
   updateActividad(data: any):Observable<any>{
-    return this.http.patch(`${this.url_base}/${data.id}`, data )
+    return this.http.patch(`${env.apiUrl + env.activities}/${data.id}`, data )
+  }
+
+  searchActivities(query: string){
+    return this.http.get(`${env.apiUrl + env.activities}?search=${query}`, false);
   }
 }
