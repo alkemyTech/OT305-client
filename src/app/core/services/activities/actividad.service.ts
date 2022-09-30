@@ -3,31 +3,34 @@ import { Observable } from 'rxjs';
 import { Actividad } from '../../models/actividad.model';
 import { HttpService } from '../http.service';
 import { environment as env } from "src/environments/environment";
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ActividadService {
+export class ActividadService extends HttpService {
 
-  constructor(private http : HttpService) { }
+  constructor(http: HttpClient) { 
+    super(http)
+  }
 
   getActivities():Observable<any>{
-    return this.http.get<Array<Actividad>>(env.apiUrl + env.activities);
+    return this.get<Array<Actividad>>(env.apiUrl + env.activities);
   }
 
   getActivityById(id: number):Observable<any>{
-    return this.http.get(`${env.apiUrl + env.activities}/${id}`, false);
+    return this.get(`${ env.apiUrl + env.activities }/${ id }`, false);
   }
 
   setActividad(data: any):Observable<any>{
-    return this.http.post( env.apiUrl + env.activities, data )
+    return this.post( env.apiUrl + env.activities, data )
   }
 
   updateActividad(data: any):Observable<any>{
-    return this.http.patch(`${env.apiUrl + env.activities}/${data.id}`, data )
+    return this.patch(`${ env.apiUrl + env.activities }/${ data.id }`, data )
   }
 
   searchActivities(query: string){
-    return this.http.get(`${env.apiUrl + env.activities}?search=${query}`, false);
+    return this.get(`${ env.apiUrl + env.activities }?search=${ query }`, false);
   }
 }
