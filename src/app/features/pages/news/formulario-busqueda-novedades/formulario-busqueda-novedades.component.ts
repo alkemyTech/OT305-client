@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { Novedad } from 'src/app/core/models/novedad.model';
@@ -14,14 +14,14 @@ export class FormularioBusquedaNovedadesComponent implements OnInit {
 
   
   @Output() novedad = new EventEmitter();
-  subject$ = new Subject();
+  subject$ = new Subject<string>();
   novedades: Novedad[] = [];
   textoSolicitado!: string;
 
   constructor(private novedadService: NovedadesService) { }
 
-  ngOnInit() {
 
+  ngOnInit() {
     this.subject$.pipe(
       debounceTime(500),
       switchMap(data =>
@@ -42,5 +42,14 @@ export class FormularioBusquedaNovedadesComponent implements OnInit {
       this.novedad.emit(this.novedades);
     }
   }
+    
+  }
 
-}
+  
+
+
+
+
+  
+
+

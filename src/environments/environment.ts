@@ -11,6 +11,7 @@ export const environment = {
   testimonials: "/testimonials",
   news: "/news",
   categories: "/categories"
+
 };
 
 /*

@@ -4,7 +4,10 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Novedad } from '../../models/novedad.model';
+
 import { HttpService } from '../http.service';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +17,10 @@ export class NovedadesService {
   //verificar forma de importar endpoint en enviroment
   news: string = environment.news;
 
+
 constructor(private httpClient: HttpClient, private httpService: HttpService) { }
+
+
 
 getNews(searchNews: string): Observable<Novedad[]> {
   return this.httpClient
