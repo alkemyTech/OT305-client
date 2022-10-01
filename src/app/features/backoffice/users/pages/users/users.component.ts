@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from 'src/app/core/services/http.service';
+import { Usuario } from 'src/app/core/models/user.model';
 
 @Component({
   selector: 'app-users',
@@ -8,22 +8,13 @@ import { HttpService } from 'src/app/core/services/http.service';
 })
 export class UsersComponent implements OnInit {
 
-  usuariosObtenidos!: any[];
+  usuariosObtenidos!: Usuario[];
 
-  constructor(private httpService: HttpService) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.obtenerUsuarios();
-  }
+  ngOnInit(): void { }
 
-  obtenerUsuarios(){
-    this.httpService.get("https://ongapi.alkemy.org/api/users", false)
-      .subscribe((res: any) => {
-        return this.usuariosObtenidos = res.data;
-      })
-  }
-
-  eliminarUsuario(_event: any){
+  eliminarUsuario(_event: Usuario){
     //aqui se ejecutara la funcion para eliminar usuario
   }
 
