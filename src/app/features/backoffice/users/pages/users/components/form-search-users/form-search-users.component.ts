@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { Usuario } from 'src/app/core/models/user.model';
@@ -9,7 +9,7 @@ import { HttpService } from 'src/app/core/services/http.service';
   templateUrl: './form-search-users.component.html',
   styleUrls: ['./form-search-users.component.scss']
 })
-export class FormSearchUsersComponent implements OnInit {
+export class FormSearchUsersComponent implements OnInit, OnDestroy {
 
   @Output() usuarioBuscado = new EventEmitter<Usuario[]>()
 
@@ -25,7 +25,7 @@ export class FormSearchUsersComponent implements OnInit {
     this.obtenerUsuarios();
 
     this.subject$.pipe(
-      debounceTime(1000),
+      debounceTime(500),
       switchMap(data =>
         this.httpService.get(`https://ongapi.alkemy.org/api/users?search=${this.textoSolicitado}`, false)
       )
@@ -33,6 +33,10 @@ export class FormSearchUsersComponent implements OnInit {
     .subscribe((res: any) => {
       return this.usuarioBuscado.emit(res.data);
     })
+  }
+
+  ngOnDestroy(): void {
+    this.subject$.unsubscribe();
   }
 
   obtenerUsuarios(){
