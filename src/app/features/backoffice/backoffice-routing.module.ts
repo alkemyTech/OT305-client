@@ -40,10 +40,6 @@ const routes: Routes = [
         component: UsersCreateComponent,
       },
       {
-        path: "formSearch",
-        component: FormularioBusquedaNovedadesComponent, 
-      },
-      {
         path: "users",
         component: UsersComponent,
       },
