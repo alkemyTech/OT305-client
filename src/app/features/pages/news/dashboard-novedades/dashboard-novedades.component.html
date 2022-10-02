@@ -20,7 +20,7 @@
           <td class="table-secondary" ><a [href]="novedad.image">{{novedad.image}}</a></td>
           <td class="table-secondary" >{{novedad.created_at}}</td>
           <td class="table-secondary"><input type="submit" class="btn  btn-primary" value="Editar" ></td>
-          <td class="table-secondary"><input type="submit" class="btn  btn-danger"   value="Eliminar" ></td>
+          <td class="table-secondary"><input type="submit" class="btn btn-danger" (click)="DeleteNews(novedad.id)" value="Eliminar" ></td>
         </tr>
       </tbody>
     </table>

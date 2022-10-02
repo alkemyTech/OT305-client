@@ -17,10 +17,7 @@ export class NovedadesService {
   //verificar forma de importar endpoint en enviroment
   news: string = environment.news;
 
-
 constructor(private httpClient: HttpClient, private httpService: HttpService) { }
-
-
 
 getNews(searchNews: string): Observable<Novedad[]> {
   return this.httpClient
@@ -39,18 +36,22 @@ listNews(): Observable<Novedad[]> {
     })
   );
 }
+
 getNewsbyId(id: number): Observable<Novedad[]> {
   return this.httpService.get(`${this.baseUrl}${this.news}/${id}`);
 }
+
 postNews(data: any): Observable<Novedad[]> {
   return this.httpService.post(`${this.baseUrl}${this.news}`, data);
 }
+
 patchNews(data: any): Observable<Novedad[]> {
   return this.httpService.patch(
     `${this.baseUrl}${this.news}/${data.id}`,
     data
   );
 }
+
 deleteNews(id: number) {
   return this.httpClient.delete(`${this.baseUrl}${this.news}/${id}`);
 }
