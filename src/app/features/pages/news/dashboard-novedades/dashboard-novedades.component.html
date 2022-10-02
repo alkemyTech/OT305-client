@@ -2,7 +2,7 @@
   <input type="submit" class="btn btn-danger"   [routerLink]="'/backoffice/dashboard/news/create'" value="Crear Novedad">
   <div class="table-responsive  table-responsive-sm">
     <h1 class="title">{{title}}</h1>
-    <app-formulario-busqueda-novedades class="form" (novedad)="novedades = $event"></app-formulario-busqueda-novedades> 
+    <app-formulario-busqueda-novedades class="form" (novedad)="novedades = $event "></app-formulario-busqueda-novedades> 
     
     <table class="table table-hover" *ngFor="let novedad of novedades">
       <thead class="thead" >

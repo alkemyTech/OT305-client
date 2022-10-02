@@ -9,7 +9,9 @@ export const environment = {
   activities: "/activities",
   organization: "/organization",
   testimonials: "/testimonials",
+  news: "/news",
   categories: "/categories"
+
 };
 
 /*
