@@ -7,6 +7,7 @@ import { LandingRoutingModule } from './landing-routing.module';
 import { JuguetesComponent } from './juguetes/juguetes.component';
 import { EscolarComponent } from './escolar/escolar.component';
 import { SliderComponent } from './slider/slider.component';
+import { HeaderCampanasComponent } from './header-campanas/header-campanas.component';
 
 
 
@@ -16,7 +17,8 @@ import { SliderComponent } from './slider/slider.component';
     FooterComponent,
     JuguetesComponent,
     EscolarComponent,
-    SliderComponent
+    SliderComponent,
+    HeaderCampanasComponent
   ],
   imports: [
     CommonModule,
