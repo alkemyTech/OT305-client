@@ -10,7 +10,7 @@ import { NovedadesService } from 'src/app/core/services/novedades/novedades.serv
   templateUrl: './formulario-busqueda-novedades.component.html',
   styleUrls: ['./formulario-busqueda-novedades.component.scss']
 })
-export class FormularioBusquedaNovedadesComponent implements OnInit {
+export class FormularioBusquedaNovedadesComponent implements OnInit , OnDestroy {
 
   
   @Output() novedad = new EventEmitter();
@@ -19,26 +19,24 @@ export class FormularioBusquedaNovedadesComponent implements OnInit {
   textoSolicitado!: string;
 
   constructor(private novedadService: NovedadesService) { }
-
-  
-  ngOnInit() {}
-
-
+ 
+  ngOnInit(){}
+ 
   searchNovedad(texto: string){
     if(texto.length >= 3){
       this.textoSolicitado = texto;
       this.subject$.next(texto);
-     
-   
     }
     else{
       this.novedad.emit(this.novedades);
-     
     }
   }
-    
+
+  ngOnDestroy() {
+    this.subject$.complete()
   }
 
+}
   
 
 
