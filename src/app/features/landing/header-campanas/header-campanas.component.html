@@ -4,11 +4,13 @@
             d-flex align-items-center justify-content-center
             justify-content-md-between">
         <img
-        src="../../../../assets/Logotipo-campaña-juguetes.png"
+        src="{{ imagen_campana }}"
         alt="Logotipo de la campaña Juguetes"
-        width="200">
+        width="{{ width_imagen_campana }}">
 
-        <p class="text-dark text-center text-opacity-75 fs-1 d-none d-lg-block">Juguetes por más sonrisas</p>
+        <p class="text-dark text-center text-opacity-75 fs-1 d-none d-lg-block">
+            {{ eslogan_campana }}
+        </p>
 
         <img
         src="../../../../assets/logo.png"
