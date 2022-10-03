@@ -1,3 +1,4 @@
+
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable, Subject, Subscription } from 'rxjs';
@@ -8,19 +9,23 @@ import { NovedadesService } from 'src/app/core/services/novedades/novedades.serv
 import { DashboardNovedadesComponent } from '../dashboard-novedades/dashboard-novedades.component';
 
 
+
 @Component({
   selector: 'app-formulario-busqueda-novedades',
   templateUrl: './formulario-busqueda-novedades.component.html',
   styleUrls: ['./formulario-busqueda-novedades.component.scss']
 })
+
 export class FormularioBusquedaNovedadesComponent implements OnInit, OnDestroy {
 
+
   @Output() novedad = new EventEmitter();
-  subject$ = new Subject();
+  subject$ = new Subject<string>();
   novedades: Novedad[] = [];
   textoSolicitado!: string;
   novedadSubscription!: Subscription
   novedad$ : any
+
 
   constructor(private novedadService: NovedadesService) {}
 
@@ -50,7 +55,9 @@ export class FormularioBusquedaNovedadesComponent implements OnInit, OnDestroy {
       this.novedad.emit(this.novedades)
     }
   }
+
 }
   
+
 
 
