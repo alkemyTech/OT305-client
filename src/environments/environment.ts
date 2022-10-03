@@ -10,7 +10,8 @@ export const environment = {
   organization: "/organization",
   testimonials: "/testimonials",
   news: "/news",
-  categories: "/categories"
+  categories: "/categories",
+  users: "/users",
 
 };
 
