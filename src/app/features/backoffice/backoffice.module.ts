@@ -43,6 +43,7 @@ import { FormSearchSlidesComponent } from './slides/components/form-search-slide
 import { FormularioBusquedaNovedadesComponent } from "../pages/news/formulario-busqueda-novedades/formulario-busqueda-novedades.component";
 import { DashboardNovedadesComponent } from "../pages/news/dashboard-novedades/dashboard-novedades.component";
 import { CategorieSearchComponent } from './categories/pages/categorie-search/categorie-search.component';
+import { FormSearchUsersComponent } from './users/pages/users/components/form-search-users/form-search-users.component';
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { CategorieSearchComponent } from './categories/pages/categorie-search/ca
     FormularioBusquedaNovedadesComponent,
     DashboardNovedadesComponent,
     CategorieSearchComponent,
+    FormSearchUsersComponent,
 
   ],
   exports: [

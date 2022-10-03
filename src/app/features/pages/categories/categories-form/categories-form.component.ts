@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from 'src/app/core/services/http.service';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -14,6 +15,9 @@ export class CategoriesFormComponent {
   accion: string;
   form: FormGroup;
   foto: any;
+
+  baseUrl: string = environment.apiUrl;
+  categoriesUrl: string = environment.categories;
 
   constructor(private fb: FormBuilder, private http: HttpService) {
     this.form = this.fb.group({
@@ -49,7 +53,7 @@ export class CategoriesFormComponent {
 
       this.http
         .post(
-          "https://ongapi.alkemy.org/api/categories",
+          `${this.baseUrl}${this.categoriesUrl}`,
           {
             id: 0,
             name: this.form.value.name,
@@ -92,7 +96,7 @@ export class CategoriesFormComponent {
     if (this.form.value.image === null) {
       this.http
         .patch(
-          `https://ongapi.alkemy.org/api/categories/${this.categoria.id}`,
+          `${this.baseUrl}${this.categoriesUrl}/${this.categoria.id}`,
           {
             name: this.form.value.name,
             description: this.form.value.description,
@@ -121,7 +125,7 @@ export class CategoriesFormComponent {
     } else {
       this.http
         .patch(
-          `https://ongapi.alkemy.org/api/categories/${this.categoria.id}`,
+          `${this.baseUrl}${this.categoriesUrl}/${this.categoria.id}`,
           {
             name: this.form.value.name,
             description: this.form.value.description,
