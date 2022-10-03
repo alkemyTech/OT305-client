@@ -12,38 +12,43 @@ export class PrivateApiService {
 
   constructor( private http:HttpClient) { }
 
-  headerAuth(token: string){
-    const options = { 
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: token
-      })
-    };
+  headerAuth(){
+    
+    const token = localStorage.getItem("token")
+    if(token != null && token != undefined){
+      const options = { 
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Bearer': token
+        })  
+      }
     return options
+    };
+    return 
   }
 
-  getPrivate(ruta: string, token: string ,id?: number ): Observable<any>{
-    const options = this.headerAuth(token);
+  getPrivate(ruta: string, id?: number ): Observable<any>{
+    const options = this.headerAuth();
     return this.http.get<any>(`${this.baseUrl}/${ruta}/${id}`, options)
   }
 
-  postPrivate(ruta: string, token: string , body: any ): Observable<any>{
-    const options = this.headerAuth(token);
+  postPrivate(ruta: string, body: any ): Observable<any>{
+    const options = this.headerAuth();
     return this.http.post<any>(`${this.baseUrl}/${ruta}`, body, options)
   }
 
-  putPrivate(ruta: string, token: string ,id: number, body: any ): Observable<any>{
-    const options = this.headerAuth(token);
+  putPrivate(ruta: string, id: number, body: any ): Observable<any>{
+    const options = this.headerAuth();
     return this.http.put<any>(`${this.baseUrl}/${ruta}/${id}`, body, options)
   }
 
-  patchPrivate(ruta: string, token: string ,id: number, body: any ): Observable<any>{
-    const options = this.headerAuth(token);
+  patchPrivate(ruta: string, id: number, body: any ): Observable<any>{
+    const options = this.headerAuth();
     return this.http.patch<any>(`${this.baseUrl}/${ruta}/${id}`, body, options)
   }
 
-  deletePrivate(ruta: string, token: string ,id: number ): Observable<any>{
-    const options = this.headerAuth(token);
+  deletePrivate(ruta: string, id: number ): Observable<any>{
+    const options = this.headerAuth();
     return this.http.delete<any>(`${this.baseUrl}/${ruta}/${id}`, options)
   }
 

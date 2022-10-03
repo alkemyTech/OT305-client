@@ -45,6 +45,7 @@ import { PhonePipe } from "../core/pipes/phone/phone.pipe";
 import { ListNewsComponent } from "./pages/news/list-news/list-news.component";
 import { FooterComponent } from './pages/footer/footer.component';
 import { SearchComponent } from './pages/activities/search/search.component';
+import { HeaderComponent } from './pages/header/header.component';
 
 
 
@@ -80,7 +81,7 @@ import { SearchComponent } from './pages/activities/search/search.component';
     PhonePipe,
     ListNewsComponent,
     FooterComponent,    
-    SearchComponent,
+    SearchComponent, HeaderComponent,
 
 
 

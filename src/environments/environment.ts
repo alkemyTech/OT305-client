@@ -9,10 +9,10 @@ export const environment = {
   activities: "/activities",
   organization: "/organization",
   testimonials: "/testimonials",
+  contacts: "/contacts",
   news: "/news",
   categories: "/categories",
   users: "/users",
-
 };
 
 /*

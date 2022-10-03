@@ -6,6 +6,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" routerLink="/backoffice"><img src="assets/logo.png" alt="" width="60px"></a>
+      <button *ngIf="token != null" class="btn btn-outline-dark btn-lg" type="button" (click)="logout()">Log Out</button>
     </div>
     <app-sidebar></app-sidebar>
   </nav>
