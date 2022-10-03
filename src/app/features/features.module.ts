@@ -43,9 +43,7 @@ import { ActivityContentComponent } from "./pages/activities/activity-content/ac
 import { DatosContactoComponent } from "./pages/contact/components/datos-contacto/datos-contacto.component";
 import { PhonePipe } from "../core/pipes/phone/phone.pipe";
 import { ListNewsComponent } from "./pages/news/list-news/list-news.component";
-import { FooterComponent } from './pages/footer/footer.component';
 import { SearchComponent } from './pages/activities/search/search.component';
-import { HeaderComponent } from './pages/header/header.component';
 
 
 
@@ -79,9 +77,8 @@ import { HeaderComponent } from './pages/header/header.component';
     ActivityContentComponent,
     DatosContactoComponent,
     PhonePipe,
-    ListNewsComponent,
-    FooterComponent,    
-    SearchComponent, HeaderComponent,
+    ListNewsComponent,  
+    SearchComponent, 
 
 
 
