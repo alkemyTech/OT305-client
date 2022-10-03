@@ -10,6 +10,10 @@
         Usuarios
     </h1>
 
+    <app-form-search-users
+    (usuarioBuscado)="usuariosObtenidos = $event">
+    </app-form-search-users>
+
     <app-table-users
     [usuarios]="usuariosObtenidos"
     (usuarioParaEliminar)="eliminarUsuario($event)">

@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { interval, Subject } from 'rxjs';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { Slide } from 'src/app/core/models/slide.model';
 import { HttpService } from 'src/app/core/services/http.service';
@@ -9,7 +9,7 @@ import { HttpService } from 'src/app/core/services/http.service';
   templateUrl: './form-search-slides.component.html',
   styleUrls: ['./form-search-slides.component.scss']
 })
-export class FormSearchSlidesComponent implements OnInit {
+export class FormSearchSlidesComponent implements OnInit, OnDestroy {
 
   @Output() slideBuscado = new EventEmitter();
 
@@ -32,6 +32,10 @@ export class FormSearchSlidesComponent implements OnInit {
       .subscribe((res: any) => {
         return this.slideBuscado.emit(res.data);
       })
+  }
+
+  ngOnDestroy(): void {
+    this.subject$.unsubscribe();
   }
 
   obtenerSlidesDeApi(){
