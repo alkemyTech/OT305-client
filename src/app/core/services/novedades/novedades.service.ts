@@ -16,7 +16,7 @@ export class NovedadesService {
   baseUrl: string = environment.apiUrl;
   //verificar forma de importar endpoint en enviroment
   news: string = environment.news;
-
+  novedadParaEditar : any = null
 constructor(private httpClient: HttpClient, private httpService: HttpService) { }
 
 getNews(searchNews: string): Observable<Novedad[]> {
@@ -54,5 +54,9 @@ patchNews(data: any): Observable<Novedad[]> {
 
 deleteNews(id: number) {
   return this.httpClient.delete(`${this.baseUrl}${this.news}/${id}`);
+}
+
+setNovedadParaEditar(novedad: any){
+  this.novedadParaEditar = novedad;
 }
 }

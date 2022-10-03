@@ -1,21 +1,25 @@
 .card {
   height: 100%;
   cursor: pointer;
-  border-radius: 15px;
   overflow: hidden;
+  border-radius: 15px;
+  border-bottom: 5px solid #db5752;
+  border-right: 5px solid var(--blue);
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.card:hover {
+  border-bottom: 5px solid var(--blue);
+  border-right: 5px solid #db5752;
 }
 
 .card .content {
-  background-color: white;
-  height: 100%;
   padding: 20px;
-  margin-top: -1rem;
-  border: 2px solid #db5752;
-  border-radius: 15px;
 }
 
 .card .content h4 {
-  border-bottom: 3px solid #fafa88;
+  border-bottom: 3px solid var(--yellow);
   padding-bottom: 10px;
 }
 

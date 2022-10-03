@@ -1,1 +1,3 @@
-<input  type="text" class="form-control form-control-lg mb-5" placeholder="Busca alguna Novedad por su título..." #input (keyup)="searchNovedad(input.value)"  >
+<form >
+<input  type="text" class="form-control form-control-lg mb-5" placeholder="Busca alguna Novedad por su título..." #input #listNews$ (keyup)="searchNovedad(input.value)"  >
+</form>
