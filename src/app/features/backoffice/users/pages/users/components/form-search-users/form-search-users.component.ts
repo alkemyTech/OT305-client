@@ -19,6 +19,8 @@ export class FormSearchUsersComponent implements OnInit, OnDestroy {
 
   textoSolicitado!: string;
 
+  rolSolicitado: string = "Todos";
+
   constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
@@ -26,9 +28,14 @@ export class FormSearchUsersComponent implements OnInit, OnDestroy {
 
     this.subject$.pipe(
       debounceTime(500),
-      switchMap(data =>
-        this.httpService.get(`https://ongapi.alkemy.org/api/users?search=${this.textoSolicitado}`, false)
-      )
+      switchMap(data => {
+        if(this.rolSolicitado !== "Todos"){
+          return this.httpService.get(`https://ongapi.alkemy.org/api/users?search=${this.textoSolicitado}&role=${this.rolSolicitado}`, false)
+        }
+        else{
+          return this.httpService.get(`https://ongapi.alkemy.org/api/users?search=${this.textoSolicitado}`, false)
+        }
+      })
     )
     .subscribe((res: any) => {
       return this.usuarioBuscado.emit(res.data);
@@ -54,6 +61,13 @@ export class FormSearchUsersComponent implements OnInit, OnDestroy {
     }
     else{
       this.usuarioBuscado.emit(this.usuariosObtenidos);
+    }
+  }
+
+  setRol(rol: string){
+    if(this.textoSolicitado.length >= 2 && this.rolSolicitado !== rol){
+      this.rolSolicitado = rol;
+      this.subject$.next(rol);
     }
   }
 
