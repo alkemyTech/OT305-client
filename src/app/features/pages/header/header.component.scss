@@ -1,4 +1,10 @@
 .navbar {
     position: fixed;
     width: 100%;
+    z-index: 10;
+}
+
+.btn-outline-secondary {
+    margin: 0 1%;
+    white-space: nowrap;
 }
