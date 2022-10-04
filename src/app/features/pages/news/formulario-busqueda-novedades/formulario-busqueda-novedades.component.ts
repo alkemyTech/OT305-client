@@ -25,13 +25,27 @@ export class FormularioBusquedaNovedadesComponent implements OnInit, OnDestroy {
   textoSolicitado!: string;
   novedadSubscription!: Subscription
   novedad$ : any
+  categoriaSolicitada: string = "Todos";
 
 
   constructor(private novedadService: NovedadesService) {}
 
   ngOnInit() {
     this.obtenerNovedadesDeApi()
-    this.novedad$ = this.subject$.pipe(debounceTime(500),switchMap(data => this.novedadService.getNews(`${this.textoSolicitado}`)))
+    this.novedad$ = this.subject$.pipe(debounceTime(500),switchMap(data => 
+      {
+        if(this.categoriaSolicitada != "Todos"){
+
+         return this.novedadService.getNews(`${this.textoSolicitado}&category=${this.categoriaSolicitada}`)
+        }
+        else{
+
+         return this.novedadService.getNews(`${this.textoSolicitado}`)
+        }
+       
+      
+      }
+    ))
     this.novedadSubscription = this.novedad$.subscribe((res: any) => {return this.novedad.emit(res);},)
  
   }
@@ -46,9 +60,6 @@ export class FormularioBusquedaNovedadesComponent implements OnInit, OnDestroy {
       return this.novedad.emit(this.novedades) 
     })
   }
-  obtenerCategoriaNovedadDeApi(){
-  
-  }
   
   searchNovedad(texto: string){
     if(texto.length >= 3){
@@ -57,6 +68,17 @@ export class FormularioBusquedaNovedadesComponent implements OnInit, OnDestroy {
     }
     else{
       this.novedad.emit(this.novedades)
+    }
+  }
+
+  
+  setCategoria(categoria: string){
+    if(this.textoSolicitado.length >= 2 && this.categoriaSolicitada !== categoria){
+      this.categoriaSolicitada = categoria;
+      this.subject$.next(categoria);
+    }
+    else{
+      this.categoriaSolicitada = categoria;
     }
   }
 
