@@ -33,6 +33,7 @@ export class FormularioBusquedaNovedadesComponent implements OnInit, OnDestroy {
     this.obtenerNovedadesDeApi()
     this.novedad$ = this.subject$.pipe(debounceTime(500),switchMap(data => this.novedadService.getNews(`${this.textoSolicitado}`)))
     this.novedadSubscription = this.novedad$.subscribe((res: any) => {return this.novedad.emit(res);},)
+ 
   }
 
   ngOnDestroy() {
@@ -44,6 +45,9 @@ export class FormularioBusquedaNovedadesComponent implements OnInit, OnDestroy {
       this.novedades = res 
       return this.novedad.emit(this.novedades) 
     })
+  }
+  obtenerCategoriaNovedadDeApi(){
+  
   }
   
   searchNovedad(texto: string){

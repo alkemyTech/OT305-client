@@ -11,7 +11,9 @@ export const environment = {
   testimonials: "/testimonials",
   contacts: "/contacts",
   news: "/news",
-  categories: "/categories"
+  categories: "/categories",
+  users: "/users",
+
 
 };
 
