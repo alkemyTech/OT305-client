@@ -40,7 +40,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { SharedModule } from 'src/app/shared/shared.module';
-
+import { FormularioBusquedaNovedadesWebPublicaComponent } from './news/formulario-busqueda-novedades-web-publica/formulario-busqueda-novedades-web-publica.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +73,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ListNewsComponent,
     FooterComponent,    
     SearchComponent,
-    HeaderComponent
+    HeaderComponent,
+    FormularioBusquedaNovedadesWebPublicaComponent
   ],
   exports: [
     WebPublicComponent,
@@ -87,7 +88,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ProjectsComponent,
     DetalleNovedadComponent,
     RouterModule,
-    ListNewsComponent
+    ListNewsComponent,
+    FormularioBusquedaNovedadesWebPublicaComponent
   ],
   imports: [
     CommonModule,
