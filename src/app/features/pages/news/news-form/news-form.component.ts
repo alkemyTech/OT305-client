@@ -18,7 +18,7 @@ import Swal from "sweetalert2";
 })
 export class NewsFormComponent {
   @Input() novedad: any;
-  accion!: string;
+  @Input() accion!: string;
   form!: FormGroup;
   foto!: any;
   categorias: Categoria[] = [];
