@@ -13,6 +13,7 @@ export const environment = {
   news: "/news",
   categories: "/categories",
   slides: "/slides",
+  users: "/users",
 };
 
 /*

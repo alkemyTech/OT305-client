@@ -1,5 +1,5 @@
 export class Novedad {
-    id?: number;
+    id!: number;
     name?: string;
     slug?: string;
     content?: string;
