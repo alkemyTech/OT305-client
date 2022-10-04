@@ -69,6 +69,9 @@ export class FormSearchUsersComponent implements OnInit, OnDestroy {
       this.rolSolicitado = rol;
       this.subject$.next(rol);
     }
+    else{
+      this.rolSolicitado = rol;
+    }
   }
 
 }
