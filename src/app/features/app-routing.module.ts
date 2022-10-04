@@ -11,9 +11,12 @@ const routes: Routes = [
       import("./backoffice/backoffice.module").then((m) => m.BackofficeModule),
   },
   {
+    path: "landing",
+    loadChildren: () =>
+      import("./landing/landing.module").then((m) => m.LandingModule),
+  },
+  {
     path: "",
-    redirectTo: "home",
-    pathMatch: "full",
     loadChildren: () =>
       import("./pages/web-public.module").then((m) => m.WebPublicModule)
   },
