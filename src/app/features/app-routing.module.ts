@@ -10,13 +10,11 @@ const routes: Routes = [
     loadChildren: () =>
       import("./backoffice/backoffice.module").then((m) => m.BackofficeModule),
   },
-
   {
     path: "landing",
     loadChildren: () =>
       import("./landing/landing.module").then((m) => m.LandingModule),
   },
-
   {
     path: "",
     loadChildren: () =>
@@ -33,4 +31,5 @@ const routes: Routes = [
   declarations: [],
   imports: [CommonModule, RouterModule.forRoot(routes)],
 })
+
 export class AppRoutingModule {}
