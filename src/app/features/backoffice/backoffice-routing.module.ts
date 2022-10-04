@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { ActivityFormComponent } from "../pages/activities/activity-form/activity-form.component";
 import { DashboardNovedadesComponent } from "../pages/news/dashboard-novedades/dashboard-novedades.component";
 import { FormularioBusquedaNovedadesComponent } from "../pages/news/formulario-busqueda-novedades/formulario-busqueda-novedades.component";
+import { NewsFormEditComponent } from "../pages/news/news-form-edit/news-form-edit.component";
 import { NewsFormComponent } from "../pages/news/news-form/news-form.component";
 import { OrganizationComponent } from "../pages/organization/organization.component";
 import { DashboardActivitiesComponent } from "./activities/dashboard-activities/dashboard-activities.component";
@@ -40,10 +41,6 @@ const routes: Routes = [
         component: UsersCreateComponent,
       },
       {
-        path: "formSearch",
-        component: FormularioBusquedaNovedadesComponent, 
-      },
-      {
         path: "users",
         component: UsersComponent,
       },
@@ -58,6 +55,10 @@ const routes: Routes = [
       {
         path: "dashboard/news/create",
         component: NewsFormComponent,
+      },
+      {
+        path: "dashboard/news/edit",
+        component: NewsFormEditComponent,
       },
       {
         path: "categories/create",

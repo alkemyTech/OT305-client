@@ -44,6 +44,8 @@ import { FormularioBusquedaNovedadesComponent } from "../pages/news/formulario-b
 import { DashboardNovedadesComponent } from "../pages/news/dashboard-novedades/dashboard-novedades.component";
 import { CategorieSearchComponent } from './categories/pages/categorie-search/categorie-search.component';
 import { FormSearchUsersComponent } from './users/pages/users/components/form-search-users/form-search-users.component';
+import { NewsFormEditComponent } from "../pages/news/news-form-edit/news-form-edit.component";
+import { NewsFormComponent } from "../pages/news/news-form/news-form.component";
 
 
 @NgModule({
@@ -80,11 +82,13 @@ import { FormSearchUsersComponent } from './users/pages/users/components/form-se
     DashboardNovedadesComponent,
     CategorieSearchComponent,
     FormSearchUsersComponent,
-
+    NewsFormEditComponent,
+    NewsFormComponent,
   ],
   exports: [
     CategoriesFormComponent,
     HeaderComponent,
+    NewsFormComponent,
     HomeComponent,
     FormEditarHomeComponent,
     EditComponent,
