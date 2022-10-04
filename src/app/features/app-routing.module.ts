@@ -94,10 +94,7 @@ const routes: Routes = [
     path: "home",
     component: InicioComponent,
   },
-  {
-    path: "newsForm",
-    component: NewsFormComponent,
-  },
+
   {
     path: "landing",
     loadChildren: () =>
