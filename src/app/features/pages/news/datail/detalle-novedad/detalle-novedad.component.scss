@@ -27,17 +27,23 @@
 
 .content-img{
     width: 100%;
-    display: grid;
+    display: flex;
     justify-content: center;
 }
+.img{
+    width: 30%;
+}
 
-img{
-    width: 100%;
+
+.button{
+    padding-bottom: 20px;
 }
 
 .article{
     border: none;
-    width: 40%;
+    align-items: center;
+    display: flex;
+    align-items: center;
     height: 100%;
     padding-left: 10px;
 }
