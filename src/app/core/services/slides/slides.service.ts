@@ -1,5 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { EventEmitter, Injectable, Output } from "@angular/core";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { environment } from "src/environments/environment";
+import { Slide } from "../../models/slide.model";
 import { HttpService } from "../http.service";
 
 @Injectable({
@@ -7,7 +11,8 @@ import { HttpService } from "../http.service";
 })
 export class SlidesService {
   slideParaEditar: any = null;
-
+  baseUrl: string = environment.apiUrl;
+  slides: string = environment.slides;
   constructor(private httClient: HttpClient, private httpSevice: HttpService) {}
 
   setSlideParaEditar(slide: any) {
@@ -16,5 +21,24 @@ export class SlidesService {
 
   getSlideParaEditar() {
     return this.slideParaEditar;
+  }
+  getSlide(): Observable<Slide[]> {
+    return this.httClient.get<any>(`${this.baseUrl}${this.slides}`).pipe(
+      map((response) => {
+        return response.data;
+      })
+    );
+  }
+  getMemberbyId(id: number): Observable<Slide[]> {
+    return this.httpSevice.get(`${this.baseUrl}${this.slides}/${id}`);
+  }
+  postMember(data: any): Observable<Slide[]> {
+    return this.httpSevice.post(`${this.baseUrl}${this.slides}`, data);
+  }
+  patchMember(data: any): Observable<Slide[]> {
+    return this.httpSevice.patch(
+      `${this.baseUrl}${this.slides}/${data.id}`,
+      data
+    );
   }
 }
