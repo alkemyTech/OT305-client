@@ -1,17 +1,17 @@
 
 <app-mostrar-titulos [title]="'Novedades'"></app-mostrar-titulos>
-
 <div class="container"  style="padding-bottom: 20px;">
+    <app-formulario-busqueda-novedades-web-publica (novedad)="novedades = $event "></app-formulario-busqueda-novedades-web-publica>
     <div class="row">
         <div class="col-lg-4 col-md-4 mt-5" *ngFor="let novedad of novedades">
-            <app-card [routerLink]="novedad.id" 
+            <app-card routerLink="{{novedad.id}}" 
                 [img]='novedad.image' 
                 [title]="novedad.name" 
-                [description]="novedad.description"
+                [description]="novedad.content"
                 
             ></app-card>
-            <p *ngIf="novedad.update_at == ''">{{novedad.created_at | date }}</p>
-            <p>{{novedad.update_at | date }}</p>
+            <p *ngIf="novedad.updated_at == null">{{novedad.created_at | date }}</p>
+            <p>{{novedad.created_at | date }}</p>
         </div>
     </div>
 </div>

@@ -57,6 +57,7 @@ deleteNews(id: number) {
 }
 
 
+
 setNovedadParaEditar(novedad: any){
   this.novedadParaEditar = novedad;
 }

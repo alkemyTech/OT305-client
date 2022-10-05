@@ -12,8 +12,8 @@ export const environment = {
   contacts: "/contacts",
   news: "/news",
   categories: "/categories",
+  slides: "/slides",
   users: "/users",
-
 };
 
 /*
