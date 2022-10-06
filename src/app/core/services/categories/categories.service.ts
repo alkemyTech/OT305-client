@@ -14,20 +14,12 @@ export class CategoriesService {
 
   constructor(private httClient: HttpClient) {}
   getCategorie(searchCategorie: string): Observable<Categoria[]> {
-    return this.httClient
-      .get<any>(`${this.baseUrl}${this.categoriesUrl}?search=${searchCategorie}`)
-      .pipe(
-        map((response) => {
-          return response.data;
-        })
-      );
+    return this.httClient.get<any>(
+      `${this.baseUrl}${this.categoriesUrl}?search=${searchCategorie}`
+    );
   }
 
   listCategorie(): Observable<Categoria[]> {
-    return this.httClient.get<any>(`${this.baseUrl}${this.categoriesUrl}`).pipe(
-      map((response) => {
-        return response.data;
-      })
-    );
+    return this.httClient.get<any>(`${this.baseUrl}${this.categoriesUrl}`);
   }
 }
