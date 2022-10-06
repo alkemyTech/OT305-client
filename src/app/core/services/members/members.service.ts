@@ -18,20 +18,12 @@ export class MembersService {
   ) {}
 
   getMember(searchMember: string): Observable<Member[]> {
-    return this.httClient
-      .get<any>(`${this.baseUrl}${this.member}?search=${searchMember}`)
-      .pipe(
-        map((response) => {
-          return response.data;
-        })
-      );
+    return this.httClient.get<any>(
+      `${this.baseUrl}${this.member}?search=${searchMember}`
+    );
   }
   listMember(): Observable<Member[]> {
-    return this.httClient.get<any>(`${this.baseUrl}${this.member}`).pipe(
-      map((response) => {
-        return response.data;
-      })
-    );
+    return this.httClient.get<any>(`${this.baseUrl}${this.member}`);
   }
   getMemberbyId(id: number): Observable<Member[]> {
     return this.httpService.get(`${this.baseUrl}${this.member}/${id}`);
