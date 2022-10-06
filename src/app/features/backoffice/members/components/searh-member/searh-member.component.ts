@@ -7,9 +7,13 @@ import {
   Output,
   ViewChild,
 } from "@angular/core";
+import { Store } from "@ngrx/store";
 import { fromEvent, Observable, Subscription } from "rxjs";
 import { debounceTime, distinct, filter, map, switchMap } from "rxjs/operators";
 import { Member } from "src/app/core/models/member.model";
+import { Get_Nosotros } from "src/app/core/ngrx/actions/nosotros.action";
+import { AppStore } from "src/app/core/ngrx/app.store";
+import { selectNosotrosList } from "src/app/core/ngrx/selectors/nosotros.selector";
 import { MembersService } from "src/app/core/services/members/members.service";
 
 @Component({
@@ -24,7 +28,7 @@ export class SearhMemberComponent implements OnInit, OnDestroy {
   @Output() members$ = new EventEmitter();
   memberSubscription!: Subscription;
 
-  constructor(private memberService: MembersService) {}
+  constructor(private memberService: MembersService, private store: Store<AppStore>) {}
 
   ngOnInit(): void {
     this.listOfMembers();
@@ -52,10 +56,16 @@ export class SearhMemberComponent implements OnInit, OnDestroy {
       });
   }
   listOfMembers() {
-    this.memberService.listMember().subscribe((res: any) => {
-      this.members$.emit(res.data);
-    });
+    this.store.dispatch(Get_Nosotros());
+    this.store.select(selectNosotrosList)
+      .subscribe(
+        ({ data }: any) => {
+          this.members$.emit(data);
+        },
+        (error) => console.log(error.message)
+      );
   }
+  
   ngOnDestroy(): void {
     this.memberSubscription.unsubscribe();
   }

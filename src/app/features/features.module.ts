@@ -9,6 +9,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { ActividadEffects } from "../core/ngrx/effects/actividad.effect";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NosotrosEffects } from "../core/ngrx/effects/nosotros.effect";
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     AppRoutingModule,
     RouterModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([ActividadEffects]),
+    EffectsModule.forRoot([ActividadEffects, NosotrosEffects]),
     StoreDevtoolsModule.instrument({ name: "TEST" }),
     BrowserAnimationsModule,
   ],
