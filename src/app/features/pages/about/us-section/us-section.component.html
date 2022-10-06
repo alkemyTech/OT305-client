@@ -1,10 +1,15 @@
+<app-mostrar-titulos [title]="'Nosotros'"></app-mostrar-titulos>
+
 <div class="container py-5">
-
-    <!--SUSTITUIR EL H1 POR EL COMPONENTE PARA CREAR TITULOS-->
-    <h1 class="text-center">
-        Nosotros
-    </h1>
-
-    <app-sobre-nosotros></app-sobre-nosotros>
+    <app-sobre-nosotros [textoParaMostrar]="texto"></app-sobre-nosotros>
     <app-listado-nosotros></app-listado-nosotros>
+
+    <h2>Redes</h2>
+    <div class="d-flex justify-content-center">
+        <div class="col-lg-10 mt-2">
+            <ngx-twitter-timeline [data]="{sourceType: 'url', 
+            url: 'https://twitter.com/OngSomosMas1'}" [opts]="{tweetLimit: 5}">
+            </ngx-twitter-timeline>
+        </div>
+    </div>
 </div>
