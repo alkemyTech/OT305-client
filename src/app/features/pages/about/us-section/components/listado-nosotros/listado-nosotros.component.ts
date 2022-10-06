@@ -1,37 +1,37 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
+import { Member } from "src/app/core/models/member.model";
+import { Get_Nosotros } from "src/app/core/ngrx/actions/nosotros.action";
+import { AppStore } from "src/app/core/ngrx/app.store";
+import { selectNosotrosList } from "src/app/core/ngrx/selectors/nosotros.selector";
 
 @Component({
   selector: "app-listado-nosotros",
   templateUrl: "./listado-nosotros.component.html",
   styleUrls: ["./listado-nosotros.component.scss"],
 })
-export class ListadoNosotrosComponent implements OnInit {
-  //posterior se cambiara al endpoint de la api Member/get_members
-  public members = [
-    {
-      name: "Clara Santos",
-      image: "http://ongapi.alkemy.org/storage/eJhxlEOK78.png",
-      description: "Psicóloga infatil",
-      facebookUrl: "https://www.google.com/",
-      linkedinUrl: "https://ongapi.alkemy.org/",
-    },
-    {
-      name: "Marta Sosa",
-      image: "http://ongapi.alkemy.org/storage/HK7NEsonGt.png",
-      description: "Asistente social",
-      facebookUrl: "https://www.google.com/",
-      linkedinUrl: "https://www.google.com/",
-    },
-    {
-      name: "Susana Perez",
-      image: "http://ongapi.alkemy.org/storage/XtV4g2tm8k.png",
-      description: "Asistente social",
-      facebookUrl: "https://www.google.com/",
-      linkedinUrl: "https://www.google.com/",
-    },
-  ];
+export class ListadoNosotrosComponent implements OnDestroy {
+  private desub$ = new Subject<void>();
+  public members: Array<Member> = [];
 
-  constructor() {}
+  constructor(private store: Store<AppStore>) {
+    this.store.dispatch(Get_Nosotros());
+    this.store
+      .select(selectNosotrosList)
+      .pipe(takeUntil(this.desub$))
+      .subscribe(
+        ({ data }: any) => {
+          this.members = data;
+        },
+        (error) => console.log(error.message)
+      );
+  }
 
-  ngOnInit(): void {}
+  ngOnDestroy(): void {
+    this.desub$.next();
+    this.desub$.complete();
+  }
+
 }

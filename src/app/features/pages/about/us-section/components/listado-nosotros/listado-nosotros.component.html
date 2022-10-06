@@ -1,10 +1,10 @@
 <div class="container pt-5 d-flex justify-content-evenly flex-wrap gap-3">
-    <div *ngFor="let member of members">
+    <div class="col-lg-3 col-md-4" *ngFor="let member of members">
         <div class="card text-white rounded-3">
             <img [src]="member.image" class="card-img" alt="...">
             <div class="card-img-overlay d-flex flex-column justify-content-end text-center">
                 <h6 class="card-title">{{member.name}}</h6>
-                <p class="card-text fw-light">{{member.description}}</p>
+                <p class="card-text fw-light" [innerHtml]="member.description"></p>
                 <div class="url d-flex justify-content-evenly">
                     <a href="{{member.facebookUrl}}" target="_blank">Facebook</a>
                     <a href="{{member.linkedinUrl}}" target="_blank">linkedin</a>
