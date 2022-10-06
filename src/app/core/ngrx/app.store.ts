@@ -1,6 +1,6 @@
 import { ActionReducerMap } from "@ngrx/store";
 import { Actividad } from "../models/actividad.model";
-import { Organizacion } from "../models/organizacion.model";
+import { Member } from "../models/member.model";
 import { actividadReducer } from "./reducers/actividad.reducer";
 import { authReducer } from "./reducers/auth.reducer";
 import { nosotrosReducer } from "./reducers/nosotros.reducer";
@@ -23,7 +23,7 @@ export interface AuthState {
 
 export interface NosotrosState {
     loading: boolean,
-    nosotros: ReadonlyArray<Organizacion>;
+    nosotros: ReadonlyArray<Member>;
 }
 
 export const ROOT_REDUCERS: ActionReducerMap<AppStore> = {
