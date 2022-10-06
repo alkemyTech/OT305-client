@@ -1,5 +1,13 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { fromEvent, Observable } from "rxjs";
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewChild,
+} from "@angular/core";
+import { fromEvent, Observable, Subscription } from "rxjs";
 import { debounceTime, distinct, filter, map, switchMap } from "rxjs/operators";
 import { Member } from "src/app/core/models/member.model";
 import { MembersService } from "src/app/core/services/members/members.service";
@@ -9,32 +17,46 @@ import { MembersService } from "src/app/core/services/members/members.service";
   templateUrl: "./searh-member.component.html",
   styleUrls: ["./searh-member.component.scss"],
 })
-export class SearhMemberComponent implements OnInit {
+export class SearhMemberComponent implements OnInit, OnDestroy {
   @ViewChild("memberSearchInput", { static: true })
   memberSearchInput!: ElementRef;
-  member$!: Observable<Member[]>;
-  listMember$!: Observable<Member[]>;
-  public members: Member[] = [];
+  members: Member[] = [];
+  @Output() members$ = new EventEmitter();
+  memberSubscription!: Subscription;
 
   constructor(private memberService: MembersService) {}
 
   ngOnInit(): void {
-    this.member$ = fromEvent<Event>(
+    this.listOfMembers();
+
+    this.memberSubscription = fromEvent<Event>(
       this.memberSearchInput.nativeElement,
       "keyup"
-    ).pipe(
-      map((event: Event) => {
-        const searchMember = (event.target as HTMLInputElement).value;
-        return searchMember;
-      }),
-      filter((searchTearm: string) => searchTearm.length > 2),
-      debounceTime(500),
-      distinct(),
-      switchMap((searchMember: string) =>
-        this.memberService.getMember(searchMember)
+    )
+      .pipe(
+        map((event: Event) => {
+          const searchMember = (event.target as HTMLInputElement).value;
+          return searchMember;
+        }),
+        debounceTime(200)
       )
-    );
-
-    this.listMember$ = this.memberService.listMember();
+      .subscribe((data: any) => {
+        if (data.length > 2) {
+          this.memberService.getMember(data).subscribe(
+            (res: any) => {
+              this.members$.emit(res.data);
+            },
+            (error) => console.log(error.message)
+          );
+        } else this.listOfMembers();
+      });
+  }
+  listOfMembers() {
+    this.memberService.listMember().subscribe((res: any) => {
+      this.members$.emit(res.data);
+    });
+  }
+  ngOnDestroy(): void {
+    this.memberSubscription.unsubscribe();
   }
 }

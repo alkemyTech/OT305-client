@@ -2,23 +2,24 @@
   <div class="table-responsive  table-responsive-sm">
     <h1 class="title">{{title}}</h1>
     <a [routerLink]="'/backoffice/dashboard/members/create'">Crear Miembro</a>
-  <table class="table table-hover">
-    <thead class="thead">
-     <tr>
-        <th class="table-dark" scope="col">Name</th>
-        <th class="table-dark" scope="col">Foto</th>
-        <th class="table-dark" scope="col">Editar</th>
-        <th class="table-dark" scope="col">Eliminar</th>
-      </tr>
-    </thead>
-    <tbody class="tbody">
-      <tr>
-        <td class="table-secondary">{{miembro.name}}</td>
-        <td class="table-secondary" ><a [href]="miembro.foto">{{miembro.foto}}</a></td>
-        <td class="table-secondary"><a [routerLink]="''">Editar</a></td>
-        <td class="table-secondary"><a [routerLink]="''">Eliminar </a></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <app-searh-member class="mb-3" style="width: 90%;" (members$)="setMiembros($event)"></app-searh-member>
+    <table class="table table-hover">
+      <thead class="thead">
+        <tr>
+          <th class="table-dark" scope="col">Name</th>
+          <th class="table-dark" scope="col">Foto</th>
+          <th class="table-dark" scope="col">Editar</th>
+          <th class="table-dark" scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <tr *ngFor="let member of members">
+          <td class="table-secondary">{{member.name}}</td>
+          <td class="table-secondary"><a [href]="member.image">{{member.image}}</a></td>
+          <td class="table-secondary"><a [routerLink]="''">Editar</a></td>
+          <td class="table-secondary"><a [routerLink]="''">Eliminar </a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
