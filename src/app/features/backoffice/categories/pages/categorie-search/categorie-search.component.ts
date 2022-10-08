@@ -1,7 +1,17 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { fromEvent, Observable } from "rxjs";
-import { debounceTime, distinct, filter, map, switchMap } from "rxjs/operators";
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from "@angular/core";
+import { Store } from "@ngrx/store";
+import { fromEvent, Observable, Subscription } from "rxjs";
+import { debounceTime, map } from "rxjs/operators";
 import { Categoria } from "src/app/core/models/categoria.models";
+import { loadCategories } from "src/app/core/ngrx/actions/categorie.action";
+import { selectListCategorie } from "src/app/core/ngrx/selectors/categorie.selector";
 import { CategoriesService } from "src/app/core/services/categories/categories.service";
 
 @Component({
@@ -12,29 +22,48 @@ import { CategoriesService } from "src/app/core/services/categories/categories.s
 export class CategorieSearchComponent implements OnInit {
   @ViewChild("categorieSearchInput", { static: true })
   categorieSearchInput!: ElementRef;
-  categorie$!: Observable<Categoria[]>;
-  listCategorie$!: Observable<Categoria[]>;
+  @Output() categories$ = new EventEmitter();
   public categories: Categoria[] = [];
+  categorieSubscription!: Subscription;
 
-  constructor(private categorieService: CategoriesService) {}
+  constructor(
+    private categorieService: CategoriesService,
+    private store: Store<any>
+  ) {}
 
   ngOnInit(): void {
-    this.categorie$ = fromEvent<Event>(
+    this.listOfMembers();
+    this.categorieSubscription = fromEvent<Event>(
       this.categorieSearchInput.nativeElement,
       "keyup"
-    ).pipe(
-      map((event: Event) => {
-        const searchCategorie = (event.target as HTMLInputElement).value;
-        return searchCategorie;
-      }),
-      filter((searchTearm: string) => searchTearm.length > 2),
-      debounceTime(500),
-      distinct(),
-      switchMap((searchCategorie: string) =>
-        this.categorieService.getCategorie(searchCategorie)
+    )
+      .pipe(
+        map((event: Event) => {
+          const searchCategorie = (event.target as HTMLInputElement).value;
+          return searchCategorie;
+        }),
+        debounceTime(200)
       )
-    );
+      .subscribe((data: any) => {
+        if (data.length > 2) {
+          this.categorieService.getCategorie(data).subscribe(
+            (res: any) => {
+              this.categories$.emit(res.data);
+            },
+            (error) => console.log(error.message)
+          );
+        } else this.listOfMembers();
+      });
+  }
 
-    this.listCategorie$ = this.categorieService.listCategorie();
+  listOfMembers() {
+    this.store.dispatch(loadCategories());
+    this.store.select(selectListCategorie).subscribe((categorie: any) => {
+      this.categories$.emit(categorie.data);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.categorieSubscription.unsubscribe();
   }
 }

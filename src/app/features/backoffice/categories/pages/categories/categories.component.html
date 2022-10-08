@@ -1,26 +1,30 @@
 <app-header></app-header>
-
+<app-progressbar *ngIf="cargando" [mode]="cargando">
+</app-progressbar>
 <section class="container my-5 py-5 col-12">
-
-    <button
-    class="align-self-start btn btn-primary btn-lg"
-    routerLink="/backoffice/categories/create">
+    <button class="align-self-start btn btn-primary btn-lg" routerLink="/backoffice/categories/create">
         Crear nueva
     </button>
-
     <h1 class="fw-bold text-center my-5">
         Categorías
     </h1>
-
-    <app-progressbar
-    *ngIf="cargando"
-    [mode]="cargando">
-    </app-progressbar>
-
-    <app-table
-    [categorias]="categoriasEnLaApi"
-    (categoriaParaEliminar)="eliminarCategoria($event)"
-    >
-    </app-table>
-    <!--(categoriaParaEditar)=""-->
+    <app-categorie-search (categories$)="setCategories($event)"></app-categorie-search>
+    <table class="table table-hover">
+        <thead class="thead">
+            <tr>
+                <th class="table-dark" scope="col">Name</th>
+                <th class="table-dark" scope="col">Foto</th>
+                <th class="table-dark" scope="col">Editar</th>
+                <th class="table-dark" scope="col">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody class="tbody">
+            <tr *ngFor="let categorie of categorias">
+                <td class="table-secondary">{{categorie.name}}</td>
+                <td class="table-secondary"><a [href]="categorie .image">{{categorie.image}}</a></td>
+                <td class="table-secondary"><a [routerLink]="''">Editar</a></td>
+                <td class="table-secondary"><a [routerLink]="''">Eliminar </a></td>
+            </tr>
+        </tbody>
+    </table>
 </section>
