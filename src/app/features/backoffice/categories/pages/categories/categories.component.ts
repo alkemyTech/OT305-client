@@ -1,34 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { Categoria } from 'src/app/core/models/categoria.models';
-import { HttpService } from 'src/app/core/services/http.service';
+import { Component, OnInit } from "@angular/core";
+import { Categoria } from "src/app/core/models/categoria.models";
 
 @Component({
-  selector: 'app-categories',
-  templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.scss']
+  selector: "app-categories",
+  templateUrl: "./categories.component.html",
+  styleUrls: ["./categories.component.scss"],
 })
 export class CategoriesComponent implements OnInit {
-
-  categoriasEnLaApi!: Categoria[];
-
+  categorias: Categoria[] = [];
   cargando: boolean = true;
 
-  constructor(private httpService: HttpService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.obtenerCategorias();
+    this.cargando = false;
   }
 
-  obtenerCategorias(){
-    this.httpService.get("https://ongapi.alkemy.org/api/categories", false)
-      .subscribe((response: any) =>{
-        this.cargando = false;
-        this.categoriasEnLaApi = response.data;
-      })
+  setCategories(value: Categoria[]) {
+    this.categorias = value;
   }
 
-  eliminarCategoria(_event: Categoria){
+  eliminarCategoria(_event: Categoria) {
     //aqui se implementará la eliminación de la categoría seleccionada
   }
-
 }

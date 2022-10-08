@@ -1,0 +1,20 @@
+<form class="row">
+        <div class="col-md-9">
+                <input  type="text"
+                class="form-control form-control-lg mb-3"
+                placeholder="Busca algún usuario por su nombre..."
+                #input
+                (keyup)="searchUsuario(input.value)">
+        </div>
+
+        <div class="col-7 col-md-3">
+                <select
+                class="form-select form-select-lg mb-5"
+                #select
+                (click)="setRol(select.value)">
+                        <option value="Todos">Todos</option>
+                        <option value="Usuario Regular">Usuario Regular</option>
+                        <option value="Usuario Administrador">Usuario Administrador</option>
+                </select>
+        </div>
+</form>

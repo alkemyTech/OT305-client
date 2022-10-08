@@ -1,0 +1,34 @@
+<div style="height: 75px;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+        <div class="container-fluid">
+            <img class="img-fluid" style="height: 50px;" src="../../../../assets/logo.png" alt="">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav d-flex justify-content-end"
+                    style="width: 100%; font-size: 16px; font-weight: 400;">
+                    <li class="nav-item" *ngFor="let dato of public">
+                        <a *ngIf="dato.show" class="nav-link" aria-current="page" [routerLink]="dato.link"
+                            routerLinkActive="active">{{dato.texto}}</a>
+                    </li>
+                    <li class="nav-item dropdown" (click)="show = !show">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Campañas
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" [ngClass]="{ show: show }">
+                            <li *ngFor="let campaign of campaigns">
+                                <a *ngIf="campaign.show" class="dropdown-item" aria-current="page"
+                                    [routerLink]="campaign.link" routerLinkActive="active">{{campaign.texto}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <button routerLink="login" class="btn btn-outline-secondary rounded-pill">Iniciar Sesión</button>
+                <button routerLink="register" class="btn btn-danger rounded-pill">Registrarse</button>
+            </div>
+        </div>
+    </nav>
+</div>

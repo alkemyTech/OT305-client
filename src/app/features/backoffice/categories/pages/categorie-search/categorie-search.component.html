@@ -1,6 +1,5 @@
 <div class="row">
     <div class="container text-center p-5">
-        <h1>Buscar Categoria</h1>
         <form class="m-5">
             <div class="input-group shadow rounded">
                 <div class="input-group-prepend">
@@ -10,22 +9,4 @@
                     aria-describedby="search">
             </div>
         </form>
-
-        <div *ngIf="(categorie$ |async) as categories; else vacio">
-            <div class="row mt-4 d-flex justify-content-evenly" *ngIf="categories.length !== 0">
-                <div class="col-md-4 p-3 " *ngFor="let categorie of categories">
-                    <app-card [img]="categorie.image" [title]="categorie .name" [description]="categorie .description">
-                    </app-card>
-                </div>
-            </div>
-        </div>
     </div>
-    <ng-template #vacio>
-        <div class="row mt-4 d-flex justify-content-evenly">
-            <div class="col-md-4 p-3 " *ngFor="let categorie of listCategorie$ |async">
-                <app-card [img]="categorie.image" [title]="categorie.name" [description]="categorie.description">
-                </app-card>
-            </div>
-        </div>
-    </ng-template>
-</div>

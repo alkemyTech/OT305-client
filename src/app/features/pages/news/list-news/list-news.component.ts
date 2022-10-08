@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { Novedad } from 'src/app/core/models/novedad.model';
+import { NovedadesService } from 'src/app/core/services/novedades/novedades.service';
 
 
 
@@ -10,37 +14,18 @@ import { Component, OnInit } from '@angular/core';
 export class ListNewsComponent implements OnInit {
 
   mode: boolean = true;
-  novedades: Array<any> = []
-  constructor() { }
+  novedades: Novedad [] = [] 
+  title!:string;
+  subject$ = new Subject()
+  novedad!: Novedad 
+  constructor(private novedadService: NovedadesService) { }
 
-  ngOnInit() {
-   this.novedades = [{
-    id: 0,
-    image: "https://ongapi.alkemy.org/storage/rSpCdlZRC1.png",
-    name: "novedad",
-    description: "description",
-    created_at: "2022-06-29T06:52:06.000000Z",
-    update_at:"2022-09-22T22:09:29.000000Z"
-
-   },
-   {
-    id: 1,
-    image: "https://ongapi.alkemy.org/storage/rSpCdlZRC1.png",
-    name: "novedad",
-    description: "description",
-    created_at:"2022-06-29T06:52:06.000000Z",
-    update_at:"2022-09-22T22:09:29.000000Z"
-
-   },
-   {
-    id: 2,
-    image: "https://ongapi.alkemy.org/storage/rSpCdlZRC1.png",
-    name: "novedad",
-    description: "description",
-    created_at: "2022-06-29T06:52:06.000000Z",
-    update_at:"2022-09-22T22:09:29.000000Z"
+  ngOnInit() {}
+  
+  recargarNovedades(){
+    this.novedadService.listNews().pipe(takeUntil(this.subject$)).subscribe(res=>{
+      this.novedades = res
+    })
    }
-  ]
-  }
   
 }

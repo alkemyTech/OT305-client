@@ -1,0 +1,14 @@
+<form class="row">
+    <div class="col-md-9">
+        <input  type="text" class="form-control form-control-lg mb-5" placeholder="Busca alguna Novedad por su título..." #input #listNews$ (keyup)="searchNovedad(input.value)"  >
+    </div>
+    <div class="col-7 col-md-3">
+        <select class="form-select form-select-lg mb-5" #select
+            (click)="setCategoria(select.value)">
+                <option value="Todos">Todos</option>
+                <option value="Reuniones 2022">Reuniones 2022</option>
+                <option value="Actividades recreativass">Actividades recreativass</option>
+                <option value="Obras de teatro">Obras de teatro</option>
+        </select>
+    </div>
+</form>

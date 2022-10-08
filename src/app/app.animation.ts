@@ -3,7 +3,7 @@ import { trigger, animate, transition, style, group, query } from '@angular/anim
 
 export const slideInAnimation = trigger('slideInAnimation', [
   transition('* <=> *', [
-    query(':enter, :leave', style({ position: 'fixed', width: '100%', zIndex: 2 }), { optional: true }),
+    query(':enter, :leave', style({ position: 'fixed', width: '100%', zIndex: 2, background: 'white' }), { optional: true }),
     group([
       query(':enter', [
         style({ transform: 'translateX(100%)' }),

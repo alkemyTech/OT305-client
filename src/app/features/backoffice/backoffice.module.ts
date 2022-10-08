@@ -40,7 +40,13 @@ import { UsersEditComponent } from './users/pages/users-edit/users-edit.componen
 import { TableUsersComponent } from './users/pages/users/components/table-users/table-users.component';
 import { SearhMemberComponent } from './members/components/searh-member/searh-member.component';
 import { FormSearchSlidesComponent } from './slides/components/form-search-slides/form-search-slides.component';
+import { FormularioBusquedaNovedadesComponent } from "../pages/news/formulario-busqueda-novedades/formulario-busqueda-novedades.component";
+import { DashboardNovedadesComponent } from "../pages/news/dashboard-novedades/dashboard-novedades.component";
 import { CategorieSearchComponent } from './categories/pages/categorie-search/categorie-search.component';
+import { FormSearchUsersComponent } from './users/pages/users/components/form-search-users/form-search-users.component';
+import { NewsFormEditComponent } from "../pages/news/news-form-edit/news-form-edit.component";
+import { NewsFormComponent } from "../pages/news/news-form/news-form.component";
+
 
 @NgModule({
   declarations: [
@@ -72,16 +78,24 @@ import { CategorieSearchComponent } from './categories/pages/categorie-search/ca
     TableUsersComponent,
     SearhMemberComponent,
     FormSearchSlidesComponent,
-    CategorieSearchComponent
+    FormularioBusquedaNovedadesComponent,
+    DashboardNovedadesComponent,
+    CategorieSearchComponent,
+    FormSearchUsersComponent,
+    NewsFormEditComponent,
+    NewsFormComponent,
   ],
   exports: [
     CategoriesFormComponent,
     HeaderComponent,
+    NewsFormComponent,
     HomeComponent,
     FormEditarHomeComponent,
     EditComponent,
     SlidesComponent,
     FormCreacionEdicionSlidesComponent,
+    FormularioBusquedaNovedadesComponent
+   
   ],
   imports: [
     CommonModule,
