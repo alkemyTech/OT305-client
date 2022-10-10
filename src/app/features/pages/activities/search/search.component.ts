@@ -5,14 +5,16 @@ import {
   OnInit,
   Output,
 } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
 import { Store } from "@ngrx/store";
 import { fromEvent, Subject } from "rxjs";
 import { debounceTime, map, takeUntil } from "rxjs/operators";
 import { Actividad } from "src/app/core/models/actividad.model";
 import { Get_Actividad } from "src/app/core/ngrx/actions/actividad.action";
 import { AppStore } from "src/app/core/ngrx/app.store";
-import { selectActividadList } from "src/app/core/ngrx/selectors/actividad.selector";
+import { selectActividadFeature, selectActividadList } from "src/app/core/ngrx/selectors/actividad.selector";
 import { ActividadService } from "src/app/core/services/activities/actividad.service";
+import { AlertasComponent } from "src/app/shared/components/alertas/alertas.component";
 
 @Component({
   selector: "app-search",
@@ -26,7 +28,8 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<AppStore>,
-    private actividadService: ActividadService
+    private actividadService: ActividadService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -37,7 +40,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     keyup
       .pipe(
         map((e: any) => e.currentTarget.value),
-        debounceTime(100),
+        debounceTime(500),
         takeUntil(this.desub$)
       )
       .subscribe((data) => {
@@ -48,20 +51,31 @@ export class SearchComponent implements OnInit, OnDestroy {
                 this.actividades = results.data;
                 this.EmitirResultados();
               },
-              (error) => console.log(error.message)
+              (error) => {
+                this.openDialog("La búsqueda no pudo realizarse correctamente", error.message)
+              }
             );
         } else this.obtenerActividades();
+      },
+      (error) => {
+        this.openDialog("Error", error.message)
       });
   }
 
   obtenerActividades() {
     this.store.dispatch(Get_Actividad());
     this.store
-      .select(selectActividadList)
+      .select(selectActividadFeature)
       .pipe(takeUntil(this.desub$))
-      .subscribe((actividad: any) => {
-        this.actividades = actividad.data;
-        this.EmitirResultados();
+      .subscribe((state: any) => {
+        if (state.error == undefined) {
+          this.actividades = state.actividad.data;
+          this.EmitirResultados();
+        }
+        else this.openDialog("Error al obtener las Actividades", state.error.message)
+      },
+      (error) => {
+        this.openDialog("Error al obtener las Actividades", error.message)
       });
   }
 
@@ -72,5 +86,17 @@ export class SearchComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.desub$.next();
     this.desub$.complete();
+  }
+
+  openDialog(titulo: string, mensaje: string): void {
+    const dialogRef = this.dialog.open(AlertasComponent, {
+      width: "355px",
+      data: {
+        cancelText: "Cerrar",
+        confirmText: "Ok",
+        message: mensaje,
+        title: titulo,
+      },
+    });
   }
 }

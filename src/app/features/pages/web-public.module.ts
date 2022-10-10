@@ -41,6 +41,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormularioBusquedaNovedadesWebPublicaComponent } from './news/formulario-busqueda-novedades-web-publica/formulario-busqueda-novedades-web-publica.component';
+import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import { FormularioBusquedaNovedadesWebPublicaComponent } from './news/formulari
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
-    SharedModule
+    SharedModule,
+    NgxTwitterTimelineModule,
   ]
 })
 export class WebPublicModule { }
