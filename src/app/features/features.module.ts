@@ -10,21 +10,21 @@ import { ActividadEffects } from "../core/ngrx/effects/actividad.effect";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NosotrosEffects } from "../core/ngrx/effects/nosotros.effect";
-
+import { CategorieEffects } from "../core/ngrx/effects/categorie.effect";
 
 @NgModule({
-  declarations: [ 
-
-  ],
-  exports: [
-    RouterModule,
-  ],
+  declarations: [],
+  exports: [RouterModule],
   imports: [
     CommonModule,
     AppRoutingModule,
     RouterModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([ActividadEffects, NosotrosEffects]),
+    EffectsModule.forRoot([
+      ActividadEffects,
+      NosotrosEffects,
+      CategorieEffects,
+    ]),
     StoreDevtoolsModule.instrument({ name: "TEST" }),
     BrowserAnimationsModule,
   ],

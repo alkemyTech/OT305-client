@@ -1,10 +1,10 @@
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-    <div class="carousel-inner" *ngFor="let item of data;let index = index; first as isFirst">
-        <div [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item'" data-bs-interval='2000'>
-            <img [src]="item.image" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>{{item.name}}</h5>
-                <p>{{item.description}}</p>
+<div *ngIf="(slides$ |async) as slides" id="carouselExampleCaptions" class="carousel pb-3" data-bs-ride="carousel">
+    <div class="carousel-inner" *ngFor="let slide of slides;let index = index; first as isFirst">
+        <div [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item'">
+            <img [src]="slide.image" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block rounded-pill">
+                <h3>{{slide.name}}</h3>
+                <p [innerHtml]="slide.description"></p>
             </div>
         </div>
     </div>

@@ -1,53 +1,27 @@
-<form
-class="d-flex flex-column gap-2 col-lg-8"
-[formGroup]="form">
+<form class="d-flex flex-column gap-2 col-lg-8" [formGroup]="form">
 
     <h2 class="fs-1 mb-4">
         ¡Contactate con nosotros!
     </h2>
 
-    <input
-    type="text"
-    formControlName="name"
-    class="form-control border-dark shadow"
-    placeholder="Nombre y Apellido">
-    
-    <input
-    type="text"
-    formControlName="email"
-    class="form-control border-dark shadow"
-    placeholder="Email">
+    <input type="text" formControlName="name" class="form-control border-dark shadow" placeholder="Nombre y Apellido">
 
-    <input
-    type="number"
-    formControlName="phone"
-    class="form-control border-dark shadow"
-    placeholder="Teléfono">
+    <input type="text" formControlName="email" class="form-control border-dark shadow" placeholder="Email">
 
-    <textarea
-    cols="30"
-    rows="9"
-    formControlName="message"
-    style="resize: none;"
-    class="form-control border-dark shadow"
-    placeholder="Escribe tu consulta"></textarea>
+    <textarea cols="30" rows="9" formControlName="message" style="resize: none;" class="form-control border-dark shadow"
+        placeholder="Escribe tu consulta"></textarea>
 
     <div class="d-flex flex-column align-items-start gap-2 mt-3">
 
-        <button
-        class="btn btn-primary btn-lg fw-bold rounded shadow"
-        (click)="sendForm()">
+        <button class="btn btn-primary btn-lg fw-bold rounded shadow" (click)="sendForm()">
             Enviar consulta
         </button>
 
         <!-- SUSTITUIR LA RUTA POR LA RUTA DE INICIO CUANDO ESTÉ LISTA -->
-        <button
-        routerLink="/contacto"
-        class="btn btn-light btn-lg fw-bold border-dark rounded shadow">
+        <button routerLink="/contacto" class="btn btn-light btn-lg fw-bold border-dark rounded shadow">
             Ir al inicio
         </button>
-        
+
     </div>
 
 </form>
-
