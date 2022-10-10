@@ -8,7 +8,7 @@ import { JuguetesComponent } from './juguetes/juguetes.component';
 import { EscolarComponent } from './escolar/escolar.component';
 import { SliderComponent } from './slider/slider.component';
 import { HeaderCampanasComponent } from './header-campanas/header-campanas.component';
-
+import { ContenidoJuguetesComponent } from './juguetes/contenido-juguetes/contenido-juguetes.component';
 
 
 @NgModule({
@@ -18,7 +18,8 @@ import { HeaderCampanasComponent } from './header-campanas/header-campanas.compo
     JuguetesComponent,
     EscolarComponent,
     SliderComponent,
-    HeaderCampanasComponent
+    HeaderCampanasComponent,
+    ContenidoJuguetesComponent,
   ],
   imports: [
     CommonModule,

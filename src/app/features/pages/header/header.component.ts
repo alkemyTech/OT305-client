@@ -11,7 +11,7 @@ import { selectViewIdUser } from 'src/app/core/ngrx/selectors/auth.selector';
 export class HeaderComponent implements OnInit {
   show: boolean = false;
 
-  userId$: Observable<number> = new Observable<number>;
+  userId$: Observable<number> = new Observable<number>();
   
   public = [
     { texto: 'Inicio', link: '/home', show: true },
