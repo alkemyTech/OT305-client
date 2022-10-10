@@ -1,5 +1,4 @@
-<div *ngIf="(slides$ |async) as slides" id="carouselExampleCaptions" class="carousel slide pb-3"
-    data-bs-ride="carousel">
+<div *ngIf="(slides$ |async) as slides" id="carouselExampleCaptions" class="carousel pb-3" data-bs-ride="carousel">
     <div class="carousel-inner" *ngFor="let slide of slides;let index = index; first as isFirst">
         <div [ngClass]="isFirst ? 'carousel-item active' : 'carousel-item'">
             <img [src]="slide.image" class="d-block w-100" alt="...">
