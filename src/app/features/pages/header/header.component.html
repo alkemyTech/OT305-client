@@ -26,7 +26,12 @@
                         </ul>
                     </li>
                 </ul>
-                <button routerLink="login" class="btn btn-outline-secondary rounded-pill">Iniciar Sesión</button>
+                <form *ngIf="!token$" class="px-2">
+                    <button routerLink="login" class="btn btn-outline-secondary rounded-pill">Iniciar Sesión</button>
+                </form>
+                <form *ngIf="token$">
+                    <button routerLink="login" class="btn btn-outline-secondary rounded-pill">Cerrar sesión</button>
+                </form>
                 <button routerLink="register" class="btn btn-danger rounded-pill">Registrarse</button>
             </div>
         </div>
