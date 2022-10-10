@@ -5,18 +5,21 @@
   </div>
   <form [formGroup]="form" (ngSubmit)="onSubmit()" class="row">
     <div class="col-lg-8 col-md-7">
+      <label for="imagen" class="mb-2">Imagen:</label>
       <div class="input-group mb-3">
         <input (change)="onFileSelect($event.target)" type="file" class="form-control" id="imagen"
           formControlName="image" accept="image/x-png,image/jpeg" required [ngClass]="{'border-success' : form.controls.image.status == 'VALID' && form.controls.image.touched, 
                       'border-danger' : form.controls.image.status == 'INVALID' && form.controls.image.touched}">
       </div>
       <div class="mb-3">
+        <label for="name" class="mb-2">Nombre:</label>
         <input type="text" class="form-control py-3" id="name" placeholder="Nombre" formControlName="name" required
           [ngClass]="{'border-success' : form.controls.name.status == 'VALID' && form.controls.name.touched, 
                     'border-danger' : form.controls.name.status == 'INVALID' && form.controls.name.touched}">
       </div>
       <div class="mb-3">
-        <ckeditor formControlName="description"></ckeditor>
+        <label for="descripcion" class="mb-2">Descripción:</label>
+        <ckeditor formControlName="description" id="descripcion"></ckeditor>
       </div>
       <button [disabled]="form.controls.name.status == 'INVALID' || foto == null"
         class="btn btn-lg rounded-lg px-5 mb-4" type="submit">{{accion}}</button>
