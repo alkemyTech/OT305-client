@@ -22,6 +22,7 @@ export interface ActividadState {
 export interface AuthState {
   user: any | null;
   token: string | null;
+  rol_id: number | null;
 }
 
 export interface NosotrosState {

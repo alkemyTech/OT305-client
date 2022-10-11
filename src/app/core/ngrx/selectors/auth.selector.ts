@@ -4,7 +4,7 @@ import { AuthState } from "../app.store";
 export const selectViewIdUser = createSelector( 
    createFeatureSelector('userState'),
    (state: AuthState) => {
-    return state.user
+    return state.rol_id
    }
  );
 
