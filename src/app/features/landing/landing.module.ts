@@ -8,8 +8,10 @@ import { JuguetesComponent } from './juguetes/juguetes.component';
 import { EscolarComponent } from './escolar/escolar.component';
 import { SliderComponent } from './slider/slider.component';
 import { HeaderCampanasComponent } from './header-campanas/header-campanas.component';
+import { ContenidoJuguetesComponent } from './juguetes/contenido-juguetes/contenido-juguetes.component';
 import { ContenidoEscolarComponent } from './escolar/contenido-escolar/contenido-escolar.component';
-import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
+
+
 
 
 
@@ -22,8 +24,10 @@ import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
     EscolarComponent,
     SliderComponent,
     HeaderCampanasComponent,
-   ContenidoEscolarComponent,
+    ContenidoJuguetesComponent,
+    ContenidoEscolarComponent,
    
+
 
   ],
   imports: [
