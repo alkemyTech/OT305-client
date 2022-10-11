@@ -1,10 +1,10 @@
 import { Component, Input, OnDestroy } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { MatDialog } from "@angular/material/dialog";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
-import { HttpService } from "src/app/core/services/http.service";
 import { TestimonioService } from "src/app/core/services/testimonials/testimonio.service";
-import Swal from "sweetalert2";
+import { AlertasComponent } from "src/app/shared/components/alertas/alertas.component";
 
 @Component({
   selector: "app-testimonial-form",
@@ -20,7 +20,8 @@ export class TestimonialFormComponent implements OnDestroy{
 
   constructor(
     private fb: FormBuilder,
-    private testimonioService: TestimonioService
+    private testimonioService: TestimonioService,
+    public dialog: MatDialog
   ) {
     this.form = this.fb.group({
       image: [null, Validators.required],
@@ -72,10 +73,9 @@ export class TestimonialFormComponent implements OnDestroy{
     this.testimonioService.setTestimonio(data).pipe(takeUntil(this.desub$))
     .subscribe(
       () => {
-        Swal.fire(
+        this.openDialog(
           "Testimonio Agregado!",
-          "El testimonio fue agregado éxitosamente",
-          "success"
+          "El testimonio fue agregado éxitosamente"
         );
         this.foto = null;
         this.form.controls["image"].setValue(null);
@@ -83,10 +83,9 @@ export class TestimonialFormComponent implements OnDestroy{
         this.form.controls["description"].setValue("");
       },
       (error) => {
-        Swal.fire(
+        this.openDialog(
           "El testimonio no pudo ser Agregado",
-          error.messagge,
-          "error"
+          "Por favor, complete todos los campos obligatorios"
         );
       }
     );
@@ -107,17 +106,15 @@ export class TestimonialFormComponent implements OnDestroy{
       .subscribe(
         (data) => {
           console.log(data);
-          Swal.fire(
+          this.openDialog(
             "Testimonio Editado!",
-            "El testimonio fue editado éxitosamente",
-            "success"
+            "El testimonio fue editado éxitosamente"
           );
         },
         (error) => {
-          Swal.fire(
+          this.openDialog(
             "El testimonio no pudo ser Editado",
-            error.messagge,
-            "error"
+            "Por favor, complete todos los campos obligatorios"
           );
         }
       );
@@ -132,17 +129,15 @@ export class TestimonialFormComponent implements OnDestroy{
       .subscribe(
         (data) => {
           console.log(data);
-          Swal.fire(
+          this.openDialog(
             "Testimonio Editado!",
-            "El testimonio fue editado éxitosamente",
-            "success"
+            "El testimonio fue editado éxitosamente"
           );
         },
         (error) => {
-          Swal.fire(
+          this.openDialog(
             "El testimonio no pudo ser Editado",
-            error.messagge,
-            "error"
+            "Por favor, complete todos los campos obligatorios"
           );
         }
       );
@@ -154,4 +149,15 @@ export class TestimonialFormComponent implements OnDestroy{
     this.desub$.complete();
   }
 
+  openDialog(titulo: string, mensaje: string): void {
+    const dialogRef = this.dialog.open(AlertasComponent, {
+      width: "350px",
+      data: {
+        cancelText: "Cerrar",
+        confirmText: "Ok",
+        message: mensaje,
+        title: titulo,
+      },
+    });
+  }
 }

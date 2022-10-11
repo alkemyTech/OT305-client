@@ -1,0 +1,23 @@
+
+<div class="container-fluid">
+  <div class="content-all">
+
+    <div class="content-img">
+      <img class="img" [src]="'assets/slide-2.jpg'">
+    </div>
+    
+    <div class="container-text">
+      <div class="content-title">
+        <h2 class="title">{{titulo}}
+          <p class="line"></p>
+        </h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque quasi aperiam officiis minima necessitatibus, excepturi natus eum ullam, reiciendis nihil commodi labore recusandae dolorem, fugiat itaque. Porro, unde aut!</p>
+        <h5>Fecha: {{init | date}} </h5>
+        <h5>Hora: {{init | date :"hh:mm" : "locale"}}</h5>
+        <h5>Lugar: Lugar</h5>
+        <h5 class="cuenta-regreciva">Faltan: {{counter}}</h5>
+      </div>
+      
+   </div>
+  </div>
+</div>

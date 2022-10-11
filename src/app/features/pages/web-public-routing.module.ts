@@ -16,6 +16,10 @@ import { TestimonialFormComponent } from './testimonials/testimonial-form/testim
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { WebPublicComponent } from './web-public.component';
 import { ErrorComponent } from "./error/error.component";
+import { GuardsGuard } from '../../core/guards/guards.guard';
+import { DonacionComponent } from './donations/donacion/donacion.component';
+import { GraciasComponent } from './donations/gracias/gracias.component';
+import { NoAutenticadoGuard } from 'src/app/core/guards/no-autenticado.guard';
 
 const routes: Routes = [
   {
@@ -61,6 +65,8 @@ const routes: Routes = [
       {
         path: "register",
         component: RegisterFormComponent,
+        canLoad: [ GuardsGuard ],
+        canActivate: [ GuardsGuard ]
       },
 
       {
@@ -71,6 +77,8 @@ const routes: Routes = [
       {
         path: "contacto",
         component: ContactComponent,
+        canLoad: [ GuardsGuard ],
+        canActivate: [ GuardsGuard ]
       },
       
       {
@@ -81,16 +89,30 @@ const routes: Routes = [
       {
         path: "novedades/:id",
         component: DetalleNovedadComponent,
+        canLoad: [ NoAutenticadoGuard ],
+        canActivate: [ NoAutenticadoGuard ]
       },
 
       {
         path: "novedades",
         component: ListNewsComponent,
+        canLoad: [ NoAutenticadoGuard ],
+        canActivate: [ NoAutenticadoGuard ]
       },
 
       {
         path: "home",
         component: InicioComponent
+      },
+
+      {
+        path: "donar",
+        component: DonacionComponent,
+      },
+
+      {
+        path: "gracias",
+        component: GraciasComponent,
       },
 
       {

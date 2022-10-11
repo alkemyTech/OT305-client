@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { Novedad } from 'src/app/core/models/novedad.model';
@@ -9,7 +9,7 @@ import { NovedadesService } from 'src/app/core/services/novedades/novedades.serv
   templateUrl: './formulario-busqueda-novedades-web-publica.component.html',
   styleUrls: ['./formulario-busqueda-novedades-web-publica.component.scss']
 })
-export class FormularioBusquedaNovedadesWebPublicaComponent implements OnInit {
+export class FormularioBusquedaNovedadesWebPublicaComponent implements OnInit, OnDestroy {
 
   @Output() novedad = new EventEmitter();
   subject$ = new Subject<string>();
@@ -24,7 +24,10 @@ export class FormularioBusquedaNovedadesWebPublicaComponent implements OnInit {
     this.novedad$ = this.subject$.pipe(debounceTime(500),switchMap(data => this.novedadService.getNews(`${this.textoSolicitado}`)))
     this.novedadSubscription = this.novedad$.subscribe((res: any) => {return this.novedad.emit(res);},)
   }
-
+  ngOnDestroy(): void {
+    this.novedadSubscription.unsubscribe()
+  }
+  
   obtenerNovedadesDeApi(){
     this.novedadSubscription = this.novedadService.listNews().subscribe((res: any) => {
       this.novedades = res 

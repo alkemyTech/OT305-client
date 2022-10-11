@@ -1,0 +1,17 @@
+<section style="height:100%; width:100%">
+    <div class="container text-center container-fluid p-5 m-5">
+        <div class="row py-3">
+            <div class="col">
+                <h1>{{ text }}</h1>
+            </div>
+        </div>
+        <div class="row py-5">
+            <div class="col-6">
+                <button class="btn btn-danger btn-lg" >Donar</button>
+            </div>
+            <div class="col-6">
+                <input class="form-control" type="text" placeholder="Cantidad a donar..." (blur)="transformAmount($event)" [(ngModel)]="formattedAmount">
+            </div>
+        </div>
+    </div>
+</section>

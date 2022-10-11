@@ -4,7 +4,8 @@
     </div>
     <div class="row">
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="col-lg-8 col-md-7">
-            <div class="mb-2">
+            <div class="mb-3">
+                <label for="imagen" class="mb-2">Imagen:</label>
                 <input (change)="onFileSelect($event.target)" type="file" class="form-control" id="imagen"
                     formControlName="image" accept="image/x-png,image/jpeg" required />
                 <div class="float-end mb-2">
@@ -17,8 +18,9 @@
                     </i>
                 </div>
             </div>
-            <div class="mb-2">
-                <input type="text" class="form-control" id="name" placeholder="Nombre" formControlName="name" required>
+            <div class="mb-3">
+                <label for="name" class="mb-2">Nombre:</label>
+                <input type="text" class="form-control" id="name" placeholder="Nombre..." formControlName="name" required>
                 <div class="float-end mb-2">
                     <i class="bi bi-check-circle-fill text-success"
                         *ngIf="form.controls.name.status == 'VALID' && form.controls.name.touched"></i>
@@ -30,7 +32,7 @@
                 </div>
             </div>
             <div>
-                <label for="description">Descripción: </label>
+                <label for="description" class="mb-2">Descripción: </label>
                 <ckeditor id="description" formControlName="description"></ckeditor>
                 <div class="float-end mb-2">
                     <i class="bi bi-check-circle-fill text-success"
@@ -45,7 +47,7 @@
 
         <button
             [disabled]="form.controls.name.status == 'INVALID' || form.controls.description.status == 'INVALID' || foto == null"
-            class="btn btn-lg rounded-lg px-5 my-4 float-end" type="submit">{{accion}}</button>
+            class="btn btn-lg rounded-lg px-5 my-4" type="submit">{{accion}}</button>
     </form>
 
         <div class="col-lg-4 col-md-5 text-center">
