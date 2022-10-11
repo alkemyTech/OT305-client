@@ -3,6 +3,7 @@ import { AppStore, AuthState } from "../app.store";
 
 export const selectAuthFeature = (state: AppStore) => state.auth;
 
+<<<<<<< HEAD
 export const selectToken = createSelector(
   selectAuthFeature,
   (state: AuthState) => state.token
@@ -13,3 +14,7 @@ export const selectViewIdUser = createSelector(
     return state.rol_id;
   }
 );
+=======
+ 
+ 
+>>>>>>> main
