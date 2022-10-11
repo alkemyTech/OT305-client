@@ -27,7 +27,7 @@
                     </li>
                 </ul>
                 <button routerLink="login" class="btn btn-outline-secondary rounded-pill">Iniciar Sesión</button>
-                <button routerLink="register" class="btn btn-danger rounded-pill">Registrarse</button>
+                <button *ngIf="registerView" routerLink="register" class="btn btn-danger rounded-pill">Registrarse</button>
             </div>
         </div>
     </nav>

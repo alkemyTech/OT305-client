@@ -4,7 +4,8 @@ import { AuthState } from '../app.store';
 
 export const initialUserState: AuthState = {
     user: null,
-    token: null
+    token: null,
+    rol_id: null,
 }
 
 export const authReducer = createReducer(
@@ -13,14 +14,16 @@ export const authReducer = createReducer(
         return {
             ...state,
             user: data.user,
-            token: data.token
+            token: data.token,
+            rol_id: data.rol_id,
         }
     }),
     on(Logout_Action, (state) => {
         return {
             ...state,
             user: null,
-            token: null
+            token: null,
+            rol_id: null,
         }
     })
 )
