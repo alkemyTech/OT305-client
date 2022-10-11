@@ -23,6 +23,7 @@
     "@ngrx/effects": "^12.5.1",
     "@ngrx/store": "^12.5.1",
     "@ngrx/store-devtools": "^12.5.1",
+    "angular-countdown-date-time": "^0.1.0",
     "bootstrap": "^5.2.1",
     "ckeditor4-angular": "^3.1.1",
     "cors": "^2.8.5",

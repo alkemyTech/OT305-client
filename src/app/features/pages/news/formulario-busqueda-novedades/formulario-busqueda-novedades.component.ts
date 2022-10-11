@@ -42,8 +42,6 @@ export class FormularioBusquedaNovedadesComponent implements OnInit, OnDestroy {
 
          return this.novedadService.getNews(`${this.textoSolicitado}`)
         }
-       
-      
       }
     ))
     this.novedadSubscription = this.novedad$.subscribe((res: any) => {return this.novedad.emit(res);},)
