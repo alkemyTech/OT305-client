@@ -19,18 +19,6 @@ import { CategorieEffects } from "../core/ngrx/effects/categorie.effect";
     CommonModule,
     AppRoutingModule,
     RouterModule,
-<<<<<<< HEAD
-    CKEditorModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatDialogModule,
-    SharedModule,
-=======
->>>>>>> main
     StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot([
       ActividadEffects,
