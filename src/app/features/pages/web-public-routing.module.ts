@@ -17,6 +17,7 @@ import { UserFormComponent } from "./users/user-form/user-form.component";
 import { WebPublicComponent } from "./web-public.component";
 import { ErrorComponent } from "./error/error.component";
 import { GuardsGuard } from "../../core/guards/guards.guard";
+import { TokenGuard } from "src/app/core/guards/token.guard";
 
 const routes: Routes = [
   {
@@ -62,7 +63,7 @@ const routes: Routes = [
         path: "register",
         component: RegisterFormComponent,
         canLoad: [GuardsGuard],
-        canActivate: [GuardsGuard],
+        canActivate: [GuardsGuard, TokenGuard],
       },
 
       {

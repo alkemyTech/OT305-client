@@ -13,7 +13,7 @@ import {
 })
 export class HeaderComponent implements OnInit {
   show: boolean = false;
-  token$!: Observable<any>;
+  token$ = this.store.pipe(select(selectToken));
   userId$: Observable<number | null> = new Observable<number>();
   registerView = this.restrictView(this.userId$);
 
@@ -39,9 +39,7 @@ export class HeaderComponent implements OnInit {
     this.userId$ = store.select(selectViewIdUser);
   }
 
-  ngOnInit(): void {
-    this.token$ = this.store.pipe(select(selectToken));
-  }
+  ngOnInit(): void {}
 
   restrictView(userId$: Observable<number | null>) {
     userId$.subscribe((id) => {
