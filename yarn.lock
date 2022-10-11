@@ -1700,6 +1700,13 @@
     "require-from-string" "^2.0.2"
     "uri-js" "^4.2.2"
 
+"angular-countdown-date-time@^0.1.0":
+  "integrity" "sha512-nXBdRfw+pXaCfj636uq7LW2ywFU1ENZ11puRSovEk7fgGVxxefJAsCAaLb/GF9KpV5oc0OtTqC8RNVU/9e/QzQ=="
+  "resolved" "https://registry.npmjs.org/angular-countdown-date-time/-/angular-countdown-date-time-0.1.0.tgz"
+  "version" "0.1.0"
+  dependencies:
+    "tslib" "^1.9.0"
+
 "ansi-colors@^3.0.0":
   "integrity" "sha512-hHUXGagefjN2iRrID63xckIvotOXOojhQKWIPUZ4mNUZ9nLZW+7FMNoE1lOkEhNWYsx/7ysGIuJYCiMAA9FnrA=="
   "resolved" "https://registry.npmjs.org/ansi-colors/-/ansi-colors-3.2.4.tgz"

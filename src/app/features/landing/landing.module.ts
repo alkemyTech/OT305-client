@@ -9,6 +9,11 @@ import { EscolarComponent } from './escolar/escolar.component';
 import { SliderComponent } from './slider/slider.component';
 import { HeaderCampanasComponent } from './header-campanas/header-campanas.component';
 import { ContenidoJuguetesComponent } from './juguetes/contenido-juguetes/contenido-juguetes.component';
+import { ContenidoEscolarComponent } from './escolar/contenido-escolar/contenido-escolar.component';
+
+
+
+
 
 
 @NgModule({
@@ -20,11 +25,19 @@ import { ContenidoJuguetesComponent } from './juguetes/contenido-juguetes/conten
     SliderComponent,
     HeaderCampanasComponent,
     ContenidoJuguetesComponent,
+    ContenidoEscolarComponent,
+   
+
+
   ],
   imports: [
     CommonModule,
     RouterModule,
-    LandingRoutingModule
+    LandingRoutingModule,
+
+   
+   
+  
   ]
 })
 
