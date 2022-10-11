@@ -32,7 +32,7 @@
                 <form *ngIf="token$">
                     <button routerLink="login" class="btn btn-outline-secondary rounded-pill">Cerrar sesión</button>
                 </form>
-                <button routerLink="register" class="btn btn-danger rounded-pill">Registrarse</button>
+                <button *ngIf="!token$" routerLink="register" class="btn btn-danger rounded-pill">Registrarse</button>
             </div>
         </div>
     </nav>
