@@ -15,7 +15,7 @@ import { selectToken } from "../ngrx/selectors/auth.selector";
 })
 export class TokenGuard implements CanActivate {
   token$ = this.store.select(selectToken);
-  constructor(private store: Store, private router: Router) {}
+  constructor(private store: Store<any>, private router: Router) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

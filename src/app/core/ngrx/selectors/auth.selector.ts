@@ -1,11 +1,11 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { AuthState } from "../app.store";
+import { AppStore, AuthState } from "../app.store";
+
+export const selectAuthFeature = (state: AppStore) => state.auth;
 
 export const selectToken = createSelector(
-  createFeatureSelector("tokenState"),
-  (state: AuthState) => {
-    return state.token;
-  }
+  selectAuthFeature,
+  (state: AuthState) => state.token
 );
 export const selectViewIdUser = createSelector(
   createFeatureSelector("userState"),

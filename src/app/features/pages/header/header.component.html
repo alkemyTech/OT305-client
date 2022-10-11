@@ -26,14 +26,15 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="px-2">
+                <form class="px-2" *ngIf="!(token$ |async)">
                     <button routerLink="login" class="btn btn-outline-secondary rounded-pill">Iniciar Sesión</button>
                 </form>
                 <form *ngIf="token$ |async">
-                    <button routerLink="login" class="btn btn-outline-secondary rounded-pill">Cerrar sesión</button>
+                    <button (click)="signOut()" routerLink="login" class="btn btn-outline-secondary rounded-pill">Cerrar
+                        sesión</button>
                 </form>
-                <!--                 <button *ngIf="!(token$ |async)" routerLink="register"
-                    class="btn btn-danger rounded-pill">Registrarse</button> -->
+                <button *ngIf="!(token$ |async)" routerLink="register"
+                    class="btn btn-danger rounded-pill">Registrarse</button>
                 <button *ngIf="registerView" routerLink="register"
                     class="btn btn-danger rounded-pill">Registrarse</button>
             </div>
