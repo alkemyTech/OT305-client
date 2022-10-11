@@ -10,7 +10,7 @@ import { selectViewIdUser } from '../ngrx/selectors/auth.selector';
 })
 export class GuardsGuard implements CanActivate, CanLoad {
 
-  userId$: Observable<number|null> = new Observable<number>;
+  userId$: Observable<number|null> = new Observable<number>();
   
 
   constructor( private store: Store, private router: Router) {

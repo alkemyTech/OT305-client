@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { WebPublicRoutingModule } from './web-public-routing.module';
@@ -42,6 +42,8 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormularioBusquedaNovedadesWebPublicaComponent } from './news/formulario-busqueda-novedades-web-publica/formulario-busqueda-novedades-web-publica.component';
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
+import { DonacionComponent } from './donations/donacion/donacion.component';
+import { GraciasComponent } from './donations/gracias/gracias.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,9 @@ import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
     FooterComponent,    
     SearchComponent,
     HeaderComponent,
-    FormularioBusquedaNovedadesWebPublicaComponent
+    FormularioBusquedaNovedadesWebPublicaComponent,
+    DonacionComponent,
+    GraciasComponent
   ],
   exports: [
     WebPublicComponent,
@@ -106,6 +110,7 @@ import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
     MatDialogModule,
     SharedModule,
     NgxTwitterTimelineModule,
-  ]
+  ],
+  providers: [CurrencyPipe]
 })
 export class WebPublicModule { }

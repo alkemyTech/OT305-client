@@ -14,8 +14,6 @@ import { ContenidoEscolarComponent } from './escolar/contenido-escolar/contenido
 
 
 
-
-
 @NgModule({
   declarations: [
     LandingComponent,
