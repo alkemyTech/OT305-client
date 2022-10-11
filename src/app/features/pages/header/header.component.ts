@@ -13,9 +13,9 @@ import {
 })
 export class HeaderComponent implements OnInit {
   show: boolean = false;
-
-  userId$: Observable<number> = new Observable<number>();
   token$!: Observable<any>;
+  userId$: Observable<number | null> = new Observable<number>();
+  registerView = this.restrictView(this.userId$);
 
   public = [
     { texto: "Inicio", link: "/home", show: true },
@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit {
     this.token$ = this.store.pipe(select(selectToken));
   }
 
-  restrictView(userId$: Observable<number>) {
+  restrictView(userId$: Observable<number | null>) {
     userId$.subscribe((id) => {
       if (id === 1) {
         return false;
