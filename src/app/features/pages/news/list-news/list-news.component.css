@@ -1,1 +1,8 @@
-/* No CSS *//*# sourceMappingURL=list-news.component.css.map */
+.container {
+  padding-top: 40px;
+}
+
+.content-img {
+  border: 1px solid red;
+}
+/*# sourceMappingURL=list-news.component.css.map */

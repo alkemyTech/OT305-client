@@ -7,4 +7,9 @@
   color: azure;
   font-size: 0.7rem;
 }
+
+h2 {
+  margin: 3% 0;
+  border-bottom: 3px solid var(--yellow);
+}
 /*# sourceMappingURL=listado-nosotros.component.css.map */

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,GAAG,CAAA;EACC,KAAK,EAAE,IAAI;CACd",
+    "sources": [
+        "lazy-load-img.component.scss"
+    ],
+    "names": [],
+    "file": "lazy-load-img.component.css"
+}
