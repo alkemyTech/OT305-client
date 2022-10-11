@@ -9,7 +9,7 @@ import { EscolarComponent } from './escolar/escolar.component';
 import { SliderComponent } from './slider/slider.component';
 import { HeaderCampanasComponent } from './header-campanas/header-campanas.component';
 import { ContenidoEscolarComponent } from './escolar/contenido-escolar/contenido-escolar.component';
-import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
+// import { AngularCountdownDateTimeModule } from 'angular-countdown-date-time';
 
 
 

@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   show: boolean = false;
 
   
-  userId$: Observable<number | null> = new Observable<number>;
+  userId$: Observable<number | null> = new Observable<number>();
 
   registerView = this.restrictView(this.userId$)
   
