@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit {
 
   registerView = this.restrictView(this.userId$)
 
+  isRegularUser = this.verifyRegularUser(this.userId$);
+
   public = [
     { texto: 'Inicio', link: '/home', show: true },
     { texto: 'Actividades', link: '/actividades', show: true },
@@ -35,9 +37,7 @@ export class HeaderComponent implements OnInit {
     this.userId$ = store.select(selectViewIdUser);
   }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void { }
 
   restrictView(userId$: Observable<number | null>){
     userId$.subscribe( id => {
@@ -45,6 +45,15 @@ export class HeaderComponent implements OnInit {
         return false
       }
       return true
+    })
+  }
+
+  verifyRegularUser(userId$: Observable<number | null>){
+    userId$.subscribe( id => {
+      if(id === 2){
+        return true;
+      }
+      return false;
     })
   }
 
