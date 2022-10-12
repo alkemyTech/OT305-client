@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Novedad } from 'src/app/core/models/novedad.model';
@@ -17,12 +17,13 @@ export class ListNewsComponent implements OnInit, OnDestroy {
   novedades: Novedad [] = [] 
   title!:string;
   subject$ = new Subject()
-  novedad!: Novedad 
+  novedad!: Novedad
+  novedadesDesdeBuscador!: Novedad [];
+
   constructor(private novedadService: NovedadesService) { }
 
-  ngOnInit() {
-    this.recargarNovedades()
-  }
+  ngOnInit() { }
+
   ngOnDestroy() {
       this.subject$.next();
       this.subject$.complete();
@@ -32,6 +33,13 @@ export class ListNewsComponent implements OnInit, OnDestroy {
     this.novedadService.listNews().pipe(takeUntil(this.subject$)).subscribe(res=>{
       this.novedades = res
     })
+   }
+
+   @HostListener('window:scroll', ['$event'])
+   onScroll(){
+    if(window.scrollY > 0){
+      this.novedades = this.novedadesDesdeBuscador;
+    }
    }
   
 }

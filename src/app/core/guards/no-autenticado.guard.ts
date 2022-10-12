@@ -11,7 +11,7 @@ import { ConfirmDialogService } from '../services/confirm-dialog.service';
 })
 export class NoAutenticadoGuard implements CanActivate, CanLoad {
   
-  userId$: Observable<number|null> = new Observable<number>;
+  userId$: Observable<number|null> = new Observable<number>();
 
   noAutenticado = {
       title: "Error",
