@@ -97,6 +97,10 @@ const routes: Routes = [
         component: DashboardActivitiesComponent,
       },
       {
+        path: "activities/edit/:id",
+        component: ActivityFormComponent,
+      },
+      {
         path: "news",
         component: NewsFormComponent,
       },
