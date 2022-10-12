@@ -1,10 +1,11 @@
 import { Component, Input, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 import { ActividadService } from "src/app/core/services/activities/actividad.service";
-import { AlertasComponent } from "src/app/shared/components/alertas/alertas.component";
+import { ResponseComponent } from "src/app/shared/components/alertas/response.component";
 @Component({
   selector: "app-activity-form",
   templateUrl: "./activity-form.component.html",
@@ -17,24 +18,43 @@ export class ActivityFormComponent implements OnDestroy {
   form: FormGroup;
   foto: any;
   loanding: boolean = true;
+  id: number;
 
   constructor(
+    private aRoute: ActivatedRoute,
     private fb: FormBuilder,
     private actividadService: ActividadService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) {
+    this.id = this.aRoute.snapshot.params["id"];
+
     this.form = this.fb.group({
       image: [null, Validators.required],
       name: ["", Validators.required],
       description: [""],
     });
 
-    if (this.actividad == null) {
+    if (this.actividad == null && this.id == undefined) {
       this.accion = "Agregar";
     } else {
-      this.foto = this.actividad.image;
-      this.form.controls["name"].setValue(this.actividad.name);
-      this.form.controls["description"].setValue(this.actividad.description);
+      this.actividadService
+        .getActivityById(this.id)
+        .pipe(takeUntil(this.desub$))
+        .subscribe(
+          ({ data }) => {
+            this.actividad = data;
+            this.foto = data.image;
+            this.form.controls["name"].setValue(data.name);
+            this.form.controls["description"].setValue(data.description);
+          },
+          (error) =>
+            this.openDialog(
+              "Error al obtener actividad",
+              "La actividad no pudo ser encontrada",
+              "Error"
+            )
+        );
       this.accion = "Editar";
     }
 
@@ -56,14 +76,12 @@ export class ActivityFormComponent implements OnDestroy {
 
   // Alerta
 
-  openDialog(titulo: string, mensaje: string): void {
-    const dialogRef = this.dialog.open(AlertasComponent, {
-      width: "350px",
+  openDialog(titulo: string, mensaje: string, tipo: string): void {
+    const dialogRef = this.dialog.open(ResponseComponent, {
       data: {
-        cancelText: "Cerrar",
-        confirmText: "Ok",
         message: mensaje,
         title: titulo,
+        type: tipo,
       },
     });
   }
@@ -91,16 +109,18 @@ export class ActivityFormComponent implements OnDestroy {
         () => {
           this.openDialog(
             "Actividad Agregada!",
-            "La actividad fue agregada éxitosamente"
+            "La actividad fue agregada éxitosamente",
+            "Success"
           );
-          this.foto = undefined;
-          this.form.controls["image"].setValue(null);
-          this.form.controls["name"].setValue("");
-          this.form.controls["description"].setValue("");
+          this.router.navigate(["backoffice/activities"]);
           this.cambiarModo();
         },
         (error) => {
-          this.openDialog("La Actividad no pudo ser Agregada", "Por favor, complete todos los campos");
+          this.openDialog(
+            "La Actividad no pudo ser Agregada",
+            "Por favor, complete todos los campos",
+            "Error"
+          );
           this.cambiarModo();
         }
       );
@@ -124,12 +144,18 @@ export class ActivityFormComponent implements OnDestroy {
           () => {
             this.openDialog(
               "Actividad Editada!",
-              "La actividad fue editada éxitosamente"
+              "La actividad fue editada éxitosamente",
+              "Success"
             );
+            this.router.navigate(["backoffice/activities"]);
             this.cambiarModo();
           },
           (error) => {
-            this.openDialog("La Actividad no pudo ser Editada", "Por favor, complete todos los campos");
+            this.openDialog(
+              "La Actividad no pudo ser Editada",
+              "Por favor, complete todos los campos",
+              "Error"
+            );
             this.cambiarModo();
           }
         );
@@ -148,12 +174,18 @@ export class ActivityFormComponent implements OnDestroy {
           () => {
             this.openDialog(
               "Actividad Editada!",
-              "La actividad fue editada éxitosamente"
+              "La actividad fue editada éxitosamente",
+              "Success"
             );
+            this.router.navigate(["backoffice/activities"]);
             this.cambiarModo();
           },
           (error) => {
-            this.openDialog("La Actividad no pudo ser Editada", "Por favor, complete todos los campos");
+            this.openDialog(
+              "La Actividad no pudo ser Editada",
+              "Por favor, complete todos los campos",
+              "Error"
+            );
             this.cambiarModo();
           }
         );

@@ -4,7 +4,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 import { TestimonioService } from "src/app/core/services/testimonials/testimonio.service";
-import { AlertasComponent } from "src/app/shared/components/alertas/alertas.component";
+import { ResponseComponent } from "src/app/shared/components/alertas/response.component";
 
 @Component({
   selector: "app-testimonial-form",
@@ -75,7 +75,8 @@ export class TestimonialFormComponent implements OnDestroy{
       () => {
         this.openDialog(
           "Testimonio Agregado!",
-          "El testimonio fue agregado éxitosamente"
+          "El testimonio fue agregado éxitosamente",
+          "Success"
         );
         this.foto = null;
         this.form.controls["image"].setValue(null);
@@ -85,7 +86,8 @@ export class TestimonialFormComponent implements OnDestroy{
       (error) => {
         this.openDialog(
           "El testimonio no pudo ser Agregado",
-          "Por favor, complete todos los campos obligatorios"
+          "Por favor, complete todos los campos obligatorios",
+          "Error"
         );
       }
     );
@@ -108,13 +110,15 @@ export class TestimonialFormComponent implements OnDestroy{
           console.log(data);
           this.openDialog(
             "Testimonio Editado!",
-            "El testimonio fue editado éxitosamente"
+            "El testimonio fue editado éxitosamente",
+            "Success"
           );
         },
         (error) => {
           this.openDialog(
             "El testimonio no pudo ser Editado",
-            "Por favor, complete todos los campos obligatorios"
+            "Por favor, complete todos los campos obligatorios",
+            "Error"
           );
         }
       );
@@ -131,13 +135,15 @@ export class TestimonialFormComponent implements OnDestroy{
           console.log(data);
           this.openDialog(
             "Testimonio Editado!",
-            "El testimonio fue editado éxitosamente"
+            "El testimonio fue editado éxitosamente",
+            "Success"
           );
         },
         (error) => {
           this.openDialog(
             "El testimonio no pudo ser Editado",
-            "Por favor, complete todos los campos obligatorios"
+            "Por favor, complete todos los campos obligatorios",
+            "Error"
           );
         }
       );
@@ -149,14 +155,12 @@ export class TestimonialFormComponent implements OnDestroy{
     this.desub$.complete();
   }
 
-  openDialog(titulo: string, mensaje: string): void {
-    const dialogRef = this.dialog.open(AlertasComponent, {
-      width: "350px",
+  openDialog(titulo: string, mensaje: string, tipo: string): void {
+    const dialogRef = this.dialog.open(ResponseComponent, {
       data: {
-        cancelText: "Cerrar",
-        confirmText: "Ok",
         message: mensaje,
         title: titulo,
+        type: tipo,
       },
     });
   }
