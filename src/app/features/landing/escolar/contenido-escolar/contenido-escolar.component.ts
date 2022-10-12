@@ -1,7 +1,4 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-
-import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-contenido-escolar',
