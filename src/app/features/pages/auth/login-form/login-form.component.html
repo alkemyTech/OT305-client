@@ -9,16 +9,16 @@
                         <h3 class="fw-normal mb-2 pb-2" style="letter-spacing: 1px;">Inicia sesión en tu cuenta!</h3>
                         <div class="form-outline mb-4">
                             <input type="email" class="form-control form-control-lg" placeholder="Email"
-                                formControlName="correo"
-                                [class.is-invalid]="controls.correo.errors && controls.correo.touched" />
+                                formControlName="email"
+                                [class.is-invalid]="controls.email.errors && controls.email.touched" />
                             <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                                Por favor digita un correo válido (ejemplo@ej.com)
+                                Por favor digita un email válido (ejemplo@ej.com)
                             </div>
                         </div>
                         <div class="form-outline mb-4">
                             <input type="password" class="form-control form-control-lg" placeholder="Contraseña"
-                                formControlName="contrasena"
-                                [class.is-invalid]="controls.contrasena.errors && controls.contrasena.touched" />
+                                formControlName="password"
+                                [class.is-invalid]="controls.password.errors && controls.password.touched" />
                             <div id="validationServerUsernameFeedback" class="invalid-feedback">
                                 contraseña obligatoria (debe incluir un caracter especial ej: @#$%, debe ser minimo de 6
                                 digitos)
