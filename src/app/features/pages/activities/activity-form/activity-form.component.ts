@@ -129,12 +129,11 @@ export class ActivityFormComponent implements OnDestroy {
   //petición PATCH al endpoint de actualización del server (/activities/:id).
 
   actualizarActividad() {
-    if (this.form.value.image === null) {
+    if (this.foto === this.actividad.image) {
       let actividad = {
         id: this.actividad.id,
         name: this.form.value.name,
         description: this.form.value.description,
-        image: this.form.value.image,
         updated_at: new Date(),
       };
       this.actividadService
@@ -155,14 +154,15 @@ export class ActivityFormComponent implements OnDestroy {
               "La Actividad no pudo ser Editada",
               "Por favor, complete todos los campos",
               "Error"
+              );
+              this.cambiarModo();
+            }
             );
-            this.cambiarModo();
-          }
-        );
     } else {
       let actividad = {
         id: this.actividad.id,
         name: this.form.value.name,
+        image: this.foto,
         description: this.form.value.description,
         updated_at: new Date(),
       };
