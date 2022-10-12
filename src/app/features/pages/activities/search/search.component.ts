@@ -14,7 +14,7 @@ import { Get_Actividad } from "src/app/core/ngrx/actions/actividad.action";
 import { AppStore } from "src/app/core/ngrx/app.store";
 import { selectActividadFeature, selectActividadList } from "src/app/core/ngrx/selectors/actividad.selector";
 import { ActividadService } from "src/app/core/services/activities/actividad.service";
-import { AlertasComponent } from "src/app/shared/components/alertas/alertas.component";
+import { ResponseComponent } from "src/app/shared/components/alertas/response.component";
 
 @Component({
   selector: "app-search",
@@ -52,13 +52,13 @@ export class SearchComponent implements OnInit, OnDestroy {
                 this.EmitirResultados();
               },
               (error) => {
-                this.openDialog("La búsqueda no pudo realizarse correctamente", error.message)
+                this.openDialog("La búsqueda no pudo realizarse correctamente", error.message, "Error")
               }
             );
         } else this.obtenerActividades();
       },
       (error) => {
-        this.openDialog("Error", error.message)
+        this.openDialog("Error", error.message, "Error")
       });
   }
 
@@ -72,10 +72,10 @@ export class SearchComponent implements OnInit, OnDestroy {
           this.actividades = state.actividad.data;
           this.EmitirResultados();
         }
-        else this.openDialog("Error al obtener las Actividades", state.error.message)
+        else this.openDialog("Error al obtener las Actividades", state.error.message, "Error")
       },
       (error) => {
-        this.openDialog("Error al obtener las Actividades", error.message)
+        this.openDialog("Error al obtener las Actividades", error.message, "Error")
       });
   }
 
@@ -88,14 +88,12 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.desub$.complete();
   }
 
-  openDialog(titulo: string, mensaje: string): void {
-    const dialogRef = this.dialog.open(AlertasComponent, {
-      width: "355px",
+  openDialog(titulo: string, mensaje: string, tipo: string): void {
+    const dialogRef = this.dialog.open(ResponseComponent, {
       data: {
-        cancelText: "Cerrar",
-        confirmText: "Ok",
         message: mensaje,
         title: titulo,
+        type: tipo,
       },
     });
   }
