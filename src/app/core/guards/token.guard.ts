@@ -24,7 +24,7 @@ export class TokenGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.token$) {
+    if (!this.token$) {
       this.router.navigate(["/home"]);
     }
     return true;
