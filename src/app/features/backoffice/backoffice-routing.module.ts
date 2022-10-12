@@ -17,7 +17,6 @@ import { ScreenDashboardComponent } from "./Dashboard/screen-dashboard/screen-da
 import { HomeComponent } from "./home/home.component";
 import { DashboardMiembrosComponent } from "./members/components/dashboard-miembros/dashboard-miembros.component";
 import { FormCrearEditarMiembrosComponent } from "./members/components/form-crear-editar-miembros/form-crear-editar-miembros.component";
-import { SearhMemberComponent } from "./members/components/searh-member/searh-member.component";
 import { EditComponent } from "./members/pages/edit/edit.component";
 import { FormularioActualizacionDatosComponent } from "./Organizacion/formulario-actualizacion-datos/formulario-actualizacion-datos.component";
 import { SlidesCreateComponent } from "./slides/pages/slides-create/slides-create.component";
