@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AACA,AAAA,UAAU,CAAA;EACN,WAAW,EAAE,IAAI;CACpB;;AAED,AAAA,YAAY,CAAA;EACR,MAAM,EAAE,aAAa;CACxB",
     "sources": [
         "list-news.component.scss"
     ],

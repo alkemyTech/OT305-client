@@ -1,1 +1,5 @@
-/* No CSS *//*# sourceMappingURL=us-section.component.css.map */
+h2 {
+  margin: 3% 0;
+  border-bottom: 3px solid var(--blue);
+}
+/*# sourceMappingURL=us-section.component.css.map */

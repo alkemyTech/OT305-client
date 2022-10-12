@@ -1,0 +1,10 @@
+.container-fluid {
+  background: #c0c0c0;
+}
+
+@media (min-width: 1950px) {
+  .container-fluid {
+    background: #c0c0c088;
+  }
+}
+/*# sourceMappingURL=header-campanas.component.css.map */

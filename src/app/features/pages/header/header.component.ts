@@ -17,8 +17,10 @@ import { ResponseComponent } from "src/app/shared/components/alertas/response.co
 })
 export class HeaderComponent implements OnInit {
   show: boolean = false;
+
   token$ = this.store.select(selectToken);
   userId$: Observable<number | null> = new Observable<number>();
+
 
 
   registerView = this.restrictView(this.userId$)

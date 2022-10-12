@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,iBAAiB,CAAC;EAChB,UAAU,EAAE,IAAI,CAAE,IAAG,CAAC,IAAI,CAAC,IAAI,CAAC,oBAAoB,CAAC,KAAK;EAC1D,kBAAkB,EAAE,IAAI,CAAE,IAAG,CAAC,IAAI,CAAC,IAAI,CAAC,oBAAoB,CAAC,KAAK;EAClE,eAAe,EAAE,IAAI,CAAE,IAAG,CAAC,IAAI,CAAC,IAAI,CAAC,oBAAoB,CAAC,KAAK;CAChE",
     "sources": [
         "slider.component.scss"
     ],
