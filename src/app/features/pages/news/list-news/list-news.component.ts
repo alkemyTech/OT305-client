@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Novedad } from 'src/app/core/models/novedad.model';
@@ -17,7 +17,9 @@ export class ListNewsComponent implements OnInit {
   novedades: Novedad [] = [] 
   title!:string;
   subject$ = new Subject()
-  novedad!: Novedad 
+  novedad!: Novedad
+  novedadesDesdeBuscador!: Novedad [];
+
   constructor(private novedadService: NovedadesService) { }
 
   ngOnInit() {}
@@ -26,6 +28,13 @@ export class ListNewsComponent implements OnInit {
     this.novedadService.listNews().pipe(takeUntil(this.subject$)).subscribe(res=>{
       this.novedades = res
     })
+   }
+
+   @HostListener('window:scroll', ['$event'])
+   console($event: any){
+    if(window.scrollY > 0){
+      this.novedades = this.novedadesDesdeBuscador;
+    }
    }
   
 }
