@@ -21,6 +21,7 @@ import { TokenGuard } from "src/app/core/guards/token.guard";
 import { DonacionComponent } from "./donations/donacion/donacion.component";
 import { GraciasComponent } from "./donations/gracias/gracias.component";
 import { NoAutenticadoGuard } from "src/app/core/guards/no-autenticado.guard";
+import { UserRegularAutenticadoGuard } from 'src/app/core/guards/user-regular-autenticado.guard';
 
 const routes: Routes = [
   {
@@ -108,6 +109,7 @@ const routes: Routes = [
       {
         path: "donar",
         component: DonacionComponent,
+        canActivate: [ UserRegularAutenticadoGuard ]
       },
 
       {

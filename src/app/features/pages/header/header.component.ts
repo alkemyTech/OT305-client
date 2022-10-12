@@ -19,7 +19,11 @@ export class HeaderComponent implements OnInit {
   show: boolean = false;
   token$ = this.store.select(selectToken);
   userId$: Observable<number | null> = new Observable<number>();
-  registerView = this.restrictView(this.userId$);
+
+
+  registerView = this.restrictView(this.userId$)
+
+  isRegularUser = this.verifyRegularUser(this.userId$);
 
   public = [
     { texto: "Inicio", link: "/home", show: true },
@@ -74,4 +78,13 @@ export class HeaderComponent implements OnInit {
       },
     });
   }
+  verifyRegularUser(userId$: Observable<number | null>){
+    userId$.subscribe( id => {
+      if(id === 2){
+        return true;
+      }
+      return false;
+    })
+  }
+
 }
