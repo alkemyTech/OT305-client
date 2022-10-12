@@ -9,7 +9,8 @@ import { MatButtonModule } from "@angular/material/button";
 import { AlertasComponent } from "./components/alertas/alertas.component";
 import { ResponseComponent } from "./components/alertas/response.component";
 import { CardComponent } from "./components/card/card.component";
-
+import { LazyLoadImageModule } from "ng-lazyload-image";
+import { LazyLoadImgComponent } from "./lazy-load-img/lazy-load-img.component";
 @NgModule({
   declarations: [
     SpinnerComponent,
@@ -17,6 +18,7 @@ import { CardComponent } from "./components/card/card.component";
     AlertasComponent,
     ResponseComponent,
     CardComponent,
+    LazyLoadImgComponent
   ],
   imports: [
     CommonModule,    
@@ -24,12 +26,16 @@ import { CardComponent } from "./components/card/card.component";
     MatProgressBarModule,
     MatDialogModule,
     MatButtonModule,
+    LazyLoadImageModule,
+  
   ],
   exports: [
     ProgressbarComponent,
     AlertasComponent,
     SpinnerComponent,
     CardComponent,
+    LazyLoadImageModule,
+    LazyLoadImgComponent
   ],
 })
 export class SharedModule {}

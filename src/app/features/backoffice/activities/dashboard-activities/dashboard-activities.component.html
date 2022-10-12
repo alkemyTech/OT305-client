@@ -19,7 +19,7 @@
         <td class="table-secondary">{{actividad.name}}</td>
         <td class="table-secondary" ><a [href]="actividad.image">{{actividad.image}}</a></td>
         <td class="table-secondary">{{actividad.created_at}}</td>
-        <td class="table-secondary"><a [routerLink]="''">Editar</a></td>
+        <td class="table-secondary"><a [routerLink]="'./edit/'+actividad.id">Editar</a></td>
         <td class="table-secondary"><a [routerLink]="''">Eliminar </a></td>
       </tr>
     </tbody>

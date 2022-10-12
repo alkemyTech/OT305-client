@@ -1,7 +1,7 @@
 
 <app-mostrar-titulos [title]="'Novedades'"></app-mostrar-titulos>
 <div class="container"  style="padding-bottom: 20px;">
-    <app-formulario-busqueda-novedades-web-publica (novedad)="novedades = $event "></app-formulario-busqueda-novedades-web-publica>
+    <app-formulario-busqueda-novedades-web-publica (novedad)="novedadesDesdeBuscador = $event"></app-formulario-busqueda-novedades-web-publica>
     <div class="row">
         <div class="col-lg-4 col-md-4 mt-5" *ngFor="let novedad of novedades">
             <app-card routerLink="{{novedad.id}}" 
