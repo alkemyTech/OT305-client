@@ -100,7 +100,7 @@ export class ActivityFormComponent implements OnDestroy {
           this.cambiarModo();
         },
         (error) => {
-          this.openDialog("La Actividad no pudo ser Agregada", error.messagge);
+          this.openDialog("La Actividad no pudo ser Agregada", "Por favor, complete todos los campos");
           this.cambiarModo();
         }
       );
@@ -129,7 +129,7 @@ export class ActivityFormComponent implements OnDestroy {
             this.cambiarModo();
           },
           (error) => {
-            this.openDialog("La Actividad no pudo ser Editada", error.messagge);
+            this.openDialog("La Actividad no pudo ser Editada", "Por favor, complete todos los campos");
             this.cambiarModo();
           }
         );
@@ -153,7 +153,7 @@ export class ActivityFormComponent implements OnDestroy {
             this.cambiarModo();
           },
           (error) => {
-            this.openDialog("La Actividad no pudo ser Editada", error.messagge);
+            this.openDialog("La Actividad no pudo ser Editada", "Por favor, complete todos los campos");
             this.cambiarModo();
           }
         );
