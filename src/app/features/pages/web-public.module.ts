@@ -47,6 +47,7 @@ import { GraciasComponent } from "./donations/gracias/gracias.component";
 import { PdfViewerModule } from "ng2-pdf-viewer";
 import { ListTestimonialsComponent } from "./testimonials/list-testimonials/list-testimonials.component";
 import { DetailsTestimonialComponent } from "./testimonials/details-testimonial/details-testimonial.component";
+import { NgxPaginationModule } from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -116,6 +117,7 @@ import { DetailsTestimonialComponent } from "./testimonials/details-testimonial/
     SharedModule,
     NgxTwitterTimelineModule,
     PdfViewerModule,
+    NgxPaginationModule,
   ],
   providers: [CurrencyPipe],
 })
