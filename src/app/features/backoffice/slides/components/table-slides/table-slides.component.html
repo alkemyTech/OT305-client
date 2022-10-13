@@ -1,43 +1,33 @@
 <div class="table-responsive container">
-    <table class="table table-hover">
+  <table class="table table-hover">
 
-        <thead>
-            <tr>
-              <th scope="col">Título</th>
-              <th scope="col">Imagen</th>
-              <th scope="col">Order</th>
-              <th scope="col"> </th>
-            </tr>
-          </thead>
-    
-          <tbody>
-            <tr *ngFor="let slide of slides">
-              <td class="pt-3 py-md-4">{{ slide.name }}</td>
-              <td>
-                <img
-                src="{{ slide.image }}"
-                alt="{{ slide.name }}"
-                width="200"
-                class="py-0">
-              </td>
-              <td class="pt-3 py-md-4">{{ slide.order }}</td>
-              <td class="pt-3">
-                <button
-                class="btn btn-primary mx-2 mb-2 mb-lg-0 mt-lg-2"
-                routerLink="/backoffice/slides/edit"
-                (click)="capturarSlideParaEditar(slide)"
-                >
-                    Editar
-                </button>
-                <button
-                class="btn btn-danger mb-2 mb-lg-0 mt-lg-2"
-                (click)="capturarSlideParaEliminar(slide)"
-                >
-                    Eliminar
-                </button>
-              </td>
-            </tr>
-          </tbody>
-    
-    </table>
+    <thead>
+      <tr>
+        <th scope="col">Título</th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Order</th>
+        <th scope="col"> </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let slide of slides">
+        <td class="pt-3 py-md-4">{{ slide.name }}</td>
+        <td>
+          <img src="{{ slide.image }}" alt="{{ slide.name }}" width="200" class="py-0">
+        </td>
+        <td class="pt-3 py-md-4">{{ slide.order }}</td>
+        <td class="pt-3">
+          <button class="btn btn-primary mx-2 mb-2 mb-lg-0 mt-lg-2" routerLink="/backoffice/slides/edit"
+            (click)="capturarSlideParaEditar(slide)">
+            Editar
+          </button>
+          <button class="btn btn-danger mb-2 mb-lg-0 mt-lg-2" (click)="capturarSlideParaEliminar(slide)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
 </div>
