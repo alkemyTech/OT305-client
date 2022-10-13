@@ -2974,6 +2974,11 @@
   dependencies:
     "domelementtype" "^2.2.0"
 
+"dommatrix@^1.0.1":
+  "integrity" "sha512-l32Xp/TLgWb8ReqbVJAFIvXmY7go4nTxxlWiAFyhoQw9RKEOHBZNnyGvJWqDVSPmq3Y9HlM4npqF/T6VMOXhww=="
+  "resolved" "https://registry.npmjs.org/dommatrix/-/dommatrix-1.0.3.tgz"
+  "version" "1.0.3"
+
 "domutils@^2.8.0":
   "integrity" "sha512-w96Cjofp72M5IIhpjgobBimYEfoPjx1Vx0BSX9P30WBdZW2WIKU0T1Bd0kz2eNZ9ikjKgHbEyKx8BB6H1L3h3A=="
   "resolved" "https://registry.npmjs.org/domutils/-/domutils-2.8.0.tgz"
@@ -4986,6 +4991,14 @@
   dependencies:
     "tslib" "^2.3.0"
 
+"ng2-pdf-viewer@^9.1.2":
+  "integrity" "sha512-dVfrEOW0rusHjLGpGnkt2mDKdd3LKK9uXAbNxOCv94I2jS2QjciPHMELLKWCliBXiLNbDOTsQdCDQPvYT3vKgQ=="
+  "resolved" "https://registry.npmjs.org/ng2-pdf-viewer/-/ng2-pdf-viewer-9.1.2.tgz"
+  "version" "9.1.2"
+  dependencies:
+    "pdfjs-dist" "~2.14.305"
+    "tslib" "^2.3.1"
+
 "ngx-pagination@^5.0.0":
   "integrity" "sha512-KxHES+Dn6pbetytO9ng2GAdclmo4UcwzFmQyVPWh2xRPbAlv5/ezL2xnDVBFMqCoJQaZagvdQ+ZZFbqGWqAvCQ=="
   "resolved" "https://registry.npmjs.org/ngx-pagination/-/ngx-pagination-5.1.1.tgz"
@@ -5502,6 +5515,14 @@
   "integrity" "sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw=="
   "resolved" "https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz"
   "version" "4.0.0"
+
+"pdfjs-dist@~2.14.305":
+  "integrity" "sha512-5f7i25J1dKIBczhgfxEgNxfYNIxXEdxqo6Qb4ehY7Ja+p6AI4uUmk/OcVGXfRGm2ys5iaJJhJUwBFwv6Jl/Qww=="
+  "resolved" "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-2.14.305.tgz"
+  "version" "2.14.305"
+  dependencies:
+    "dommatrix" "^1.0.1"
+    "web-streams-polyfill" "^3.2.1"
 
 "picocolors@^0.2.1":
   "integrity" "sha512-cMlDqaLEqfSaW8Z7N5Jw+lyIW869EzT73/F5lhtY9cLGoVxSXznfgfXMO0Z5K0o0Q2TkTXq+0KFsdnSe3jDViA=="
@@ -7592,6 +7613,11 @@
   "version" "1.0.1"
   dependencies:
     "defaults" "^1.0.3"
+
+"web-streams-polyfill@^3.2.1":
+  "integrity" "sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q=="
+  "resolved" "https://registry.npmjs.org/web-streams-polyfill/-/web-streams-polyfill-3.2.1.tgz"
+  "version" "3.2.1"
 
 "webpack-dev-middleware@^3.7.2":
   "integrity" "sha512-djelc/zGiz9nZj/U7PTBi2ViorGJXEWo/3ltkPbDyxCXhhEXkW0ce99falaok4TPj+AsxLiXJR0EBOb0zh9fKQ=="
