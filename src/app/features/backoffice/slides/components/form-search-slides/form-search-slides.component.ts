@@ -53,12 +53,6 @@ export class FormSearchSlidesComponent implements OnInit, OnDestroy {
 
   obtenerSlidesDeApi() {
     this.store.dispatch(loadSlides());
-    /*     this.httpService
-      .get("https://ongapi.alkemy.org/api/slides", false)
-      .subscribe((response: any) => {
-        this.slidesObtenidosDeApi = response.data;
-        return this.slideBuscado.emit(this.slidesObtenidosDeApi);
-      }); */
     this.store.select(selectListSlide).subscribe((res: any) => {
       this.slidesObtenidosDeApi = res.data;
       this.slideBuscado.emit(this.slidesObtenidosDeApi);
