@@ -1,103 +1,75 @@
-<form
-[formGroup]="form"
-class="mt-5 mx-auto col-12 col-md-9 mx-lg-0 col-lg-7">
+<div class="container p-3">
+    <h1 class="title">Agregar Miembro</h1>
+    <form [formGroup]="form" class="mt-5 mx-auto col-12 col-md-9 mx-lg-0 col-lg-7">
 
-    <div class="d-flex flex-column gap-2 mb-3">
-        <label
-        class="fw-bold">
-            Nombre:
-            <span class="text-danger">*</span>
-        </label>
-        <input
-        type="text"
-        class="form-control border-dark shadow"
-        formControlName="name"
-        placeholder="Nombre del miembro...">
+        <div class="d-flex flex-column gap-2 mb-3">
+            <label class="fw-bold">
+                Nombre:
+                <span class="text-danger">*</span>
+            </label>
+            <input type="text" class="form-control border-dark shadow" formControlName="name"
+                placeholder="Nombre del miembro...">
 
-        <small
-        *ngIf="name?.hasError('minlength') && name?.touched"
-        class="text-danger">
-        El nombre debe tener 4 carácteres como mínimo.
-        </small>
-    </div>
+            <small *ngIf="name?.hasError('minlength') && name?.touched" class="text-danger">
+                El nombre debe tener 4 carácteres como mínimo.
+            </small>
+        </div>
 
-    <div class="d-flex flex-column gap-2 mb-3">
-        <label
-        class="fw-bold">
-            Imagen:
-            <span class="text-danger">*</span>
-        </label>
-        <input
-        type="file"
-        (change)="captureImage($event)"
-        accept="image/jpg,image/png"
-        class="form-control border-dark shadow">
-    </div>
+        <div class="d-flex flex-column gap-2 mb-3">
+            <label class="fw-bold">
+                Imagen:
+                <span class="text-danger">*</span>
+            </label>
+            <input type="file" (change)="captureImage($event)" accept="image/jpg,image/png"
+                class="form-control border-dark shadow">
+        </div>
 
-    <div class="d-flex flex-column gap-2 mb-3">
-        <label
-        class="fw-bold">
-            Descripción:
-            <span class="text-danger">*</span>
-        </label>
-        <ckeditor
-        style="border: 1px solid black; border-radius: 3px;"
-        formControlName="description"
-        class="shadow"></ckeditor>
-    </div>
+        <div class="d-flex flex-column gap-2 mb-3">
+            <label class="fw-bold">
+                Descripción:
+                <span class="text-danger">*</span>
+            </label>
+            <ckeditor style="border: 1px solid black; border-radius: 3px;" formControlName="description" class="shadow">
+            </ckeditor>
+        </div>
 
-    <div class="d-flex flex-column gap-2 mb-3">
-        <label
-        class="fw-bold">
-            Facebook:
-            <span class="text-danger">*</span>
-        </label>
-        <input
-        type="text"
-        class="form-control border-dark shadow"
-        formControlName="facebookUrl"
-        placeholder="https://www.facebook.com...">
+        <div class="d-flex flex-column gap-2 mb-3">
+            <label class="fw-bold">
+                Facebook:
+                <span class="text-danger">*</span>
+            </label>
+            <input type="text" class="form-control border-dark shadow" formControlName="facebookUrl"
+                placeholder="https://www.facebook.com...">
 
-        <small
-        *ngIf="facebookUrl?.hasError('pattern') && facebookUrl?.touched"
-        class="text-danger">
-        Asegúrate de proporcionar una URL válida.
-        </small>
-    </div>
+            <small *ngIf="facebookUrl?.hasError('pattern') && facebookUrl?.touched" class="text-danger">
+                Asegúrate de proporcionar una URL válida.
+            </small>
+        </div>
 
-    <div class="d-flex flex-column gap-2 mb-3">
-        <label
-        class="fw-bold">
-            LinkedIn:
-            <span class="text-danger">*</span>
-        </label>
-        <input
-        type="text"
-        class="form-control border-dark shadow"
-        formControlName="linkedinUrl"
-        placeholder="https://www.linkedin.com...">
+        <div class="d-flex flex-column gap-2 mb-3">
+            <label class="fw-bold">
+                LinkedIn:
+                <span class="text-danger">*</span>
+            </label>
+            <input type="text" class="form-control border-dark shadow" formControlName="linkedinUrl"
+                placeholder="https://www.linkedin.com...">
 
-        <small
-        *ngIf="linkedinUrl?.hasError('pattern') && linkedinUrl?.touched"
-        class="text-danger">
-        Asegúrate de proporcionar una URL válida.
-        </small>
-    </div>
+            <small *ngIf="linkedinUrl?.hasError('pattern') && linkedinUrl?.touched" class="text-danger">
+                Asegúrate de proporcionar una URL válida.
+            </small>
+        </div>
 
-    <div class="d-flex flex-column align-items-start gap-2 mt-3">
-        <button
-        class="btn btn-primary btn-lg fw-bold rounded shadow"
-        [disabled]="!this.form.valid"
-        (click)="submitForm()">
-            Actualizar miembro
-        </button>
+        <div class="d-flex flex-column align-items-start gap-2 mt-3">
+            <button class="btn btn-primary btn-lg fw-bold rounded shadow" [disabled]="!this.form.valid"
+                (click)="submitForm()">
+                Actualizar miembro
+            </button>
 
-        <!--SUSTITUIR POR LA RUTA CORRESPONDIENTE CUANDO ESTÉ LISTA-->
-        <button
-        routerLink="/backoffice/home"
-        class="btn btn-light btn-lg border-dark fw-bold rounded shadow">
-            Volver
-        </button>
-    </div>
+            <!--SUSTITUIR POR LA RUTA CORRESPONDIENTE CUANDO ESTÉ LISTA-->
+            <button routerLink="/backoffice/dashboard" class="btn btn-light btn-lg border-dark fw-bold rounded shadow">
+                Volver
+            </button>
+        </div>
 
-</form>
+    </form>
+</div>
