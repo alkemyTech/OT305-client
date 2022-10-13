@@ -44,6 +44,9 @@ import { FormularioBusquedaNovedadesWebPublicaComponent } from './news/formulari
 import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 import { DonacionComponent } from './donations/donacion/donacion.component';
 import { GraciasComponent } from './donations/gracias/gracias.component';
+import { ListTestimonialsComponent } from './testimonials/list-testimonials/list-testimonials.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { DetailsTestimonialComponent } from './testimonials/details-testimonial/details-testimonial.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +82,9 @@ import { GraciasComponent } from './donations/gracias/gracias.component';
     HeaderComponent,
     FormularioBusquedaNovedadesWebPublicaComponent,
     DonacionComponent,
-    GraciasComponent
+    GraciasComponent,
+    ListTestimonialsComponent,
+    DetailsTestimonialComponent
   ],
   exports: [
     WebPublicComponent,
@@ -110,6 +115,7 @@ import { GraciasComponent } from './donations/gracias/gracias.component';
     MatDialogModule,
     SharedModule,
     NgxTwitterTimelineModule,
+    NgxPaginationModule,
   ],
   providers: [CurrencyPipe]
 })
