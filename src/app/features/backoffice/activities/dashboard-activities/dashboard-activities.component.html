@@ -2,7 +2,7 @@
   <div class="content">
   <div class="table-responsive  table-responsive-sm">
     <h1 class="title">{{title}}</h1>
-  <a [routerLink]="'/backoffice/activities/create'">Crear Actividad</a>
+  <button class="btn btn-primary px-5 mt-3" [routerLink]="'/backoffice/activities/create'">Crear Actividad</button>
   <app-search-activities class="mb-3" style="width: 100%;" (actividades$)="setActividades($event)"></app-search-activities>
   <table class="table table-hover">
     <thead class="thead">
@@ -19,8 +19,8 @@
         <td class="table-secondary">{{actividad.name}}</td>
         <td class="table-secondary" ><a [href]="actividad.image">{{actividad.image}}</a></td>
         <td class="table-secondary">{{actividad.created_at}}</td>
-        <td class="table-secondary"><a [routerLink]="'./edit/'+actividad.id">Editar</a></td>
-        <td class="table-secondary"><a [routerLink]="''">Eliminar </a></td>
+        <td class="table-secondary"><button class="btn btn-primary" [routerLink]="'./edit/'+actividad.id">Editar</button></td>
+        <td class="table-secondary"><button class="btn btn-danger" [routerLink]="''">Eliminar </button></td>
       </tr>
     </tbody>
   </table>
