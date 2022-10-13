@@ -1,0 +1,18 @@
+<div class="header">
+    <p mat-dialog-title class="dialog-message">{{ data.message }}</p>
+</div>
+<div mat-dialog-content>
+    <div *ngIf="isLoaded" style="text-align: center;">
+        <button class="btn btn-danger btn-sm me-2" (click)="prevPage()" [disabled]="page === 1">Prev</button>
+        <span>{{ page }} / {{ totalPages }}</span>
+        <button class="btn btn-danger btn-sm ms-2" (click)="nextPage()" [disabled]="page === totalPages">Next</button>
+    </div>
+
+    <pdf-viewer src="assets/terminosYcondiciones.pdf" [original-size]="true" [fit-to-page]="true" [show-borders]="true"
+        style="height: 100vh; width: 100%;" [show-all]="false" [page]="page"
+        (after-load-complete)="afterLoadComplete($event)"></pdf-viewer>
+</div>
+<div mat-dialog-actions align="end">
+    <button class="btn btn-cancel" style="margin-right:10px;" (click)="cancel()">{{ data.cancelText }}</button>
+    <button class="btn btn-ok" (click)="confirm()">{{ data.confirmText }}</button>
+</div>
