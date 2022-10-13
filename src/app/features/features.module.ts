@@ -11,6 +11,7 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NosotrosEffects } from "../core/ngrx/effects/nosotros.effect";
 import { CategorieEffects } from "../core/ngrx/effects/categorie.effect";
+import { SlideEffects } from "../core/ngrx/effects/slide.effect";
 
 @NgModule({
   declarations: [],
@@ -24,6 +25,7 @@ import { CategorieEffects } from "../core/ngrx/effects/categorie.effect";
       ActividadEffects,
       NosotrosEffects,
       CategorieEffects,
+      SlideEffects,
     ]),
     StoreDevtoolsModule.instrument({ name: "TEST" }),
     BrowserAnimationsModule,

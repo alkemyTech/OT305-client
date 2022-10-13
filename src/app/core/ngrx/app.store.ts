@@ -2,16 +2,19 @@ import { ActionReducerMap } from "@ngrx/store";
 import { Actividad } from "../models/actividad.model";
 import { Categoria } from "../models/categoria.models";
 import { Member } from "../models/member.model";
+import { Slide } from "../models/slide.model";
 import { actividadReducer } from "./reducers/actividad.reducer";
 import { authReducer } from "./reducers/auth.reducer";
 import { categorieReducer } from "./reducers/categorie.reducer";
 import { nosotrosReducer } from "./reducers/nosotros.reducer";
+import { slideReducer } from "./reducers/slide.reducer";
 
 export interface AppStore {
   actividad: ActividadState;
   auth: AuthState;
   nosotros: NosotrosState;
   categorie: CategorieState;
+  slide: SlideState;
 }
 
 export interface ActividadState {
@@ -33,10 +36,15 @@ export interface CategorieState {
   loading: boolean;
   categorie: ReadonlyArray<Categoria[]>;
 }
+export interface SlideState {
+  loading: boolean;
+  slide: ReadonlyArray<Slide>;
+}
 
 export const ROOT_REDUCERS: ActionReducerMap<AppStore> = {
   actividad: actividadReducer,
   auth: authReducer,
   nosotros: nosotrosReducer,
   categorie: categorieReducer,
+  slide: slideReducer,
 };

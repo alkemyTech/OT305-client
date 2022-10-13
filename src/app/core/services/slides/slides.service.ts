@@ -23,19 +23,15 @@ export class SlidesService {
     return this.slideParaEditar;
   }
   getSlide(): Observable<Slide[]> {
-    return this.httClient.get<any>(`${this.baseUrl}${this.slides}`).pipe(
-      map((response) => {
-        return response.data;
-      })
-    );
+    return this.httClient.get<any>(`${this.baseUrl}${this.slides}`);
   }
-  getMemberbyId(id: number): Observable<Slide[]> {
+  getSlidebyId(id: number): Observable<Slide[]> {
     return this.httpSevice.get(`${this.baseUrl}${this.slides}/${id}`);
   }
-  postMember(data: any): Observable<Slide[]> {
+  postSlide(data: any): Observable<Slide[]> {
     return this.httpSevice.post(`${this.baseUrl}${this.slides}`, data);
   }
-  patchMember(data: any): Observable<Slide[]> {
+  patchSlide(data: any): Observable<Slide[]> {
     return this.httpSevice.patch(
       `${this.baseUrl}${this.slides}/${data.id}`,
       data
