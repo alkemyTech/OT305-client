@@ -21,7 +21,7 @@
         <label for="descripcion" class="mb-2">Descripción:</label>
         <ckeditor formControlName="description" id="descripcion"></ckeditor>
       </div>
-      <button [disabled]="this.form.invalid"
+      <button [disabled]="form.controls.name.status == 'INVALID' || this.foto == null"
         class="btn btn-lg rounded-lg px-5 mb-4" type="submit">{{accion}}</button>
     </div>
     <div class="col-lg-4 col-md-5 text-center">

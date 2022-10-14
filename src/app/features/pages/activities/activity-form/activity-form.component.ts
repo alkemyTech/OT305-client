@@ -46,7 +46,6 @@ export class ActivityFormComponent implements OnDestroy {
             this.actividad = data;
             this.foto = data.image;
             this.form.controls["name"].setValue(data.name);
-            this.form.controls["image"].setValue('none');
             this.form.controls["description"].setValue(data.description);
           },
           (error) =>
