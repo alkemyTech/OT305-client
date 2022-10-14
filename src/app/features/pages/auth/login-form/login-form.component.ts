@@ -16,6 +16,8 @@ import { PrivateApiService } from "src/app/core/services/privateApi/private-api.
 export class LoginFormComponent implements OnInit {
   formValue!: FormGroup;
   passwordPattern!: "^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$?¡-_]){1}$";
+  public token: any;
+  public rol: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -52,6 +54,12 @@ export class LoginFormComponent implements OnInit {
     this.httpService.simplePostRequest("login", this.formValue.value).subscribe(
       (res: any) => {
         this.store.dispatch(Login_Request_Success_Action({ data: res.data }));
+        //quitar window.location.reload() cuando se adapte el ruteo
+        window.location.reload();
+        this.token = res.data.token;
+        this.rol = res.data.user.role_id;
+        localStorage.setItem("rol", this.rol);
+        localStorage.setItem("token", this.token);
         console.log("login exitoso");
         return console.log(this.formValue.value);
       },
