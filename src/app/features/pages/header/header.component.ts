@@ -4,10 +4,7 @@ import { Router } from "@angular/router";
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { Logout_Action } from "src/app/core/ngrx/actions/auth.action";
-import {
-  selectToken,
-  selectViewIdUser,
-} from "src/app/core/ngrx/selectors/auth.selector";
+import { selectViewIdUser } from "src/app/core/ngrx/selectors/auth.selector";
 import { PrivateApiService } from "src/app/core/services/privateApi/private-api.service";
 import { ResponseComponent } from "src/app/shared/components/alertas/response.component";
 

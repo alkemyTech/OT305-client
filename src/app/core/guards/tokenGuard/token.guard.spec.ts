@@ -1,8 +1,8 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { TokenGuard } from './token.guard';
+import { TokenGuard } from "./token.guard";
 
-describe('TokenGuard', () => {
+describe("TokenGuard", () => {
   let guard: TokenGuard;
 
   beforeEach(() => {
@@ -10,7 +10,7 @@ describe('TokenGuard', () => {
     guard = TestBed.inject(TokenGuard);
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(guard).toBeTruthy();
   });
 });

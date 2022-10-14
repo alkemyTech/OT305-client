@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AdminGuardGuard } from "src/app/core/guards/adminGuard/admin-guard.guard";
 import { ActivityFormComponent } from "../pages/activities/activity-form/activity-form.component";
 import { DashboardNovedadesComponent } from "../pages/news/dashboard-novedades/dashboard-novedades.component";
 import { FormularioBusquedaNovedadesComponent } from "../pages/news/formulario-busqueda-novedades/formulario-busqueda-novedades.component";
@@ -32,6 +33,7 @@ const routes: Routes = [
   {
     path: "",
     component: AppBackofficeComponent,
+    canActivate: [AdminGuardGuard],
     children: [
       {
         path: "users/edit",
@@ -127,15 +129,15 @@ const routes: Routes = [
       },
       {
         path: "testimonials",
-        component: DashboardComponent
+        component: DashboardComponent,
       },
       {
         path: "testimonial/create",
-        component: TestimonialFormComponent
+        component: TestimonialFormComponent,
       },
       {
         path: "testimonials/edit/:id",
-        component: TestimonialFormComponent
+        component: TestimonialFormComponent,
       },
     ],
   },
