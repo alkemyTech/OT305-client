@@ -2,6 +2,8 @@ import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from "@angular/router/testing";
 
 import { StoreModule } from "@ngrx/store";
 import { ROOT_REDUCERS } from "../core/ngrx/app.store";
@@ -12,7 +14,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NosotrosEffects } from "../core/ngrx/effects/nosotros.effect";
 import { CategorieEffects } from "../core/ngrx/effects/categorie.effect";
 import { SlideEffects } from "../core/ngrx/effects/slide.effect";
-
 @NgModule({
   declarations: [],
   exports: [RouterModule],
@@ -29,6 +30,8 @@ import { SlideEffects } from "../core/ngrx/effects/slide.effect";
     ]),
     StoreDevtoolsModule.instrument({ name: "TEST" }),
     BrowserAnimationsModule,
+    HttpClientTestingModule,
+    RouterTestingModule,
   ],
 })
 export class FeaturesModule {}
