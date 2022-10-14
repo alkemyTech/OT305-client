@@ -38,7 +38,19 @@ export class ActivityFormComponent implements OnDestroy {
     if (this.actividad == null && this.id == undefined) {
       this.accion = "Agregar";
     } else {
-      this.actividadService
+      this.confEdicion();
+      this.accion = "Editar";
+    }
+
+    this.form.valueChanges.subscribe(() => {
+      this.form.value.image = this.foto;
+    });
+
+    this.cambiarModo();
+  }
+
+  confEdicion(){
+    this.actividadService
         .getActivityById(this.id)
         .pipe(takeUntil(this.desub$))
         .subscribe(
@@ -56,13 +68,6 @@ export class ActivityFormComponent implements OnDestroy {
             )
         );
       this.accion = "Editar";
-    }
-
-    this.form.valueChanges.subscribe(() => {
-      this.form.value.image = this.foto;
-    });
-
-    this.cambiarModo();
   }
 
   onSubmit() {

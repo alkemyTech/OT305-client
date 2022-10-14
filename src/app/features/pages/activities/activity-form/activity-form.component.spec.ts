@@ -7,6 +7,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { CKEditorModule } from "ckeditor4-angular";
 import { By } from "@angular/platform-browser";
 import { ActividadService } from "src/app/core/services/activities/actividad.service";
+import { Router } from "@angular/router";
 
 describe("ActivityFormComponent", () => {
   let component: ActivityFormComponent;
@@ -42,8 +43,28 @@ describe("ActivityFormComponent", () => {
   // la renderización del formulario de actualización o creación debe ser según la URL actual
   // (si se envía el identificador de una actividad por parámetro o no).
 
+  it("Se debe renderizar el componente como Creación", () => {
+    const router = TestBed.inject(Router);
+    router.navigate(['/backoffice/activities/create']);
+
+    fixture.detectChanges();
+
+    expect(component.accion).toEqual("Agregar");
+  });
+
+  fit("Se debe renderizar el componente como Edición", () => {
+    const router = TestBed.inject(Router);
+    router.navigate(['/backoffice/activities/edit/2074']);
+    
+    component.confEdicion();
+    fixture.detectChanges();
+
+    expect(component.accion).toEqual("Editar");
+  });
+
+  // Si el formulario no está completo se deshabilitará el botón de submit
+  
   it("No debe hacer submit", () => {
-    // Si el formulario no está completo se deshabilitará el botón de submit
     fixture.detectChanges();
     const name = component.form.controls["name"];
     name.setValue(null);
@@ -80,7 +101,6 @@ describe("ActivityFormComponent", () => {
       component.form.controls.name.status == "VALID" &&
       component.foto !== null
     ) {
-      
       let data = {
         id: 0,
         name: component.form.value.name,
@@ -103,8 +123,6 @@ describe("ActivityFormComponent", () => {
   });
 
   // it("Debe realizar una peticion al endpoint de creación", () => {
-  //   fixture.detectChanges();
-
   //   component.form.controls["name"].setValue("nombre de prueba");
   //   component.form.controls["description"].setValue("descripción de prueba");
   //   component.foto = img;
@@ -112,7 +130,10 @@ describe("ActivityFormComponent", () => {
   //   const button = fixture.debugElement.query(By.css(".btn"));
   //   button.nativeElement.click();
 
-  //   let ruta = 
+  //   const router = TestBed.inject(Router);
+  //   let ruta = router.url
+
+  //   fixture.detectChanges();
 
   //   expect(ruta).toBe('backoffice/activities');
   // });
