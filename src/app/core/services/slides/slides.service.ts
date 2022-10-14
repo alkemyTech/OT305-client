@@ -37,4 +37,11 @@ export class SlidesService {
       data
     );
   }
+
+  putSlide(data: any): Observable<Slide[]> {
+    return this.httpSevice.put(
+      `${this.baseUrl}${this.slides}/${data.id}`,
+      data
+    );
+  }
 }

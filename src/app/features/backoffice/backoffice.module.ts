@@ -46,6 +46,7 @@ import { CategorieSearchComponent } from './categories/pages/categorie-search/ca
 import { FormSearchUsersComponent } from './users/pages/users/components/form-search-users/form-search-users.component';
 import { NewsFormEditComponent } from "../pages/news/news-form-edit/news-form-edit.component";
 import { NewsFormComponent } from "../pages/news/news-form/news-form.component";
+import { DashboardComponent } from './testimonials/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -84,6 +85,7 @@ import { NewsFormComponent } from "../pages/news/news-form/news-form.component";
     FormSearchUsersComponent,
     NewsFormEditComponent,
     NewsFormComponent,
+    DashboardComponent,
   ],
   exports: [
     CategoriesFormComponent,

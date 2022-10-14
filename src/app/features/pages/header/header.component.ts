@@ -8,6 +8,7 @@ import {
   selectToken,
   selectViewIdUser,
 } from "src/app/core/ngrx/selectors/auth.selector";
+import { PrivateApiService } from "src/app/core/services/privateApi/private-api.service";
 import { ResponseComponent } from "src/app/shared/components/alertas/response.component";
 
 @Component({
@@ -17,13 +18,11 @@ import { ResponseComponent } from "src/app/shared/components/alertas/response.co
 })
 export class HeaderComponent implements OnInit {
   show: boolean = false;
-
-  token$ = this.store.select(selectToken);
+  token: any;
+  rol: any;
   userId$: Observable<number | null> = new Observable<number>();
 
-
-
-  registerView = this.restrictView(this.userId$)
+  registerView = this.restrictView(this.userId$);
 
   isRegularUser = this.verifyRegularUser(this.userId$);
 
@@ -48,10 +47,11 @@ export class HeaderComponent implements OnInit {
   constructor(
     private store: Store<any>,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private privateService: PrivateApiService
   ) {
     this.userId$ = store.select(selectViewIdUser);
-    this.token$ = this.store.select(selectToken);
+    this.token = this.privateService.obtenerToken();
   }
 
   ngOnInit(): void {}
@@ -67,6 +67,12 @@ export class HeaderComponent implements OnInit {
   signOut() {
     this.store.dispatch(Logout_Action());
     this.openDialog("Has cerrado sesion correctamente", "vuelve pronto!");
+    localStorage.removeItem("token");
+    localStorage.removeItem("rol");
+
+    this.token = null;
+    this.rol = null;
+    // window.location.reload();
     this.router.navigate(["/home"]);
   }
 
@@ -80,13 +86,12 @@ export class HeaderComponent implements OnInit {
       },
     });
   }
-  verifyRegularUser(userId$: Observable<number | null>){
-    userId$.subscribe( id => {
-      if(id === 2){
+  verifyRegularUser(userId$: Observable<number | null>) {
+    userId$.subscribe((id) => {
+      if (id === 2) {
         return true;
       }
       return false;
-    })
+    });
   }
-
 }

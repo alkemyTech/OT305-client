@@ -1,20 +1,10 @@
-
-<app-mostrar-titulos class="title" [title]="'Datos de Contacto'"></app-mostrar-titulos>
-<div class="container mt-5">
-    <div class="row my-5">
-        <div class="col-lg-6 col-md-6" *ngFor="let contacto of contactos">
-            <ul>
-                <li><i class="bi bi-geo-alt-fill"></i> {{contacto.address}}</li>
-                <li><i class="bi bi-telephone-fill"></i> {{contacto.phone | phone}}</li>
-                <li><i class="bi bi-facebook"></i><a [href]="contacto.facebook_url"> {{contacto.facebook_url}}</a></li>
-                <li><i class="bi bi-linkedin"></i><a [href]="contacto.linkedin_url">{{contacto.linkedin_url}}</a></li>
-                <li><i class="bi bi-instagram"></i><a [href]="contacto.instagram_url">{{contacto.instagram_url}}</a></li>
-                <li><i class="bi bi-twitter"></i><a [href]="contacto.twitter_url"> {{contacto.twitter_url}}</a></li>
-            </ul>
-            <div class="button">
-                <input type="submit"  routerLink="" class="btn btn-danger" value="Volever">
-            </div>
-            
-        </div>
-    </div>
+<div *ngFor="let contacto of contactos">
+    <ul>
+        <li><i class="bi bi-geo-alt-fill"></i> {{contacto.address}}</li>
+        <li><i class="bi bi-telephone-fill"></i> {{contacto.phone | phone}}</li>
+        <li><i class="bi bi-facebook"></i><a [href]="contacto.facebook_url"> {{contacto.facebook_url}}</a></li>
+        <li><i class="bi bi-linkedin"></i><a [href]="contacto.linkedin_url">{{contacto.linkedin_url}}</a></li>
+        <li><i class="bi bi-instagram"></i><a [href]="contacto.instagram_url">{{contacto.instagram_url}}</a></li>
+        <li><i class="bi bi-twitter"></i><a [href]="contacto.twitter_url"> {{contacto.twitter_url}}</a></li>
+    </ul>
 </div>

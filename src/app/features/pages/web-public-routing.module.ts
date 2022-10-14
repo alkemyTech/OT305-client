@@ -21,7 +21,9 @@ import { TokenGuard } from "src/app/core/guards/token.guard";
 import { DonacionComponent } from "./donations/donacion/donacion.component";
 import { GraciasComponent } from "./donations/gracias/gracias.component";
 import { NoAutenticadoGuard } from "src/app/core/guards/no-autenticado.guard";
-import { UserRegularAutenticadoGuard } from 'src/app/core/guards/user-regular-autenticado.guard';
+import { UserRegularAutenticadoGuard } from "src/app/core/guards/user-regular-autenticado.guard";
+import { ListTestimonialsComponent } from "./testimonials/list-testimonials/list-testimonials.component";
+import { DetailsTestimonialComponent } from "./testimonials/details-testimonial/details-testimonial.component";
 
 const routes: Routes = [
   {
@@ -40,7 +42,15 @@ const routes: Routes = [
 
       {
         path: "testimonios",
+        component: ListTestimonialsComponent,
+      },
+      {
+        path: "testimonios/create",
         component: TestimonialFormComponent,
+      },
+      {
+        path: "testimonios/:id",
+        component: DetailsTestimonialComponent,
       },
 
       {
@@ -83,11 +93,6 @@ const routes: Routes = [
       },
 
       {
-        path: "contact",
-        component: DatosContactoComponent,
-      },
-
-      {
         path: "novedades/:id",
         component: DetalleNovedadComponent,
         canLoad: [NoAutenticadoGuard],
@@ -109,7 +114,7 @@ const routes: Routes = [
       {
         path: "donar",
         component: DonacionComponent,
-        canActivate: [ UserRegularAutenticadoGuard ]
+        canActivate: [UserRegularAutenticadoGuard],
       },
 
       {

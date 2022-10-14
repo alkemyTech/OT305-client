@@ -45,6 +45,9 @@ import { NgxTwitterTimelineModule } from "ngx-twitter-timeline";
 import { DonacionComponent } from "./donations/donacion/donacion.component";
 import { GraciasComponent } from "./donations/gracias/gracias.component";
 import { PdfViewerModule } from "ng2-pdf-viewer";
+import { ListTestimonialsComponent } from "./testimonials/list-testimonials/list-testimonials.component";
+import { DetailsTestimonialComponent } from "./testimonials/details-testimonial/details-testimonial.component";
+import { NgxPaginationModule } from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -81,6 +84,8 @@ import { PdfViewerModule } from "ng2-pdf-viewer";
     FormularioBusquedaNovedadesWebPublicaComponent,
     DonacionComponent,
     GraciasComponent,
+    ListTestimonialsComponent,
+    DetailsTestimonialComponent
   ],
   exports: [
     WebPublicComponent,
@@ -112,6 +117,7 @@ import { PdfViewerModule } from "ng2-pdf-viewer";
     SharedModule,
     NgxTwitterTimelineModule,
     PdfViewerModule,
+    NgxPaginationModule,
   ],
   providers: [CurrencyPipe],
 })
