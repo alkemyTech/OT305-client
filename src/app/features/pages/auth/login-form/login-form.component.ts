@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { MatDialog } from "@angular/material/dialog";
+import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import {
   Login_Request_Action,
@@ -7,6 +9,7 @@ import {
   Login_Request_Success_Action,
 } from "src/app/core/ngrx/actions/auth.action";
 import { PrivateApiService } from "src/app/core/services/privateApi/private-api.service";
+import { DialogErrorComponent } from "src/app/shared/components/alertas/dialog-error/dialog-error/dialog-error.component";
 
 @Component({
   selector: "app-login-form",
@@ -20,7 +23,9 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private httpService: PrivateApiService,
-    private store: Store
+    private store: Store,
+    private router: Router,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -51,12 +56,32 @@ export class LoginFormComponent implements OnInit {
     this.store.dispatch(Login_Request_Action());
     this.httpService.simplePostRequest("login", this.formValue.value).subscribe(
       (res: any) => {
-        this.store.dispatch(Login_Request_Success_Action({ data: res.data }));
-        console.log("login exitoso");
-        return console.log(this.formValue.value);
+        if(res.data){
+          this.store.dispatch(Login_Request_Success_Action({ data: res.data }));
+          console.log(res);
+          return this.router.navigate(["/backoffice/dashboard"]);;
+        }
+        else{
+          this.store.dispatch(Login_Request_Error_Action());
+          this.dialog.open(DialogErrorComponent, {
+            width: "450px",
+            height: "335px",
+            data: {
+              message: "Algo salió mal, por favor revisa los datos y vuelve a intentarlo."
+            }
+          })
+          return console.log(res);
+        }
       },
       (err: any) => {
         this.store.dispatch(Login_Request_Error_Action());
+        this.dialog.open(DialogErrorComponent, {
+          width: "450px",
+          height: "300px",
+          data: {
+            message: "Algo salió mal, por favor vuelva a intentarlo."
+          }
+        })
         return console.log(err);
       }
     );
