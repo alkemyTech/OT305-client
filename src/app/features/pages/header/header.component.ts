@@ -20,8 +20,6 @@ export class HeaderComponent implements OnInit {
   show: boolean = false;
   token: any;
   rol: any;
-
-  token$ = this.store.select(selectToken);
   userId$: Observable<number | null> = new Observable<number>();
 
   registerView = this.restrictView(this.userId$);
