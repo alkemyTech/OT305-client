@@ -4,6 +4,13 @@
       <h5>Bienvenido</h5>
       <h3>Registre su nueva cuenta!</h3>
       <div class="mb-4 mt-4">
+        <input type="text" class="form-control form-control-lg" placeholder="Nombre" formControlName="name"
+          [class.is-invalid]="controls.name.errors && controls.name.touched">
+        <div class="invalid-feedback">
+          Por favor digita un nombre de más de 3 carácteres
+        </div>
+      </div>
+      <div class="mb-4">
         <input type="email" class="form-control form-control-lg" placeholder="Email" formControlName="email"
           [class.is-invalid]="controls.email.errors && controls.email.touched">
         <div class="invalid-feedback">

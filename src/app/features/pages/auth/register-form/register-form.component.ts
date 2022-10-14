@@ -2,6 +2,7 @@ import { error } from "@angular/compiler/src/util";
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
+import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import {
   Register_Request_Action,
@@ -11,10 +12,12 @@ import {
 import { PrivateApiService } from "src/app/core/services/privateApi/private-api.service";
 import { CustomValidators } from "src/app/core/validators/custom-validators";
 import { AlertasComponent } from "src/app/shared/components/alertas/alertas.component";
+import { DialogErrorComponent } from "src/app/shared/components/alertas/dialog-error/dialog-error/dialog-error.component";
 import { ResponseComponent } from "src/app/shared/components/alertas/response.component";
 import { TermsDialogComponent } from "src/app/shared/components/alertas/termsDialog/terms-dialog/terms-dialog.component";
 
 interface registro {
+  name: string;
   email: string;
   password: string;
 }
@@ -30,11 +33,13 @@ export class RegisterFormComponent implements OnInit {
   @ViewChild("terms", { static: true }) terms!: ElementRef;
 
   datosRegistro: registro = {
+    name: "",
     email: "",
     password: "",
   };
 
   miFormulario: FormGroup = this.fb.group({
+    name: [, [Validators.required, Validators.minLength(3)]],
     email: [, [Validators.required, Validators.minLength(1), Validators.email]],
     password: [
       ,
@@ -56,7 +61,8 @@ export class RegisterFormComponent implements OnInit {
     private fb: FormBuilder,
     private httpService: PrivateApiService,
     private store: Store,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -87,23 +93,47 @@ export class RegisterFormComponent implements OnInit {
       console.log("password indenticas");
       this.aceptTerms;
       this.passMismatch = false;
+      this.datosRegistro.name = this.miFormulario.get("name")!.value;
       this.datosRegistro.email = this.miFormulario.get("email")!.value;
       this.datosRegistro.password = this.miFormulario.get("password")!.value;
       console.log(this.datosRegistro);
       //comienza las peticiones con actions ngrx
-      this.store.dispatch(Register_Request_Action());
-      this.httpService
-        .simplePostRequest("register", this.datosRegistro)
-        .subscribe(
-          (res: any) => {
-            this.store.dispatch(Register_Request_Success_Action());
-            return console.log(res);
-          },
-          (err: any) => {
-            this.store.dispatch(Register_Request_Error_Action());
-            return console.log(err);
-          }
-        );
+      if(this.aceptTerms){
+        this.store.dispatch(Register_Request_Action());
+        this.httpService
+          .simplePostRequest("register", this.datosRegistro)
+          .subscribe(
+            (res: any) => {
+              if(res.data){
+                this.store.dispatch(Register_Request_Success_Action());
+                this.router.navigate(["/login"]);
+                return console.log(res);
+              }
+              else{
+                this.store.dispatch(Register_Request_Error_Action());
+                this.dialog.open(DialogErrorComponent, {
+                  width: "450px",
+                  height: "335px",
+                  data: {
+                    message: "Algo salió mal, por favor revisa los datos y vuelve a intentarlo."
+                  }
+                })
+                return console.log(res);
+              }
+            },
+            (err: any) => {
+              this.store.dispatch(Register_Request_Error_Action());
+              this.dialog.open(DialogErrorComponent, {
+                  width: "450px",
+                  height: "335px",
+                  data: {
+                    message: "Algo salió mal, por favor espere un momento y vuelva a intentarlo."
+                  }
+                })
+              return console.log(err);
+            }
+          );
+      }
     }
   }
   public get controls(): any {

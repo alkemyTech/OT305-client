@@ -13,6 +13,7 @@ import { LazyLoadImageModule } from "ng-lazyload-image";
 import { LazyLoadImgComponent } from "./lazy-load-img/lazy-load-img.component";
 import { TermsDialogComponent } from "./components/alertas/termsDialog/terms-dialog/terms-dialog.component";
 import { PdfViewerModule } from "ng2-pdf-viewer";
+import { DialogErrorComponent } from './components/alertas/dialog-error/dialog-error/dialog-error.component';
 @NgModule({
   declarations: [
     SpinnerComponent,
@@ -22,6 +23,7 @@ import { PdfViewerModule } from "ng2-pdf-viewer";
     CardComponent,
     LazyLoadImgComponent,
     TermsDialogComponent,
+    DialogErrorComponent,
   ],
   imports: [
     CommonModule,
