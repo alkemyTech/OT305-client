@@ -47,7 +47,6 @@ export class LoginFormComponent implements OnInit {
     });
   }
   loginSubmit() {
-    console.log(this.formValue);
     if (this.formValue.invalid) {
       Object.values(this.formValue.controls).forEach((control) => {
         control.markAsTouched();
