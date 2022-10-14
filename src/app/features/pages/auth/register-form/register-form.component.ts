@@ -17,6 +17,7 @@ import { ResponseComponent } from "src/app/shared/components/alertas/response.co
 import { TermsDialogComponent } from "src/app/shared/components/alertas/termsDialog/terms-dialog/terms-dialog.component";
 
 interface registro {
+  name: string;
   email: string;
   password: string;
 }
@@ -32,11 +33,13 @@ export class RegisterFormComponent implements OnInit {
   @ViewChild("terms", { static: true }) terms!: ElementRef;
 
   datosRegistro: registro = {
+    name: "",
     email: "",
     password: "",
   };
 
   miFormulario: FormGroup = this.fb.group({
+    name: [, [Validators.required, Validators.minLength(3)]],
     email: [, [Validators.required, Validators.minLength(1), Validators.email]],
     password: [
       ,
@@ -90,6 +93,7 @@ export class RegisterFormComponent implements OnInit {
       console.log("password indenticas");
       this.aceptTerms;
       this.passMismatch = false;
+      this.datosRegistro.name = this.miFormulario.get("name")!.value;
       this.datosRegistro.email = this.miFormulario.get("email")!.value;
       this.datosRegistro.password = this.miFormulario.get("password")!.value;
       console.log(this.datosRegistro);
