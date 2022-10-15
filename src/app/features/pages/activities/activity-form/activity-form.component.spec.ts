@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { ActivityFormComponent } from "./activity-form.component";
 import { RouterTestingModule } from "@angular/router/testing";
 import { MatDialogModule } from "@angular/material/dialog";
@@ -8,21 +7,22 @@ import { CKEditorModule } from "ckeditor4-angular";
 import { By } from "@angular/platform-browser";
 import { ActividadService } from "src/app/core/services/activities/actividad.service";
 import { Router } from "@angular/router";
+import { HttpClientModule } from "@angular/common/http";
 
 describe("ActivityFormComponent", () => {
   let component: ActivityFormComponent;
   let fixture: ComponentFixture<ActivityFormComponent>;
-  let actividadService: ActividadService;
+  let service: ActividadService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         ReactiveFormsModule,
         FormsModule,
-        HttpClientTestingModule,
         RouterTestingModule,
         MatDialogModule,
         CKEditorModule,
+        HttpClientModule,
       ],
       declarations: [ActivityFormComponent],
       providers: [ActividadService],
@@ -32,7 +32,7 @@ describe("ActivityFormComponent", () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ActivityFormComponent);
     component = fixture.componentInstance;
-    actividadService = TestBed.get(ActividadService);
+    service = TestBed.inject(ActividadService);
     fixture.detectChanges();
   });
 
@@ -45,17 +45,17 @@ describe("ActivityFormComponent", () => {
 
   it("Se debe renderizar el componente como Creación", () => {
     const router = TestBed.inject(Router);
-    router.navigate(['/backoffice/activities/create']);
+    router.navigate(["/backoffice/activities/create"]);
 
     fixture.detectChanges();
 
     expect(component.accion).toEqual("Agregar");
   });
 
-  fit("Se debe renderizar el componente como Edición", () => {
+  it("Se debe renderizar el componente como Edición", () => {
     const router = TestBed.inject(Router);
-    router.navigate(['/backoffice/activities/edit/2074']);
-    
+    router.navigate(["/backoffice/activities/edit/2074"]);
+
     component.confEdicion();
     fixture.detectChanges();
 
@@ -63,7 +63,7 @@ describe("ActivityFormComponent", () => {
   });
 
   // Si el formulario no está completo se deshabilitará el botón de submit
-  
+
   it("No debe hacer submit", () => {
     fixture.detectChanges();
     const name = component.form.controls["name"];
@@ -86,68 +86,79 @@ describe("ActivityFormComponent", () => {
   // creación o actualización (POST /activities o PATCH /activities/:id), y los mensajes de error y
   // éxito correspondientes en base al resultado de la petición.
 
-  it("Debe realizar una peticion al endpoint de creación", () => {
-    const service = fixture.debugElement.injector.get(ActividadService);
-    fixture.detectChanges();
-
-    let expectResult = "Activity saved successfully";
-    let res = "";
-
+  fit("Debe realizar una peticion al endpoint de creación", () => {
     component.form.controls["name"].setValue("nombre de prueba");
     component.form.controls["description"].setValue("descripción de prueba");
     component.foto = img;
+    
+    let data = {
+      id: 0,
+      name: component.form.value.name,
+      slug: "",
+      description: component.form.value.description,
+      image: component.foto,
+      user_id: 0,
+      category_id: 0,
+      created_at: new Date(),
+      updated_at: null,
+      deleted_at: null,
+    };
 
-    if (
-      component.form.controls.name.status == "VALID" &&
-      component.foto !== null
-    ) {
-      let data = {
-        id: 0,
-        name: component.form.value.name,
-        slug: "",
-        description: component.form.value.description,
-        image: component.foto,
-        user_id: 0,
-        category_id: 0,
-        created_at: new Date(),
-        updated_at: null,
-        deleted_at: null,
-      };
+    service.setActividad(data).subscribe((data) => {
+      console.log(data)
+      return expect(data.success).toBeTruthy();
+    });
 
-      service.setActividad(data).subscribe(({ message }) => {
-        res = message;
-      });
-    }
-
-    expect(res).toBe(expectResult);
+    fixture.detectChanges();
   });
 
-  // it("Debe realizar una peticion al endpoint de creación", () => {
-  //   component.form.controls["name"].setValue("nombre de prueba");
-  //   component.form.controls["description"].setValue("descripción de prueba");
-  //   component.foto = img;
-
-  //   const button = fixture.debugElement.query(By.css(".btn"));
-  //   button.nativeElement.click();
-
-  //   const router = TestBed.inject(Router);
-  //   let ruta = router.url
-
-  //   fixture.detectChanges();
-
-  //   expect(ruta).toBe('backoffice/activities');
-  // });
-
   it("Debe realizar una peticion al endpoint de actualización", () => {
-    expect(true).toBeTruthy();
+    component.form.controls["name"].setValue("nombre de prueba");
+    component.form.controls["description"].setValue("descripción de prueba");
+
+    service.updateActividad({
+      id: 2167,
+      name: component.form.value.name,
+      description: component.form.value.description,
+      updated_at: new Date(),
+    }).subscribe((data) => {
+      console.log(data)
+      expect(data.success).toBeTruthy();
+    });
+
+    fixture.detectChanges();
   });
 
   it("Debe mostrar mensaje de error", () => {
-    expect(true).toBeTruthy();
+    component.form.controls["name"].setValue(null);
+    component.form.controls["description"].setValue("descripción de prueba");
+
+    service.updateActividad({
+      id: 2167,
+      name: component.form.value.name,
+      description: component.form.value.description,
+      updated_at: new Date(),
+    }).subscribe(({error}) => {
+      expect(error.message).toBe("The given data was invalid.");
+    });
+
+    fixture.detectChanges();
   });
 
   it("Debe mostrar mensaje de éxito", () => {
-    expect(true).toBeTruthy();
+    component.form.controls["name"].setValue("nombre de prueba");
+    component.form.controls["description"].setValue("descripción de prueba");
+
+    service.updateActividad({
+      id: 2167,
+      name: component.form.value.name,
+      description: component.form.value.description,
+      updated_at: new Date(),
+    }).subscribe((data) => {
+      expect(data.message).toBe("Activity updated successfully");
+    });
+
+    fixture.detectChanges();
   });
 });
 
