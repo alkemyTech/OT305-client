@@ -9,7 +9,7 @@ import { ActividadService } from "src/app/core/services/activities/actividad.ser
 import { Router } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 
-describe("ActivityFormComponent", () => {
+fdescribe("ActivityFormComponent", () => {
   let component: ActivityFormComponent;
   let fixture: ComponentFixture<ActivityFormComponent>;
   let service: ActividadService;
@@ -86,11 +86,11 @@ describe("ActivityFormComponent", () => {
   // creación o actualización (POST /activities o PATCH /activities/:id), y los mensajes de error y
   // éxito correspondientes en base al resultado de la petición.
 
-  fit("Debe realizar una peticion al endpoint de creación", () => {
+  it("Debe realizar una peticion al endpoint de creación", (done) => {
     component.form.controls["name"].setValue("nombre de prueba");
     component.form.controls["description"].setValue("descripción de prueba");
     component.foto = img;
-    
+
     let data = {
       id: 0,
       name: component.form.value.name,
@@ -105,58 +105,69 @@ describe("ActivityFormComponent", () => {
     };
 
     service.setActividad(data).subscribe((data) => {
-      console.log(data)
-      return expect(data.success).toBeTruthy();
+      expect(data.success).toBeTruthy();
+      done();
     });
 
     fixture.detectChanges();
   });
 
-  it("Debe realizar una peticion al endpoint de actualización", () => {
+  it("Debe realizar una peticion al endpoint de actualización", (done) => {
     component.form.controls["name"].setValue("nombre de prueba");
     component.form.controls["description"].setValue("descripción de prueba");
 
-    service.updateActividad({
-      id: 2167,
-      name: component.form.value.name,
-      description: component.form.value.description,
-      updated_at: new Date(),
-    }).subscribe((data) => {
-      console.log(data)
-      expect(data.success).toBeTruthy();
-    });
+    service
+      .updateActividad({
+        id: 2167,
+        name: component.form.value.name,
+        description: component.form.value.description,
+        updated_at: new Date(),
+      })
+      .subscribe((data) => {
+        expect(data.success).toBeTruthy();
+        done();
+      });
 
     fixture.detectChanges();
   });
 
-  it("Debe mostrar mensaje de error", () => {
+  it("Debe mostrar mensaje de error", (done) => {
     component.form.controls["name"].setValue(null);
     component.form.controls["description"].setValue("descripción de prueba");
 
-    service.updateActividad({
-      id: 2167,
-      name: component.form.value.name,
-      description: component.form.value.description,
-      updated_at: new Date(),
-    }).subscribe(({error}) => {
-      expect(error.message).toBe("The given data was invalid.");
-    });
+    service
+      .updateActividad({
+        id: 2167,
+        name: component.form.value.name,
+        description: component.form.value.description,
+        updated_at: new Date(),
+      })
+      .subscribe(
+        () => {},
+        ({ error }) => {
+          expect(error.message).toBe("The given data was invalid.");
+          done();
+        }
+      );
 
     fixture.detectChanges();
   });
 
-  it("Debe mostrar mensaje de éxito", () => {
+  it("Debe mostrar mensaje de éxito", (done) => {
     component.form.controls["name"].setValue("nombre de prueba");
     component.form.controls["description"].setValue("descripción de prueba");
 
-    service.updateActividad({
-      id: 2167,
-      name: component.form.value.name,
-      description: component.form.value.description,
-      updated_at: new Date(),
-    }).subscribe((data) => {
-      expect(data.message).toBe("Activity updated successfully");
-    });
+    service
+      .updateActividad({
+        id: 2167,
+        name: component.form.value.name,
+        description: component.form.value.description,
+        updated_at: new Date(),
+      })
+      .subscribe((data) => {
+        expect(data.message).toBe("Activity updated successfully");
+        done();
+      });
 
     fixture.detectChanges();
   });

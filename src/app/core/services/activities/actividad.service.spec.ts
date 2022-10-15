@@ -3,7 +3,7 @@ import { TestBed } from "@angular/core/testing";
 
 import { ActividadService } from "./actividad.service";
 
-fdescribe("ActividadService", () => {
+describe("ActividadService", () => {
   let service: ActividadService;
 
   beforeEach(() => {
@@ -17,9 +17,11 @@ fdescribe("ActividadService", () => {
     expect(service).toBeTruthy();
   });
 
-  it("debe de traer información de una actividad", () => {
+  it("debe de traer información de una actividad", (done) => {
     service.getActivityById(2074).subscribe(({data}) => {
-      return expect(data.name).toBe("Volar Barriletes");
+      expect(data.name).toBe("Volar Barriletes");
+
+      done()
     });
   });
 
