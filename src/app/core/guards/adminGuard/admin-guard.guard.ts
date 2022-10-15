@@ -6,16 +6,17 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from "@angular/router";
-import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { selectToken } from "../ngrx/selectors/auth.selector";
 
 @Injectable({
   providedIn: "root",
 })
-export class TokenGuard implements CanActivate {
-  token$ = this.store.select(selectToken);
-  constructor(private store: Store<any>, private router: Router) {}
+export class AdminGuardGuard implements CanActivate {
+  rol: any;
+
+  constructor(private router: Router) {
+    this.rol = JSON.parse(localStorage.getItem("rol")!);
+  }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -24,8 +25,9 @@ export class TokenGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (!this.token$) {
+    if (this.rol === 2) {
       this.router.navigate(["/home"]);
+      return false;
     }
     return true;
   }
