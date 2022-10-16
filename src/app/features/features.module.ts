@@ -12,7 +12,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NosotrosEffects } from "../core/ngrx/effects/nosotros.effect";
 import { CategorieEffects } from "../core/ngrx/effects/categorie.effect";
 import { SlideEffects } from "../core/ngrx/effects/slide.effect";
-
 @NgModule({
   declarations: [],
   exports: [RouterModule],

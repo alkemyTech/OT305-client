@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TableSlidesComponent } from './table-slides.component';
 
 describe('TableSlidesComponent', () => {
-  let component: TableComponent;
+  let component: TableSlidesComponent;
   let fixture: ComponentFixture<TableSlidesComponent>;
 
   beforeEach(async () => {
