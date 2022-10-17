@@ -9,7 +9,7 @@ import { ActividadService } from "src/app/core/services/activities/actividad.ser
 import { Router } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 
-fdescribe("ActivityFormComponent", () => {
+describe("ActivityFormComponent", () => {
   let component: ActivityFormComponent;
   let fixture: ComponentFixture<ActivityFormComponent>;
   let service: ActividadService;
