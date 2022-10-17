@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
 import { Contacts } from "src/app/core/models/contacts.model";
 import { ContactsService } from "src/app/core/services/contacts/contacts.service";
-import { AlertasComponent } from "src/app/shared/components/alertas/alertas.component";
+import { ResponseComponent } from "src/app/shared/components/alertas/response.component";
 
 @Component({
   selector: "app-contact-form",
@@ -13,6 +13,7 @@ import { AlertasComponent } from "src/app/shared/components/alertas/alertas.comp
 export class ContactFormComponent implements OnInit {
   form!: FormGroup;
   contactModel: Contacts = new Contacts();
+  dialogRef: any
 
   constructor(
     private fb: FormBuilder,
@@ -36,31 +37,32 @@ export class ContactFormComponent implements OnInit {
     this.contactModel.email = this.form.value.email;
     this.contactModel.message = this.form.value.message;
     if (this.form.invalid) {
-      this.openDialog("error!", "Por favor rellena todos los campos");
+      this.openDialog("Error!", "Por favor rellena todos los campos", "Error");
     } else {
       this.contactService.setContact(this.contactModel).subscribe(
         (res) => {
           console.log(res);
           this.openDialog(
             "Mensaje enviado exitosamente!",
-            "Pronto nos pondremos en contacto contigo"
+            "Pronto nos pondremos en contacto contigo",
+            "Success"
           );
           this.form.reset();
         },
         (error) => {
           console.log(error);
         }
-      );
+        );
     }
   }
-  openDialog(titulo: string, mensaje: string): void {
-    const dialogRef = this.dialog.open(AlertasComponent, {
+  openDialog(titulo: string, mensaje: string, type: string): void {
+    this.dialogRef = type;
+    this.dialog.open(ResponseComponent, {
       width: "350px",
       data: {
-        cancelText: "Cerrar",
-        confirmText: "Ok",
         message: mensaje,
         title: titulo,
+        type: type
       },
     });
   }
