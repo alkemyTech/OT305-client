@@ -41,6 +41,7 @@ import { DialogErrorComponent } from './components/alertas/dialog-error/dialog-e
     CardComponent,
     LazyLoadImageModule,
     LazyLoadImgComponent,
+    DialogErrorComponent,
   ],
 })
 export class SharedModule {}
