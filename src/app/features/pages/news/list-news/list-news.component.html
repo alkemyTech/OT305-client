@@ -8,10 +8,21 @@
                 [img]='novedad.image' 
                 [title]="novedad.name" 
                 [description]="novedad.content"
-                
+                [created_at]="novedad.created_at | date "
+                [updated_at]="novedad.created_at | date "
             ></app-card>
-            <p *ngIf="novedad.updated_at == null">{{novedad.created_at | date }}</p>
-            <p>{{novedad.created_at | date }}</p>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="ultimo-evento">
+        <h1>Ultimo Evento</h1>
+        <div class="video">
+            <iframe width="100%" height="615" src="https://www.youtube.com/embed/4YnSk1gI_Oo" 
+             title="YouTube video player"
+             frameborder="0" 
+             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+             allowfullscreen></iframe>
         </div>
     </div>
 </div>
