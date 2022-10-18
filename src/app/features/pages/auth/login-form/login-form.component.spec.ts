@@ -45,4 +45,20 @@ describe('LoginFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('debe ser invalido el formulario si no se rellenan los 2 campos requeridos', () => {
+    const form = component.formValue;
+    form.get("email")?.setValue("pruebapararegistro@gmail.com");
+    form.get("password")?.setValue(null);
+
+    expect(form.valid).toBeFalsy();
+  });
+
+  it('debe ser valido el formulario si cuando se rellenan los 2 campos requeridos', () => {
+    const form = component.formValue;
+    form.get("email")?.setValue("pruebapararegistro@gmail.com");
+    form.get("password")?.setValue("arg123!");
+
+    expect(form.valid).toBeTruthy();
+  });
 });
