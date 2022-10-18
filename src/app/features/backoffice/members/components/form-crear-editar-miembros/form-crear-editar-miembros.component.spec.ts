@@ -42,7 +42,7 @@ describe("FormCrearEditarMiembrosComponent", () => {
 
     expect(component.form.value).toBeTruthy(testMember);
   }));
-  // si no se llenan todos los campos, o el formulario es invalido
+  // Se realiza la verificacion: si no se llenan todos los campos, o el formulario es invalido
   it("invalid form error", () => {
     const fixture = TestBed.createComponent(FormCrearEditarMiembrosComponent);
     const member = fixture.componentInstance;
