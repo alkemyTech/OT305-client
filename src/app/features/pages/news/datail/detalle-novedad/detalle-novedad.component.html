@@ -7,7 +7,7 @@
     <div class="content-novedad" >
     <div class="content-img"><app-lazy-load-img class="img"  [image]="novedad.image"></app-lazy-load-img></div>
     <div class="content-article"><p class="article" [innerHtml]="novedad.content"></p></div>
-    
+     <app-dialog-error  *ngIf="novedad == null"></app-dialog-error>
     <div class="button"><input type="submit" class="btn btn-danger btn-lg mt-4 px-5" value="Volver a Novedades" [routerLink]="'/novedades'"></div>
   </div>
   

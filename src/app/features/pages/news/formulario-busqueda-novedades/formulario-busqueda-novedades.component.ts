@@ -1,11 +1,13 @@
 
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { Novedad } from 'src/app/core/models/novedad.model';
 import { HttpService } from 'src/app/core/services/http.service';
 import { NovedadesService } from 'src/app/core/services/novedades/novedades.service';
+import { ResponseComponent } from 'src/app/shared/components/alertas/response.component';
 import { DashboardNovedadesComponent } from '../dashboard-novedades/dashboard-novedades.component';
 
 
@@ -28,7 +30,7 @@ export class FormularioBusquedaNovedadesComponent implements OnInit, OnDestroy {
   categoriaSolicitada: string = "Todos";
 
 
-  constructor(private novedadService: NovedadesService) {}
+  constructor(private novedadService: NovedadesService,  public dialog: MatDialog) {}
 
   ngOnInit() {
     this.obtenerNovedadesDeApi()
@@ -44,7 +46,14 @@ export class FormularioBusquedaNovedadesComponent implements OnInit, OnDestroy {
         }
       }
     ))
-    this.novedadSubscription = this.novedad$.subscribe((res: any) => {return this.novedad.emit(res);},)
+    this.novedadSubscription = this.novedad$.subscribe((res: any) => {return this.novedad.emit(res);},
+    (error:any)=>{
+      this.openDialog(
+        "Error al obtener novedad",
+        "La novedad no pudo ser encontrada",
+        "Error"
+      )
+    })
  
   }
 
@@ -56,7 +65,22 @@ export class FormularioBusquedaNovedadesComponent implements OnInit, OnDestroy {
     this.novedadSubscription = this.novedadService.listNews().subscribe((res: any) => {
       this.novedades = res 
       return this.novedad.emit(this.novedades) 
+    },(error)=>{
+      this.openDialog(
+        "Error al obtener novedad",
+        "La novedad no pudo ser encontrada",
+        "Error"
+      )
     })
+  }
+  openDialog(titulo: string, mensaje: string, tipo: string): void {
+    const dialogRef = this.dialog.open(ResponseComponent, {
+      data: {
+        message: mensaje,
+        title: titulo,
+        type: tipo,
+      },
+    });
   }
   
   searchNovedad(texto: string){
