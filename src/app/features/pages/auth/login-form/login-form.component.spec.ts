@@ -1,14 +1,35 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { RouterTestingModule } from "@angular/router/testing";
+import { PrivateApiService } from 'src/app/core/services/privateApi/private-api.service';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
 import { LoginFormComponent } from './login-form.component';
 
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
   let fixture: ComponentFixture<LoginFormComponent>;
+  let store: MockStore;
+  const initialState = {
+    loggedIn: false
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginFormComponent ]
+      declarations: [ LoginFormComponent ],
+      imports: [
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterTestingModule,
+        MatDialogModule
+      ],
+      providers: [
+        PrivateApiService,
+        provideMockStore({ initialState })
+      ]
     })
     .compileComponents();
   });
@@ -16,6 +37,8 @@ describe('LoginFormComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginFormComponent);
     component = fixture.componentInstance;
+    store = TestBed.inject(MockStore);
+
     fixture.detectChanges();
   });
 
