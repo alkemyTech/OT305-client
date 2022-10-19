@@ -16,7 +16,7 @@ export class NovedadesService extends HttpService {
   news: string = environment.news;
 
   novedadParaEditar : any = null
-  constructor(http: HttpClient, private httpp: HttpClient) { 
+  constructor(http: HttpClient) { 
     super(http)
   }
 
@@ -47,15 +47,15 @@ postNews(data: any): Observable<any> {
   return this.post(`${this.baseUrl}${this.news}`, data);
 }
 
-patchNews(data: any): Observable<any> {
-  return this.patch(
+putNews(data: any): Observable<any> {
+  return this.put(
     `${this.baseUrl}${this.news}/${data.id}`,
     data
   );
 }
 
 deleteNews(id: number) {
-  return this.httpp.delete(`${this.baseUrl}${this.news}/${id}`);
+  return this.delete(`${this.baseUrl}${this.news}/${id}`);
 }
 
 
