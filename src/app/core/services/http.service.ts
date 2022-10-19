@@ -17,8 +17,8 @@ export class HttpService {
     return this.http.get<T>(url, activateHeader ? { headers: this._headers }: {});
   }
 
-  public post<T>(url: string, data: object, activateHeader:boolean = false ):Observable<T> {
-    return this.http.post<T>(url, data, activateHeader ? { headers: this._headers }: {});
+  public post<T>(url: string, data: object, activateHeader:boolean = false ):Observable<any> {
+    return this.http.post<any>(url, data, activateHeader ? { headers: this._headers }: {});
   }
 
   public patch<T>(url: string, data: object, activateHeader:boolean = false ):Observable<T> {
@@ -28,5 +28,11 @@ export class HttpService {
   public put<T>(url: string, data: object, activateHeader:boolean = false ):Observable<T> {
     return this.http.put<T>(url, data, activateHeader ? { headers: this._headers }: {});
   }
+
+  public delete<T>(url: string, activateHeader:boolean = false ):Observable<T> {
+    return this.http.delete<T>(url, activateHeader ? { headers: this._headers }: {});
+  }
+
+  
 }
 
