@@ -1,23 +1,61 @@
-
 <div class="container-fluid">
-  <div class="content-all">
-
-    <div class="content-img">
-      <img class="img" [src]="'assets/slide-2.jpg'">
+  <div class="content-all container d-flex flex-column justify-content-center">
+    <div class="content-title">
+      <h3 class="text-center pt-5 pb-4 title-2">Cómo ayudar?</h3>
     </div>
-    
-    <div class="container-text">
-      <div class="content-title">
-        <h2 class="title">{{titulo}}
-          <p class="line"></p>
-        </h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cumque quasi aperiam officiis minima necessitatibus, excepturi natus eum ullam, reiciendis nihil commodi labore recusandae dolorem, fugiat itaque. Porro, unde aut!</p>
-        <h5>Fecha: {{init | date}} </h5>
-        <h5>Hora: {{init | date :"hh:mm" : "locale"}}</h5>
-        <h5>Lugar: Lugar</h5>
-        <h5 class="cuenta-regreciva">Faltan: {{counter}}</h5>
-      </div>
-      
-   </div>
+    <div class="content-text">
+      <p class="px-5 text-center fw-light">¿Quieres ser parte del cambio? Con tu aporte contribuye a brindar educación
+        pública de
+        calidad a
+        las niñas,
+        niños y jóvenes que se encuentran en condición de vulnerabilidad</p>
+    </div>
   </div>
+
+  <div class="container mb-5 text-2">
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <!--<h3 class="pt-5 pb-4 title-2">Quieres ayudar y no sabes como?</h3>-->
+        <div class="content-text">
+          <p class="py-3 fw-light"> Mediante nuestros programas educativos, buscamos que mas niños y niñas de
+            poblaciones
+            vulnerables tengan acceso a la educación basica y superior, pudiendo llegar a lugares donde lastimosamente
+            las familias no cuentan con los recursos necesarios para brindar educación a sus hijos</p>
+          <p class="py-3 fw-light"> Con este tipo de iniciativas queremos aumentar las posibilidades de que estas
+            familias tengan acceso a empleos calificados mejorando al tiempo su calidad de vida y la de su familia.</p>
+          <p class="py-3 fw-light">Quieres ayudar el destino de miles de familias? abajo encuentras la fecha limite para
+            realizar tus donaciones</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class=" mt-5">
+    <div class="row column">
+      <div class="col-lg-6 col-md-12">
+        <div class="row" style="height:100%;">
+          <div class=" col-lg-4 col-sm-12 d-flex justify-content-center flex-column align-items-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/1581/1581943.png" alt="" width="50px">
+            <p class="column-text">{{init | date}}</p>
+            <p class="column-text fw-bold"> Fecha</p>
+          </div>
+          <div class="col-lg-4 col-sm-12 d-flex justify-content-center flex-column align-items-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/601/601019.png" alt="" width="50px">
+            <p class="column-text">{{init | date :"hh:mm" : "locale"}}</p>
+            <p class="column-text fw-bold"> Hora</p>
+          </div>
+          <div class="col-lg-4 col-sm-12 d-flex justify-content-center  flex-column align-items-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/4327/4327131.png" alt="" width="50px">
+            <p class="column-text">{{counter}}</p>
+            <p class="column-text fw-bold"> Falta</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block">
+        <div class="image">
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
