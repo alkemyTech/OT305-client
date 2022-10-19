@@ -1,9 +1,10 @@
 .container-fluid {
-    background: #c0c0c0;
+  background: #c0c0c0;
+  margin-top: -8px;
 }
 
 @media (min-width: 1950px) {
-    .container-fluid {
-        background: #c0c0c088;
-    }
+  .container-fluid {
+    background: #c0c0c088;
+  }
 }
