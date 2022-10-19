@@ -24,5 +24,9 @@ export class HttpService {
   public patch<T>(url: string, data: object, activateHeader:boolean = false ):Observable<T> {
     return this.http.put<T>(url, data, activateHeader ? { headers: this._headers }: {});
   }
+
+  public put<T>(url: string, data: object, activateHeader:boolean = false ):Observable<T> {
+    return this.http.put<T>(url, data, activateHeader ? { headers: this._headers }: {});
+  }
 }
 

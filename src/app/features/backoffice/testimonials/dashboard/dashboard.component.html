@@ -1,0 +1,29 @@
+
+  <div class="container text-center">
+    <div class="table-responsive  table-responsive-sm">
+      <h1 class="title">Dashboard Testimonios</h1>
+    <button class="btn btn-primary px-5 my-3" [routerLink]="'/backoffice/testimonial/create'">Crear Testimonio</button>
+    <table class="table table-hover">
+      <thead class="thead">
+       <tr>
+          <th class="table-dark" scope="col">Name</th>
+          <th class="table-dark" scope="col">Image</th>
+          <th class="table-dark" scope="col">Descripción</th>
+          <th class="table-dark" scope="col">Editar</th>
+          <th class="table-dark" scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <tr *ngFor="let testimonio of testimonios | paginate: { itemsPerPage: 5, currentPage: p }">
+          <td class="table-secondary">{{testimonio.name}}</td>
+          <td class="table-secondary" ><img class="img-fluid text-center" style="max-height: 150px;" [src]="testimonio.image"/></td>
+          <td class="table-secondary" ><p [innerHTML]="testimonio.description"></p></td>
+          <td class="table-secondary"><button class="btn btn-primary" [routerLink]="'./edit/'+testimonio.id">Editar</button></td>
+          <td class="table-secondary"><button class="btn btn-danger" [routerLink]="''">Eliminar </button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  </div>

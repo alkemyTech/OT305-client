@@ -3,5 +3,7 @@
     <div class="content text-start">
         <h4 class="mb-4">{{title}}</h4>
         <p [innerHTML]="description"></p>
+        <p *ngIf="updated_at == null">{{created_at}}</p>
+        <p>{{updated_at}}</p>
     </div>
 </div>

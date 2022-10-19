@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 import { TestimonioService } from "src/app/core/services/testimonials/testimonio.service";
@@ -17,24 +18,43 @@ export class TestimonialFormComponent implements OnDestroy{
   accion: string;
   form: FormGroup;
   foto: any;
+  id: number;
 
   constructor(
     private fb: FormBuilder,
     private testimonioService: TestimonioService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private aRoute: ActivatedRoute,
+    private router: Router
   ) {
+    this.id = this.aRoute.snapshot.params["id"];
+
     this.form = this.fb.group({
       image: [null, Validators.required],
       name: ["", [Validators.required, Validators.minLength(4)]],
       description: ["", Validators.required],
     });
 
-    if (this.testimonio == null) {
+    if (this.testimonio == null && this.id == undefined) {
       this.accion = "Agregar";
     } else {
-      this.foto = this.testimonio.image;
-      this.form.controls["name"].setValue(this.testimonio.name);
-      this.form.controls["description"].setValue(this.testimonio.description);
+      this.testimonioService.getTestimonioById(this.id)
+        .pipe(takeUntil(this.desub$))
+        .subscribe(
+          ({ data }) => {
+            this.testimonio = data;
+            this.foto = data.image;
+            this.form.controls["name"].setValue(data.name);
+            this.form.controls["description"].setValue(data.description);
+          },
+          (error) =>
+            this.openDialog(
+              "Error al obtener actividad",
+              "La actividad no pudo ser encontrada",
+              "Error"
+            )
+        );
+      
       this.accion = "Editar";
     }
 
@@ -78,10 +98,7 @@ export class TestimonialFormComponent implements OnDestroy{
           "El testimonio fue agregado éxitosamente",
           "Success"
         );
-        this.foto = null;
-        this.form.controls["image"].setValue(null);
-        this.form.controls["name"].setValue("");
-        this.form.controls["description"].setValue("");
+        this.router.navigate(["./testimonios"]);
       },
       (error) => {
         this.openDialog(
@@ -96,48 +113,51 @@ export class TestimonialFormComponent implements OnDestroy{
   actualizarTestimonio() {
     //petición PATCH al endpoint de actualización del server (/testimonials/:id).
 
-    if (this.form.value.image === null) {
+    if (this.testimonio.image === this.foto) {
       let data = {
+        id: this.testimonio.id,
         name: this.form.value.name,
         description: this.form.value.description,
-        image: this.form.value.image,
         updated_at: new Date(),
       };
 
       this.testimonioService.updateTestimonio(data).pipe(takeUntil(this.desub$))
       .subscribe(
         (data) => {
-          console.log(data);
           this.openDialog(
             "Testimonio Editado!",
             "El testimonio fue editado éxitosamente",
             "Success"
           );
+          this.router.navigate(["backoffice/testimonials"]);
         },
-        (error) => {
+        ({error}) => {
+          console.log(error)
           this.openDialog(
             "El testimonio no pudo ser Editado",
-            "Por favor, complete todos los campos obligatorios",
+            error.message,
             "Error"
           );
         }
       );
     } else {
       let data = {
+        id: this.testimonio.id,
         name: this.form.value.name,
         description: this.form.value.description,
+        image: this.foto,
         updated_at: new Date(),
       };
 
       this.testimonioService.updateTestimonio(data).pipe(takeUntil(this.desub$))
       .subscribe(
         (data) => {
-          console.log(data);
           this.openDialog(
             "Testimonio Editado!",
             "El testimonio fue editado éxitosamente",
             "Success"
           );
+          this.router.navigate(["backoffice/testimonials"]);
         },
         (error) => {
           this.openDialog(

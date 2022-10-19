@@ -1,4 +1,12 @@
-<div class="container py-5 px-5 col-12 col-md-9 col-lg-0 px-lg-0">
-    <app-contributes-info></app-contributes-info>
-    <app-contact-form></app-contact-form>
+<app-mostrar-titulos class="title" [title]="'Datos de Contacto'"></app-mostrar-titulos>
+<div class="container mt-5">
+    <div class="row my-5">
+        <div class="col-lg-7 col-md-6">
+            <app-contributes-info></app-contributes-info>
+            <app-contact-form></app-contact-form>
+        </div>
+        <div class="col-lg-5 col-md-6">
+            <app-datos-contacto></app-datos-contacto>
+        </div>
+    </div>
 </div>

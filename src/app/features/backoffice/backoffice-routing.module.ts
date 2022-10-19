@@ -1,11 +1,13 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AdminGuardGuard } from "src/app/core/guards/adminGuard/admin-guard.guard";
 import { ActivityFormComponent } from "../pages/activities/activity-form/activity-form.component";
 import { DashboardNovedadesComponent } from "../pages/news/dashboard-novedades/dashboard-novedades.component";
 import { FormularioBusquedaNovedadesComponent } from "../pages/news/formulario-busqueda-novedades/formulario-busqueda-novedades.component";
 import { NewsFormEditComponent } from "../pages/news/news-form-edit/news-form-edit.component";
 import { NewsFormComponent } from "../pages/news/news-form/news-form.component";
 import { OrganizationComponent } from "../pages/organization/organization.component";
+import { TestimonialFormComponent } from "../pages/testimonials/testimonial-form/testimonial-form.component";
 import { DashboardActivitiesComponent } from "./activities/dashboard-activities/dashboard-activities.component";
 import { SearchActivitiesComponent } from "./activities/search-activities/search-activities.component";
 import { AppBackofficeComponent } from "./app-backoffice.component";
@@ -22,6 +24,7 @@ import { FormularioActualizacionDatosComponent } from "./Organizacion/formulario
 import { SlidesCreateComponent } from "./slides/pages/slides-create/slides-create.component";
 import { SlidesEditComponent } from "./slides/pages/slides-edit/slides-edit.component";
 import { SlidesComponent } from "./slides/pages/slides/slides.component";
+import { DashboardComponent } from "./testimonials/dashboard/dashboard.component";
 import { UsersCreateComponent } from "./users/pages/users-create/users-create.component";
 import { UsersEditComponent } from "./users/pages/users-edit/users-edit.component";
 import { UsersComponent } from "./users/pages/users/users.component";
@@ -30,6 +33,7 @@ const routes: Routes = [
   {
     path: "",
     component: AppBackofficeComponent,
+    canActivate: [AdminGuardGuard],
     children: [
       {
         path: "users/edit",
@@ -122,6 +126,18 @@ const routes: Routes = [
       {
         path: "organization",
         component: OrganizationComponent,
+      },
+      {
+        path: "testimonials",
+        component: DashboardComponent,
+      },
+      {
+        path: "testimonial/create",
+        component: TestimonialFormComponent,
+      },
+      {
+        path: "testimonials/edit/:id",
+        component: TestimonialFormComponent,
       },
     ],
   },

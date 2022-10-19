@@ -11,6 +11,9 @@ import { ResponseComponent } from "./components/alertas/response.component";
 import { CardComponent } from "./components/card/card.component";
 import { LazyLoadImageModule } from "ng-lazyload-image";
 import { LazyLoadImgComponent } from "./lazy-load-img/lazy-load-img.component";
+import { TermsDialogComponent } from "./components/alertas/termsDialog/terms-dialog/terms-dialog.component";
+import { PdfViewerModule } from "ng2-pdf-viewer";
+import { DialogErrorComponent } from './components/alertas/dialog-error/dialog-error/dialog-error.component';
 @NgModule({
   declarations: [
     SpinnerComponent,
@@ -18,7 +21,9 @@ import { LazyLoadImgComponent } from "./lazy-load-img/lazy-load-img.component";
     AlertasComponent,
     ResponseComponent,
     CardComponent,
-    LazyLoadImgComponent
+    LazyLoadImgComponent,
+    TermsDialogComponent,
+    DialogErrorComponent,
   ],
   imports: [
     CommonModule,    
@@ -27,7 +32,7 @@ import { LazyLoadImgComponent } from "./lazy-load-img/lazy-load-img.component";
     MatDialogModule,
     MatButtonModule,
     LazyLoadImageModule,
-  
+    PdfViewerModule,
   ],
   exports: [
     ProgressbarComponent,
@@ -35,7 +40,8 @@ import { LazyLoadImgComponent } from "./lazy-load-img/lazy-load-img.component";
     SpinnerComponent,
     CardComponent,
     LazyLoadImageModule,
-    LazyLoadImgComponent
+    LazyLoadImgComponent,
+    DialogErrorComponent,
   ],
 })
 export class SharedModule {}
