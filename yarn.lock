@@ -3098,9 +3098,9 @@
   "resolved" "https://registry.npmjs.org/esbuild-wasm/-/esbuild-wasm-0.13.8.tgz"
   "version" "0.13.8"
 
-"esbuild-windows-32@0.13.8":
-  "integrity" "sha512-QsZ1HnWIcnIEApETZWw8HlOhDSWqdZX2SylU7IzGxOYyVcX7QI06ety/aDcn437mwyO7Ph4RrbhB+2ntM8kX8A=="
-  "resolved" "https://registry.npmjs.org/esbuild-windows-32/-/esbuild-windows-32-0.13.8.tgz"
+"esbuild-windows-64@0.13.8":
+  "integrity" "sha512-76Fb57B9eE/JmJi1QmUW0tRLQZfGo0it+JeYoCDTSlbTn7LV44ecOHIMJSSgZADUtRMWT9z0Kz186bnaB3amSg=="
+  "resolved" "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.13.8.tgz"
   "version" "0.13.8"
 
 "esbuild@0.13.8":
@@ -4970,9 +4970,9 @@
     "tslib" "^2.3.1"
 
 "ngx-pagination@^5.0.0":
-  "integrity" "sha512-Ur0pTWRe2ZXoJ8impEzo0IZKxY5aEcQfSmL5uBqW1rHI2J6nfzgZAHsSLagKHFGchXq0PkRlDVVMcIaNxYJwvQ=="
-  "resolved" "https://registry.npmjs.org/ngx-pagination/-/ngx-pagination-5.0.0.tgz"
-  "version" "5.0.0"
+  "integrity" "sha512-KxHES+Dn6pbetytO9ng2GAdclmo4UcwzFmQyVPWh2xRPbAlv5/ezL2xnDVBFMqCoJQaZagvdQ+ZZFbqGWqAvCQ=="
+  "resolved" "https://registry.npmjs.org/ngx-pagination/-/ngx-pagination-5.1.1.tgz"
+  "version" "5.1.1"
 
 "ngx-twitter-timeline@^0.1.5":
   "integrity" "sha512-YL74SV+/t6GmJn8nypknnrRqpBbMWtWQHqhw9+VzLQdxQAiFZm8DdA0FqIVYgk5XE+Kap00k3taF0+XnwRa2FQ=="
