@@ -43,12 +43,20 @@ describe("ContactFormComponent", () => {
   // y se muestren los mensajes de error en ese caso.
 
   it("No debe hacer Submit y debe mostrar mensaje de error", () => {
+
+    // Completa los campos del formulario de modo que este sea invalido
+
     component.form.controls["name"].setValue("prueba");
     component.form.controls["email"].setValue("prueba@gmail.com");
     component.form.controls["message"].setValue(null);
 
+    // Llama al método encargado del submit
+
     component.sendForm();
     fixture.detectChanges();
+
+
+    // Comprueba que se haya llamado al método encargado de mostrar un mensaje de error
 
     expect(component.dialogRef).toBe("Error");
   });
@@ -57,11 +65,16 @@ describe("ContactFormComponent", () => {
   //(POST /contacto), y los mensajes de error y éxito correspondientes en base al resultado de la petición.
 
   it("Deberá realizar una correcta petición al endpoint de contacto y mostrar un mensaje adecuado", (done) => {
+    
+    // Completa los campos del formulario de modo que este sea valido
+    
     component.form.controls["name"].setValue("prueba");
     component.form.controls["email"].setValue("prueba@gmail.com");
     component.form.controls["message"].setValue(
       "Esta es una consulta de prueba"
     );
+
+    // Llamada al método post de contacto
 
     service
       .setContact({
@@ -76,10 +89,16 @@ describe("ContactFormComponent", () => {
       })
       .subscribe(
         ({ message }) => {
+
+          // En caso de que la peticion se realize correctamente se espera el siguiente mensaje
+
           expect(message).toBe("Contact saved successfully");
           done();
         },
         ({error}) => {
+
+          // En caso de que la peticion no se realize correctamente se espera el siguiente mensaje
+
           expect(error.message).toBe("The given data was invalid.");
           done();
         }
