@@ -19,44 +19,46 @@ describe('LoginFormComponent', () => {
   const initialState = {
     loggedIn: false
   };
-
+  
   beforeEach(async () => {
+    //configuramos correctamente el testingModule, se deben agregar todas las dependencias necesarias para que el componente funcione, es decir todas las que usa
     await TestBed.configureTestingModule({
-      declarations: [ LoginFormComponent],
+      declarations: [ LoginFormComponent], //declaramos el componente que sera usado
       imports: [
-        HttpClientModule,
-        FormsModule,
+        HttpClientModule, //agregamos el HttpClientModule ya que nuestro componente usa el servicio que tiene HttpClient
+        FormsModule, //nuestro componente usa los formularios reactivos, por lo tanto necesita en el módulo el FormsModulo y ReactiveFormsModule
         ReactiveFormsModule,
-        RouterTestingModule,
+        RouterTestingModule, //tambien usa el router y matdialog, asi que los importamos
         MatDialogModule
       ],
       providers: [
-        PrivateApiService,
-        provideMockStore({ initialState })
+        PrivateApiService, //proveemos el servicio que usa nuestro componente
+        provideMockStore({ initialState }) //proveemos un mock del store, ya que se usa Store en el componente
       ]
     })
-    .compileComponents();
+    .compileComponents(); //una vez configurado todo, se necesita compilar
   });
 
+  //antes de cada test se configuraran qué serán y qué utilidad tendrán las variables que usaremos a lo largo de los tests
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginFormComponent);
     component = fixture.componentInstance;
     service = fixture.debugElement.injector.get(PrivateApiService);
     store = TestBed.inject(MockStore);
 
-    fixture.detectChanges();
+    fixture.detectChanges(); //importante para que se detecten los cambios, ya que lo tenemos que hacer de forma manual en los tests
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeTruthy(); //se verifica inicialmente si la instancia del componente es verdadera, es decir que se creó correctamente
   });
 
   it('debe ser invalido el formulario si no se rellenan los 2 campos requeridos', () => {
-    const form = component.formValue;
-    form.get("email")?.setValue("pruebapararegistro@gmail.com");
+    const form = component.formValue; //accedemos al formulario y lo asignamos en una variable para acceder mas facilmente luego
+    form.get("email")?.setValue("pruebapararegistro@gmail.com"); //se asignan valores de prueba a los campos del formulario
     form.get("password")?.setValue(null);
 
-    expect(form.valid).toBeFalsy();
+    expect(form.valid).toBeFalsy(); //se espera (expect) que el form.valid sea falso, es decir que sea invalido
   });
 
   it('debe ser valido el formulario cuando se rellenan correctamente los 2 campos requeridos', () => {
@@ -64,34 +66,34 @@ describe('LoginFormComponent', () => {
     form.get("email")?.setValue("pruebapararegistro@gmail.com");
     form.get("password")?.setValue("arg123!");
 
-    expect(form.valid).toBeTruthy();
+    expect(form.valid).toBeTruthy(); //se espera que el form.valid sea true, es decir que el formulario sea valido con los valores asignados
   });
 
   it('no debe hacer submit si el formulario es invalido (no llamara al servicio si es invalido)', () => {
     const form = component.formValue;
-    const requestSpy = spyOn<any>(service, 'simplePostRequest');
-    const btn = fixture.debugElement.query(By.css('.login_button'));
+    const requestSpy = spyOn<any>(service, 'simplePostRequest'); //creamos un espia en el servicio, especificamente en el metodo "simplePostRequest"
+    const btn = fixture.debugElement.query(By.css('.login_button')); //accedemos al boton responsable de hacer submit al formulario (hacer login)
 
-    form.get("email")?.setValue("pruebapararegistro@gmail.com");
-    form.get("password")?.setValue(null);
+    form.get("email")?.setValue("pruebapararegistro@gmail.com"); //seteamos valores de prueba a los campos del form
+    form.get("password")?.setValue(null); //le pasamos null para que el formulario sea invalido a proposito
 
-    fixture.detectChanges();
+    fixture.detectChanges(); //detectamos cambios para que se vean reflejados
 
-    btn.triggerEventHandler('click', null);
+    btn.triggerEventHandler('click', null); //creamos un evento click en el boton (para que ejecute la funcion de login y llame al servicio)
 
-    expect(requestSpy).not.toHaveBeenCalled();
+    expect(requestSpy).not.toHaveBeenCalled(); //hacemos uso del espia que creamos en el servicio, y esperamos que NO haya sido llamado cuando se hizo login, ya que se debe unicamente llamar al servicio si el formulario es valido
   });
 
   it('debe realizarse el login correctamente (el componente reacciona a los datos de exito de la respuesta de la api)', () => {
     const form = component.formValue;
-    const dialogSpy = spyOn(component.dialog, 'open');
+    const dialogSpy = spyOn(component.dialog, 'open'); //accedemos al dialog que se instancio en el componente, y creamos un espia en su metodo "open"
     const btn = fixture.debugElement.query(By.css('.login_button'));
-
+    //realizamos el mismo procedimiento anterior pero esta vez con datos correctos para que sea valido el form
     form.get("email")?.setValue("pruebapararegistro@gmail.com");
     form.get("password")?.setValue("arg123!");
 
     fixture.detectChanges();
-
+    //creamos un espia en el servicio, pero ademas nos encargamos de que retorne un valor simulando el exito de la peticion a la API, y lo transformamos en observable ya que se debe subscribir en el componente a esta respuesta
     spyOn<any>(service, 'simplePostRequest').and.returnValue(of(
       {
         "success": true,
@@ -121,26 +123,29 @@ describe('LoginFormComponent', () => {
 
     fixture.detectChanges();
 
-    btn.triggerEventHandler('click', null);
+    btn.triggerEventHandler('click', null); //al ejecutarse nuestro evento click, se llamará al servicio, pero el espia creado interceptará la llamada y retornará el valor que nosotros le hemos dicho
 
-    fixture.detectChanges();
-    
-    expect(component.rol).toBe(1);
+    fixture.detectChanges(); //detectamos cambios
 
-    expect(dialogSpy).not.toHaveBeenCalled();
+    //nuestro componente al estar subscrito a la respuesta de la API, cambia algunas cosas si todo sale bien, una de ellas es el rol
+    expect(component.rol).toBe(1); //esperamos que el component.rol ahora sea igual al rol obtenido del usuario en la respuesta de la API
+
+    expect(dialogSpy).not.toHaveBeenCalled(); //esperamos que el dialog de error NO haya sido llamado
 
   });
 
   it('debe mostrar error si el login es incorrecto (el componente reacciona a los datos de error de la respuesta de la api)', () => {
+    //hacemos el mismo procedimiento que antes pero con datos incorrectos
     const form = component.formValue;
     const dialogSpy = spyOn(component.dialog, 'open');
     const btn = fixture.debugElement.query(By.css('.login_button'));
 
     form.get("email")?.setValue("pruebapararegistro@gmail.com");
-    form.get("password")?.setValue("arg123!");
+    form.get("password")?.setValue("arg12345!");
 
     fixture.detectChanges();
 
+    //ahora agregamos nuestro espia pero queremos que retorne la respuesta de error, para ver como reacciona nuestro componente
     spyOn<any>(service, 'simplePostRequest').and.returnValue(of(
       {
         "error": "No token"
@@ -153,9 +158,9 @@ describe('LoginFormComponent', () => {
 
     fixture.detectChanges();
     
-    expect(component.rol).not.toBe(1);
+    expect(component.rol).not.toBe(1); //esperamos que el component.rol NO haya cambiado
 
-    expect(dialogSpy).toHaveBeenCalledWith(
+    expect(dialogSpy).toHaveBeenCalledWith( //esperamos que el dialog error haya sido abierto con estos valores
       DialogErrorComponent, {
         width: "450px",
         height: "335px",
