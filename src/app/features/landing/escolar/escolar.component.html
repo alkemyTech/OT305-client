@@ -1,8 +1,9 @@
-<app-header-campanas
-[imagen_campana]="'../../../../assets/Logotipo-campaña-materiales-escolares.png'"
-[width_imagen_campana]="150"
-[eslogan_campana]="'Juntos en la vuelta al cole'">
+<app-header></app-header>
+<app-header-campanas [imagen_campana]="'../../../../assets/Logotipo-campaña-materiales-escolares.png'"
+    [width_imagen_campana]="50" [eslogan_campana]="'Juntos en la vuelta al cole'">
 </app-header-campanas>
+<app-slider [slider1]="'assets/slide-1.jpeg'" [slider2]="'assets/slide-2.jpeg'" [slider3]="'assets/slide-3.jpeg'"
+    [mensaje1]="'Deja tu huella!'" [mensaje2]="'Ayuda a la educacion de los niños y niñas!'"
+    [mensaje3]="'Con tu aporte podremos hacer el cambio!'"></app-slider>
 <app-contenido-escolar></app-contenido-escolar>
-<app-slider></app-slider>
 <app-footer></app-footer>

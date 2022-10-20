@@ -10,17 +10,19 @@ import { HttpService } from '../http.service';
 @Injectable({
   providedIn: 'root'
 })
-export class NovedadesService {
+export class NovedadesService extends HttpService {
   baseUrl: string = environment.apiUrl;
   //verificar forma de importar endpoint en enviroment
   news: string = environment.news;
 
   novedadParaEditar : any = null
-constructor(private httpClient: HttpClient, private httpService: HttpService) { }
+  constructor(http: HttpClient) { 
+    super(http)
+  }
 
 
-getNews(searchNews: string): Observable<Novedad[]> {
-  return this.httpClient
+getNews(searchNews: string): Observable<any> {
+  return this
     .get<any>(`${this.baseUrl}${this.news}?search=${searchNews}`)
     .pipe(
       map((response) => {
@@ -29,31 +31,31 @@ getNews(searchNews: string): Observable<Novedad[]> {
     );
 }
 
-listNews(): Observable<Novedad[]> {
-  return this.httpClient.get<any>(`${this.baseUrl}${this.news}`).pipe(
+listNews(): Observable<any> {
+  return this.get<any>(`${this.baseUrl}${this.news}`).pipe(
     map((response) => {
       return response.data;
     })
   );
 }
 
-getNewsbyId(id: number): Observable<Novedad[]> {
-  return this.httpService.get(`${this.baseUrl}${this.news}/${id}`);
+getNewsbyId(id: number): Observable<any> {
+  return this.get(`${this.baseUrl}${this.news}/${id}`);
 }
 
-postNews(data: any): Observable<Novedad[]> {
-  return this.httpService.post(`${this.baseUrl}${this.news}`, data);
+postNews(data: any): Observable<any> {
+  return this.post(`${this.baseUrl}${this.news}`, data);
 }
 
-patchNews(data: any): Observable<Novedad[]> {
-  return this.httpService.patch(
+putNews(data: any): Observable<any> {
+  return this.put(
     `${this.baseUrl}${this.news}/${data.id}`,
     data
   );
 }
 
 deleteNews(id: number) {
-  return this.httpClient.delete(`${this.baseUrl}${this.news}/${id}`);
+  return this.delete(`${this.baseUrl}${this.news}/${id}`);
 }
 
 

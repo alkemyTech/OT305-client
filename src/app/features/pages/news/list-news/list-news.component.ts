@@ -19,6 +19,7 @@ export class ListNewsComponent implements OnInit, OnDestroy {
   subject$ = new Subject()
   novedad!: Novedad
   novedadesDesdeBuscador!: Novedad [];
+  p = 0;
 
   constructor(private novedadService: NovedadesService) { }
 

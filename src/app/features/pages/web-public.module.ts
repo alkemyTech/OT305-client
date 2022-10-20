@@ -85,7 +85,7 @@ import { NgxPaginationModule } from "ngx-pagination";
     DonacionComponent,
     GraciasComponent,
     ListTestimonialsComponent,
-    DetailsTestimonialComponent
+    DetailsTestimonialComponent,
   ],
   exports: [
     WebPublicComponent,
@@ -101,6 +101,7 @@ import { NgxPaginationModule } from "ngx-pagination";
     RouterModule,
     ListNewsComponent,
     FormularioBusquedaNovedadesWebPublicaComponent,
+    HeaderComponent,
   ],
   imports: [
     CommonModule,

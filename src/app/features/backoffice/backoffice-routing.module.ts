@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AdminGuardGuard } from "src/app/core/guards/adminGuard/admin-guard.guard";
 import { ActivityFormComponent } from "../pages/activities/activity-form/activity-form.component";
+import { CategoriesFormComponent } from "../pages/categories/categories-form/categories-form.component";
 import { DashboardNovedadesComponent } from "../pages/news/dashboard-novedades/dashboard-novedades.component";
 import { FormularioBusquedaNovedadesComponent } from "../pages/news/formulario-busqueda-novedades/formulario-busqueda-novedades.component";
 import { NewsFormEditComponent } from "../pages/news/news-form-edit/news-form-edit.component";
@@ -49,7 +50,7 @@ const routes: Routes = [
       },
       {
         path: "categories/edit",
-        component: CategoriesEditComponent,
+        component: CategoriesFormComponent,
       },
       {
         path: "dashboard/news",
@@ -65,7 +66,7 @@ const routes: Routes = [
       },
       {
         path: "categories/create",
-        component: CategoriesCreateComponent,
+        component: CategoriesFormComponent,
       },
       {
         path: "categories",

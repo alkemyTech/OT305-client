@@ -24,6 +24,8 @@ import { NoAutenticadoGuard } from "src/app/core/guards/no-autenticado.guard";
 import { UserRegularAutenticadoGuard } from "src/app/core/guards/user-regular-autenticado.guard";
 import { ListTestimonialsComponent } from "./testimonials/list-testimonials/list-testimonials.component";
 import { DetailsTestimonialComponent } from "./testimonials/details-testimonial/details-testimonial.component";
+import { NewsFormComponent } from "./news/news-form/news-form.component";
+import { NewsFormEditComponent } from "./news/news-form-edit/news-form-edit.component";
 
 const routes: Routes = [
   {
@@ -105,7 +107,14 @@ const routes: Routes = [
         canLoad: [NoAutenticadoGuard],
         canActivate: [NoAutenticadoGuard],
       },
-
+      {
+        path: "novedades/create",
+        component: NewsFormComponent
+      },
+      {
+        path: "novedades/edit",
+        component: NewsFormEditComponent
+      },
       {
         path: "home",
         component: InicioComponent,
