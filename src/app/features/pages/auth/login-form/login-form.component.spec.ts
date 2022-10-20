@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed} from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RouterTestingModule } from "@angular/router/testing";
@@ -9,6 +9,7 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { LoginFormComponent } from './login-form.component';
 import { DialogErrorComponent } from "src/app/shared/components/alertas/dialog-error/dialog-error/dialog-error.component";
 import { By } from '@angular/platform-browser';
+import { of } from 'rxjs';
 
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
@@ -21,7 +22,7 @@ describe('LoginFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginFormComponent ],
+      declarations: [ LoginFormComponent],
       imports: [
         HttpClientModule,
         FormsModule,
@@ -81,30 +82,89 @@ describe('LoginFormComponent', () => {
     expect(requestSpy).not.toHaveBeenCalled();
   });
 
-  it('debe abrirse el dialog de error si se hace submit con datos incorrectos', () => {
+  it('debe realizarse el login correctamente (el componente reacciona a los datos de exito de la respuesta de la api)', () => {
     const form = component.formValue;
-    const requestSpy = spyOn<any>(service, 'simplePostRequest');
     const dialogSpy = spyOn(component.dialog, 'open');
     const btn = fixture.debugElement.query(By.css('.login_button'));
 
     form.get("email")?.setValue("pruebapararegistro@gmail.com");
-    form.get("password")?.setValue("arg12345!");
+    form.get("password")?.setValue("arg123!");
+
+    fixture.detectChanges();
+
+    spyOn<any>(service, 'simplePostRequest').and.returnValue(of(
+      {
+        "success": true,
+        "data": {
+          "user": {
+            "id": 4036,
+            "name": "pruebaRegistro",
+            "email": "pruebapararegistro@gmail.com",
+            "email_verified_at": null,
+            "password": "$2y$10$2dswfXIPrpBW08rDNU0XA..4INmTqMzSmom2uwadbPiyWcGkSKkO.",
+            "role_id": 1,
+            "remember_token": null,
+            "created_at": "2022-10-14T06:42:21.000000Z",
+            "updated_at": "2022-10-14T06:42:21.000000Z",
+            "deleted_at": null,
+            "group_id": null,
+            "latitude": null,
+            "longitude": null,
+            "address": null,
+            "profile_image": null
+          },
+          "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25nYXBpLmFsa2VteS5vcmdcL2FwaVwvbG9naW4iLCJpYXQiOjE2NjYyMzE4MzIsImV4cCI6MTY2NjIzNTQzMiwibmJmIjoxNjY2MjMxODMyLCJqdGkiOiJXWHpXclM5NGFWelNuNHA4Iiwic3ViIjo0MDM2LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0._FxvI-J-lBX5rK-EQQTFc_veboS4hXkbI0D02ldOHvo"
+        },
+        "message": "user login okey"
+    }
+    ));
 
     fixture.detectChanges();
 
     btn.triggerEventHandler('click', null);
 
-    expect(requestSpy).toHaveBeenCalled();
+    fixture.detectChanges();
+    
+    expect(component.rol).toBe(1);
 
-    setTimeout(() => {
-      expect(dialogSpy).toHaveBeenCalledWith(DialogErrorComponent, {
+    expect(dialogSpy).not.toHaveBeenCalled();
+
+  });
+
+  it('debe mostrar error si el login es incorrecto (el componente reacciona a los datos de error de la respuesta de la api)', () => {
+    const form = component.formValue;
+    const dialogSpy = spyOn(component.dialog, 'open');
+    const btn = fixture.debugElement.query(By.css('.login_button'));
+
+    form.get("email")?.setValue("pruebapararegistro@gmail.com");
+    form.get("password")?.setValue("arg123!");
+
+    fixture.detectChanges();
+
+    spyOn<any>(service, 'simplePostRequest').and.returnValue(of(
+      {
+        "error": "No token"
+      }
+    ));
+
+    fixture.detectChanges();
+
+    btn.triggerEventHandler('click', null);
+
+    fixture.detectChanges();
+    
+    expect(component.rol).not.toBe(1);
+
+    expect(dialogSpy).toHaveBeenCalledWith(
+      DialogErrorComponent, {
         width: "450px",
         height: "335px",
         data: {
           message: "Algo salió mal, por favor revisa los datos y vuelve a intentarlo."
         }
-      });
-    }, 5000);
+      }
+    );
+
   });
 
 });
