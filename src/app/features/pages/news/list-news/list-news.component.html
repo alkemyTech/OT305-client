@@ -3,7 +3,7 @@
 <div class="container"  style="padding-bottom: 20px;">
     <app-formulario-busqueda-novedades-web-publica (novedad)="novedadesDesdeBuscador = $event"></app-formulario-busqueda-novedades-web-publica>
     <div class="row">
-        <div class="col-lg-4 col-md-4 mt-5" *ngFor="let novedad of novedades">
+        <div class="col-lg-4 col-md-4 mt-5" *ngFor="let novedad of novedades | paginate: { itemsPerPage: 6, currentPage: p }">
             <app-card routerLink="{{novedad.id}}" 
                 [img]='novedad.image' 
                 [title]="novedad.name" 
@@ -12,6 +12,9 @@
                 [updated_at]="novedad.created_at | date "
             ></app-card>
         </div>
+    </div>
+    <div class="row text-center mt-5">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
     <br/>
     <br/>

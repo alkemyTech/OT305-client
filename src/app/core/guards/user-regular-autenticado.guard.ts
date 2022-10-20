@@ -19,7 +19,7 @@ export class UserRegularAutenticadoGuard implements CanActivate {
   checkId(): Observable<boolean>{
     let userRegular!: boolean;
     this.userId$.subscribe(id => {
-      if(id === 2){
+      if(id === 1){
         return userRegular = true;
       }
       else{
