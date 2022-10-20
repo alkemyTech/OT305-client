@@ -101,6 +101,7 @@ export class HeaderComponent implements OnInit {
     this.openDialog("Has cerrado sesion correctamente", "vuelve pronto!");
     localStorage.removeItem("token");
     localStorage.removeItem("rol");
+    localStorage.removeItem("user");
 
     this.token = null;
     this.rol = null;
