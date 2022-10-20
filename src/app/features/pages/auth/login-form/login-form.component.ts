@@ -63,8 +63,13 @@ export class LoginFormComponent implements OnInit {
           this.rol = res.data.user.role_id;
           localStorage.setItem("rol", this.rol);
           localStorage.setItem("token", this.token);
+          localStorage.setItem("user", JSON.stringify(res.data.user));
           console.log("login exitoso");
-          return this.router.navigate(["/backoffice/dashboard"]);;
+
+          if (this.rol === 1)
+          return this.router.navigate(["/home"]);
+          else return this.router.navigate(["/backoffice/dashboard"]);
+
         }
         else{
           this.store.dispatch(Login_Request_Error_Action());
