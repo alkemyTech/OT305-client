@@ -1,18 +1,19 @@
 <section style="height:100%; width:100%">
-    <div class="container text-center container-fluid p-5 m-5">
-        <div class="row py-3">
-            <div class="col">
-                <h1>{{ text }}</h1>
+    <app-mostrar-titulos [title]="'Contribuye con tu Donación'"></app-mostrar-titulos>
+    <div class="container text-center container-fluid px-5">
+        <div class="row">
+            <div class="col-5 py-5">
+                <img class="img-fluid" src="../../../../../assets/mercado-pago.png"/>
             </div>
-        </div>
-        <div class="row py-5">
-            <div class="col-6">
-                <a href="https://mpago.la/1fdUiKd" target="_blank">
-                    <button class="btn btn-danger btn-lg">Donar</button>
-                </a>
-            </div>
-            <div class="col-6">
-                <input class="form-control" type="text" placeholder="Cantidad a donar..." (blur)="transformAmount($event)" [(ngModel)]="formattedAmount">
+            <div class="col-7">
+                <h4 class="text-start mb-4 mt-5 pt-5">Donar: </h4>
+                <div class="d-flex justify-content-center align-items-center">
+                    <input class="form-control form-control-lg" type="text" placeholder="Cantidad a donar..." (blur)="transformAmount($event)" [(ngModel)]="formattedAmount">
+                    &nbsp; &nbsp;
+                    <a href="https://mpago.la/1fdUiKd" target="_blank">
+                        <button class="btn btn-danger btn-lg">Donar</button>
+                    </a> 
+                </div>
             </div>
         </div>
     </div>
