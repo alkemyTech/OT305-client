@@ -61,7 +61,7 @@ export class RegisterFormComponent implements OnInit {
     private fb: FormBuilder,
     private httpService: PrivateApiService,
     private store: Store,
-    private dialog: MatDialog,
+    public dialog: MatDialog,
     private router: Router
   ) {}
 
