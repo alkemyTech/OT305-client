@@ -34,7 +34,7 @@ const routes: Routes = [
   {
     path: "",
     component: AppBackofficeComponent,
-    canActivate: [AdminGuardGuard],
+
     children: [
       {
         path: "users/edit",

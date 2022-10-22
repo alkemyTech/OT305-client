@@ -7,6 +7,7 @@ import {
   UrlTree,
 } from "@angular/router";
 import { Observable } from "rxjs";
+import { PrivateApiService } from "../../services/privateApi/private-api.service";
 
 @Injectable({
   providedIn: "root",
@@ -14,9 +15,7 @@ import { Observable } from "rxjs";
 export class AdminGuardGuard implements CanActivate {
   rol: any;
 
-  constructor(private router: Router) {
-    this.rol = JSON.parse(localStorage.getItem("rol")!);
-  }
+  constructor(private privateApi: PrivateApiService, private router: Router) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -25,7 +24,7 @@ export class AdminGuardGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.rol === 2) {
+    if (!this.privateApi.obtenerToken()) {
       this.router.navigate(["/home"]);
       return false;
     }

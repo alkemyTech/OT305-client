@@ -26,6 +26,7 @@ import { ListTestimonialsComponent } from "./testimonials/list-testimonials/list
 import { DetailsTestimonialComponent } from "./testimonials/details-testimonial/details-testimonial.component";
 import { NewsFormComponent } from "./news/news-form/news-form.component";
 import { NewsFormEditComponent } from "./news/news-form-edit/news-form-edit.component";
+import { AdminGuardGuard } from "src/app/core/guards/adminGuard/admin-guard.guard";
 
 const routes: Routes = [
   {
@@ -109,11 +110,11 @@ const routes: Routes = [
       },
       {
         path: "novedades/create",
-        component: NewsFormComponent
+        component: NewsFormComponent,
       },
       {
         path: "novedades/edit",
-        component: NewsFormEditComponent
+        component: NewsFormEditComponent,
       },
       {
         path: "home",
@@ -123,7 +124,7 @@ const routes: Routes = [
       {
         path: "donar",
         component: DonacionComponent,
-        canActivate: [UserRegularAutenticadoGuard],
+        canActivate: [AdminGuardGuard],
       },
 
       {

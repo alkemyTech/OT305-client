@@ -3,8 +3,14 @@ import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { Login_Request_Success_Action, Logout_Action } from "src/app/core/ngrx/actions/auth.action";
-import { selectAuthFeature, selectViewIdUser } from "src/app/core/ngrx/selectors/auth.selector";
+import {
+  Login_Request_Success_Action,
+  Logout_Action,
+} from "src/app/core/ngrx/actions/auth.action";
+import {
+  selectAuthFeature,
+  selectViewIdUser,
+} from "src/app/core/ngrx/selectors/auth.selector";
 import { PrivateApiService } from "src/app/core/services/privateApi/private-api.service";
 import { ResponseComponent } from "src/app/shared/components/alertas/response.component";
 
@@ -29,7 +35,7 @@ export class HeaderComponent implements OnInit {
     { texto: "Actividades", link: "/actividades", show: true },
     { texto: "Nosotros", link: "/nosotros", show: true },
     { texto: "Novedades", link: "/novedades", show: true },
-    { texto: "Testimonios", link: "/testimonios", show: true }
+    { texto: "Testimonios", link: "/testimonios", show: true },
   ];
 
   campaigns = [
@@ -50,8 +56,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     let res = {
       token: localStorage.getItem("token"),
-      user: JSON.parse(localStorage.getItem("user") || '{}'),
-      rol_id: Number(localStorage.getItem("rol"))
+      user: JSON.parse(localStorage.getItem("user") || "{}"),
+      rol_id: Number(localStorage.getItem("rol")),
     };
 
     this.store.dispatch(Login_Request_Success_Action({ data: res }));
@@ -61,14 +67,12 @@ export class HeaderComponent implements OnInit {
       this.rol = user.rol_id;
       this.user = user.user;
 
-      if (this.user !== null)
-      this.definirPublic(true)
-      else this.definirPublic(false)
+      if (this.user !== null) this.definirPublic(true);
+      else this.definirPublic(false);
     });
-
   }
 
-  definirPublic(logged: boolean){
+  definirPublic(logged: boolean) {
     this.public = [
       { texto: "Inicio", link: "/home", show: true },
       { texto: "Actividades", link: "/actividades", show: true },
@@ -80,12 +84,7 @@ export class HeaderComponent implements OnInit {
         link: "/contacto",
         show: logged,
       },
-      {
-        texto: "Donar",
-        link: "/donar",
-        show: logged,
-      },
-    ]
+    ];
   }
 
   restrictView(userId$: Observable<number | null>) {
