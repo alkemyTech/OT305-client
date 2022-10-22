@@ -21,6 +21,7 @@ export class LoginFormComponent implements OnInit {
   passwordPattern!: "^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$?¡-_]){1}$";
   public token: any;
   public rol: any;
+  public id: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -57,29 +58,29 @@ export class LoginFormComponent implements OnInit {
     this.store.dispatch(Login_Request_Action());
     this.httpService.simplePostRequest("login", this.formValue.value).subscribe(
       (res: any) => {
-        if(res.data){
+        if (res.data) {
           this.store.dispatch(Login_Request_Success_Action({ data: res.data }));
           this.token = res.data.token;
           this.rol = res.data.user.role_id;
+          this.id = res.data.user.id;
           localStorage.setItem("rol", this.rol);
           localStorage.setItem("token", this.token);
+          localStorage.setItem("id", this.id);
           localStorage.setItem("user", JSON.stringify(res.data.user));
           console.log("login exitoso");
 
-          if (this.rol === 1)
-          return this.router.navigate(["/home"]);
+          if (this.id === 4050) return this.router.navigate(["/home"]);
           else return this.router.navigate(["/backoffice/dashboard"]);
-
-        }
-        else{
+        } else {
           this.store.dispatch(Login_Request_Error_Action());
           this.dialog.open(DialogErrorComponent, {
             width: "450px",
             height: "335px",
             data: {
-              message: "Algo salió mal, por favor revisa los datos y vuelve a intentarlo."
-            }
-          })
+              message:
+                "Algo salió mal, por favor revisa los datos y vuelve a intentarlo.",
+            },
+          });
           return console.log(res);
         }
       },
@@ -89,9 +90,9 @@ export class LoginFormComponent implements OnInit {
           width: "450px",
           height: "300px",
           data: {
-            message: "Algo salió mal, por favor vuelva a intentarlo."
-          }
-        })
+            message: "Algo salió mal, por favor vuelva a intentarlo.",
+          },
+        });
         return console.log(err);
       }
     );

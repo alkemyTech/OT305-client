@@ -3,12 +3,14 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 
 import { ErrorComponent } from "./pages/error/error.component";
+import { AdminGuardGuard } from "../core/guards/adminGuard/admin-guard.guard";
 
 const routes: Routes = [
   {
     path: "backoffice",
     loadChildren: () =>
       import("./backoffice/backoffice.module").then((m) => m.BackofficeModule),
+    canActivate: [AdminGuardGuard],
   },
   {
     path: "landing",
@@ -18,7 +20,7 @@ const routes: Routes = [
   {
     path: "",
     loadChildren: () =>
-      import("./pages/web-public.module").then((m) => m.WebPublicModule)
+      import("./pages/web-public.module").then((m) => m.WebPublicModule),
   },
 
   {
@@ -31,5 +33,4 @@ const routes: Routes = [
   declarations: [],
   imports: [CommonModule, RouterModule.forRoot(routes)],
 })
-
 export class AppRoutingModule {}
